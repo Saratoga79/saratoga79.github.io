@@ -492,7 +492,7 @@ if not existe:
                 if existe:
                     xbmcvfs.delete(remod_off)
             if ret:
-                xbmc.executebuiltin(f"Notification(remod_addon_name,Desactivando menú de instalación.,1000,)")
+                xbmc.executebuiltin(f"Notification({remod_addon_name},Desactivando menú de instalación.,1000,)")
                 open(remod_off, "w")
                 xbmc.log(f"REMOD INSTALADOR Desactivando menú de instalación", level=xbmc.LOGINFO)
 
