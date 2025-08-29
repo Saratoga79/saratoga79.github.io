@@ -1,5 +1,5 @@
-<?xml version='1.0' encoding='utf-8'?>
-<addons><addon id="plugin.video.duffyou" name="Duff You" version="0.2.1" provider-name="La Taberna">
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.duffyou" name="Duff You" version="0.2.1" provider-name="La Taberna">
     <requires>
         <import addon="script.module.six" version="1.11.0" />
         <import addon="script.module.simplecache" />
@@ -22,22 +22,4 @@
         <news>- Añadida opción de reproducción externa de playlists[CR]- Correcciones menores
         </news>
     </extension>
-</addon><addon id="repository.remod" name="ReMod Repo" version="25.08.29.0" provider-name="Saratoga79">
-    <extension point="xbmc.addon.repository" name="Example Repository">
-        <dir>
-            <info compressed="false">https://raw.githubusercontent.com/Saratoga79/Saratoga79.github.io/master/repo/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/Saratoga79/Saratoga79.github.io/master/repo/zips/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/Saratoga79/Saratoga79.github.io/master/repo/zips/</datadir>
-        </dir>
-    </extension>
-    <extension point="xbmc.addon.metadata">
-        <summary>ReMod Repo</summary>
-        <description>ReMod Repo</description>
-        <disclaimer />
-        <platform>all</platform>
-        <assets>
-            <icon>icon.png</icon>
-            <fanart>fanart.jpg</fanart>
-        </assets>
-    </extension>
-</addon></addons>
+</addon>
