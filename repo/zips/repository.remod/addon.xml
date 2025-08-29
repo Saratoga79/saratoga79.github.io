@@ -2,9 +2,9 @@
 <addon id="repository.remod" name="ReMod Repo" version="25.08.29.0" provider-name="Saratoga79">
     <extension point="xbmc.addon.repository" name="Example Repository">
         <dir>
-            <info compressed="false">https://raw.githubusercontent.com/Saratoga79/Saratoga79.github.io/master/repo/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/Saratoga79/Saratoga79.github.io/master/repo/zips/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/Saratoga79/Saratoga79.github.io/master/repo/zips/</datadir>
+            <info compressed="false">https://raw.githubusercontent.com/Saratoga79/saratoga79.github.io/master/repo/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/Saratoga79/saratoga79.github.io/master/repo/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/Saratoga79/saratoga79.github.io/master/repo/zips/</datadir>
         </dir>
     </extension>
     <extension point="xbmc.addon.metadata">
