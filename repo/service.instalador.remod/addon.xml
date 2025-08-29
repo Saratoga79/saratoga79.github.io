@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="service.instalador.remod" name="ReMod Instalador" version="25.08.27.2" provider-name="Saratoga">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0"/>
+	</requires>
+	<extension point="xbmc.service" library="autoexec.py">
+		<provides></provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="es_ES">ReMod Instalador.</summary>
+		<description lang="es_ES"></description>
+		<platform>all</platform>
+		<license>GNU GENERAL PUBLIC LICENSE Version 2</license>
+	</extension>
+</addon>

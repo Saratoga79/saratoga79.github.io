@@ -1,0 +1,85 @@
+<sources>
+    <programs>
+        <default pathversion="1"></default>
+    </programs>
+    <video>
+        <default pathversion="1"></default>
+    </video>
+    <music>
+        <default pathversion="1"></default>
+    </music>
+    <pictures>
+        <default pathversion="1"></default>
+    </pictures>
+    <files>
+        <default pathversion="1"></default>
+        <source>
+            <name>fuente.kodispain</name>
+            <path pathversion="1">https://konectas.github.io/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>fuente.slyguy</name>
+            <path pathversion="1">https://slyguy.uk/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>fuente.peno64</name>
+            <path pathversion="1">https://peno64.github.io/repository.peno64/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>fuente.mandrakodi</name>
+            <path pathversion="1">https://mandrakodi.github.io/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>fuente.dregs1</name>
+            <path pathversion="1">https://dregs1.github.io/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>fuente.balandro</name>
+            <path pathversion="1">https://repobal.github.io/base/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>fuente.alfa</name>
+            <path pathversion="1">https://alfa-addon.com/alfa/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>fuente.pkc</name>
+            <path pathversion="1">https://croneter.github.io:443/pkc-source/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>fuente.michaz1988</name>
+            <path pathversion="1">https://michaz1988.github.io/repo/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>fuente.magellan</name>
+            <path pathversion="1">https://tinyurl.com/magellanrepo/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>fuente.remod</name>
+            <path pathversion="1">https://remod-repo.19saratoga79.synology.me/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>fuente.repoachannels</name>
+            <path pathversion="1">https://gunter257.github.io/repoachannels/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>ReMod</name>
+            <path pathversion="1">https://github.com/Saratoga79/ReMod</path>
+            <allowsharing>true</allowsharing>
+        </source>
+    </files>
+    <games>
+        <default pathversion="1"></default>
+    </games>
+</sources>
