@@ -78,7 +78,7 @@
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="service.instalador.remod" name="ReMod Instalador" version="25.08.29.0" provider-name="Saratoga">
+</addon><addon id="service.instalador.remod" name="ReMod Instalador" version="25.08.30.0" provider-name="Saratoga">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0" />
 	</requires>
