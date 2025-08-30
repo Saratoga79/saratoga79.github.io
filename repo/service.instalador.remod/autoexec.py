@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import xbmc
 import xbmcgui
 import xbmcaddon
@@ -185,6 +186,45 @@ rename_to_bak('repository.balandro', 'service.py')
 # addon_id = 'plugin.video.tacones'
 # addon_inst_check(addon_id)
 
+def rep_ext():
+    dialog = xbmcgui.Dialog()
+    rep = dialog.select(
+    f"Elige la aplicación de AceStream que tengas instalada",
+    [
+        ### 0. Ace Stream Media McK
+        "Ace Stream Media McK\n     org.acestream.media",
+        ### 1. Ace Stream Media ATV
+        "Ace Stream Media ATV\n     org.acestream.media.atv",
+        ### 2. Ace Stream Media Web
+        "Ace Stream Media Web\n     org.acestream.media.web",
+        ### 3. Ace Stream Node
+        "Ace Stream Node\n      org.acestream.node",
+        ### 4. Ace Stream Node Web
+        "Ace Stream Node Web\n      org.acestream.node.web",
+        ### 5. Ace Stream Core
+        "Ace Stream Core\n      org.acestream.core",
+        ### 6. Ace Stream Core ATV
+        "Ace Stream Core ATV\n      org.acestream.core.atv",
+        ### 7. Ace Stream Core Web
+        "Ace Stream Core Web\n      org.acestream.core.web",
+        ### 8. MPVkt
+        "MPVkt\n        live.mehiz.mpvkt",
+        ### 9. MPV
+        "MPV\n      is.xyz.mpv",
+        ### 10. VLC
+        "VLC\n      org.videolan.vlc"
+        ### 11. Ace Serve
+        "Ace Serve\n        org.free.aceserve"
+    ]
+)
+    ### variable de la carpeta
+    pcf_path = f"playercorefactory{rep}"
+    ### copiando archivo playercorefactory.xml desde la variable de la carpeta
+    xbmc.log(f"REMOD INSTALADOR Copiando archivo {pcf_path}", level=xbmc.LOGINFO)
+    orig = xbmcvfs.translatePath(os.path.join(remod_addon_datos, 'pcf', pcf_path, 'playercorefactory.xml'))
+    dest = xbmcvfs.translatePath(os.path.join(addons_userdata, 'playercorefactory.xml'))
+    xbmcvfs.copy(orig, dest)
+    
 
 ### Comprobamos si es el primer inicio tras instalar Kodi o tras borrar datos e instalamod los archivos de configuración. Si no, no hacer nada
 existe = xbmcvfs.exists(remod_config_ok)
@@ -409,8 +449,10 @@ if not existe:
             "> Instalar Alfa",
             ### 7. Instalar Moe´s TV
             "> Instalar Moe´s TV\n        Duff You & Moe´s TV",
-            ### 8. Salir
-            "[COLOR red]< Salir[/COLOR]"
+            ### 8. Reproductores Externos
+            ">> Reproductores Externos",
+            ### 9. Salir
+            "[COLOR red]x Salir[/COLOR]"
         ]
     )
         if ret == 0: # iptvmerge iptvsimple
@@ -484,7 +526,42 @@ if not existe:
             if res:
                 addon_inst_confirm(addon_id)
             ret = 99
-        if ret == 8: # salir
+        if ret == 8:
+            # dialog = xbmcgui.Dialog()
+            # rep = dialog.select(
+            # f"Elige la aplicación de AceStream",
+            # [
+                ## 0. Ace Stream Media McK
+                # "Ace Stream Media McK\n     org.acestream.media",
+                ## 1. Ace Stream Media ATV
+                # "Ace Stream Media ATV\n     org.acestream.media.atv",
+                ## 2. Ace Stream Media Web
+                # "Ace Stream Media Web\n     org.acestream.media.web",
+                ## 3. Ace Stream Node
+                # "Ace Stream Node\n      org.acestream.node",
+                ## 4. Ace Stream Node Web
+                # "Ace Stream Node Web\n      org.acestream.node.web",
+                ## 5. Ace Stream Core
+                # "Ace Stream Core\n      org.acestream.core",
+                ## 6. Ace Stream Core ATV
+                # "Ace Stream Core ATV\n      org.acestream.core.atv",
+                ## 7. Ace Stream Core Web
+                # "Ace Stream Core Web\n      org.acestream.core.web",
+                ## 8. MPVkt
+                # "MPVkt\n        live.mehiz.mpvkt",
+                ## 9. MPV
+                # "MPV\n      is.xyz.mpv",
+                ## 10. VLC
+                # "VLC\n      org.videolan.vlc",
+                ## 11. Ace Serve
+                # "Ace Serve\n        org.free.aceserve"
+        # ]
+    # )
+            rep_ext()
+            dialog = xbmcgui.Dialog()
+            ret = dialog.ok(f"{remod_addon_name}", "Necesitarás reiniciar Kodi para aplicar los cambios")
+            ret = 99    
+        if ret == 9: # salir
             dialog = xbmcgui.Dialog()
             ret = dialog.yesno(f"Menú {remod_addon_name} v{remod_addon_version}", "¿Quieres desactivar este menú y no verlo más?\n\nEstará accesible en Favoritos.")
             if not ret:

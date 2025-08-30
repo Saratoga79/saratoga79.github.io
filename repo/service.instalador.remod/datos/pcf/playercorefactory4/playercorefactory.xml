@@ -1,0 +1,62 @@
+<playercorefactory>
+	<players>
+		<player name="Ace Stream Media" type="ExternalPlayer" audio="false" video="true">
+			<filename>org.acestream.media</filename>
+			<hidexbmc>true</hidexbmc>
+		</player>
+		<player name="Ace Stream Media ATV" type="ExternalPlayer" audio="false" video="true">
+			<filename>org.acestream.media.atv</filename>
+			<hidexbmc>true</hidexbmc>
+		</player>
+		<player name="Ace Stream Media Web" type="ExternalPlayer" audio="false" video="true">
+			<filename>org.acestream.media.web</filename>
+			<hidexbmc>true</hidexbmc>
+		</player>
+		<player name="Ace Stream Node" type="ExternalPlayer" audio="false" video="true">
+			<filename>org.acestream.node</filename>
+			<hidexbmc>true</hidexbmc>
+		</player>
+		<player name="Ace Stream Node Web" type="ExternalPlayer" audio="false" video="true">
+			<filename>org.acestream.node.web</filename>
+			<hidexbmc>true</hidexbmc>
+		</player>
+		<player name="Ace Stream Core" type="ExternalPlayer" audio="false" video="true">
+			<filename>org.acestream.core</filename>
+			<hidexbmc>true</hidexbmc>
+		</player>
+		<player name="Ace Stream Core ATV" type="ExternalPlayer" audio="false" video="true">
+			<filename>org.acestream.core.atv</filename>
+			<hidexbmc>true</hidexbmc>
+		</player>
+		<player name="Ace Stream Core Web" type="ExternalPlayer" audio="false" video="true">
+			<filename>org.acestream.core.web</filename>
+			<hidexbmc>true</hidexbmc>
+		</player>
+		<player name="MPVkt" type="ExternalPlayer" audio="false" video="true">
+			<filename>live.mehiz.mpvkt</filename>
+			<hidexbmc>true</hidexbmc>
+		</player>
+		<player name="MPV" type="ExternalPlayer" audio="false" video="true">
+			<filename>is.xyz.mpv</filename>
+			<hidexbmc>true</hidexbmc>
+		</player>
+		<player name="VLC" type="ExternalPlayer" audio="false" video="true">
+			<filename>org.videolan.vlc</filename>
+			<hidexbmc>true</hidexbmc>
+		</player>
+	</players>
+	
+	<rules action="prepend">
+		<rule name="aceplayer" filename="http://127.0.0.1:6878*.*" player="Ace Stream Node Web" />
+		<rule name="acestream" filename="acestream://.*" player="Ace Stream Node Web" />
+		<rule name="dvd" dvd="true" player="DefaultPlayer" />
+		<rule name="discimage" discimage="true" game="false" player="DefaultPlayer" />
+		<rule protocols="smb" player="DefaultPlayer" />
+		<rule protocols="rtmp" player="DefaultPlayer"/>
+		<rule protocols="rtsp" player="DefaultPlayer" />
+		<rule protocols="sop" player="DefaultPlayer" />
+		<rule internetstream="true" player="DefaultPlayer" />
+		<rule audio="true" player="DefaultPlayer"/>
+		<rule video="true" player="DefaultPlayer"/>
+	</rules>
+</playercorefactory>
