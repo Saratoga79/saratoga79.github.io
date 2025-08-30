@@ -212,7 +212,7 @@ def rep_ext():
         ### 9. MPV
         "MPV\n      is.xyz.mpv",
         ### 10. VLC
-        "VLC\n      org.videolan.vlc"
+        "VLC\n      org.videolan.vlc",
         ### 11. Ace Serve
         "Ace Serve\n        org.free.aceserve"
     ]
