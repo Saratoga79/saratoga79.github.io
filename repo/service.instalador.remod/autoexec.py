@@ -214,16 +214,21 @@ def rep_ext():
         ### 10. VLC
         "VLC\n      org.videolan.vlc",
         ### 11. Ace Serve
-        "Ace Serve\n        org.free.aceserve"
+        "Ace Serve\n        org.free.aceserve",
+        ### 12. Atras
+        "[COLOR green]< Volver[/COLOR]"
     ]
 )
-    ### variable de la carpeta
-    pcf_path = f"playercorefactory{rep}"
-    ### copiando archivo playercorefactory.xml desde la variable de la carpeta
-    xbmc.log(f"REMOD INSTALADOR Copiando archivo {pcf_path}", level=xbmc.LOGINFO)
-    orig = xbmcvfs.translatePath(os.path.join(remod_addon_datos, 'pcf', pcf_path, 'playercorefactory.xml'))
-    dest = xbmcvfs.translatePath(os.path.join(addons_userdata, 'playercorefactory.xml'))
-    xbmcvfs.copy(orig, dest)
+    if not rep == 12:
+        ### variable de la carpeta
+        pcf_path = f"playercorefactory{rep}"
+        ### copiando archivo playercorefactory.xml desde la variable de la carpeta
+        xbmc.log(f"REMOD INSTALADOR Copiando archivo {pcf_path}", level=xbmc.LOGINFO)
+        orig = xbmcvfs.translatePath(os.path.join(remod_addon_datos, 'pcf', pcf_path, 'playercorefactory.xml'))
+        dest = xbmcvfs.translatePath(os.path.join(addons_userdata, 'playercorefactory.xml'))
+        xbmcvfs.copy(orig, dest)
+        dialog = xbmcgui.Dialog()
+        ret = dialog.ok(f"{remod_addon_name}", "Necesitarás reiniciar Kodi para aplicar los cambios")
     
 
 ### Comprobamos si es el primer inicio tras instalar Kodi o tras borrar datos e instalamod los archivos de configuración. Si no, no hacer nada
@@ -450,7 +455,7 @@ if not existe:
             ### 7. Instalar Moe´s TV
             "> Instalar Moe´s TV\n        Duff You & Moe´s TV",
             ### 8. Reproductores Externos
-            ">> Reproductores Externos",
+            "> Seleccionar Reproductor Externo\n       Elige tu app de AceStream",
             ### 9. Salir
             "[COLOR red]x Salir[/COLOR]"
         ]
@@ -526,40 +531,8 @@ if not existe:
             if res:
                 addon_inst_confirm(addon_id)
             ret = 99
-        if ret == 8:
-            # dialog = xbmcgui.Dialog()
-            # rep = dialog.select(
-            # f"Elige la aplicación de AceStream",
-            # [
-                ## 0. Ace Stream Media McK
-                # "Ace Stream Media McK\n     org.acestream.media",
-                ## 1. Ace Stream Media ATV
-                # "Ace Stream Media ATV\n     org.acestream.media.atv",
-                ## 2. Ace Stream Media Web
-                # "Ace Stream Media Web\n     org.acestream.media.web",
-                ## 3. Ace Stream Node
-                # "Ace Stream Node\n      org.acestream.node",
-                ## 4. Ace Stream Node Web
-                # "Ace Stream Node Web\n      org.acestream.node.web",
-                ## 5. Ace Stream Core
-                # "Ace Stream Core\n      org.acestream.core",
-                ## 6. Ace Stream Core ATV
-                # "Ace Stream Core ATV\n      org.acestream.core.atv",
-                ## 7. Ace Stream Core Web
-                # "Ace Stream Core Web\n      org.acestream.core.web",
-                ## 8. MPVkt
-                # "MPVkt\n        live.mehiz.mpvkt",
-                ## 9. MPV
-                # "MPV\n      is.xyz.mpv",
-                ## 10. VLC
-                # "VLC\n      org.videolan.vlc",
-                ## 11. Ace Serve
-                # "Ace Serve\n        org.free.aceserve"
-        # ]
-    # )
+        if ret == 8: # Rep Ext
             rep_ext()
-            dialog = xbmcgui.Dialog()
-            ret = dialog.ok(f"{remod_addon_name}", "Necesitarás reiniciar Kodi para aplicar los cambios")
             ret = 99    
         if ret == 9: # salir
             dialog = xbmcgui.Dialog()
