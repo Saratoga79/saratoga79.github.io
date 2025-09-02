@@ -1,0 +1,14 @@
+> ReMod Instalador
+> Versión = 25.09.02.0
+> Cambios:
+	- Añadido Ace Stream Live a Reproductores Externos
+> Opciones de Instalación:
+	- Configurar sección TV de Kodi con lista AceStream y guía EPG
+	- Instalar KodiSpainTv
+	- Instalar Tacones
+	- Instalar AceStream Channels
+	- Instalar Balandro
+	- Instalar Magellan
+	- Instalar Alfa
+	- Instalar Moe´s TV
+	- Seleccionar Reproductor Externo para AceStream

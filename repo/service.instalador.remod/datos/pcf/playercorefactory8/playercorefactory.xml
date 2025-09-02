@@ -32,6 +32,10 @@
 			<filename>org.acestream.core.web</filename>
 			<hidexbmc>true</hidexbmc>
 		</player>
+		<player name="Ace Stream Live" type="ExternalPlayer" audio="false" video="true">
+			<filename>org.acestream.live</filename>
+			<hidexbmc>true</hidexbmc>
+		</player>
 		<player name="MPVkt" type="ExternalPlayer" audio="false" video="true">
 			<filename>live.mehiz.mpvkt</filename>
 			<hidexbmc>true</hidexbmc>
@@ -47,8 +51,8 @@
 	</players>
 	
 	<rules action="prepend">
-		<rule name="aceplayer" filename="http://127.0.0.1:6878*.*" player="MPVkt" />
-		<rule name="acestream" filename="acestream://.*" player="MPVkt" />
+		<rule name="aceplayer" filename="http://127.0.0.1:6878*.*" player="Ace Stream Live" />
+		<rule name="acestream" filename="acestream://.*" player="Ace Stream Live" />
 		<rule name="dvd" dvd="true" player="DefaultPlayer" />
 		<rule name="discimage" discimage="true" game="false" player="DefaultPlayer" />
 		<rule protocols="smb" player="DefaultPlayer" />

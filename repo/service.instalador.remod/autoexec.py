@@ -46,6 +46,7 @@ xbmc.log(f"Addons Userdata: {addons_userdata}", level=xbmc.LOGINFO)
 xbmc.log(f"Addons Data: {addons_addon_data}", level=xbmc.LOGINFO)
 xbmc.log(f"### INFO REMOD INSTALADOR ADDON ###", level=xbmc.LOGINFO)
 
+
 ### control de versión
 VERSION_FILE = os.path.join(xbmcvfs.translatePath("special://profile/addon_data/%s" % remod_addon_id), "last_version.json")
 
@@ -70,11 +71,6 @@ def guardar_version(version):
             json.dump({"version": version}, f)
     except Exception as e:
         xbmc.log("REMOD INSTALADOR Error guardando versión: %s" % e, xbmc.LOGERROR)
-
-
-# def obtener_version_instalada():
-    # addon = xbmcaddon.Addon(remod_addon_id)
-    # return addon.getAddonInfo("version")
 
 
 def comp_version():
@@ -207,19 +203,21 @@ def rep_ext():
         "Ace Stream Core ATV\n      org.acestream.core.atv",
         ### 7. Ace Stream Core Web
         "Ace Stream Core Web\n      org.acestream.core.web",
-        ### 8. MPVkt
+        ### 8. Ace Stream Live
+        "Ace Stream Live\n      org.acestream.core.live",
+        ### 9. MPVkt
         "MPVkt\n        live.mehiz.mpvkt",
-        ### 9. MPV
+        ### 10. MPV
         "MPV\n      is.xyz.mpv",
-        ### 10. VLC
+        ### 11. VLC
         "VLC\n      org.videolan.vlc",
-        ### 11. Ace Serve
+        ### 12. Ace Serve
         "Ace Serve\n        org.free.aceserve",
-        ### 12. Atras
+        ### 13. Atras
         "[COLOR green]< Volver[/COLOR]"
     ]
 )
-    if not rep == 12:
+    if not rep == 13:
         ### variable de la carpeta
         pcf_path = f"playercorefactory{rep}"
         ### copiando archivo playercorefactory.xml desde la variable de la carpeta
