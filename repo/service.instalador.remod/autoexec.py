@@ -174,13 +174,6 @@ def addon_inst_check(addon_id):
 ### desactiva instalación de balandro en cada inicio
 rename_to_bak('repository.balandro', 'service.py')
 
-# comprobar activación kodispaintv al iniciar
-# addon_id = 'plugin.video.kodispaintv'
-# addon_inst_check(addon_id)
-
-# comprobar activación tacones al iniciar
-# addon_id = 'plugin.video.tacones'
-# addon_inst_check(addon_id)
 
 def rep_ext():
     dialog = xbmcgui.Dialog()
@@ -204,7 +197,7 @@ def rep_ext():
         ### 7. Ace Stream Core Web
         "Ace Stream Core Web\n      org.acestream.core.web",
         ### 8. Ace Stream Live
-        "Ace Stream Live\n      org.acestream.core.live",
+        "Ace Stream Live\n      org.acestream.live",
         ### 9. MPVkt
         "MPVkt\n        live.mehiz.mpvkt",
         ### 10. MPV
