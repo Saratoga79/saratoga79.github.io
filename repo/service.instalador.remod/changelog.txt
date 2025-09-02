@@ -1,6 +1,7 @@
 > ReMod Instalador
-> Versión = 25.09.02.0
+> Versión = 25.09.02.2
 > Cambios:
+	- Añadido changelog
 	- Añadido Ace Stream Live a Reproductores Externos
 > Opciones de Instalación:
 	- Configurar sección TV de Kodi con lista AceStream y guía EPG
