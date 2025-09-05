@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-### <addon id="service.instalador.remod" name="ReMod Instalador" version="25.09.05.0" provider-name="Saratoga">
+### <addon id="service.instalador.remod" name="ReMod Instalador" version="25.09.05.1" provider-name="Saratoga">
 import xbmc
 import xbmcgui
 import xbmcaddon

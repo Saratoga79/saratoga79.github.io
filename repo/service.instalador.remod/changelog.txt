@@ -1,5 +1,5 @@
 > ReMod Instalador
-> Versión = 25.09.05.0
+> Versión = 25.09.05.1
 > Cambios:
 	- Correcciones y mejoras
 > Opciones de Instalación:
