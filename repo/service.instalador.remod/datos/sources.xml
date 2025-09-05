@@ -60,22 +60,12 @@
         </source>
         <source>
             <name>fuente.magellan</name>
-            <path pathversion="1">https://tinyurl.com/magellanrepo/</path>
+            <path pathversion="1">https://tinyurl.com/magellanrepo</path>
             <allowsharing>true</allowsharing>
         </source>
         <source>
-            <name>fuente.remod</name>
-            <path pathversion="1">https://remod-repo.19saratoga79.synology.me/</path>
-            <allowsharing>true</allowsharing>
-        </source>
-        <source>
-            <name>fuente.repoachannels</name>
+            <name>fuente.repochannels</name>
             <path pathversion="1">https://gunter257.github.io/repoachannels/</path>
-            <allowsharing>true</allowsharing>
-        </source>
-        <source>
-            <name>ReMod</name>
-            <path pathversion="1">https://github.com/Saratoga79/ReMod</path>
             <allowsharing>true</allowsharing>
         </source>
     </files>

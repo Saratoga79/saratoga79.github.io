@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+### <addon id="service.instalador.remod" name="ReMod Instalador" version="25.09.05.0" provider-name="Saratoga">
 import xbmc
 import xbmcgui
 import xbmcaddon
@@ -10,32 +11,27 @@ import sys
 import re
 import zipfile
 import json
+from typing import Iterable
 
 xbmc.log(f"REMOD INSTALADOR INICIO", level=xbmc.LOGINFO)
-
 ### info del addon remodiptv incluido en la app (special://xbmc)
 remod_addon = xbmcaddon.Addon('service.instalador.remod')
 remod_addon_id = remod_addon.getAddonInfo('id')
 remod_addon_path = remod_addon.getAddonInfo('path')
 remod_addon_name = remod_addon.getAddonInfo('name')
 remod_addon_version = remod_addon.getAddonInfo('version')
-
 ### ruta caprpeta datos
 remod_addon_datos = os.path.join(remod_addon_path, 'datos')
-
 ### special://home/addons
 addons_home = xbmcvfs.translatePath(f'special://home/addons')
 remod_config_ok = xbmcvfs.translatePath(os.path.join(remod_addon_path, 'remod_config_ok'))
 remod_off = xbmcvfs.translatePath(os.path.join(remod_addon_path, 'remod_off'))
-
 ### special://home/userdata
 addons_userdata = xbmcvfs.translatePath(f'special://home/userdata')
 ### special://home/userdata/addon_data
 addons_addon_data = os.path.join(addons_userdata, 'addon_data')
-
 ### changelog
 changelog = os.path.join(remod_addon_path, 'changelog.txt')
-
 ### info en log
 xbmc.log(f"###  INFO REMOD INSTALADOR ADDON ###", level=xbmc.LOGINFO)
 xbmc.log(f"Path: {remod_addon_path}", level=xbmc.LOGINFO)
@@ -48,37 +44,75 @@ xbmc.log(f"Addons Data: {addons_addon_data}", level=xbmc.LOGINFO)
 xbmc.log(f"### INFO REMOD INSTALADOR ADDON ###", level=xbmc.LOGINFO)
 
 
-### Comprobamos si es el primer inicio tras instalar Kodi o tras borrar datos e instalamod los archivos de configuración. Si no, no hacer nada
-existe = xbmcvfs.exists(remod_config_ok)
-if not existe:
+### Des/Activación de addons
+def addon_act_des(addon_id: str, enable: bool) -> None:
+    xbmc.log(f"REMOD INSTALADOR: {'Activando' if enable else 'Desactivando'} {addon_id}",
+             level=xbmc.LOGINFO)
+    request = ('{'
+               '"jsonrpc":"2.0",'
+               '"method":"Addons.SetAddonEnabled",'
+               f'"params":{{"addonid":"{addon_id}","enabled":{str(enable).lower()}}},'
+               '"id":1}'
+               )
+    xbmc.executeJSONRPC(request)
+
+
+### lista de addons iterable
+def lista_addons(addon_ids: Iterable[str], enable: bool) -> None:
+    for aid in addon_ids:
+        try:
+            addon_act_des(aid, enable)
+        except Exception as e:
+            xbmc.log(f"REMOD INSTALADOR: Error con {aid}: {e}", level=xbmc.LOGERROR)
+
+### copia los archivos de configuración
+def archivos_config():
+    xbmc.log(f"REMOD INSTALADOR Desactivando addons para copiar archivos de configuración.", level=xbmc.LOGINFO)
+    ### addons a desactivar para liberar los archivos antes de copiar los nuevos
+    addons = ["script.module.slyguy", "plugin.program.iptv.merge", "pvr.iptvsimple"]
+    lista_addons(addons, False)
+    ### copiando sources.xml
+    orig = xbmcvfs.translatePath(os.path.join(remod_addon_datos, 'sources.xml'))
+    dest = xbmcvfs.translatePath(os.path.join(addons_userdata, 'sources.xml'))
+    xbmcvfs.copy(orig, dest)
+    ### copiando favourites.xml
+    orig = xbmcvfs.translatePath(os.path.join(remod_addon_datos, 'favourites.xml'))
+    dest = xbmcvfs.translatePath(os.path.join(addons_userdata, 'favourites.xml'))
+    xbmcvfs.copy(orig, dest)
     xbmc.log(f"REMOD INSTALADOR Copiando archivos de configuración inicial.", level=xbmc.LOGINFO)
     # copiando archivos pvr.iptvsimple
     orig = xbmcvfs.translatePath(os.path.join(remod_addon_datos, 'pvr.iptvsimple','instance-settings-1.xml'))
     dest = xbmcvfs.translatePath(os.path.join(addons_addon_data, 'pvr.iptvsimple', 'instance-settings-1.xml'))
-    xbmc.executebuiltin('StopScript(pvr.iptvsimple)')
     xbmcvfs.delete(dest)
     xbmcvfs.copy(orig, dest)
     orig = xbmcvfs.translatePath(os.path.join(remod_addon_datos, 'pvr.iptvsimple', 'settings.xml'))
     dest = xbmcvfs.translatePath(os.path.join(addons_addon_data, 'pvr.iptvsimple', 'settings.xml'))
-    xbmc.executebuiltin('StopScript(pvr.iptvsimple)')
     xbmcvfs.delete(dest)
     xbmcvfs.copy(orig, dest)
     # copiando archivos script.module.slyguy
     orig = xbmcvfs.translatePath(os.path.join(remod_addon_datos, 'script.module.slyguy', 'settings.db'))
     dest = xbmcvfs.translatePath(os.path.join(addons_addon_data, 'script.module.slyguy', 'settings.db'))
-    xbmc.executebuiltin('StopScript(script.module.slyguy)')
     xbmcvfs.delete(dest)
     xbmcvfs.copy(orig, dest)
     # copiando archivos plugin.program.iptv.merge
     orig = xbmcvfs.translatePath(os.path.join(remod_addon_datos, 'plugin.program.iptv.merge', 'data.db'))
     dest = xbmcvfs.translatePath(os.path.join(addons_addon_data, 'plugin.program.iptv.merge', 'data.db'))
-    xbmc.executebuiltin('StopScript(plugin.program.iptv.merge)')
     xbmcvfs.delete(dest)
     xbmcvfs.copy(orig, dest)
+    ### addons a activar después de copiar los nuevos archivos
+    xbmc.log(f"REMOD INSTALADOR Activando addons para copiar archivos de configuración.", level=xbmc.LOGINFO)
+    lista_addons(addons, True)
     ### copiando ok
     xbmc.executebuiltin(f"Notification({remod_addon_name},Archivos del instalador copiados,1000,)")
     xbmc.log(f"{remod_addon_name} Archivos de instalador copiados.", level=xbmc.LOGINFO)
     open(remod_config_ok, "w")
+
+
+### Comprobamos si es el primer inicio tras instalar Kodi o tras borrar datos e instalamod los archivos de configuración. Si no, no hacer nada
+existe_remod_config_ok = xbmcvfs.exists(remod_config_ok)
+if not existe_remod_config_ok:
+    archivos_config()
+
 
 ### mostrar changelog
 def mostrar_changelog():
@@ -371,7 +405,7 @@ if not existe:
     def inst_addon(addon_id):
         ### verificamos que no esté instalado ya
         if xbmc.getCondVisibility(f'System.HasAddon({addon_id})'):
-            xbmc.log(f"El addon {addon_id} está ya instalado. Omitiendo isntalación", level=xbmc.LOGINFO)
+            xbmc.log(f"El addon {addon_id} está ya instalado. Omitiendo instalación", level=xbmc.LOGINFO)
             xbmc.executebuiltin(f"Notification({remod_addon_name},{addon_id} ya instalado.,1000,)")
             return False
         else:
@@ -462,6 +496,7 @@ if not existe:
         ]
     )
         if ret == 0: # iptvmerge iptvsimple
+            archivos_config()
             addon_id = 'plugin.program.iptv.merge'
             res = inst_addon(addon_id)
             if res:
@@ -548,5 +583,6 @@ if not existe:
                 xbmc.log(f"REMOD INSTALADOR Desactivando menú de instalación", level=xbmc.LOGINFO)
 
 
+xbmc.executebuiltin("ReloadSkin()", True)
 xbmc.log(f"REMOD INSTALADOR FIN", level=xbmc.LOGINFO)
 sys.exit(0)
