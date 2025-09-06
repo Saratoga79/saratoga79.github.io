@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-### <addon id="service.instalador.remod" name="ReMod Instalador" version="25.09.05.1" provider-name="Saratoga">
+### <addon id="service.instalador.remod" name="ReMod Instalador" version="25.09.06.0" provider-name="Saratoga">
 import xbmc
 import xbmcgui
 import xbmcaddon
@@ -577,12 +577,13 @@ if not existe:
                 existe = xbmcvfs.exists(remod_off)
                 if existe:
                     xbmcvfs.delete(remod_off)
+                    xbmc.executebuiltin("ReloadSkin()", True)
             if ret:
                 xbmc.executebuiltin(f"Notification({remod_addon_name},Desactivando menú de instalación.,1000,)")
                 open(remod_off, "w")
                 xbmc.log(f"REMOD INSTALADOR Desactivando menú de instalación", level=xbmc.LOGINFO)
+                xbmc.executebuiltin("ReloadSkin()", True)
 
 
-xbmc.executebuiltin("ReloadSkin()", True)
 xbmc.log(f"REMOD INSTALADOR FIN", level=xbmc.LOGINFO)
 sys.exit(0)
