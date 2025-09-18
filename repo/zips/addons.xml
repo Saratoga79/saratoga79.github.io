@@ -60,7 +60,7 @@
       [CR]- Versión inicial 0.0.7
     </news>
   </extension>
-</addon><addon id="repository.remod" name="ReMod Repo" version="25.08.29.0" provider-name="Saratoga79">
+</addon><addon id="repository.remod" name="ReMod Repo" version="25.09.18.0" provider-name="Saratoga79">
     <extension point="xbmc.addon.repository" name="Example Repository">
         <dir>
             <info compressed="false">https://raw.githubusercontent.com/Saratoga79/saratoga79.github.io/master/repo/zips/addons.xml</info>
