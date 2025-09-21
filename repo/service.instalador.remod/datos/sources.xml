@@ -68,6 +68,11 @@
             <path pathversion="1">https://gunter257.github.io/repoachannels/</path>
             <allowsharing>true</allowsharing>
         </source>
+        <source>
+            <name>fuente.greenball</name>
+            <path pathversion="1">https://ajsm90.github.io/greenball.repo/</path>
+            <allowsharing>true</allowsharing>
+        </source>
     </files>
     <games>
         <default pathversion="1"></default>

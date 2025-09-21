@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-### <addon id="service.instalador.remod" name="ReMod Instalador" version="25.09.06.0" provider-name="Saratoga">
+### <addon id="service.instalador.remod" name="ReMod Instalador" version="25.09.21.0" provider-name="Saratoga">
 import xbmc
 import xbmcgui
 import xbmcaddon
@@ -338,6 +338,7 @@ if not existe:
             with zipfile.ZipFile(full_path, mode="r") as archive:
                 archive.extractall(extract_path)
                 xbmc.log(f"REMOD INSTALADOR Archivo zip extraido.", level=xbmc.LOGINFO)
+                return True
             xbmc.log(f"REMOD INSTALADOR Fin extract_zip.", level=xbmc.LOGINFO)
         except Exception as e:
             xbmc.log(f"REMOD INSTALADOR Error al extraer archivo.", level=xbmc.LOGINFO)
@@ -479,19 +480,21 @@ if not existe:
             "> Instalar [COLOR red]Kodi[/COLOR][COLOR yellow]Spain[/COLOR][COLOR red]Tv[/COLOR]",
             ### 2. Instalar TACONES
             "> Instalar [COLOR red]TACONES[/COLOR]",
-            ### 2. Instalar AceStream Channels
+            ### 3. Instalar AceStream Channels
             "> Instalar AceStream Channels\n        AceStream Channels & Horus",
-            ### 4. Instalar Balandro
+            ### 4. Instalar AceStream Channels
+            "> Instalar GreenBall\n        GreenBall & Horus",
+            ### 5. Instalar Balandro
             "> Instalar Balandro",
-            ### 5. Instalar Magellan
+            ### 6. Instalar Magellan
             "> Instalar Magellan\n       Magellan & f4mTester",
-            ### 6. Instalar Alfa
+            ### 7. Instalar Alfa
             "> Instalar Alfa",
-            ### 7. Instalar Moe´s TV
+            ### 8. Instalar Moe´s TV
             "> Instalar Moe´s TV\n        Duff You & Moe´s TV",
-            ### 8. Reproductores Externos
+            ### 9. Reproductores Externos
             "> Seleccionar Reproductor Externo\n       Elige tu app de AceStream",
-            ### 9. Salir
+            ### 10. Salir
             "[COLOR red]x Salir[/COLOR]"
         ]
     )
@@ -535,13 +538,41 @@ if not existe:
             if res:
                 addon_inst_confirm(addon_id)
             ret = 99
-        if ret == 4: # Balandro
+            
+        if ret == 4: # GreenBall
+            repo_url = 'https://ajsm90.github.io/greenball.repo/repo/zips/repository.greenball/repository.greenball-1.0.0.zip'
+            addon_id = 'repository.greenball'
+            addons = ["repository.greenball"]
+            res = download_zip_from_url(repo_url)
+            if res:
+                xbmc.log(f"REMOD INSTALADOR Actualizando Addon Repos.", level=xbmc.LOGINFO)
+                xbmc.executebuiltin(f"UpdateAddonRepos()", True)
+                xbmc.sleep(1000)
+                xbmc.log(f"REMOD INSTALADOR Actualizando Local Addon.", level=xbmc.LOGINFO)
+                xbmc.executebuiltin(f"UpdateLocalAddons()", True)
+                xbmc.sleep(1000)
+                lista_addons(addons, True)
+                addon_activacion_confirm(addon_id)
+                if res:
+                    addon_id = 'plugin.video.GreenBall'
+                    res = inst_addon(addon_id)
+                    if res:
+                        addon_inst_confirm(addon_id)
+                        if res:
+                            addon_id = 'script.module.horus'
+                            res = inst_addon(addon_id)
+                            if res:
+                                addon_inst_confirm(addon_id)
+                
+                
+            ret = 99
+        if ret == 5: # Balandro
             addon_id = 'plugin.video.balandro'
             res = inst_addon(addon_id)
             if res:
                 addon_inst_confirm(addon_id)
             ret = 99
-        if ret == 5: # magellan
+        if ret == 6: # magellan
             addon_id = 'plugin.video.Magellan_Matrix'
             res = inst_addon(addon_id)
             if res:
@@ -551,13 +582,13 @@ if not existe:
             if res:
                 addon_inst_confirm(addon_id)
             ret = 99
-        if ret == 6: # Alfa
+        if ret == 7: # Alfa
             addon_id = 'plugin.video.alfa'
             res = inst_addon(addon_id)
             if res:
                 addon_inst_confirm(addon_id)
             ret = 99
-        if ret == 7: # Moes
+        if ret == 8: # Moes
             addon_id = 'plugin.video.duffyou'
             res = inst_addon(addon_id)
             if res:
@@ -567,10 +598,10 @@ if not existe:
             if res:
                 addon_inst_confirm(addon_id)
             ret = 99
-        if ret == 8: # Rep Ext
+        if ret == 9: # Rep Ext
             rep_ext()
             ret = 99    
-        if ret == 9: # salir
+        if ret == 10: # salir
             dialog = xbmcgui.Dialog()
             ret = dialog.yesno(f"Menú {remod_addon_name} v{remod_addon_version}", "¿Quieres desactivar este menú y no verlo más?\n\nEstará accesible en Favoritos.")
             if not ret:
