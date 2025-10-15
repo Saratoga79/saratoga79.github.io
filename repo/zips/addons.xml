@@ -1,5 +1,27 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addons><addon id="plugin.video.duffyou" name="Duff You" version="0.2.1" provider-name="La Taberna">
+<addons><addon id="plugin.program.remodtv" name="ReMod TV" version="25.10.15.1" provider-name="Saratoga">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0" />
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="addon.py">
+		<provides>executable</provides>
+	</extension>
+	
+		
+	
+	<extension point="xbmc.addon.metadata">
+		<summary lang="es_ES">ReMod TV</summary>
+		<description lang="es_ES">Instala y configura ReMod TV</description>
+		<license />
+		<platform>all</platform>
+		<website />
+		<news>Primera versión 25.10.14</news>
+        <assets>
+			<icon>recursos/imagenes/icono.png</icon>
+			<fanart>recursos/imagenes/poster.png</fanart>
+		</assets>
+	</extension>
+</addon><addon id="plugin.video.duffyou" name="Duff You" version="0.2.1" provider-name="La Taberna">
     <requires>
         <import addon="script.module.six" version="1.11.0" />
         <import addon="script.module.simplecache" />

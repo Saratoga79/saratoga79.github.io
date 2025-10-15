@@ -1,0 +1,15 @@
+> ReMod Instalador
+> Versión = 25.09.21.0
+> Cambios:
+	- Añadido GreenBall
+> Opciones de Instalación:
+	- Configurar sección TV de Kodi con lista AceStream y guía EPG
+	- Instalar KodiSpainTv
+	- Instalar Tacones
+	- Instalar AceStream Channels
+	- Instalar GreenBall
+	- Instalar Balandro
+	- Instalar Magellan
+	- Instalar Alfa
+	- Instalar Moe´s TV
+	- Seleccionar Reproductor Externo para AceStream
