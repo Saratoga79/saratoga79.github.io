@@ -1,4 +1,4 @@
-<addon id="plugin.program.remodtv" name="ReMod TV" version="25.10.15.1" provider-name="Saratoga">
+<addon id="plugin.program.remodtv" name="ReMod TV" version="25.10.15.2" provider-name="Saratoga">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0"/>
 	</requires>

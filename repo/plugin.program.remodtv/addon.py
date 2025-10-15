@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-### <addon id="plugin.program.remodtv" name="ReMod TV" version="25.10.15.1" provider-name="Saratoga">
+### <addon id="plugin.program.remodtv" name="ReMod TV" version="25.10.15.2" provider-name="Saratoga">
 import xbmc
 import xbmcplugin
 import xbmcgui
@@ -47,11 +47,12 @@ def build_url(query):
 def lista_menu_principal():
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
+        (f"{remodtv_addon_name} versión: {remodtv_addon_version}", "info", "info.png"),
         # ("> Instalar y configurar sección TV de Kodi", "tv", "tv2.png"),
         ("> Instalar y configurar sección TV de Kodi", "tv2", "tv2.png"),
-        ("> Elegir fuente para sección TV de Kodi", "fuente", "tv.png"),
+        ("> Elegir fuente para sección TV de Kodi (No dipobible)", "fuente", "tv.png"),
         ("", "", ""),
-        ("> Info del addon", "info", "info.png")
+        ("> Actualizar TV", "actualizar", "update.png")
     ]
 
     for label, action, icon_file in menu_items:
@@ -326,21 +327,42 @@ def inst_tv2():
         xbmc.log(f"REMOD TV Recargando Addon ya instalando IPTV Simple.", level=xbmc.LOGINFO)
         xbmc.executebuiltin(f"Notification({remodtv_addon_name},Recargando IPTV Simple.,3000,)")
         xbmc.executebuiltin(f"Notification({remodtv_addon_name},Después de que cargue el addon ya estará disponible la sección TV de Kodi.,5000,)")
-        # xbmc.executebuiltin(f"ActivateWindow(TVChannels)")
 
 
 def fuente():
-    """Abre una página web externa en el navegador interno de Kodi."""
-    web_url = "https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/"
-    li = xbmcgui.ListItem(path=web_url)
-    xbmcplugin.setResolvedUrl(HANDLE, True, li)
-
-# def show_info():
-    # """Muestra un cuadro de diálogo con información estática."""
-    # dialog = xbmcgui.Dialog()
-    # dialog.ok("Información", "Este es un addon de ejemplo creado por ti.")
+    pass
+    # web_url = "https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/"
+    # li = xbmcgui.ListItem(path=web_url)
+    # xbmcplugin.setResolvedUrl(HANDLE, True, li)
 
 
+def actualizar_tv():
+    xbmc.executebuiltin(f"Notification({remodtv_addon_name},Reiniciando IPTV Simple.,5000,)")
+    addons = ["pvr.iptvsimple"]
+    addon_id = 'pvr.iptvsimple'
+    res = lista_addons(addons, False)
+    if res:
+        xbmc.sleep(5000)
+        res = lista_addons(addons, True)
+        if res:
+            xbmc.executebuiltin(f"Notification({remodtv_addon_name},Después de que cargue el addon ya estará disponible la sección TV de Kodi.,5000,)")
+        else:
+            xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error al activar IPTV Simple.,5000,)")
+    else:
+        xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error al desactivar IPTV Simple.,5000,)")
+        
+        
+def buscar_actualización():
+    xbmc.log(f"REMOD TV Actualizando Addon Repos.", level=xbmc.LOGINFO)
+    xbmc.executebuiltin(f"Notification({remodtv_addon_name},Actualizando Repos...,3000,)")
+    xbmc.executebuiltin(f"UpdateAddonRepos()", True)
+    xbmc.sleep(3000)
+    xbmc.log(f"REMOD TV Actualizando Local Addon.", level=xbmc.LOGINFO)
+    xbmc.executebuiltin(f"Notification({remodtv_addon_name},Actualizando Addons...,3000,)")
+    xbmc.executebuiltin(f"UpdateLocalAddons()", True)
+    xbmc.sleep(3000)
+    # xbmc.executebuiltin("ReloadSkin()", True)
+    
 
 
 ### acciones del menu
@@ -354,11 +376,12 @@ else:
     if action == "tv2":
         # inst_tv()
         inst_tv2()
-        xbmc.executebuiltin(f"ActivateWindow(tvchannels)")
     elif action == "fuente":
         fuente()
-    # elif action == "info":
-        # show_info()
+    elif action == "actualizar":
+        actualizar_tv()
+    elif action == "info":
+        buscar_actualización()
     else:
         ### Acción desconocida → volver al menú principal
         lista_menu_principal()
