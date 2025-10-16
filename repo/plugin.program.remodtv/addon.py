@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-### <addon id="plugin.program.remodtv" name="ReMod TV" version="25.10.15.2" provider-name="Saratoga">
+### <addon id="plugin.program.remodtv" name="ReMod TV" version="25.10.16.0" provider-name="Saratoga">
 import xbmc
 import xbmcplugin
 import xbmcgui
@@ -48,11 +48,14 @@ def lista_menu_principal():
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
         (f"{remodtv_addon_name} versión: {remodtv_addon_version}", "info", "info.png"),
-        # ("> Instalar y configurar sección TV de Kodi", "tv", "tv2.png"),
         ("> Instalar y configurar sección TV de Kodi", "tv2", "tv2.png"),
-        ("> Elegir fuente para sección TV de Kodi (No dipobible)", "fuente", "tv.png"),
+        ("> Elegir fuente para sección TV de Kodi (No disponible)", "fuente", "tv.png"),
         ("", "", ""),
-        ("> Actualizar TV", "actualizar", "update.png")
+        ("> Actualizar TV", "actualizar", "update.png"),
+        # ("", "", ""),
+        ("> Configurar Reproductor Externo para ACS en Android", "res_ext", "repro.png"),
+        # ("> Desisnstalar sección TV de Kodi", "desins", "tv.png"),
+        ("", "", "")
     ]
 
     for label, action, icon_file in menu_items:
@@ -91,12 +94,12 @@ def archivos_config():
     # orig = xbmcvfs.translatePath(os.path.join(remodtv_addon_datos, 'pvr.iptvsimple','instance-settings-1.xml'))
     # dest = xbmcvfs.translatePath(os.path.join(addons_addon_data, 'pvr.iptvsimple', 'instance-settings-1.xml'))
     ### sin iptv.merge
-    orig = xbmcvfs.translatePath(os.path.join(remodtv_addon_datos, 'pvr.iptvsimple','instance-settings-2.xml'))
+    orig = xbmcvfs.translatePath(os.path.join(remodtv_addon_datos, 'pvr.iptvsimple', 'instance-settings-2.xml'))
     dest = xbmcvfs.translatePath(os.path.join(addons_addon_data, 'pvr.iptvsimple', 'instance-settings-1.xml'))
     xbmcvfs.delete(dest)
     xbmcvfs.copy(orig, dest)
-    orig = xbmcvfs.translatePath(os.path.join(remodtv_addon_datos, 'pvr.iptvsimple', 'settings.xml'))
-    dest = xbmcvfs.translatePath(os.path.join(addons_addon_data, 'pvr.iptvsimple', 'settings.xml'))
+    # orig = xbmcvfs.translatePath(os.path.join(remodtv_addon_datos, 'pvr.iptvsimple', 'settings.xml'))
+    # dest = xbmcvfs.translatePath(os.path.join(addons_addon_data, 'pvr.iptvsimple', 'settings.xml'))
     xbmcvfs.delete(dest)
     xbmcvfs.copy(orig, dest)
     ### copiando archivos script.module.slyguy
@@ -200,7 +203,9 @@ def inst_addon(addon_id):
     ### verificamos que no esté instalado ya
     if xbmc.getCondVisibility(f'System.HasAddon({addon_id})'):
         xbmc.executebuiltin(f"Notification({remodtv_addon_name},{addon_id} ya instalado.,1000,)")
-        xbmc.log(f"El addon {addon_id} está ya instalado. Omitiendo instalación", level=xbmc.LOGINFO)
+        xbmc.log(f"El addon {addon_id} está ya instalado. Desinstalando", level=xbmc.LOGINFO)
+        # addons = ["addon_id"]
+        # lista_addons(addons, True)
         return False
     else:
         xbmc.log(f"El addon {addon_id} no está instalado.", level=xbmc.LOGINFO)
@@ -255,56 +260,56 @@ def iptv_update():
     xbmc.sleep(7500)
     ### comando iptvmerge para actualizar la lista de TV y Radio
     # urllib.request.urlretrieve("http://127.0.0.1:8096/run_merge")
-    xbmc.log(f"REMOD TV Fin instalación IPTV Merge.", level=xbmc.LOGINFO)
+    xbmc.log(f"REMOD TV Fin instalación IPTV Simple.", level=xbmc.LOGINFO)
 
-### instala repo, iptv merge y iptv simple
-def inst_tv():
-    archivos_config()
-    xbmc.log(f"REMOD TV Instalando repo SlyGuy.", level=xbmc.LOGINFO)
-    xbmc.executebuiltin(f"Notification({remodtv_addon_name},Instalando repo SlyGuy.,1000,)")
-    repo_url = 'https://slyguy.uk/repository.slyguy.zip'
-    addon_id = 'repository.slyguy'
-    addons = ["repository.slyguy"]
-    res = download_zip_from_url(repo_url)
-    if res:
+### instala repo, iptv merge y iptv simple. De monento no compatible
+# def inst_tv():
+    # archivos_config()
+    # xbmc.log(f"REMOD TV Instalando repo SlyGuy.", level=xbmc.LOGINFO)
+    # xbmc.executebuiltin(f"Notification({remodtv_addon_name},Instalando repo SlyGuy.,1000,)")
+    # repo_url = 'https://slyguy.uk/repository.slyguy.zip'
+    # addon_id = 'repository.slyguy'
+    # addons = ["repository.slyguy"]
+    # res = download_zip_from_url(repo_url)
+    # if res:
         # xbmc.log(f"REMOD TV Actualizando Addon Repos.", level=xbmc.LOGINFO)
         # xbmc.executebuiltin(f"UpdateAddonRepos()", True)
         # xbmc.sleep(1000)
         # xbmc.log(f"REMOD TV Actualizando Local Addon.", level=xbmc.LOGINFO)
         # xbmc.executebuiltin(f"UpdateLocalAddons()", True)
-        xbmc.sleep(1000)
-        res = lista_addons(addons, True)
+        # xbmc.sleep(1000)
+        # res = lista_addons(addons, True)
         # res = addon_activacion_confirm(addon_id)
-        if res:   
-            addon_id = 'plugin.program.iptv.merge'
-            res = inst_addon(addon_id)
-            if res:
-                res = addon_inst_confirm(addon_id)
-                if res:
-                    addon_id = 'pvr.iptvsimple'
-                    res = inst_addon(addon_id)
-                    if res:
-                        res = addon_inst_confirm(addon_id)
-                        if res:
-                            iptv_update()
-                        else:
-                            xbmc.log(f"REMOD TV Error activando IPTV Simple.", level=xbmc.LOGINFO)
-                            xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error activando IPTV Simple.,1000,)")
-                    else:
-                        xbmc.log(f"REMOD TV Error instalando IPTV Simple.", level=xbmc.LOGINFO)
-                        xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error instalando IPTV Simple.,1000,)")
-                else:
-                    xbmc.log(f"REMOD TV Error activando IPTV Merge.", level=xbmc.LOGINFO)
-                    xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error activando IPTV Merge.,1000,)")
-            else:
-                xbmc.log(f"REMOD TV Error instalando IPTV Merge.", level=xbmc.LOGINFO)
-                xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error instalando IPTV Merge.,1000,)")
-        else:
-            xbmc.log(f"REMOD TV Error activando repo SlyGuy.", level=xbmc.LOGINFO)
-            xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error activando repo SlyGuy.,1000,)")
-    else:
-        xbmc.log(f"REMOD TV Error instalando repo SlyGuy.", level=xbmc.LOGINFO)
-        xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error instalando repo SlyGuy.,1000,)")
+        # if res:   
+            # addon_id = 'plugin.program.iptv.merge'
+            # res = inst_addon(addon_id)
+            # if res:
+                # res = addon_inst_confirm(addon_id)
+                # if res:
+                    # addon_id = 'pvr.iptvsimple'
+                    # res = inst_addon(addon_id)
+                    # if res:
+                        # res = addon_inst_confirm(addon_id)
+                        # if res:
+                            # iptv_update()
+                        # else:
+                            # xbmc.log(f"REMOD TV Error activando IPTV Simple.", level=xbmc.LOGINFO)
+                            # xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error activando IPTV Simple.,1000,)")
+                    # else:
+                        # xbmc.log(f"REMOD TV Error instalando IPTV Simple.", level=xbmc.LOGINFO)
+                        # xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error instalando IPTV Simple.,1000,)")
+                # else:
+                    # xbmc.log(f"REMOD TV Error activando IPTV Merge.", level=xbmc.LOGINFO)
+                    # xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error activando IPTV Merge.,1000,)")
+            # else:
+                # xbmc.log(f"REMOD TV Error instalando IPTV Merge.", level=xbmc.LOGINFO)
+                # xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error instalando IPTV Merge.,1000,)")
+        # else:
+            # xbmc.log(f"REMOD TV Error activando repo SlyGuy.", level=xbmc.LOGINFO)
+            # xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error activando repo SlyGuy.,1000,)")
+    # else:
+        # xbmc.log(f"REMOD TV Error instalando repo SlyGuy.", level=xbmc.LOGINFO)
+        # xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error instalando repo SlyGuy.,1000,)")
 
 ### instala solo iptv simple sin iptv merge
 def inst_tv2():
@@ -314,6 +319,7 @@ def inst_tv2():
     lista_addons(addons, False)
     res = inst_addon(addon_id)
     if res:
+        archivos_config()
         res = addon_inst_confirm(addon_id)
         if res:
             lista_addons(addons, True)
@@ -323,6 +329,8 @@ def inst_tv2():
             xbmc.log(f"REMOD TV Error activando IPTV Simple.", level=xbmc.LOGINFO)
             xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error activando IPTV Simple.,3000,)")
     else:
+        addon_borrar_datos(addon_id)
+        archivos_config()
         lista_addons(addons, True)
         xbmc.log(f"REMOD TV Recargando Addon ya instalando IPTV Simple.", level=xbmc.LOGINFO)
         xbmc.executebuiltin(f"Notification({remodtv_addon_name},Recargando IPTV Simple.,3000,)")
@@ -361,8 +369,108 @@ def buscar_actualización():
     xbmc.executebuiltin(f"Notification({remodtv_addon_name},Actualizando Addons...,3000,)")
     xbmc.executebuiltin(f"UpdateLocalAddons()", True)
     xbmc.sleep(3000)
-    # xbmc.executebuiltin("ReloadSkin()", True)
     
+
+
+
+def addon_borrar_datos(addon_id):
+    addons = ["pvr.iptvsimple"]
+    res = lista_addons(addons, False)
+    dest = xbmcvfs.translatePath(os.path.join(addons_addon_data, addon_id))
+    for nombre in os.listdir(dest):
+        # Nos quedamos solo con los que terminan en .xml (ignoramos mayúsculas/minúsculas)
+        if nombre.lower().endswith('.xml'):
+            ruta_completa = os.path.join(dest, nombre)
+            try:
+                os.remove(ruta_completa)          # <‑‑ borrado
+            except Exception as e:
+                xbmcgui.Dialog().notification(
+                    "Error al borrar XML",
+                    f"{nombre}: {e}",
+                    xbmcgui.NOTIFICATION_ERROR,
+                    4000
+                )
+
+### desinstlar addons
+def addon_desins(addon_id: str, desinstalar: bool) -> None:
+    """
+    Desinstala (o reinstala) un addon de Kodi mediante JSON‑RPC.
+
+    Parámetros
+    ----------
+    addon_id : str
+        Identificador del addon (por ejemplo, "plugin.video.youtube").
+    desinstalar : bool
+        True → desinstala el addon.
+        False → solo lo desactiva sin eliminarlo (si se quisiera reactivar).
+    """
+
+    # Mensaje de registro que indica la acción que se va a ejecutar
+    accion = "Desinstalando" if desinstalar else "Desactivando"
+    xbmc.log(f"{remodtv_addon_name}: {accion} {addon_id}", level=xbmc.LOGINFO)
+
+    # Construimos la petición JSON‑RPC
+    request = {
+        "jsonrpc": "2.0",
+        "method": "Addons.Uninstall",
+        "params": {
+            "addonid": addon_id,
+            "uninstall": desinstalar   # El propio booleano es aceptado por Kodi
+        },
+        "id": 1
+    }
+
+    # Convertimos el diccionario a cadena JSON y lo enviamos
+    xbmc.executeJSONRPC(json.dumps(request))
+
+### configuración del reproductor externo para ACS en Android
+def ele_rep():
+    dialog = xbmcgui.Dialog()
+    rep = dialog.select(
+    f"Elige la aplicación de AceStream que tengas instalada",
+    [
+        ### 0. Ace Stream Media McK
+        "Ace Stream Media McK\n     org.acestream.media",
+        ### 1. Ace Stream Media ATV
+        "Ace Stream Media ATV\n     org.acestream.media.atv",
+        ### 2. Ace Stream Media Web
+        "Ace Stream Media Web\n     org.acestream.media.web",
+        ### 3. Ace Stream Node
+        "Ace Stream Node\n      org.acestream.node",
+        ### 4. Ace Stream Node Web
+        "Ace Stream Node Web\n      org.acestream.node.web",
+        ### 5. Ace Stream Core
+        "Ace Stream Core\n      org.acestream.core",
+        ### 6. Ace Stream Core ATV
+        "Ace Stream Core ATV\n      org.acestream.core.atv",
+        ### 7. Ace Stream Core Web
+        "Ace Stream Core Web\n      org.acestream.core.web",
+        ### 8. Ace Stream Live
+        "Ace Stream Live\n      org.acestream.live",
+        ### 9. MPVkt
+        "MPVkt\n        live.mehiz.mpvkt",
+        ### 10. MPV
+        "MPV\n      is.xyz.mpv",
+        ### 11. VLC
+        "VLC\n      org.videolan.vlc",
+        ### 12. Ace Serve
+        "Ace Serve\n        org.free.aceserve",
+        ### 13. Atras
+        "[COLOR green]< Volver[/COLOR]"
+    ]
+)
+    if not rep == 13:
+        ### variable de la carpeta
+        pcf_path = f"playercorefactory{rep}"
+        ### copiando archivo playercorefactory.xml desde la variable de la carpeta
+        xbmc.log(f"REMOD INSTALADOR Copiando archivo {pcf_path}", level=xbmc.LOGINFO)
+        orig = xbmcvfs.translatePath(os.path.join(remodtv_addon_datos, 'pcf', pcf_path, 'playercorefactory.xml'))
+        dest = xbmcvfs.translatePath(os.path.join(addons_userdata, 'playercorefactory.xml'))
+        xbmcvfs.copy(orig, dest)
+        dialog = xbmcgui.Dialog()
+        ret = dialog.ok(f"{remodtv_addon_name}", "Necesitarás reiniciar Kodi para aplicar los cambios.")
+
+
 
 
 ### acciones del menu
@@ -382,6 +490,11 @@ else:
         actualizar_tv()
     elif action == "info":
         buscar_actualización()
+    elif action == "desins":
+        addon_id = 'pvr.iptvsimple'
+        addon_desins(addon_id, True)
+    elif action == "res_ext":
+        ele_rep()
     else:
         ### Acción desconocida → volver al menú principal
         lista_menu_principal()
