@@ -1,5 +1,5 @@
 > ReMod TV
-> Versión = 25.10.17.3
+> Versión = 25.10.17.4
 > Cambios respecto a la versión anterior:
 	- Corrección error activación de addon (subprocess)
 	- Corrección ruta fuentes (carp)

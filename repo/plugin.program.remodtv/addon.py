@@ -50,7 +50,7 @@ def lista_menu_principal():
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
         (f"{remodtv_addon_name} versión: {remodtv_addon_version} | Buscar actualizaciones", "info", "info.png"),
-        ("> Instalar y configurar sección TV de Kodi", "tv2", "tv2.png"),
+        ("> Instalar y configurar sección TV de Kodi | Fuente por defecto", "tv2", "tv2.png"),
         ("> Elegir fuente para sección TV de Kodi", "fuente", "tv.png"),
         ("", "", ""),
         ("> Actualizar TV", "actualizar", "update.png"),
@@ -520,6 +520,7 @@ if not ARGS:
 else:
     action = ARGS.get('action', [None])[0]
     if action == "tv2":
+        carp = 'dir'
         inst_tv2()
     elif action == "fuente":
         fuente()
