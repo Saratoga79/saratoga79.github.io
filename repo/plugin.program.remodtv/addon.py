@@ -32,6 +32,7 @@ addons_userdata = xbmcvfs.translatePath(f'special://home/userdata')
 addons_addon_data = os.path.join(addons_userdata, 'addon_data')
 ### changelog
 changelog = os.path.join(remodtv_addon_path, 'changelog.txt')
+carp = 'dir'
 fuent_act = 'Lista Directa'
 
 ### parametros
