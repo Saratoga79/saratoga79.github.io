@@ -1,20 +1,19 @@
-<addon id="plugin.program.remodtv" name="ReMod TV" version="25.10.16.0" provider-name="Saratoga">
+<addon id="plugin.program.remodtv" name="ReMod TV" version="25.10.17.0" provider-name="Saratoga">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0"/>
 	</requires>
 	<extension point="xbmc.python.pluginsource" library="addon.py">
 		<provides>executable</provides>
 	</extension>
-	<!-- <extension point="xbmc.service" library="autoexec.py"> -->
-		<!-- <provides></provides> -->
-	<!-- </extension> -->
 	<extension point="xbmc.addon.metadata">
-		<summary lang="es_ES">ReMod TV</summary>
-		<description lang="es_ES">Instala y configura ReMod TV</description>
+		<!-- <summary lang="es_ES">ReMod TV</summary> -->
+		<!-- <description lang="es_ES">Instala y configura ReMod TV</description> -->
+		<summary>ReMod TV</summary>
+		<description>Instala y configura ReMod TV</description>
 		<license></license>
 		<platform>all</platform>
 		<website></website>
-		<news>changelog.txt</news>
+		<news></news>
         <assets>
 			<icon>recursos/imagenes/icono.png</icon>
 			<fanart>recursos/imagenes/poster.png</fanart>

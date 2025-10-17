@@ -1,4 +1,10 @@
 > ReMod TV
+> Versión = 25.10.17.0
+> Cambios respecto a la versión anterior:
+	- Correcciones y mejoras
+	- Añadido menú para Configurar el Reproductor Externo ACS en Android.
+	- Iconos por www.thiings.co/things
+	
 > Versión = 25.10.16.0
 > Cambios respecto a la versión anterior:
 	- Añadido menú para Configurar el Reproductor Externo ACS en Android.
