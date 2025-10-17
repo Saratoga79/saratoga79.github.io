@@ -1,4 +1,7 @@
 > ReMod TV
+> Versión = 25.10.17.2
+> Cambios respecto a la versión anterior:
+	- Corrección error activación de addon (subprocess)
 > Versión = 25.10.17.1
 > Cambios respecto a la versión anterior:
 	- Correcciones y mejoras

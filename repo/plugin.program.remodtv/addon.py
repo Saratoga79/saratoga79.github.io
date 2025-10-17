@@ -13,7 +13,7 @@ import json
 import urllib.request
 from urllib.request import urlopen
 from typing import Iterable
-# import subprocess
+import subprocess
 
 xbmc.log(f"REMOD TV INICIO", level=xbmc.LOGINFO)
 ### info del addon remodtv incluido en la app (special://xbmc)
