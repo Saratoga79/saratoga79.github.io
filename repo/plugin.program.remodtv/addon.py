@@ -32,6 +32,7 @@ addons_userdata = xbmcvfs.translatePath(f'special://home/userdata')
 addons_addon_data = os.path.join(addons_userdata, 'addon_data')
 ### changelog
 changelog = os.path.join(remodtv_addon_path, 'changelog.txt')
+fuent_act = 'Lista Directa'
 
 ### parametros
 BASE_URL = sys.argv[0]
@@ -49,7 +50,7 @@ def lista_menu_principal():
     menu_items = [
         (f"{remodtv_addon_name} versión: {remodtv_addon_version} | Buscar actualizaciones", "info", "info.png"),
         ("> Instalar y configurar sección TV de Kodi", "tv2", "tv2.png"),
-        ("> Elegir fuente para sección TV de Kodi (No disponible)", "fuente", "tv.png"),
+        ("> Elegir fuente para sección TV de Kodi", "fuente", "tv.png"),
         ("", "", ""),
         ("> Actualizar TV", "actualizar", "update.png"),
         # ("", "", ""),
@@ -96,11 +97,11 @@ def archivos_config():
     # orig = xbmcvfs.translatePath(os.path.join(remodtv_addon_datos, 'pvr.iptvsimple','instance-settings-1.xml'))
     # dest = xbmcvfs.translatePath(os.path.join(addons_addon_data, 'pvr.iptvsimple', 'instance-settings-1.xml'))
     ### config sin iptv.merge fuente 1 direct
-    orig = xbmcvfs.translatePath(os.path.join(remodtv_addon_datos, 'pvr.iptvsimple', 'instance-settings-2.xml'))
+    orig = xbmcvfs.translatePath(os.path.join(remodtv_addon_datos, 'pvr.iptvsimple', carp, 'instance-settings-2.xml'))
     dest = xbmcvfs.translatePath(os.path.join(addons_addon_data, 'pvr.iptvsimple', 'instance-settings-1.xml'))
     xbmcvfs.delete(dest)
     xbmcvfs.copy(orig, dest)
-    orig = xbmcvfs.translatePath(os.path.join(remodtv_addon_datos, 'pvr.iptvsimple', 'settings.xml'))
+    # orig = xbmcvfs.translatePath(os.path.join(remodtv_addon_datos, 'pvr.iptvsimple', 'settings.xml'))
     dest = xbmcvfs.translatePath(os.path.join(addons_addon_data, 'pvr.iptvsimple', 'settings.xml'))
     xbmcvfs.delete(dest)
     # xbmcvfs.copy(orig, dest)
@@ -349,7 +350,31 @@ def inst_tv2():
 
 
 def fuente():
-    pass
+    ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
+    menu_items = [
+        # (f"Elige la fuente para la sección de TV | Actual: {fuent_act}", "", "tv.png"),
+        (f"Elige la fuente para la sección de TV:", "", "tv.png"),
+
+        ("      1> Lista Directa (Por defecto)\n                Enlaces ACS http directos", "lis_dir", ""),
+        ("      2> Lista acestream (ACE)\n              Enlaces ACS protocolo acestream://", "lis_ace", ""),
+        ("      3> Lista Horus\n                Enlaces ACS para addon Horus", "lis_hor", "")
+    ]
+
+    for label, action, icon_file in menu_items:
+        url = build_url({"action": action})
+        ### Creamos el ListItem
+        li = xbmcgui.ListItem(label=label)
+        ### Ruta absoluta al icono
+        icon_path = xbmcvfs.translatePath(os.path.join(remodtv_addon_path, 'recursos', 'imagenes', icon_file))
+        ###  Asignamos el icono
+        li.setArt({'icon': icon_path, 'thumb': icon_path})   # thumb también sirve
+        ### Indicamos que es una carpeta (un sub‑menú o acción que abre algo)
+        xbmcplugin.addDirectoryItem(handle=HANDLE,
+                                    url=url,
+                                    listitem=li,
+                                    isFolder=True)
+    xbmcplugin.endOfDirectory(HANDLE)
+
 
 
 def actualizar_tv():
@@ -506,6 +531,24 @@ else:
         addon_desins(addon_id, True)
     elif action == "res_ext":
         ele_rep()
+    elif action == "lis_dir":
+        carp = 'dir'
+        fuent_act == 'Lista Directa'
+        archivos_config()
+        actualizar_tv()
+        lista_menu_principal()
+    elif action == "lis_ace":
+        carp = 'ace'
+        fuent_act == 'Lista ACE'
+        archivos_config()
+        actualizar_tv()
+        lista_menu_principal()
+    elif action == "lis_hor":
+        carp = 'hor'
+        fuent_act == 'Lista Horus'
+        archivos_config()
+        actualizar_tv()
+        lista_menu_principal()
     elif action == "test":
         pass
     else:
