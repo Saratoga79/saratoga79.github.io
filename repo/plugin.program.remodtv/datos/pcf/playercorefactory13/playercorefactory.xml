@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playercorefactory>
+    <players>
+        <!-- VLC como reproductor externo en Windows -->
+        <player name="VLC" type="ExternalPlayer" audio="false" video="true">
+            <filename>C:\Program Files\VideoLAN\VLC\vlc.exe</filename>
+            <args>"{1}" --http-reconnect --play-and-exit -f</args>
+            <hidexbmc>false</hidexbmc>
+			<hideconsole>false</hideconsole>
+        </player>
+        <!-- AceStream para Windows -->
+        <player name="AceStream" type="ExternalPlayer" audio="false" video="true">
+            <filename>C:\Users\jon\AppData\Roaming\ACEStream\player\ace_player.exe</filename>
+            <args>"{1}" --ipv4-timeout=25000 --http-reconnect --play-and-exit -f</args>
+            <hidexbmc>false</hidexbmc>
+			<hideconsole>false</hideconsole>
+        </player>
+    </players>
+	<!-- <rules action="prepend"> -->
+	<rules>
+        <!-- Usa AceStream para enlaces acestream:// -->
+        <rule name="aceplayer" filename="http://127.0.0.1:6878*.*" player="AceStream" />
+		<rule name="acestream" filename="acestream://.*" player="AceStream" />
+        <!-- Usa VLC para el resto de los videos -->
+        <!-- <rule name="videos" filetypes="mkv|mp4|avi|mov|flv|wmv|m3u8|ts|webm" player="VLC"/> -->
+    </rules>
+</playercorefactory>

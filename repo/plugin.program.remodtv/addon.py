@@ -33,7 +33,6 @@ addons_addon_data = os.path.join(addons_userdata, 'addon_data')
 ### changelog
 changelog = os.path.join(remodtv_addon_path, 'changelog.txt')
 carp = 'dir'
-fuent_act = 'Lista Directa'
 
 ### parametros
 BASE_URL = sys.argv[0]
@@ -50,13 +49,12 @@ def lista_menu_principal():
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
         (f"{remodtv_addon_name} versión: {remodtv_addon_version} | Buscar actualizaciones", "info", "info.png"),
-        ("> Instalar y configurar sección TV de Kodi | Fuente por defecto", "tv2", "tv2.png"),
+        ("> Instalar y configurar sección TV de Kodi | Reinstalar fuente por defecto", "tv2", "tv2.png"),
         ("> Elegir fuente para sección TV de Kodi", "fuente", "tv.png"),
         ("", "", ""),
         ("> Actualizar TV", "actualizar", "update.png"),
         # ("", "", ""),
-        ("> Configurar Reproductor Externo para AceStream en Android", "res_ext", "repro.png")
-        # ("> Configurar Reproductor Externo para ACS en Android", "res_ext", "repro.png"),
+        ("> Configurar Reproductor Externo para AceStream | Android y Windows", "res_ext", "repro.png")
         # ("> test", "test", "repro.png"),
         # ("> Desisnstalar sección TV de Kodi", "desins", "tv.png"),
         # ("", "", "")
@@ -77,6 +75,84 @@ def lista_menu_principal():
                                     isFolder=True)
     xbmcplugin.endOfDirectory(HANDLE)
     
+
+
+
+### mostrar changelog
+def mostrar_changelog():
+    xbmc.log(f"{remodtv_addon_name} Mostrando changelog.", level=xbmc.LOGINFO)
+    try:
+        with open(changelog, 'r', encoding='utf-8') as f:
+            contenido = f.read()
+    except Exception as e:
+        xbmcgui.Dialog().notification(
+            addon.getAddonInfo('name'),
+            f'No se pudo leer changelog.txt: {e}',
+            xbmcgui.NOTIFICATION_ERROR,
+            5000
+        )
+        return
+    # Muestra el texto en un visor de diálogos
+    dlg = xbmcgui.Dialog()
+    dlg.textviewer('Changelog', contenido)
+
+
+### control de versión
+VERSION_FILE = os.path.join(xbmcvfs.translatePath("special://profile/addon_data/%s" % remodtv_addon_id), "last_version.json")
+
+def leer_ultima_version():
+    """Lee la versión que guardamos la última vez que se ejecutó el script."""
+    if not os.path.isfile(VERSION_FILE):
+        return None
+    try:
+        with open(VERSION_FILE, "r") as f:
+            data = json.load(f)
+            return data.get("version")
+    except Exception as e:
+        xbmc.log("REMOD TV Error leyendo versión guardada: %s" % e, xbmc.LOGERROR)
+        return None
+
+
+def guardar_version(version):
+    """Guarda la versión actual para la próxima comparación."""
+    os.makedirs(os.path.dirname(VERSION_FILE), exist_ok=True)
+    try:
+        with open(VERSION_FILE, "w") as f:
+            json.dump({"version": version}, f)
+    except Exception as e:
+        xbmc.log("REMOD TV Error guardando versión: %s" % e, xbmc.LOGERROR)
+
+
+def comp_version():
+    # version_actual = obtener_version_instalada()
+    version_actual = remodtv_addon_version
+    version_anterior = leer_ultima_version()
+
+    xbmc.log("REMOD TV Versión actual: %s" % version_actual, xbmc.LOGINFO)
+
+    if version_anterior is None:
+        xbmc.log("REMOD TV No hay registro previo. Guardando versión actual.", xbmc.LOGINFO)
+        guardar_version(version_actual)
+        return
+
+    xbmc.log("REMOD TV Versión guardada previamente: %s" % version_anterior, xbmc.LOGINFO)
+
+    if version_actual != version_anterior:
+        xbmc.log("REMOD TV El addon se ha actualizado", xbmc.LOGINFO)
+        ### Modificaciones
+        xbmcvfs.delete(remodtv_config_ok)
+        xbmcvfs.delete(remodtv_off)
+        mostrar_changelog()
+        xbmcgui.Dialog().notification(f"{remodtv_addon_name}","Actualizado de v%s->[COLOR blue]v%s[/COLOR]" % (version_anterior, version_actual),xbmcgui.NOTIFICATION_INFO,5000)
+        # Finalmente, actualizamos el registro
+        guardar_version(version_actual)
+    else:
+        xbmc.log("REMOD TV No hay cambios de versión.", xbmc.LOGINFO)
+
+### comrpobación de versión
+xbmc.log(f"REMOD TV Comprobando actualización.", level=xbmc.LOGINFO)
+comp_version()
+
 
 ### copia los archivos de configuración
 def archivos_config():
@@ -122,7 +198,7 @@ def archivos_config():
     ### copiando ok
     xbmc.executebuiltin(f"Notification({remodtv_addon_name},Archivos de configuración copiados,3000,)")
     xbmc.log(f"{remodtv_addon_name} Archivos de configuración copiados.", level=xbmc.LOGINFO)
-    # open(remod_config_ok, "w")
+    # open(remodtv_config_ok, "w")
 
    
 ### des/activación de addons
@@ -196,8 +272,8 @@ def download_zip_from_url(url):
         with zipfile.ZipFile(full_path, mode="r") as archive:
             archive.extractall(extract_path)
             xbmc.log(f"REMOD TV Archivo zip extraido.", level=xbmc.LOGINFO)
-        return True
         xbmc.log(f"REMOD TV Fin extract_zip.", level=xbmc.LOGINFO)
+        return True
     except Exception as e:
         xbmc.log(f"REMOD TV Error al extraer archivo.", level=xbmc.LOGINFO)
         xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error al extraer archivo.,3000,)")
@@ -353,7 +429,6 @@ def inst_tv2():
 def fuente():
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
-        # (f"Elige la fuente para la sección de TV | Actual: {fuent_act}", "", "tv.png"),
         (f"Elige la fuente para la sección de TV:", "", "tv.png"),
 
         ("      1> Lista Directa (Por defecto)\n                Enlaces ACS http directos", "lis_dir", ""),
@@ -395,7 +470,7 @@ def actualizar_tv():
         xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error al desactivar IPTV Simple.,5000,)")
         
         
-def buscar_actualización():
+def buscar_actualizacion():
     xbmc.log(f"REMOD TV Actualizando Addon Repos.", level=xbmc.LOGINFO)
     xbmc.executebuiltin(f"Notification({remodtv_addon_name},Actualizando Repos...,3000,)")
     xbmc.executebuiltin(f"UpdateAddonRepos()", True)
@@ -465,36 +540,40 @@ def ele_rep():
     f"Elige la aplicación de AceStream que tengas instalada",
     [
         ### 0. Ace Stream Media McK
-        "Ace Stream Media McK\n     org.acestream.media",
+        "Ace Stream Media McK | Android\n     org.acestream.media",
         ### 1. Ace Stream Media ATV
-        "Ace Stream Media ATV\n     org.acestream.media.atv",
+        "Ace Stream Media ATV | Android\n     org.acestream.media.atv",
         ### 2. Ace Stream Media Web
-        "Ace Stream Media Web\n     org.acestream.media.web",
+        "Ace Stream Media Web | Android\n     org.acestream.media.web",
         ### 3. Ace Stream Node
-        "Ace Stream Node\n      org.acestream.node",
+        "Ace Stream Node | Android\n      org.acestream.node",
         ### 4. Ace Stream Node Web
-        "Ace Stream Node Web\n      org.acestream.node.web",
+        "Ace Stream Node Web | Android\n      org.acestream.node.web",
         ### 5. Ace Stream Core
-        "Ace Stream Core\n      org.acestream.core",
+        "Ace Stream Core | Android\n      org.acestream.core",
         ### 6. Ace Stream Core ATV
-        "Ace Stream Core ATV\n      org.acestream.core.atv",
+        "Ace Stream Core ATV | Android\n      org.acestream.core.atv",
         ### 7. Ace Stream Core Web
-        "Ace Stream Core Web\n      org.acestream.core.web",
+        "Ace Stream Core Web | Android\n      org.acestream.core.web",
         ### 8. Ace Stream Live
-        "Ace Stream Live\n      org.acestream.live",
+        "Ace Stream Live | Android\n      org.acestream.live",
         ### 9. MPVkt
-        "MPVkt\n        live.mehiz.mpvkt",
+        "MPVkt | Android\n        live.mehiz.mpvkt",
         ### 10. MPV
-        "MPV\n      is.xyz.mpv",
+        "MPV | Android\n      is.xyz.mpv",
         ### 11. VLC
-        "VLC\n      org.videolan.vlc",
+        "VLC | Android\n      org.videolan.vlc",
         ### 12. Ace Serve
-        "Ace Serve\n        org.free.aceserve",
-        ### 13. Atras
+        "AceServe | Android\n        org.free.aceserve",
+        ### 13. AceStream oficial | Windows
+        "AceStream oficial | Windows",
+        ### 14. VLC y AceStream oficial | Windows
+        "VLC y AceStream oficial | Windows",
+        ### 15. Atras
         "< Volver"
     ]
 )
-    if not rep == 13:
+    if not rep == 15:
         ### variable de la carpeta
         pcf_path = f"playercorefactory{rep}"
         ### copiando archivo playercorefactory.xml desde la variable de la carpeta
@@ -503,7 +582,7 @@ def ele_rep():
         dest = xbmcvfs.translatePath(os.path.join(addons_userdata, 'playercorefactory.xml'))
         xbmcvfs.copy(orig, dest)
         dialog = xbmcgui.Dialog()
-        ret = dialog.ok(f"{remodtv_addon_name}", "Necesitarás reiniciar Kodi para aplicar los cambios.")
+        dialog.ok(f"{remodtv_addon_name}", "Necesitarás reiniciar Kodi para aplicar los cambios.")
 
 
 ### pruebas ###
@@ -527,7 +606,7 @@ else:
     elif action == "actualizar":
         actualizar_tv()
     elif action == "info":
-        buscar_actualización()
+        buscar_actualizacion()
     elif action == "desins":
         addon_id = 'pvr.iptvsimple'
         addon_desins(addon_id, True)
@@ -535,19 +614,16 @@ else:
         ele_rep()
     elif action == "lis_dir":
         carp = 'dir'
-        fuent_act == 'Lista Directa'
         archivos_config()
         actualizar_tv()
         lista_menu_principal()
     elif action == "lis_ace":
         carp = 'ace'
-        fuent_act == 'Lista ACE'
         archivos_config()
         actualizar_tv()
         lista_menu_principal()
     elif action == "lis_hor":
         carp = 'hor'
-        fuent_act == 'Lista Horus'
         archivos_config()
         actualizar_tv()
         lista_menu_principal()

@@ -1,12 +1,20 @@
 > ReMod TV
+> Versión = 25.10.18.0
+> Cambios respecto a la versión anterior:
+	- Añadida opción de configuración de Reproductor Externo para Windows
+	- Añadido control de versión de addon y changelog
+	- Correcciones y mejoras
+	
 > Versión = 25.10.17.4
 > Cambios respecto a la versión anterior:
 	- Corrección error activación de addon (subprocess)
 	- Corrección ruta fuentes (carp)
+	
 > Versión = 25.10.17.1
 > Cambios respecto a la versión anterior:
 	- Correcciones y mejoras
 	- Añadido menú para selección la fuente directa, ACE y Horus.
+	
 > Versión = 25.10.17.0
 > Cambios respecto a la versión anterior:
 	- Correcciones y mejoras
@@ -16,3 +24,7 @@
 > Versión = 25.10.16.0
 > Cambios respecto a la versión anterior:
 	- Añadido menú para Configurar el Reproductor Externo ACS en Android.
+	
+> Versión = 25.10.14.0
+> Cambios respecto a la versión anterior:
+	- Versión inicial.
