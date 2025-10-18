@@ -140,8 +140,6 @@ def comp_version():
     if version_actual != version_anterior:
         xbmc.log("REMOD TV El addon se ha actualizado", xbmc.LOGINFO)
         ### Modificaciones
-        xbmcvfs.delete(remodtv_config_ok)
-        xbmcvfs.delete(remodtv_off)
         mostrar_changelog()
         xbmcgui.Dialog().notification(f"{remodtv_addon_name}","Actualizado de v%s->[COLOR blue]v%s[/COLOR]" % (version_anterior, version_actual),xbmcgui.NOTIFICATION_INFO,5000)
         # Finalmente, actualizamos el registro
