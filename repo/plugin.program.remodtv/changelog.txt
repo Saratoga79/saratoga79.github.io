@@ -1,4 +1,9 @@
 > ReMod TV
+> Versión = 25.10.19.0
+> Cambios respecto a la versión anterior:
+	- Añadida opción dentro de configuración de Reproductor Externo para dejar los ajustes originales, como cuando se instaló Kodi.
+	- Añadidas las apps de AceServe a la fuente.
+	
 > Versión = 25.10.18.1
 > Cambios respecto a la versión anterior:
 	- Añadida opción de configuración de Reproductor Externo para Windows

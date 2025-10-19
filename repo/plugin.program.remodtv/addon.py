@@ -567,11 +567,18 @@ def ele_rep():
         "AceStream oficial | Windows",
         ### 14. VLC y AceStream oficial | Windows
         "VLC y AceStream oficial | Windows",
-        ### 15. Atras
+        ### 15. Dejarlo por defecto
+        "Dejarlo por defecto\n      Dejarlo por defecto como cuando se instaló Kodi",
+        ### 16. Atras
         "< Volver"
     ]
 )
-    if not rep == 15:
+    if rep == 15:
+        ### Borramos pcf para dejarlo como antes
+        dest = xbmcvfs.translatePath(os.path.join(addons_userdata, 'playercorefactory.xml'))
+        xbmcvfs.delete(dest)
+                
+    if not rep == 16:
         ### variable de la carpeta
         pcf_path = f"playercorefactory{rep}"
         ### copiando archivo playercorefactory.xml desde la variable de la carpeta
