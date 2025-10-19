@@ -55,7 +55,7 @@ def lista_menu_principal():
         ("> Actualizar TV", "actualizar", "update.png"),
         # ("", "", ""),
         ("> Configurar Reproductor Externo para AceStream | Android y Windows", "res_ext", "repro.png")
-        # ("> test", "test", "repro.png"),
+        # ("> test", "test", "repro.png")
         # ("> Desisnstalar sección TV de Kodi", "desins", "tv.png"),
         # ("", "", "")
     ]
@@ -589,9 +589,14 @@ def ele_rep():
         dialog = xbmcgui.Dialog()
         dialog.ok(f"{remodtv_addon_name}", "Necesitarás reiniciar Kodi para aplicar los cambios.")
 
+def act_ajuste(ajuste_id):
+    ajuste_check = xbmc.getCondVisibility(f'Skin.HasSetting({ajuste_id})') == 1
+    if ajuste_check:
+        xbmc.executebuiltin(f'Skin.SetBool({ajuste_id},false)')
+    xbmc.executebuiltin(f"Notification({ajuste_check},Estado TV.,3000,)")
 
 ### pruebas ###
-
+### activar sección TV si no está activada (homemenunotvbutton = True = Sección desactivada)
 
 
 ### pruebas ###
@@ -606,6 +611,10 @@ else:
     if action == "tv2":
         carp = 'dir'
         inst_tv2()
+        ### activar seección TV en menú principal
+        ajuste_id = "homemenunotvbutton"
+        act_ajuste(ajuste_id)
+        
     elif action == "fuente":
         fuente()
     elif action == "actualizar":
