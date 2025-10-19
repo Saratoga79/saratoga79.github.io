@@ -593,7 +593,6 @@ def act_ajuste(ajuste_id):
     ajuste_check = xbmc.getCondVisibility(f'Skin.HasSetting({ajuste_id})') == 1
     if ajuste_check:
         xbmc.executebuiltin(f'Skin.SetBool({ajuste_id},false)')
-    xbmc.executebuiltin(f"Notification({ajuste_check},Estado TV.,3000,)")
 
 ### pruebas ###
 ### activar sección TV si no está activada (homemenunotvbutton = True = Sección desactivada)
