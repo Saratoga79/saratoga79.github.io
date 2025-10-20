@@ -34,6 +34,39 @@ addons_addon_data = os.path.join(addons_userdata, 'addon_data')
 changelog = os.path.join(remodtv_addon_path, 'changelog.txt')
 carp = 'dir'
 
+### comp versión Kodi
+def obtener_version_kodi():
+    # Obtiene la cadena completa de la versión
+    version_completa = xbmc.getInfoLabel('System.BuildVersion')
+    
+    # Normalmente la versión está al principio, antes de cualquier texto adicional
+    # Por ejemplo: "21.0 Git:20211231" -> "21.0"
+    version = version_completa.split()[0]   # toma solo la primera palabra
+    
+    # Si quieres separar mayor y menor:
+    mayor, *resto = version.split('.')
+    menor = resto[0] if resto else '0'
+    
+    return {
+        'versión_completa': version_completa,
+        'versión': version,
+        'mayor': int(mayor),
+        'menor': int(menor)
+    }
+
+# kodi info
+info = obtener_version_kodi()
+if info['mayor'] >= 20:
+    xbmc.log(f"{remodtv_addon_name} Kodi 20+.", level=xbmc.LOGINFO)
+else:
+    xbmc.log(f"{remodtv_addon_name} Kodi <20.", level=xbmc.LOGINFO)
+    xbmc.executebuiltin(f"Notification({remodtv_addon_name},ERROR. Kodi <20,3000,)")
+    dialog = xbmcgui.Dialog()
+    dialog.ok(f"{remodtv_addon_name}", "ERROR. Este addon no es compatible con versiones de Kodi <20.")
+    sys.exit(0)
+
+    
+    
 ### parametros
 BASE_URL = sys.argv[0]
 HANDLE = int(sys.argv[1])
@@ -329,10 +362,10 @@ def fuente():
     menu_items = [
         (f"Elige la fuente para la sección de TV:", "", "tv.png"),
 
-        ("      1 > Lista Directa (Por defecto)\n                ACS http directos", "lis_dir", ""),
-        ("      2 > Lista acestream (ACE)\n              ACS protocolo acestream://", "lis,_ace", ""),
-        ("      3 > Lista Horus\n                ACS para addon Horus", "lis_hor", ""),
-        ("      4 > Lista ReModTV\n                [ACS] y [M3U8] (VPN necesario para [M3U8])", "lis_rm", "")
+        ("      1 > Direct (Por defecto)\n                http directos", "lis_dir", ""),
+        ("      2 > ACE\n               Protocolo acestream://", "lis,_ace", ""),
+        ("      3 > Horus\n             Para addon Horus", "lis_hor", ""),
+        ("      4 > ReModTV\n               [ACS] y [M3U8] (VPN necesario para [M3U8])", "lis_rm", "")
     ]
 
     for label, action, icon_file in menu_items:
@@ -489,6 +522,8 @@ else:
         fuente()
     elif action == "actualizar":
         actualizar_tv()
+        ajuste_id = "homemenunotvbutton"
+        act_ajuste(ajuste_id)
     elif action == "info":
         buscar_actualizacion()
     elif action == "res_ext":

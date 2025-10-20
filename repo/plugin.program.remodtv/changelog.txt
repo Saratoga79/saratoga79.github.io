@@ -1,4 +1,9 @@
 > ReMod TV
+> Versión = 25.10.20.1
+> Cambios respecto a la versión anterior:
+	- La sección de TV se activa automáticamente si está desactivado después de actualizar la lista de TV manualmente
+	- Pequeñas mejoras en código
+	
 > Versión = 25.10.20.0
 > Cambios respecto a la versión anterior:
 	- Nueva fuente para sección de TV, ReModTV con enlaces [ACS] y [M3U8], estos últimos rquieren de VPN
