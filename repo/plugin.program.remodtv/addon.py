@@ -34,38 +34,6 @@ addons_addon_data = os.path.join(addons_userdata, 'addon_data')
 changelog = os.path.join(remodtv_addon_path, 'changelog.txt')
 carp = 'dir'
 
-### comp versión Kodi
-def obtener_version_kodi():
-    # Obtiene la cadena completa de la versión
-    version_completa = xbmc.getInfoLabel('System.BuildVersion')
-    
-    # Normalmente la versión está al principio, antes de cualquier texto adicional
-    # Por ejemplo: "21.0 Git:20211231" -> "21.0"
-    version = version_completa.split()[0]   # toma solo la primera palabra
-    
-    # Si quieres separar mayor y menor:
-    mayor, *resto = version.split('.')
-    menor = resto[0] if resto else '0'
-    
-    return {
-        'versión_completa': version_completa,
-        'versión': version,
-        'mayor': int(mayor),
-        'menor': int(menor)
-    }
-
-# kodi info
-info = obtener_version_kodi()
-if info['mayor'] >= 20:
-    xbmc.log(f"{remodtv_addon_name} Kodi 20+.", level=xbmc.LOGINFO)
-else:
-    xbmc.log(f"{remodtv_addon_name} Kodi <20.", level=xbmc.LOGINFO)
-    xbmc.executebuiltin(f"Notification({remodtv_addon_name},ERROR. Kodi <20,3000,)")
-    dialog = xbmcgui.Dialog()
-    dialog.ok(f"{remodtv_addon_name}", "ERROR. Este addon no es compatible con versiones de Kodi <20.")
-    sys.exit(0)
-
-    
     
 ### parametros
 BASE_URL = sys.argv[0]
@@ -81,14 +49,40 @@ def build_url(query):
 def lista_menu_principal():
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
-        (f"{remodtv_addon_name} versión: {remodtv_addon_version} | Buscar actualizaciones", "info", "info.png"),
+        (f"{remodtv_addon_name} versión: {remodtv_addon_version} | Mostrar Changelog | Buscar actualizaciones", "info", "info.png"),
         ("> Instalar y configurar sección TV de Kodi | Reinstalar fuente por defecto", "tv2", "tv2.png"),
         ("> Elegir fuente para sección TV de Kodi", "fuente", "tv.png"),
+        ("> Configurar Reproductor Externo para AceStream | Android y Windows", "res_ext", "repro.png"),
         ("", "", ""),
-        ("> Actualizar TV", "actualizar", "update.png"),
         # ("", "", ""),
-        ("> Configurar Reproductor Externo para AceStream | Android y Windows", "res_ext", "repro.png")
+        ("> Actualizar TV", "actualizar", "update.png")
         # ("> test", "test", "repro.png")
+    ]
+
+    for label, action, icon_file in menu_items:
+        url = build_url({"action": action})
+        ### Creamos el ListItem
+        li = xbmcgui.ListItem(label=label)
+        ### Ruta absoluta al icono
+        icon_path = xbmcvfs.translatePath(os.path.join(remodtv_addon_path, 'recursos', 'imagenes', icon_file))
+        ###  Asignamos el icono
+        li.setArt({'icon': icon_path, 'thumb': icon_path})
+        ### Indicamos que es una carpeta (un sub‑menú o acción que abre algo)
+        xbmcplugin.addDirectoryItem(handle=HANDLE,
+                                    url=url,
+                                    listitem=li,
+                                    isFolder=True)
+    xbmcplugin.endOfDirectory(HANDLE)
+    
+def fuente():
+    ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
+    menu_items = [
+        (f"Elige la fuente para la sección de TV:", "", "tv.png"),
+
+        (" Direct (Por defecto) | http directos", "lis_dir", "1.png"),
+        (" ACE | Protocolo acestream://", "lis,_ace", "2.png"),
+        (" Horus | Para addon Horus", "lis_hor", "3.png"),
+        (" ReModTV | [ACS] http directos y [M3U8] con VPN necesaria", "lis_rm", "4.png")
     ]
 
     for label, action, icon_file in menu_items:
@@ -105,7 +99,6 @@ def lista_menu_principal():
                                     listitem=li,
                                     isFolder=True)
     xbmcplugin.endOfDirectory(HANDLE)
-    
 
 ### mostrar changelog
 def mostrar_changelog():
@@ -121,7 +114,6 @@ def mostrar_changelog():
             5000
         )
         return
-    # Muestra el texto en un visor de diálogos
     dlg = xbmcgui.Dialog()
     dlg.textviewer('Changelog', contenido)
 
@@ -153,25 +145,20 @@ def guardar_version(version):
 
 
 def comp_version():
-    # version_actual = obtener_version_instalada()
     version_actual = remodtv_addon_version
     version_anterior = leer_ultima_version()
-
     xbmc.log("REMOD TV Versión actual: %s" % version_actual, xbmc.LOGINFO)
-
     if version_anterior is None:
         xbmc.log("REMOD TV No hay registro previo. Guardando versión actual.", xbmc.LOGINFO)
         guardar_version(version_actual)
         return
-
     xbmc.log("REMOD TV Versión guardada previamente: %s" % version_anterior, xbmc.LOGINFO)
-
     if version_actual != version_anterior:
         xbmc.log("REMOD TV El addon se ha actualizado", xbmc.LOGINFO)
         ### Modificaciones
         mostrar_changelog()
         xbmcgui.Dialog().notification(f"{remodtv_addon_name}","Actualizado de v%s->[COLOR blue]v%s[/COLOR]" % (version_anterior, version_actual),xbmcgui.NOTIFICATION_INFO,5000)
-        # Finalmente, actualizamos el registro
+        #33 Finalmente, actualizamos el registro
         guardar_version(version_actual)
     else:
         xbmc.log("REMOD TV No hay cambios de versión.", xbmc.LOGINFO)
@@ -242,15 +229,15 @@ def download_zip_from_url(url):
     xbmc.executebuiltin(f"Notification({remodtv_addon_name},Descargando addon.,1000,)")
     xbmc.log(f"REMOD TV Iniciando download_zip_from_url.", level=xbmc.LOGINFO)
     try:
-        # Realizar la solicitud HTTP GET
+        ### Realizar la solicitud HTTP GET
         response = urllib.request.urlopen(url)
-        # Extraer el nombre del archivo desde la URL
+        ### Extraer el nombre del archivo desde la URL
         filename = url.split('/')[-1]
-        # Ruta donde se guardará el archivo
+        ### Ruta donde se guardará el archivo
         addon_path = xbmcvfs.translatePath(os.path.join(addons_home, 'packages'))
-        # global full_path
+        ### global full_path
         full_path = os.path.join(addon_path, filename)
-        # Guardar el archivo en el sistema local
+        ### Guardar el archivo en el sistema local
         with open(full_path, 'wb') as f:
             f.write(response.read())
             xbmc.log(f"REMOD TV Archivo zip descargado.", level=xbmc.LOGINFO)
@@ -258,11 +245,11 @@ def download_zip_from_url(url):
         xbmc.log(f"REMOD TV Iniciando extract_zip.", level=xbmc.LOGINFO)
         xbmc.sleep(1000)
         extract_path = xbmcvfs.translatePath(addons_home)
-        # Verificar si el archivo existe
+        ### Verificar si el archivo existe
         if not os.path.exists(full_path):
             raise FileNotFoundError(f"El archivo {full_path} no existe")
             return False
-        # Extraer el archivo ZIP
+        ### Extraer el archivo ZIP
         with zipfile.ZipFile(full_path, mode="r") as archive:
             archive.extractall(extract_path)
             xbmc.log(f"REMOD TV Archivo zip extraido.", level=xbmc.LOGINFO)
@@ -328,7 +315,6 @@ def addon_inst_confirm(addon_id):
 
 ### instala solo iptv simple sin iptv merge
 def inst_tv2():
-    # archivos_config()
     addons = ["pvr.iptvsimple"]
     addon_id = 'pvr.iptvsimple'
     lista_addons(addons, False)
@@ -355,34 +341,6 @@ def inst_tv2():
             xbmc.log(f"REMOD TV Recargando Addon ya instalando IPTV Simple.", level=xbmc.LOGINFO)
             xbmc.executebuiltin(f"Notification({remodtv_addon_name},Recargando IPTV Simple.,1000,)")
             xbmc.executebuiltin(f"Notification({remodtv_addon_name},En unos 30s estará disponible la sección TV de Kodi.,5000,)")
-
-
-def fuente():
-    ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
-    menu_items = [
-        (f"Elige la fuente para la sección de TV:", "", "tv.png"),
-
-        ("      1 > Direct (Por defecto)\n                http directos", "lis_dir", ""),
-        ("      2 > ACE\n               Protocolo acestream://", "lis,_ace", ""),
-        ("      3 > Horus\n             Para addon Horus", "lis_hor", ""),
-        ("      4 > ReModTV\n               [ACS] y [M3U8] (VPN necesario para [M3U8])", "lis_rm", "")
-    ]
-
-    for label, action, icon_file in menu_items:
-        url = build_url({"action": action})
-        ### Creamos el ListItem
-        li = xbmcgui.ListItem(label=label)
-        ### Ruta absoluta al icono
-        icon_path = xbmcvfs.translatePath(os.path.join(remodtv_addon_path, 'recursos', 'imagenes', icon_file))
-        ###  Asignamos el icono
-        li.setArt({'icon': icon_path, 'thumb': icon_path})   # thumb también sirve
-        ### Indicamos que es una carpeta (un sub‑menú o acción que abre algo)
-        xbmcplugin.addDirectoryItem(handle=HANDLE,
-                                    url=url,
-                                    listitem=li,
-                                    isFolder=True)
-    xbmcplugin.endOfDirectory(HANDLE)
-
 
 
 def actualizar_tv():
@@ -471,17 +429,23 @@ def ele_rep():
         ### 14. VLC y AceStream oficial | Windows
         "VLC y AceStream oficial | Windows",
         ### 15. Dejarlo por defecto
-        "Dejarlo por defecto\n      Dejarlo por defecto como cuando se instaló Kodi",
+        "Restaurar por defecto\n      Como cuando se instaló Kodi",
         ### 16. Atras
         "< Volver"
     ]
 )
+    if rep == -1:
+        pass
+        
     if rep == 15:
-        ### Borramos pcf para dejarlo como antes
+        ### Borramos pcf para dejarlo por defecto
+        xbmc.log(f"REMOD TV Borrando playercorefactory.xml", level=xbmc.LOGINFO)
         dest = xbmcvfs.translatePath(os.path.join(addons_userdata, 'playercorefactory.xml'))
         xbmcvfs.delete(dest)
-                
-    if not rep == 16:
+        dialog = xbmcgui.Dialog()
+        dialog.ok(f"{remodtv_addon_name}", "Restaurado. Necesitarás reiniciar Kodi para aplicar los cambios.")
+    
+    elif not rep == 16 and not rep == -1:
         ### variable de la carpeta
         pcf_path = f"playercorefactory{rep}"
         ### copiando archivo playercorefactory.xml desde la variable de la carpeta
@@ -490,7 +454,7 @@ def ele_rep():
         dest = xbmcvfs.translatePath(os.path.join(addons_userdata, 'playercorefactory.xml'))
         xbmcvfs.copy(orig, dest)
         dialog = xbmcgui.Dialog()
-        dialog.ok(f"{remodtv_addon_name}", "Necesitarás reiniciar Kodi para aplicar los cambios.")
+        dialog.ok(f"{remodtv_addon_name}", "Configurado. Necesitarás reiniciar Kodi para aplicar los cambios.")
 
 
 ### activar sección TV si no está activada (homemenunotvbutton = True = Sección desactivada)
@@ -525,6 +489,7 @@ else:
         ajuste_id = "homemenunotvbutton"
         act_ajuste(ajuste_id)
     elif action == "info":
+        mostrar_changelog()
         buscar_actualizacion()
     elif action == "res_ext":
         ele_rep()
