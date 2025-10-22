@@ -1,8 +1,13 @@
 > ReMod TV
 > Versión = 25.10.21.0
 > Cambios respecto a la versión anterior:
+	- Corregido el fallo al elegir la fuente ACE (2)
+	
+> Versión = 25.10.21.0
+> Cambios respecto a la versión anterior:
 	- La sección de TV se activa automáticamente si está desactivado después de actualizar la lista de TV manualmente
 	- Limpieza y pequeñas mejoras en código
+	- AceServe 1.3.5 y versiones anteriores (en la fuente ReMod)
 	
 > Versión = 25.10.20.0
 > Cambios respecto a la versión anterior:

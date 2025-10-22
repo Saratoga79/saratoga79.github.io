@@ -80,7 +80,7 @@ def fuente():
         (f"Elige la fuente para la sección de TV:", "", "tv.png"),
 
         (" Direct (Por defecto) | http directos", "lis_dir", "1.png"),
-        (" ACE | Protocolo acestream://", "lis,_ace", "2.png"),
+        (" ACE | Protocolo acestream://", "lis_ace", "2.png"),
         (" Horus | Para addon Horus", "lis_hor", "3.png"),
         (" ReModTV | [ACS] http directos y [M3U8] con VPN necesaria", "lis_rm", "4.png")
     ]
