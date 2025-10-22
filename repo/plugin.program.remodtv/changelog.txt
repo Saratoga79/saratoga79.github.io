@@ -1,4 +1,8 @@
 > ReMod TV
+> Versión = 25.10.22.2
+> Cambios respecto a la versión anterior:
+	- Añadidas fuentes de repuesto para las fuentes Direct (1), ACE (2) y Horus (3)
+	
 > Versión = 25.10.22.1
 > Cambios respecto a la versión anterior:
 	- Correcciones y mejoras

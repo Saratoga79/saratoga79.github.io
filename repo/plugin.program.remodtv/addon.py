@@ -54,7 +54,6 @@ def lista_menu_principal():
         ("> Elegir fuente para sección TV de Kodi", "fuente", "tv.png"),
         ("> Configurar Reproductor Externo para AceStream | Android y Windows", "res_ext", "repro.png"),
         ("", "", ""),
-        # ("", "", ""),
         ("> Actualizar TV", "actualizar", "update.png")
         # ("> test", "test", "repro.png")
     ]
@@ -78,11 +77,15 @@ def fuente():
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
         (f"Elige la fuente para la sección de TV:", "", "tv.png"),
-
         (" Direct (Por defecto) | http directos", "lis_dir", "1.png"),
         (" ACE | Protocolo acestream://", "lis_ace", "2.png"),
         (" Horus | Para addon Horus", "lis_hor", "3.png"),
-        (" ReModTV | [ACS] http directos y [M3U8] con VPN necesaria", "lis_rm", "4.png")
+        (" ReModTV | [ACS] http directos y [M3U8] con VPN necesaria", "lis_rm", "4.png"),
+        ("", "", ""),
+        (" Fuentes de repuesto para la sección de TV:", "", "tv.png"),
+        (" Direct (Por defecto) | http directos", "lis_dir_rep", "1.png"),
+        (" ACE | Protocolo acestream://", "lis_ace_rep", "2.png"),
+        (" Horus | Para addon Horus", "lis_hor_rep", "3.png")
     ]
 
     for label, action, icon_file in menu_items:
@@ -498,13 +501,28 @@ else:
         archivos_config()
         actualizar_tv()
         lista_menu_principal()
+    elif action == "lis_dir_rep":
+        carp = 'dir_rep'
+        archivos_config()
+        actualizar_tv()
+        lista_menu_principal()
     elif action == "lis_ace":
         carp = 'ace'
         archivos_config()
         actualizar_tv()
         lista_menu_principal()
+    elif action == "lis_ace_rep":
+        carp = 'ace_rep'
+        archivos_config()
+        actualizar_tv()
+        lista_menu_principal()
     elif action == "lis_hor":
         carp = 'hor'
+        archivos_config()
+        actualizar_tv()
+        lista_menu_principal()
+    elif action == "lis_hor_rep":
+        carp = 'hor_rep'
         archivos_config()
         actualizar_tv()
         lista_menu_principal()
