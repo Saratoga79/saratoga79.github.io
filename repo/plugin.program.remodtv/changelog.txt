@@ -1,5 +1,9 @@
 > ReMod TV
-> Versión = 25.10.21.0
+> Versión = 25.10.22.1
+> Cambios respecto a la versión anterior:
+	- Correcciones y mejoras
+	
+> Versión = 25.10.22.0
 > Cambios respecto a la versión anterior:
 	- Corregido el fallo al elegir la fuente ACE (2)
 	

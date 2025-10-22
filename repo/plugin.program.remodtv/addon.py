@@ -489,8 +489,8 @@ else:
         ajuste_id = "homemenunotvbutton"
         act_ajuste(ajuste_id)
     elif action == "info":
-        mostrar_changelog()
         buscar_actualizacion()
+        mostrar_changelog()
     elif action == "res_ext":
         ele_rep()
     elif action == "lis_dir":
