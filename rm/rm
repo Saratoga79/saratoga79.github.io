@@ -48,16 +48,16 @@ http://127.0.0.1:6878/ace/getstream?id=d15a0eaf825b5f8f94259d5209688a7e97e6acde&
 http://127.0.0.1:6878/ace/getstream?id=ab44638ba27b2b4f15b9b570fb1b0a99f0ee9c06&pid=15
 
 #EXTINF:-1 cuid="16" group-title="M3U8" tvg-chno="16" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@50] [M3U8] (Ayf) (Canal 16)
-http://6th.bet:8080/play/S85nEDJUubzb3cABS8KckWOHB1hRJNbH1iRTUbH84HXRTQRdXlJnTrHBCU9bjKzp
-
-#EXTINF:-1 cuid="17" group-title="M3U8" tvg-chno="17" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@50] [M3U8] (Ayf) (Canal 17)
-http://6th.bet:8080/iuUVX77d0n/DQU79OyOin/292471
-
-#EXTINF:-1 cuid="18" group-title="M3U8" tvg-chno="18" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@50] [M3U8] (Ayf) (Canal 18)
 http://6th.bet:8080/play/S85nEDJUubzb3cABS8KckXHGOKnVYXDRgRMwApMMd4G0U-Zn2t--nC5vH5lhhl9C
 
-#EXTINF:-1 cuid="19" group-title="M3U8" tvg-chno="19" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@50] [M3U8] (Ayf) (Canal 19)
+#EXTINF:-1 cuid="17" group-title="M3U8" tvg-chno="17" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@50] [M3U8] (Ayf) (Canal 17)
 http://6th.bet:8080/iuUVX77d0n/DQU79OyOin/292359
+
+#EXTINF:-1 cuid="18" group-title="M3U8" tvg-chno="18" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@50] [M3U8] (Ayf) (Canal 18)
+http://6th.bet:8080/play/S85nEDJUubzb3cABS8KckWOHB1hRJNbH1iRTUbH84HXRTQRdXlJnTrHBCU9bjKzp
+
+#EXTINF:-1 cuid="19" group-title="M3U8" tvg-chno="19" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@50] [M3U8] (Ayf) (Canal 19)
+http://6th.bet:8080/iuUVX77d0n/DQU79OyOin/292471
 
 #EXTINF:-1 cuid="20" group-title="M3U8" tvg-chno="20" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@50] [M3U8] (DrMc) (Canal 20)
 http://esproipingttm.top:8080/es5821729707550001/ec5882c6a3ae/92
