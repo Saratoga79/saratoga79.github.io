@@ -1,4 +1,8 @@
 > ReMod TV
+> Versión = 25.10.23.1
+> Cambios respecto a la versión anterior:
+	- Indicador de fuente actual añadido al menu para Elegir la fuente para sección de TV
+	
 > Versión = 25.10.23.0
 > Cambios respecto a la versión anterior:
 	- Menú para Configurar el Reproductor Externo renovado

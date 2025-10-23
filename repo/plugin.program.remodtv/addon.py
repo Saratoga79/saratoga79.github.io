@@ -32,9 +32,12 @@ addons_userdata = xbmcvfs.translatePath(f'special://home/userdata')
 addons_addon_data = os.path.join(addons_userdata, 'addon_data')
 ### changelog
 changelog = os.path.join(remodtv_addon_path, 'changelog.txt')
+### paths fuente
 carp = 'dir'
+### variables para archivos json
 rep_sel = '0'
 rep_act = 'No detectado'
+fue_act = 'No detectado'
     
 ### parametros
 BASE_URL = sys.argv[0]
@@ -75,7 +78,7 @@ def lista_menu_principal():
 def fuente():
     ### Cada opción contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
-        (f"Elige la fuente para la sección de TV:", "fuente", "tv2.png"),
+        (f"Elige la fuente para la sección de TV | Actual: {fue_act}", "fuente", "tv2.png"),
         (" Direct (Por defecto) | http directos", "lis_dir", "1.png"),
         (" ACE | Protocolo acestream://", "lis_ace", "2.png"),
         (" Horus | Para addon Horus", "lis_hor", "3.png"),
@@ -178,7 +181,6 @@ def leer_ultima_version():
 
 ### control de rep ext
 REP_FILE = os.path.join(xbmcvfs.translatePath("special://profile/addon_data/%s" % remodtv_addon_id), "reproductor.json")
-xbmc.log(f"REMOD TV file: {REP_FILE}", xbmc.LOGINFO)
 
 def leer_rep_ext():
     """Lee la versión que guardamos la última vez que se ejecutó el script."""
@@ -188,15 +190,35 @@ def leer_rep_ext():
         with open(REP_FILE, "r") as f:
             ### guardamos en data toda la línea
             data = json.load(f)
-            xbmc.log(f"REMOD TV data1: {data}", xbmc.LOGINFO)
+            xbmc.log(f"REMOD TV data: {data}", xbmc.LOGINFO)
             ### sacamos de data el valor de reprodcutor
             return data['reprodcutor']
-            xbmc.log(f"REMOD TV rep_act: {rep_act}", xbmc.LOGERROR)
             xbmc.log("REMOD TV Leido: %s" % e, xbmc.LOGERROR)
             return True
     except Exception as e:
-        rep_act = data['reprodcutor']     # o bien: rep_act = data.get('reprodcutor')
+        rep_act = data['reprodcutor']
         xbmc.log("REMOD TV Error leyendo reprodcutor externo guardado: %s" % e, xbmc.LOGERROR)
+        return None
+
+### control de fuente
+FUE_FILE = os.path.join(xbmcvfs.translatePath("special://profile/addon_data/%s" % remodtv_addon_id), "fuente.json")
+
+def leer_fuente():
+    """Lee la versión que guardamos la última vez que se ejecutó el script."""
+    if not os.path.isfile(FUE_FILE):
+        return None
+    try:
+        with open(FUE_FILE, "r") as f:
+            ### guardamos en data toda la línea
+            data = json.load(f)
+            xbmc.log(f"REMOD TV data: {data}", xbmc.LOGINFO)
+            ### sacamos de data el valor de fuente
+            return data['fuente']
+            xbmc.log("REMOD TV Leido: %s" % e, xbmc.LOGERROR)
+            return True
+    except Exception as e:
+        fue_act = data['fuente']
+        xbmc.log("REMOD TV Error leyendo fuente externo guardado: %s" % e, xbmc.LOGERROR)
         return None
 
 def guardar_version(version):
@@ -207,9 +229,7 @@ def guardar_version(version):
             json.dump({"version": version}, f)
     except Exception as e:
         xbmc.log("REMOD TV Error guardando versión: %s" % e, xbmc.LOGERROR)
-
-
-
+        
 def guardar_rep_ext(reprodcutor):
 
     """Guarda la versión actual para la próxima comparación."""
@@ -220,6 +240,15 @@ def guardar_rep_ext(reprodcutor):
     except Exception as e:
         xbmc.log("REMOD TV Error guardando reproductor externo: %s" % e, xbmc.LOGERROR)
 
+def guardar_fuente(fue_sel):
+
+    """Guarda la versión actual para la próxima comparación."""
+    os.makedirs(os.path.dirname(FUE_FILE), exist_ok=True)
+    try:
+        with open(FUE_FILE, "w") as f:
+            json.dump({"fuente": fue_sel}, f)
+    except Exception as e:
+        xbmc.log("REMOD TV Error guardando reproductor externo: %s" % e, xbmc.LOGERROR)
 
 def comp_version():
     version_actual = remodtv_addon_version
@@ -517,6 +546,7 @@ else:
         ajuste_id = "homemenunotvbutton"
         act_ajuste(ajuste_id)
     elif action == "fuente":
+        fue_act = leer_fuente()
         fuente()
     elif action == "actualizar":
         actualizar_tv()
@@ -528,41 +558,57 @@ else:
     elif action == "rep_ext":
         rep_act = leer_rep_ext()
         lista_menu_rep_ext()
+        
     elif action == "lis_dir":
         carp = 'dir'
         archivos_config()
         actualizar_tv()
-        fuente()
+        fue_sel = '1 Direct'
+        guardar_fuente(fue_sel)
+        fue_act = leer_fuente()
     elif action == "lis_dir_rep":
         carp = 'dir_rep'
         archivos_config()
         actualizar_tv()
-        fuente()
+        fue_sel = '1 Direct Repuesto'
+        guardar_fuente(fue_sel)
+        fue_act = leer_fuente()
     elif action == "lis_ace":
         carp = 'ace'
         archivos_config()
         actualizar_tv()
-        fuente()
+        fue_sel = '2 ACE'
+        guardar_fuente(fue_sel)
+        fue_act = leer_fuente()
     elif action == "lis_ace_rep":
         carp = 'ace_rep'
         archivos_config()
         actualizar_tv()
-        fuente()
+        fue_sel = '2 ACE Repuesto'
+        guardar_fuente(fue_sel)
+        fue_act = leer_fuente()
     elif action == "lis_hor":
         carp = 'hor'
         archivos_config()
         actualizar_tv()
-        fuente()
+        fue_sel = '3 Horus'
+        guardar_fuente(fue_sel)
+        fue_act = leer_fuente()
     elif action == "lis_hor_rep":
         carp = 'hor_rep'
         archivos_config()
         actualizar_tv()
-        fuente()
+        fue_sel = '3 Horus Repuesto'
+        guardar_fuente(fue_sel)
+        fue_act = leer_fuente()
     elif action == "lis_rm":
         carp = 'rm'
         archivos_config()
         actualizar_tv()
-        fuente()        
+        fue_sel = '4 ReModTV'
+        guardar_fuente(fue_sel)
+        fue_act = leer_fuente()
+        
     elif action == "pcf0":
         rep_sel = '0'
         ele_rep(rep_sel)
