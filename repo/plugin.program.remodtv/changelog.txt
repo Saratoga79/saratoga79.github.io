@@ -1,4 +1,10 @@
 > ReMod TV
+> Versión = 25.10.23.0
+> Cambios respecto a la versión anterior:
+	- Menú para Configurar el Reproductor Externo renovado
+	- Añadido nuevo Reproductor Externo Ace Stream Pro Mod | org.acestream.nodf | Android
+	- Addon limitado a versiones de Kodi 20+
+	
 > Versión = 25.10.22.2
 > Cambios respecto a la versión anterior:
 	- Añadidas fuentes de repuesto para las fuentes Direct (1), ACE (2) y Horus (3)

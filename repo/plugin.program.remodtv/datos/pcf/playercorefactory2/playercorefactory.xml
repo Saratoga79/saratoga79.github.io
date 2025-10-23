@@ -16,6 +16,10 @@
 			<filename>org.acestream.node</filename>
 			<hidexbmc>true</hidexbmc>
 		</player>
+		<player name="Ace Stream Pro Mod" type="ExternalPlayer" audio="false" video="true">
+			<filename>org.acestream.nodf</filename>
+			<hidexbmc>true</hidexbmc>
+		</player>
 		<player name="Ace Stream Node Web" type="ExternalPlayer" audio="false" video="true">
 			<filename>org.acestream.node.web</filename>
 			<hidexbmc>true</hidexbmc>

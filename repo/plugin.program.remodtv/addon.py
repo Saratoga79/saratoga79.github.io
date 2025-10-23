@@ -33,7 +33,8 @@ addons_addon_data = os.path.join(addons_userdata, 'addon_data')
 ### changelog
 changelog = os.path.join(remodtv_addon_path, 'changelog.txt')
 carp = 'dir'
-
+rep_sel = '0'
+rep_act = 'No detectado'
     
 ### parametros
 BASE_URL = sys.argv[0]
@@ -49,13 +50,11 @@ def build_url(query):
 def lista_menu_principal():
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
-        (f"{remodtv_addon_name} versión: {remodtv_addon_version} | Mostrar Changelog | Buscar actualizaciones", "info", "info.png"),
-        ("> Instalar y configurar sección TV de Kodi | Reinstalar fuente por defecto", "tv2", "tv2.png"),
-        ("> Elegir fuente para sección TV de Kodi", "fuente", "tv.png"),
-        ("> Configurar Reproductor Externo para AceStream | Android y Windows", "res_ext", "repro.png"),
-        ("", "", ""),
+        (f"{remodtv_addon_name} versión: {remodtv_addon_version} | Buscar actualizaciones | Mostrar Changelog", "info", "info.png"),
+        ("> Instalar y configurar sección TV de Kodi | Reinstalar fuente por defecto", "tv", "tv.png"),
+        ("> Elegir fuente para sección TV de Kodi", "fuente", "tv2.png"),
+        ("> Configurar Reproductor Externo | Android y Windows", "rep_ext", "repro.png"),
         ("> Actualizar TV", "actualizar", "update.png")
-        # ("> test", "test", "repro.png")
     ]
 
     for label, action, icon_file in menu_items:
@@ -74,15 +73,14 @@ def lista_menu_principal():
     xbmcplugin.endOfDirectory(HANDLE)
     
 def fuente():
-    ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
+    ### Cada opción contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
-        (f"Elige la fuente para la sección de TV:", "", "tv.png"),
+        (f"Elige la fuente para la sección de TV:", "fuente", "tv2.png"),
         (" Direct (Por defecto) | http directos", "lis_dir", "1.png"),
         (" ACE | Protocolo acestream://", "lis_ace", "2.png"),
         (" Horus | Para addon Horus", "lis_hor", "3.png"),
         (" ReModTV | [ACS] http directos y [M3U8] con VPN necesaria", "lis_rm", "4.png"),
-        ("", "", ""),
-        (" Fuentes de repuesto para la sección de TV:", "", "tv.png"),
+        (" Fuentes de repuesto para la sección de TV:", "", "tv2.png"),
         (" Direct (Por defecto) | http directos", "lis_dir_rep", "1.png"),
         (" ACE | Protocolo acestream://", "lis_ace_rep", "2.png"),
         (" Horus | Para addon Horus", "lis_hor_rep", "3.png")
@@ -102,6 +100,48 @@ def fuente():
                                     listitem=li,
                                     isFolder=True)
     xbmcplugin.endOfDirectory(HANDLE)
+
+
+### lista del menu configurar reproductor externo
+def lista_menu_rep_ext():
+    xbmc.log(f"REMOD TV Reproductor actual: {rep_act}", xbmc.LOGERROR)
+    ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
+    menu_items = [
+        (f"Elige la aplicación del Reprouctor Externo | Actual: {rep_act}", "rep_ext", "repro.png"),
+        ("Ace Stream Media McK | org.acestream.media", "pcf0", "android.png"),
+        ("Ace Stream Media ATV | org.acestream.media.atv", "pcf1", "android.png"),
+        ("Ace Stream Media Web | org.acestream.media.web", "pcf2", "android.png"),
+        ("Ace Stream Node | org.acestream.node", "pcf3", "android.png"),
+        ("Ace Stream Node Web | org.acestream.node.web", "pcf4", "android.png"),
+        ("Ace Stream Core | org.acestream.core", "pcf5", "android.png"),
+        ("Ace Stream Core ATV | org.acestream.core.atv", "pcf6", "android.png"),
+        ("Ace Stream Core Web | org.acestream.core.web", "pcf7", "android.png"),
+        ("Ace Stream Live | org.acestream.live", "pcf8", "android.png"),
+        ("Ace Stream Pro Mod | org.acestream.nodf", "pcf15", "android.png"),
+        ("AceServe | org.free.aceserve", "pcf12", "android.png"),
+        ("MPVkt | live.mehiz.mpvkt", "pcf9", "android.png"),
+        ("MPV | is.xyz.mpv", "pcf10", "android.png"),
+        ("VLC | org.videolan.vlc", "pcf11", "android.png"),
+        ("Ace Stream oficial", "pcf13", "win.png"),
+        ("VLC y Ace Stream oficial", "pcf14", "win.png"),        
+        ("Restaurar por defecto a como cuando se instaló Kodi", "pcf_rest", "restore.png")
+    ]
+
+    for label, action, icon_file in menu_items:
+        url = build_url({"action": action})
+        ### Creamos el ListItem
+        li = xbmcgui.ListItem(label=label)
+        ### Ruta absoluta al icono
+        icon_path = xbmcvfs.translatePath(os.path.join(remodtv_addon_path, 'recursos', 'imagenes', icon_file))
+        ###  Asignamos el icono
+        li.setArt({'icon': icon_path, 'thumb': icon_path})
+        ### Indicamos que es una carpeta (un sub‑menú o acción que abre algo)
+        xbmcplugin.addDirectoryItem(handle=HANDLE,
+                                    url=url,
+                                    listitem=li,
+                                    isFolder=True)
+    xbmcplugin.endOfDirectory(HANDLE)
+    
 
 ### mostrar changelog
 def mostrar_changelog():
@@ -136,6 +176,28 @@ def leer_ultima_version():
         xbmc.log("REMOD TV Error leyendo versión guardada: %s" % e, xbmc.LOGERROR)
         return None
 
+### control de rep ext
+REP_FILE = os.path.join(xbmcvfs.translatePath("special://profile/addon_data/%s" % remodtv_addon_id), "reproductor.json")
+xbmc.log(f"REMOD TV file: {REP_FILE}", xbmc.LOGINFO)
+
+def leer_rep_ext():
+    """Lee la versión que guardamos la última vez que se ejecutó el script."""
+    if not os.path.isfile(REP_FILE):
+        return None
+    try:
+        with open(REP_FILE, "r") as f:
+            ### guardamos en data toda la línea
+            data = json.load(f)
+            xbmc.log(f"REMOD TV data1: {data}", xbmc.LOGINFO)
+            ### sacamos de data el valor de reprodcutor
+            return data['reprodcutor']
+            xbmc.log(f"REMOD TV rep_act: {rep_act}", xbmc.LOGERROR)
+            xbmc.log("REMOD TV Leido: %s" % e, xbmc.LOGERROR)
+            return True
+    except Exception as e:
+        rep_act = data['reprodcutor']     # o bien: rep_act = data.get('reprodcutor')
+        xbmc.log("REMOD TV Error leyendo reprodcutor externo guardado: %s" % e, xbmc.LOGERROR)
+        return None
 
 def guardar_version(version):
     """Guarda la versión actual para la próxima comparación."""
@@ -145,6 +207,18 @@ def guardar_version(version):
             json.dump({"version": version}, f)
     except Exception as e:
         xbmc.log("REMOD TV Error guardando versión: %s" % e, xbmc.LOGERROR)
+
+
+
+def guardar_rep_ext(reprodcutor):
+
+    """Guarda la versión actual para la próxima comparación."""
+    os.makedirs(os.path.dirname(REP_FILE), exist_ok=True)
+    try:
+        with open(REP_FILE, "w") as f:
+            json.dump({"reprodcutor": reprodcutor}, f)
+    except Exception as e:
+        xbmc.log("REMOD TV Error guardando reproductor externo: %s" % e, xbmc.LOGERROR)
 
 
 def comp_version():
@@ -317,7 +391,7 @@ def addon_inst_confirm(addon_id):
         
 
 ### instala solo iptv simple sin iptv merge
-def inst_tv2():
+def inst_tv():
     addons = ["pvr.iptvsimple"]
     addon_id = 'pvr.iptvsimple'
     lista_addons(addons, False)
@@ -396,51 +470,9 @@ def addon_borrar_datos(addon_id):
 
 
 ### configuración del reproductor externo para ACS en Android
-def ele_rep():
-    dialog = xbmcgui.Dialog()
-    rep = dialog.select(
-    f"Elige la aplicación de AceStream que tengas instalada",
-    [
-        ### 0. Ace Stream Media McK
-        "Ace Stream Media McK | Android\n     org.acestream.media",
-        ### 1. Ace Stream Media ATV
-        "Ace Stream Media ATV | Android\n     org.acestream.media.atv",
-        ### 2. Ace Stream Media Web
-        "Ace Stream Media Web | Android\n     org.acestream.media.web",
-        ### 3. Ace Stream Node
-        "Ace Stream Node | Android\n      org.acestream.node",
-        ### 4. Ace Stream Node Web
-        "Ace Stream Node Web | Android\n      org.acestream.node.web",
-        ### 5. Ace Stream Core
-        "Ace Stream Core | Android\n      org.acestream.core",
-        ### 6. Ace Stream Core ATV
-        "Ace Stream Core ATV | Android\n      org.acestream.core.atv",
-        ### 7. Ace Stream Core Web
-        "Ace Stream Core Web | Android\n      org.acestream.core.web",
-        ### 8. Ace Stream Live
-        "Ace Stream Live | Android\n      org.acestream.live",
-        ### 9. MPVkt
-        "MPVkt | Android\n        live.mehiz.mpvkt",
-        ### 10. MPV
-        "MPV | Android\n      is.xyz.mpv",
-        ### 11. VLC
-        "VLC | Android\n      org.videolan.vlc",
-        ### 12. Ace Serve
-        "AceServe | Android\n        org.free.aceserve",
-        ### 13. AceStream oficial | Windows
-        "AceStream oficial | Windows",
-        ### 14. VLC y AceStream oficial | Windows
-        "VLC y AceStream oficial | Windows",
-        ### 15. Dejarlo por defecto
-        "Restaurar por defecto\n      Como cuando se instaló Kodi",
-        ### 16. Atras
-        "< Volver"
-    ]
-)
-    if rep == -1:
-        pass
-        
-    if rep == 15:
+def ele_rep(rep_sel):
+    xbmc.log(f"REMOD TV Configuración Reproductor Externo", level=xbmc.LOGINFO)
+    if rep_sel == 'rest_pcf':
         ### Borramos pcf para dejarlo por defecto
         xbmc.log(f"REMOD TV Borrando playercorefactory.xml", level=xbmc.LOGINFO)
         dest = xbmcvfs.translatePath(os.path.join(addons_userdata, 'playercorefactory.xml'))
@@ -448,16 +480,16 @@ def ele_rep():
         dialog = xbmcgui.Dialog()
         dialog.ok(f"{remodtv_addon_name}", "Restaurado. Necesitarás reiniciar Kodi para aplicar los cambios.")
     
-    elif not rep == 16 and not rep == -1:
+    else:
         ### variable de la carpeta
-        pcf_path = f"playercorefactory{rep}"
+        pcf_path = f"playercorefactory{rep_sel}"
         ### copiando archivo playercorefactory.xml desde la variable de la carpeta
         xbmc.log(f"REMOD TV Copiando archivo {pcf_path}", level=xbmc.LOGINFO)
         orig = xbmcvfs.translatePath(os.path.join(remodtv_addon_datos, 'pcf', pcf_path, 'playercorefactory.xml'))
         dest = xbmcvfs.translatePath(os.path.join(addons_userdata, 'playercorefactory.xml'))
         xbmcvfs.copy(orig, dest)
         dialog = xbmcgui.Dialog()
-        dialog.ok(f"{remodtv_addon_name}", "Configurado. Necesitarás reiniciar Kodi para aplicar los cambios.")
+        dialog.ok(f"{remodtv_addon_name}", f"Configurado {pcf_path}. Necesitarás reiniciar Kodi para aplicar los cambios.")
 
 
 ### activar sección TV si no está activada (homemenunotvbutton = True = Sección desactivada)
@@ -478,13 +510,12 @@ if not ARGS:
     lista_menu_principal()
 else:
     action = ARGS.get('action', [None])[0]
-    if action == "tv2":
+    if action == "tv":
         carp = 'dir'
-        inst_tv2()
+        inst_tv()
         ### activar seección TV en menú principal
         ajuste_id = "homemenunotvbutton"
         act_ajuste(ajuste_id)
-        
     elif action == "fuente":
         fuente()
     elif action == "actualizar":
@@ -494,43 +525,148 @@ else:
     elif action == "info":
         buscar_actualizacion()
         mostrar_changelog()
-    elif action == "res_ext":
-        ele_rep()
+    elif action == "rep_ext":
+        rep_act = leer_rep_ext()
+        lista_menu_rep_ext()
     elif action == "lis_dir":
         carp = 'dir'
         archivos_config()
         actualizar_tv()
-        lista_menu_principal()
+        fuente()
     elif action == "lis_dir_rep":
         carp = 'dir_rep'
         archivos_config()
         actualizar_tv()
-        lista_menu_principal()
+        fuente()
     elif action == "lis_ace":
         carp = 'ace'
         archivos_config()
         actualizar_tv()
-        lista_menu_principal()
+        fuente()
     elif action == "lis_ace_rep":
         carp = 'ace_rep'
         archivos_config()
         actualizar_tv()
-        lista_menu_principal()
+        fuente()
     elif action == "lis_hor":
         carp = 'hor'
         archivos_config()
         actualizar_tv()
-        lista_menu_principal()
+        fuente()
     elif action == "lis_hor_rep":
         carp = 'hor_rep'
         archivos_config()
         actualizar_tv()
-        lista_menu_principal()
+        fuente()
     elif action == "lis_rm":
         carp = 'rm'
         archivos_config()
         actualizar_tv()
-        lista_menu_principal()
+        fuente()        
+    elif action == "pcf0":
+        rep_sel = '0'
+        ele_rep(rep_sel)
+        reproductor = 'Ace Stream Media McK'
+        guardar_rep_ext(reproductor)
+        rep_act = leer_rep_ext()
+    elif action == "pcf1":
+        rep_sel = '1'
+        ele_rep(rep_sel)
+        reproductor = 'Ace Stream Media ATV'
+        guardar_rep_ext(reproductor)
+        rep_act = leer_rep_ext()
+    elif action == "pcf2":
+        rep_sel = '2'
+        ele_rep(rep_sel)
+        reproductor = 'Ace Stream Media Web'
+        guardar_rep_ext(reproductor)
+        rep_act = leer_rep_ext()
+    elif action == "pcf3":
+        rep_sel = '3'
+        ele_rep(rep_sel)
+        reproductor = 'Ace Stream Media Node'
+        guardar_rep_ext(reproductor)
+        rep_act = leer_rep_ext()
+    elif action == "pcf4":
+        rep_sel = '4'
+        ele_rep(rep_sel)
+        reproductor = 'Ace Stream Media Node Web'
+        guardar_rep_ext(reproductor)
+        rep_act = leer_rep_ext()
+    elif action == "pcf5":
+        rep_sel = '5'
+        ele_rep(rep_sel)
+        reproductor = 'Ace Stream Media Core'
+        guardar_rep_ext(reproductor)
+        rep_act = leer_rep_ext()
+    elif action == "pcf6":
+        rep_sel = '6'
+        ele_rep(rep_sel)
+        reproductor = 'Ace Stream Media Core ATV'
+        guardar_rep_ext(reproductor)
+        rep_act = leer_rep_ext()
+    elif action == "pcf7":
+        rep_sel = '7'
+        ele_rep(rep_sel)
+        reproductor = 'Ace Stream Media Core Web'
+        guardar_rep_ext(reproductor)
+        rep_act = leer_rep_ext()
+    elif action == "pcf8":
+        rep_sel = '8'
+        ele_rep(rep_sel)
+        reproductor = 'Ace Stream Live'
+        guardar_rep_ext(reproductor)
+        rep_act = leer_rep_ext()
+    elif action == "pcf9":
+        rep_sel = '9'
+        ele_rep(rep_sel)
+        reproductor = 'MPVkt'
+        guardar_rep_ext(reproductor)
+        rep_act = leer_rep_ext()
+    elif action == "pcf10":
+        rep_sel = '10'
+        ele_rep(rep_sel)
+        reproductor = 'MPV'
+        guardar_rep_ext(reproductor)
+        rep_act = leer_rep_ext()
+    elif action == "pcf11":
+        rep_sel = '11'
+        ele_rep(rep_sel)
+        reproductor = 'VLC'
+        guardar_rep_ext(reproductor)
+        rep_act = leer_rep_ext()
+    elif action == "pcf12":
+        rep_sel = '12'
+        ele_rep(rep_sel)
+        reproductor = 'AceServe'
+        guardar_rep_ext(reproductor)
+        rep_act = leer_rep_ext()
+    elif action == "pcf13":
+        rep_sel = '13'
+        ele_rep(rep_sel)
+        reproductor = 'Ace Stream oficial'
+        guardar_rep_ext(reproductor)
+        rep_act = leer_rep_ext()
+    elif action == "pcf14":
+        rep_sel = '14'
+        ele_rep(rep_sel)
+        reproductor = 'VLC y Ace Stream oficial'
+        guardar_rep_ext(reproductor)
+        rep_act = leer_rep_ext()
+    elif action == "pcf15":
+        rep_sel = '15'
+        ele_rep(rep_sel)
+        reproductor = 'Ace Stream Pro Mod'
+        guardar_rep_ext(reproductor)
+        rep_act = leer_rep_ext()
+    elif action == "pcf_rest":
+        rep_sel = 'rest_pcf'
+        ele_rep(rep_sel)
+        reproductor = 'Por defecto de Kodi'
+        guardar_rep_ext(reproductor)
+        rep_act = leer_rep_ext()
+        
+        
     elif action == "test":
         pass
     else:
