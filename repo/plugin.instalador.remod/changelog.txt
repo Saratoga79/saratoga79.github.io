@@ -1,0 +1,15 @@
+> ReMod Instalador
+> Versión = 25.09.24.2
+> Cambios respecto a la versión anterior:
+	- Priemera versión. Basado en el servicio ReMod Instalador
+> Opciones de Instalación:
+	- Instalar ReMod TV
+	- Instalar KodiSpainTv
+	- Instalar Tacones
+	- Instalar AceStream Channels
+	- Instalar GreenBall
+	- Instalar Balandro
+	- Instalar Magellan
+	- Instalar Alfa
+	- Instalar Moe´s TV
+	- Seleccionar Reproductor Externo para AceStream

@@ -1,5 +1,24 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addons><addon id="plugin.program.remodtv" name="ReMod TV" version="25.10.24.0" provider-name="Saratoga">
+<addons><addon id="plugin.instalador.remod" name="ReMod Instalador" version="25.10.24.2" provider-name="Saratoga">
+	<requires>
+		<import addon="xbmc.python" version="3.0.1" />
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="addon.py">
+		<provides>executable</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>ReMod Instalador</summary>
+		<description>Instala tus addons favoritos</description>
+		<license />
+		<platform>all</platform>
+		<website />
+		<news />
+        <assets>
+			<icon>recursos/imagenes/icono.png</icon>
+			<fanart>recursos/imagenes/poster.png</fanart>
+		</assets>
+	</extension>
+</addon><addon id="plugin.program.remodtv" name="ReMod TV" version="25.10.24.0" provider-name="Saratoga">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1" /> 
 	</requires>
