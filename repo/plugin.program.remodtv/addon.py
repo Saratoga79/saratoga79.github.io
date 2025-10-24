@@ -545,6 +545,8 @@ else:
         ### activar seección TV en menú principal
         ajuste_id = "homemenunotvbutton"
         act_ajuste(ajuste_id)
+        fue_sel = '1 Direct'
+        guardar_fuente(fue_sel)
     elif action == "fuente":
         fue_act = leer_fuente()
         fuente()
