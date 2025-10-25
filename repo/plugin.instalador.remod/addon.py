@@ -553,7 +553,10 @@ else:
         if res:
             res = addon_inst_confirm(addon_id)
             if res:
-                xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=tv)')
+                dialog = xbmcgui.Dialog()
+                ret = dialog.yesno(f"Menú {remod_instalador_addon_name} v{remod_instalador_addon_version}", "¿Quieres instalar y configurar la sección de TV de Kodi?")
+                if ret:
+                    xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=tv)')
     elif action == "ks":
         inst_kodispaintv()
         dialog = xbmcgui.Dialog()

@@ -1,7 +1,7 @@
 <addon 
 	id="plugin.instalador.remod" 
 	name="ReMod Instalador" 
-	version="25.10.25.1" 
+	version="25.10.25.2" 
 	provider-name="Saratoga">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1"/>
