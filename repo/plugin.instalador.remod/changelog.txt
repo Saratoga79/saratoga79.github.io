@@ -1,4 +1,8 @@
 > ReMod Instalador
+> Versión = 25.09.25.0
+> Cambios respecto a la versión anterior:
+	- Conversión de Servicio a Programa
+	
 > Versión = 25.09.24.2
 > Cambios respecto a la versión anterior:
 	- Priemera versión. Basado en el servicio ReMod Instalador

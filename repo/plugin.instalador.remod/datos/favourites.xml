@@ -1,4 +1,0 @@
-<favourites>
-    <favourite name="Actualizar TV" thumb="special://home/addons/plugin.program.iptv.merge/icon.png">ActivateWindow(10001,"plugin://plugin.program.iptv.merge/?_=merge",return)</favourite>
-    <favourite name="Menú ReMod Instalador" thumb="">RunScript("special://home/addons/service.instalador.remod/datos/scripts/start.py")</favourite>
-</favourites>
