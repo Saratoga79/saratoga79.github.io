@@ -531,7 +531,11 @@ def buscar_actualizacion():
     xbmc.sleep(3000)
 
 
+### pruebas
 
+
+
+### pruebas
 
 
 ### acciones del menu principal
@@ -549,8 +553,7 @@ else:
         if res:
             res = addon_inst_confirm(addon_id)
             if res:
-                xbmc.executebuiltin(ActivateWindow(10001,"plugin://plugin.program.remodtv/?action=tv"))
-                pass
+                xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=tv)')
     elif action == "ks":
         inst_kodispaintv()
         dialog = xbmcgui.Dialog()
@@ -628,6 +631,8 @@ else:
         res = inst_addon(addon_id)
         if res:
             addon_inst_confirm(addon_id)
+    elif action == "test":
+        test()
     else:
         ### Acción desconocida → volver al menú principal
         lista_menu_principal()
