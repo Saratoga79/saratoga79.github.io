@@ -10,5 +10,4 @@
 6. Se iniciará ReMod Instalador donde podrás instalar los addons que quieras. La instalación de automática.
 7. Las fuentes preinstaladas estarán dispobibles a partir del segundo inicio de Kodi.
 
-11. Descarga la app Ace Stream | org.acestream.node (F3NyX) e instálala
-	11.1 Si quieres usar otra app diferente como AceServe, recuerda Configurar el Reproductor Externo correspondiente desde el addon ReMod TV
+11. Descarga la app Ace Stream Media McK | org.acestream.media e instálala

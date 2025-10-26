@@ -1,11 +1,14 @@
 > Kodi ReMod
+> Versión = 251026.0
+> Cambios respecto a la versión anterior:
+	- Cambiado el Reproductor Externo por defecto al nuevo AceStream de McK, Ace Stream Media McK | org.acestream.media
+
 > Versión = 251025.0
 > Características:
 	- Basado en la versión oficial de Kodi 21.2
 	- Pantalla siempre encendida en dispositivos Android
 	- Idioma español
-	- Reproductor Externo por defecto:
-		- Ace Stream | org.acestream.node (F3NyX)
+	- Reproductor Externo por defecto, Ace Stream | org.acestream.node (F3NyX)
 > Fuentes preinstalaas:
 	- ReMod
 	- Kodispain
