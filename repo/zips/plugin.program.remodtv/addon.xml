@@ -1,7 +1,7 @@
 <addon 
 	id="plugin.program.remodtv"
 	name="ReMod TV"
-	version="25.10.26.0"
+	version="25.10.26.1"
 	provider-name="Saratoga">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1"/> <!-- Mín Kodi 20+ -->

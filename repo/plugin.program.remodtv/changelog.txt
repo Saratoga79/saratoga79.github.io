@@ -1,4 +1,8 @@
 > ReMod TV
+> Versión = 25.10.26.1
+> Cambios respecto a la versión anterior:
+	- Mejoras en los nombres de los Reproductores Externos
+	
 > Versión = 25.10.26.0
 > Cambios respecto a la versión anterior:
 	- Correcciones y mejoras
