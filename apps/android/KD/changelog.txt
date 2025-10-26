@@ -4,6 +4,8 @@
 	- Basado en la versión oficial de Kodi 21.2
 	- Pantalla siempre encendida en dispositivos Android
 	- Idioma español
+	- Reproductor Externo por defecto:
+		- Ace Stream | org.acestream.node (F3NyX)
 > Fuentes preinstalaas:
 	- ReMod
 	- Kodispain
