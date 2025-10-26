@@ -392,131 +392,6 @@ def addon_inst_confirm(addon_id):
         xbmc.sleep(500)  # Pequeña pausa entre intentos
         attempts += 1
     return False
-
-
-# ret = 99
-# while ret == 99:
-    # xbmc.log(f"REMOD INSTALADOR Inicio menú de instalación de addons.", level=xbmc.LOGINFO)
-    # dialog = xbmcgui.Dialog()
-    # ret = dialog.select(
-    # f"Menú {remod_instalador_addon_name} v{remod_instalador_addon_version}",
-    # [
-        ## 0. Configurar sección TV
-        # "> Instalar ReMod TV",
-        ## 1. Instalar KodiSpainTv
-        # "> Instalar [COLOR red]Kodi[/COLOR][COLOR yellow]Spain[/COLOR][COLOR red]Tv[/COLOR]",
-        ## 2. Instalar TACONES
-        # "> Instalar [COLOR red]TACONES[/COLOR]",
-        ## 3. Instalar AceStream Channels
-        # "> Instalar AceStream Channels\n        AceStream Channels & Horus",
-        ## 4. Instalar AceStream Channels
-        # "> Instalar GreenBall\n        GreenBall & Horus",
-        ## 5. Instalar Balandro
-        # "> Instalar Balandro",
-        ## 6. Instalar Magellan
-        # "> Instalar Magellan\n       Magellan & f4mTester",
-        ## 7. Instalar Alfa
-        # "> Instalar Alfa",
-        ## 8. Instalar Moe´s TV
-        # "> Instalar Moe´s TV\n        Duff You & Moe´s TV",
-        ## 9. Salir
-        # "[COLOR red]x Salir[/COLOR]"
-    # ]
-# )
-    # if ret == 0: # remodtv
-        # addon_id = 'plugin.program.remodtv'
-        # res = inst_addon(addon_id)
-        # if res:
-            # addon_inst_confirm(addon_id)
-        # ret = 99
-    # if ret == 1: # kodispaintv
-        # inst_kodispaintv()
-        # dialog = xbmcgui.Dialog()
-        # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addon.,5000,)")
-        # activación kodispaintv
-        # addon_id = 'plugin.video.kodispaintv'
-        # addon_inst_check(addon_id)
-        # xbmc.sleep(1000)
-        # ret = 99
-    # if ret == 2: # Tacones
-        # inst_tacones()
-        # dialog = xbmcgui.Dialog()
-        # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addon.,5000,)")
-        # activación tacones
-        # addon_id = 'plugin.video.tacones'
-        # addon_inst_check(addon_id)
-        # xbmc.sleep(1000)
-        # ret = 99
-    # if ret == 3: # AceChannels
-        # addon_id = 'plugin.video.acestream_channels'
-        # res = inst_addon(addon_id)
-        # if res:
-            # addon_inst_confirm(addon_id)
-        # addon_id = 'script.module.horus'
-        # res = inst_addon(addon_id)
-        # if res:
-            # addon_inst_confirm(addon_id)
-        # ret = 99
-        
-    # if ret == 4: # GreenBall
-        # repo_url = 'https://ajsm90.github.io/greenball.repo/repo/zips/repository.greenball/repository.greenball-1.0.0.zip'
-        # addon_id = 'repository.greenball'
-        # addons = ["repository.greenball"]
-        # res = download_zip_from_url(repo_url)
-        # if res:
-            # xbmc.log(f"REMOD INSTALADOR Actualizando Addon Repos.", level=xbmc.LOGINFO)
-            # xbmc.executebuiltin(f"UpdateAddonRepos()", True)
-            # xbmc.sleep(1000)
-            # xbmc.log(f"REMOD INSTALADOR Actualizando Local Addon.", level=xbmc.LOGINFO)
-            # xbmc.executebuiltin(f"UpdateLocalAddons()", True)
-            # xbmc.sleep(1000)
-            # lista_addons(addons, True)
-            # addon_activacion_confirm(addon_id)
-            # if res:
-                # addon_id = 'plugin.video.GreenBall'
-                # res = inst_addon(addon_id)
-                # if res:
-                    # addon_inst_confirm(addon_id)
-                    # if res:
-                        # addon_id = 'script.module.horus'
-                        # res = inst_addon(addon_id)
-                        # if res:
-                            # addon_inst_confirm(addon_id)
-        # ret = 99
-    # if ret == 5: # Balandro
-        # addon_id = 'plugin.video.balandro'
-        # res = inst_addon(addon_id)
-        # if res:
-            # addon_inst_confirm(addon_id)
-        # ret = 99
-    # if ret == 6: # magellan
-        # addon_id = 'plugin.video.Magellan_Matrix'
-        # res = inst_addon(addon_id)
-        # if res:
-            # addon_inst_confirm(addon_id)
-        # addon_id = 'plugin.video.f4mTester'
-        # res = inst_addon(addon_id)
-        # if res:
-            # addon_inst_confirm(addon_id)
-        # ret = 99
-    # if ret == 7: # Alfa
-        # addon_id = 'plugin.video.alfa'
-        # res = inst_addon(addon_id)
-        # if res:
-            # addon_inst_confirm(addon_id)
-        # ret = 99
-    # if ret == 8: # Moes
-        # addon_id = 'plugin.video.duffyou'
-        # res = inst_addon(addon_id)
-        # if res:
-            # addon_inst_confirm(addon_id)
-        # addon_id = 'plugin.video.moestv'
-        # res = inst_addon(addon_id)
-        # if res:
-            # addon_inst_confirm(addon_id)
-        # ret = 99
-    # if ret == 9: # salir
-        # xbmc.log(f"REMOD INSTALADOR FIN", level=xbmc.LOGINFO)
         
 
 ###
@@ -559,7 +434,6 @@ else:
                     xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=tv)')
     elif action == "ks":
         inst_kodispaintv()
-        dialog = xbmcgui.Dialog()
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addon.,5000,)")
         # activación kodispaintv
         addon_id = 'plugin.video.kodispaintv'
@@ -567,7 +441,6 @@ else:
         xbmc.sleep(1000)
     elif action == "tacones":
         inst_tacones()
-        dialog = xbmcgui.Dialog()
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addon.,5000,)")
         # activación tacones
         addon_id = 'plugin.video.tacones'
