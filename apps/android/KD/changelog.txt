@@ -23,7 +23,10 @@
 	- Alfa
 	- Balandro
 	- Dregs
+	- Magellan
+	- Peno64
 	- Plex Kodi Connect
+	- Resolveurl
 > Addons preinstalados:
 	- Remod Launcher
 		Es un servicio que se inicia en cada inicio de Kodi. Su función es la de instalar el repositorio ReMod y el addon de programa ReMod Instalador.
