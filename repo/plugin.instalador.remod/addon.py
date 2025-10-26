@@ -83,8 +83,6 @@ def lista_menu_principal():
     xbmcplugin.endOfDirectory(HANDLE)
 
 
-
-
 ### Des/Activación de addons
 def addon_act_des(addon_id: str, enable: bool) -> None:
     xbmc.log(f"REMOD INSTALADOR: {'Activando' if enable else 'Desactivando'} {addon_id}",
@@ -214,7 +212,7 @@ def addon_activacion_confirm(addon_id):
             xbmc.log(f"REMOD INSTALADOR Intentando click yes para activar addon zip", level=xbmc.LOGINFO)
             return True
          else:   
-            xbmc.sleep(500)  # Pequeña pausa entre intentos
+            xbmc.sleep(500)
             attempts += 1
     return False
 
@@ -242,7 +240,6 @@ def addon_inst_check(addon_id):
     else:
         xbmc.log(f"El addon {addon_id} no está instalado.", level=xbmc.LOGINFO)
         return False
-
 
 ### desactiva instalación de balandro en cada inicio
 rename_to_bak('repository.balandro', 'service.py')
@@ -289,7 +286,6 @@ def inst_tacones():
     xbmc.log(f"REMOD INSTALADOR Iniciando inst_tacones.", level=xbmc.LOGINFO)
     ### config
     base_url = 'https://konectas.github.io/Addons%20Video/'
-    # download_path = 'special://home/addons/packages/' # cambiar xbmc / home según addon interno en la app o instalo como addon normal
     download_path = os.path.join(addons_home, 'packages')
     pattern = r'plugin\.video\.tacones-\d{1,2}\.\d{1,2}\.\d{1,2}\.zip'
     # Realizar la solicitud GET
@@ -307,7 +303,6 @@ def inst_tacones():
         xbmc.log(f"REMOD INSTALADOR Actualizando Local Addon.", level=xbmc.LOGINFO)
         xbmc.executebuiltin(f"UpdateLocalAddons()", True)
         xbmc.sleep(1000)
-        # xbmc.executebuiltin("ReloadSkin()", True)
         xbmc.log(f"REMOD INSTALADOR Fin instalación Tacones.", level=xbmc.LOGINFO)
     
     
@@ -317,7 +312,6 @@ def inst_kodispaintv():
     xbmc.log(f"REMOD INSTALADOR Iniciando inst_kodispaintv.", level=xbmc.LOGINFO)
     ### config func
     base_url = 'https://konectas.github.io/Addons%20Video/'
-    # download_path = 'special://home/addons/packages/' # cambiar xbmc / home según addon interno en la app o instalo como addon normal
     download_path = os.path.join(addons_home, 'packages')
     pattern = r'plugin\.video\.kodispaintv-\d{1,2}\.\d{1,2}\.\d{1,2}\.zip'
     # Realizar la solicitud GET
@@ -337,7 +331,6 @@ def inst_kodispaintv():
         xbmc.log(f"REMOD INSTALADOR Actualizando Local Addon.", level=xbmc.LOGINFO)
         xbmc.executebuiltin(f"UpdateLocalAddons()", True)
         xbmc.sleep(1000)
-        # xbmc.executebuiltin("ReloadSkin()", True)
         xbmc.log(f"REMOD INSTALADOR Fin instalación kodispaintv.", level=xbmc.LOGINFO)
      
 
@@ -392,9 +385,8 @@ def addon_inst_confirm(addon_id):
         xbmc.sleep(500)  # Pequeña pausa entre intentos
         attempts += 1
     return False
-        
 
-###
+
 def buscar_actualizacion():
     xbmc.log(f"REMOD TV Actualizando Addon Repos.", level=xbmc.LOGINFO)
     xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Actualizando Repos...,3000,)")
@@ -404,13 +396,6 @@ def buscar_actualizacion():
     xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Actualizando Addons...,3000,)")
     xbmc.executebuiltin(f"UpdateLocalAddons()", True)
     xbmc.sleep(3000)
-
-
-### pruebas
-
-
-
-### pruebas
 
 
 ### acciones del menu principal
@@ -435,14 +420,12 @@ else:
     elif action == "ks":
         inst_kodispaintv()
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addon.,5000,)")
-        # activación kodispaintv
         addon_id = 'plugin.video.kodispaintv'
         addon_inst_check(addon_id)
         xbmc.sleep(1000)
     elif action == "tacones":
         inst_tacones()
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addon.,5000,)")
-        # activación tacones
         addon_id = 'plugin.video.tacones'
         addon_inst_check(addon_id)
         xbmc.sleep(1000)
