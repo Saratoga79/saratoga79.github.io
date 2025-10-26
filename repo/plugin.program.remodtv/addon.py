@@ -36,8 +36,8 @@ changelog = os.path.join(remodtv_addon_path, 'changelog.txt')
 carp = 'dir'
 ### variables para archivos json
 rep_sel = '0'
-rep_act = 'No detectado'
-fue_act = 'No detectado'
+rep_act = 'Por defecto'
+fue_act = 'Por defecto'
     
 ### parametros
 BASE_URL = sys.argv[0]
@@ -107,7 +107,7 @@ def fuente():
 
 ### lista del menu configurar reproductor externo
 def lista_menu_rep_ext():
-    xbmc.log(f"REMOD TV Reproductor actual: {rep_act}", xbmc.LOGERROR)
+    xbmc.log(f"REMOD TV Reproductor actual: {rep_act}", xbmc.LOGINFO)
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
         (f"Elige la aplicación del Reprouctor Externo | Actual: {rep_act}", "rep_ext", "repro.png"),
@@ -168,7 +168,6 @@ def mostrar_changelog():
 VERSION_FILE = os.path.join(xbmcvfs.translatePath("special://profile/addon_data/%s" % remodtv_addon_id), "last_version.json")
 
 def leer_ultima_version():
-    """Lee la versión que guardamos la última vez que se ejecutó el script."""
     if not os.path.isfile(VERSION_FILE):
         return None
     try:
@@ -183,7 +182,6 @@ def leer_ultima_version():
 REP_FILE = os.path.join(xbmcvfs.translatePath("special://profile/addon_data/%s" % remodtv_addon_id), "reproductor.json")
 
 def leer_rep_ext():
-    """Lee la versión que guardamos la última vez que se ejecutó el script."""
     if not os.path.isfile(REP_FILE):
         return None
     try:
@@ -204,7 +202,6 @@ def leer_rep_ext():
 FUE_FILE = os.path.join(xbmcvfs.translatePath("special://profile/addon_data/%s" % remodtv_addon_id), "fuente.json")
 
 def leer_fuente():
-    """Lee la versión que guardamos la última vez que se ejecutó el script."""
     if not os.path.isfile(FUE_FILE):
         return None
     try:
@@ -222,7 +219,6 @@ def leer_fuente():
         return None
 
 def guardar_version(version):
-    """Guarda la versión actual para la próxima comparación."""
     os.makedirs(os.path.dirname(VERSION_FILE), exist_ok=True)
     try:
         with open(VERSION_FILE, "w") as f:
@@ -231,8 +227,6 @@ def guardar_version(version):
         xbmc.log("REMOD TV Error guardando versión: %s" % e, xbmc.LOGERROR)
         
 def guardar_rep_ext(reprodcutor):
-
-    """Guarda la versión actual para la próxima comparación."""
     os.makedirs(os.path.dirname(REP_FILE), exist_ok=True)
     try:
         with open(REP_FILE, "w") as f:
@@ -241,8 +235,6 @@ def guardar_rep_ext(reprodcutor):
         xbmc.log("REMOD TV Error guardando reproductor externo: %s" % e, xbmc.LOGERROR)
 
 def guardar_fuente(fue_sel):
-
-    """Guarda la versión actual para la próxima comparación."""
     os.makedirs(os.path.dirname(FUE_FILE), exist_ok=True)
     try:
         with open(FUE_FILE, "w") as f:
@@ -264,7 +256,7 @@ def comp_version():
         ### Modificaciones
         mostrar_changelog()
         xbmcgui.Dialog().notification(f"{remodtv_addon_name}","Actualizado de v%s->[COLOR blue]v%s[/COLOR]" % (version_anterior, version_actual),xbmcgui.NOTIFICATION_INFO,5000)
-        #33 Finalmente, actualizamos el registro
+        ### Finalmente, actualizamos el registro
         guardar_version(version_actual)
     else:
         xbmc.log("REMOD TV No hay cambios de versión.", xbmc.LOGINFO)
@@ -326,7 +318,7 @@ def addon_activacion_confirm(addon_id):
             xbmc.log(f"REMOD TV Intentando click yes para activar addon zip", level=xbmc.LOGINFO)
             return True
          else:   
-            xbmc.sleep(500)  # Pequeña pausa entre intentos
+            xbmc.sleep(500)
             attempts += 1
     return False
    
@@ -392,12 +384,12 @@ def addon_inst_confirm(addon_id):
             xbmc.log(f"REMOD TV Esperando visibilidad botón yes", level=xbmc.LOGINFO)
             # Simular pulsación del botón Yes
             xbmc.executebuiltin(f"SendClick(11)", True)
-            max_attempts2 = 20  # Número máximo de intentos
+            max_attempts2 = 20
             attempts2 = 0
             while attempts2 < max_attempts2:
                 if xbmc.getCondVisibility(f"Window.IsVisible(10101)"):
                     xbmc.log(f"REMOD TV Se está instalando", level=xbmc.LOGINFO)
-                    max_attempts3 = 200  # Número máximo de intentos
+                    max_attempts3 = 200
                     attempts3 = 0
                     while attempts3 < max_attempts3:
                         if not xbmc.getCondVisibility(f"Window.IsVisible(10101)"):
@@ -409,12 +401,12 @@ def addon_inst_confirm(addon_id):
                             xbmc.sleep(100)
                             attempts3 += 1
                 else:
-                    xbmc.sleep(500)  # Pequeña pausa entre intentos
+                    xbmc.sleep(500)
                     attempts2 += 1
             xbmc.log(f"Tiempo max superado {addon_id}.", level=xbmc.LOGINFO)
             xbmc.executebuiltin(f"Notification({remodtv_addon_name},Tiempo superado.,1000,)")
             return True    
-        xbmc.sleep(500)  # Pequeña pausa entre intentos
+        xbmc.sleep(500)
         attempts += 1
     return False
         
@@ -526,11 +518,6 @@ def act_ajuste(ajuste_id):
     ajuste_check = xbmc.getCondVisibility(f'Skin.HasSetting({ajuste_id})') == 1
     if ajuste_check:
         xbmc.executebuiltin(f'Skin.SetBool({ajuste_id},false)')
-
-### pruebas ###
-
-
-### pruebas ###
 
 
 ### acciones del menu principal
@@ -713,7 +700,6 @@ else:
         reproductor = 'Por defecto de Kodi'
         guardar_rep_ext(reproductor)
         rep_act = leer_rep_ext()
-        
         
     elif action == "test":
         pass

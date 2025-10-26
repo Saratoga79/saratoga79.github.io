@@ -1,3 +1,0 @@
-<favourites>
-    <favourite name="&gt; Actualizar TV" thumb="C:\Users\jon\AppData\Roaming\Kodi\addons\plugin.program.remodtv\recursos\imagenes\update.png">ActivateWindow(10001,"plugin://plugin.program.remodtv/?action=actualizar",return)</favourite>
-</favourites>

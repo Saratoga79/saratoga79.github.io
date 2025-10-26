@@ -1,4 +1,8 @@
 > ReMod TV
+> Versión = 25.10.26.0
+> Cambios respecto a la versión anterior:
+	- Correcciones y mejoras
+	
 > Versión = 25.10.24.0
 > Cambios respecto a la versión anterior:
 	- Corrección del indicador de fuente actual en la primera instalación del addon
