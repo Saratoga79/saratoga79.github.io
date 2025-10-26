@@ -1,5 +1,5 @@
 > Kodi ReMod Instrucciones:
-0. Desinstalar cualquier versión de Kodi
+0. Desinstalar cualquier versión oficial de Kodi
 1. Descargar e instalar la app
 2. Desactivar la optimización de batería de la app, permitir uso en segundo plano,...
 3. Abrir la app y conceder los permisos necesarios
