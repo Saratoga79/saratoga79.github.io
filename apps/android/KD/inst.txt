@@ -1,12 +1,14 @@
 > Kodi ReMod Instrucciones:
-0. Desinstalar cualquier versión oficial de Kodi
+0. Desinstalar cualquier versión oficial de Kodi, ya que esta app la sustituye
 1. Descargar e instalar la app
-2. Desactivar la optimización de batería de la app, permitir uso en segundo plano,...
-3. Abrir la app y conceder los permisos necesarios
-4. Iniciar la app, y no tocar nada
+	1.1. Recomenaddo, desactivar la optimización de batería de la app, permitir uso en segundo plano,...
+2. Abrir la app y conceder los permisos necesarios
+3. Iniciar la app, y no tocar nada
 
-5. En el primero inicio, saldrá un cartel indicando que se está esperando a que se actualicen algunos addons
-6. Al actualizar el addon de idioma español, se instalarán el Repo ReMod y el addon de programa ReMod Instalador
-7. Se iniciará ReMod Instalador donde podrás instalar los addons que quieras. La instalación de automática.
+4. En el primero inicio, saldrá un cartel indicando que se está esperando a que se actualicen algunos addons
+5. Al actualizar el addon de idioma español, se instalarán el Repo ReMod y el addon de programa ReMod Instalador
+6. Se iniciará ReMod Instalador donde podrás instalar los addons que quieras. La instalación de automática.
+7. Las fuentes preinstaladas estarán dispobibles a partir del segundo inicio de Kodi.
 
-8. Las fuentes preinstaladas estarán dispobibles a partir del segundo inicio de Kodi.
+11. Descarga la app Ace Stream | org.acestream.node (F3NyX) e instálala
+	11.1 Si quieres usar otra app diferente como AceServe, recuerda Configurar el Reproductor Externo correspondiente desde el addon ReMod TV
