@@ -569,7 +569,7 @@ http://127.0.0.1:6878/ace/getstream?id=152169ce99e1fd27f2249c18384a121079cdef29&
 #EXTINF:-1 cuid="189" group-title="ACS" tvg-chno="189" tvg-id="M+ Liga de Campeones HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/liga-de-campeones-por-movistar-plus-es.png" tvg-name="M+ Liga de Campeones",M+ Liga de Campeones [FHD@25] [ACS] (Elc) (Canal 189)
 http://127.0.0.1:6878/ace/getstream?id=9db029dff6a9c637d1f670e78dbc1a479b9b406e&pid=54
 
-#EXTINF:-1 cuid="190" group-title="ACS" tvg-chno="190" tvg-id="M+ Liga de Campeones HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/liga-de-campeones-por-movistar-plus-es.png" tvg-name="M+ Liga de Campeones",M+ Liga de Campeones 4K [FHD@25] [ACS] (NeEr) (Canal 190)
+#EXTINF:-1 cuid="190" group-title="ACS" tvg-chno="190" tvg-id="M+ Liga de Campeones HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/liga-de-campeones-por-movistar-plus-es.png" tvg-name="M+ Liga de Campeones",M+ Liga de Campeones [FHD@25] [ACS] (NeEr) (Canal 190)
 http://127.0.0.1:6878/ace/getstream?id=678a1e93fbfbd499c329886bfdda780e73ac1786&pid=55
 
 #EXTINF:-1 cuid="191" group-title="ACS" tvg-chno="191" tvg-id="M+ Liga de Campeones HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/liga-de-campeones-por-movistar-plus-es.png" tvg-name="M+ Liga de Campeones",M+ Liga de Campeones [HD@25] [ACS] (Elc) (Canal 191)
