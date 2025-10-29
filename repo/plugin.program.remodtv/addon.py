@@ -446,10 +446,10 @@ def actualizar_tv():
     addons = ["pvr.iptvsimple"]
     addon_id = 'pvr.iptvsimple'
     res = lista_addons(addons, False)
-    xbmc.sleep(1500)
+    xbmc.sleep(2000)
     if res:
         res = lista_addons(addons, True)
-        xbmc.sleep(1500)
+        xbmc.sleep(2000)
         if res:
             xbmc.executebuiltin(f"Notification({remodtv_addon_name},En unos 30s estará disponible la sección TV de Kodi.,5000,)")
         else:
@@ -510,7 +510,7 @@ def ele_rep(rep_sel):
         dest = xbmcvfs.translatePath(os.path.join(addons_userdata, 'playercorefactory.xml'))
         xbmcvfs.copy(orig, dest)
         dialog = xbmcgui.Dialog()
-        dialog.ok(f"{remodtv_addon_name}", f"Configurado {pcf_path}. Necesitarás reiniciar Kodi para aplicar los cambios.")
+        dialog.ok(f"{remodtv_addon_name}", f"Configurado. Necesitarás reiniciar Kodi para aplicar los cambios.")
 
 
 ### activar sección TV si no está activada (homemenunotvbutton = True = Sección desactivada)
