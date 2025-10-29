@@ -47,32 +47,32 @@ http://127.0.0.1:6878/ace/getstream?id=d15a0eaf825b5f8f94259d5209688a7e97e6acde&
 #EXTINF:-1 cuid="15" group-title="ACS" tvg-chno="15" tvg-id="M+ LaLiga HDR" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/spain/laliga-hdr-por-movistar-plus-es.png" tvg-name="M+ LaLiga HDR",M+ LaLiga TV HDR [FHD@50] [ACS] (NeLo) (Canal 15)
 http://127.0.0.1:6878/ace/getstream?id=ab44638ba27b2b4f15b9b570fb1b0a99f0ee9c06&pid=15
 
-#EXTINF:-1 cuid="16" group-title="M3U8" tvg-chno="16" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@50] [M3U8] (DrMi) (Canal 16)
-http://update1.miicrosoft.es:80/Grigore_Cirstea_L/fanGtWYigpAe2b4RC7btDkEewglyDF/100287
-
-#EXTINF:-1 cuid="17" group-title="M3U8" tvg-chno="17" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@50] [M3U8] (DrMi) (Canal 17)
-http://update2.miicrosoft.es:80/Grigore_Cirstea_L/fanGtWYigpAe2b4RC7btDkEewglyDF/100287
-
-#EXTINF:-1 cuid="18" group-title="M3U8" tvg-chno="18" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@25] [M3U8] (DrVi5) (Canal 18)
-http://vipketseyket.top:8080/VIP01495172357192093/5abf70f9b02a/97192
-
-#EXTINF:-1 cuid="19" group-title="M3U8" tvg-chno="19" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@25] [M3U8] (DrVi5) (Canal 19)
-http://vipketseyket.top:8080/VIP01495172357192093/5abf70f9b02a/254
-
-#EXTINF:-1 cuid="20" group-title="M3U8" tvg-chno="20" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@25] [M3U8] (La2) (Canal 20)
-http://89.29.219.116:9981/stream/channelid/681574283?profile=pass
-
-#EXTINF:-1 cuid="21" group-title="M3U8" tvg-chno="21" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@25] [M3U8] (DrTv) (Canal 21)
-http://tv.proyectox.vip:8080/schaterdey/pXNaST5vz6/103698
-
-#EXTINF:-1 cuid="22" group-title="M3U8" tvg-chno="22" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@25] [M3U8] (DrVi3) (Canal 22)
+#EXTINF:-1 cuid="16" group-title="M3U8" tvg-chno="16" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@50] [M3U8] (DrVi3) (Canal 16)
 http://vipbftn.xyz:8080/VIP0125173697175244/11737217471119/254
 
-#EXTINF:-1 cuid="23" group-title="M3U8" tvg-chno="23" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@25] [M3U8] (DrVi3) (Canal 23)
+#EXTINF:-1 cuid="17" group-title="M3U8" tvg-chno="17" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@50] [M3U8] (DrVi3) (Canal 17)
 http://viptwso.top:8080/VIP014551740900518358/badcdd2aeef2/254
 
-#EXTINF:-1 cuid="24" group-title="M3U8" tvg-chno="24" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@25] [M3U8] (DrVi3) (Canal 24)
+#EXTINF:-1 cuid="18" group-title="M3U8" tvg-chno="18" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@50] [M3U8] (DrVi3) (Canal 18)
 http://viptwso.top:8080/VIP014551740900518358/badcdd2aeef2/97192
+
+#EXTINF:-1 cuid="19" group-title="M3U8" tvg-chno="19" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@50] [M3U8] (DrMi) (Canal 19)
+http://update1.miicrosoft.es:80/Grigore_Cirstea_L/fanGtWYigpAe2b4RC7btDkEewglyDF/100287
+
+#EXTINF:-1 cuid="20" group-title="M3U8" tvg-chno="20" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@50] [M3U8] (DrMi) (Canal 20)
+http://update2.miicrosoft.es:80/Grigore_Cirstea_L/fanGtWYigpAe2b4RC7btDkEewglyDF/100287
+
+#EXTINF:-1 cuid="21" group-title="M3U8" tvg-chno="21" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@25] [M3U8] (DrVi5) (Canal 21)
+http://vipketseyket.top:8080/VIP01495172357192093/5abf70f9b02a/97192
+
+#EXTINF:-1 cuid="22" group-title="M3U8" tvg-chno="22" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@25] [M3U8] (DrVi5) (Canal 22)
+http://vipketseyket.top:8080/VIP01495172357192093/5abf70f9b02a/254
+
+#EXTINF:-1 cuid="23" group-title="M3U8" tvg-chno="23" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@25] [M3U8] (La2) (Canal 23)
+http://89.29.219.116:9981/stream/channelid/681574283?profile=pass
+
+#EXTINF:-1 cuid="24" group-title="M3U8" tvg-chno="24" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@25] [M3U8] (DrTv) (Canal 24)
+http://tv.proyectox.vip:8080/schaterdey/pXNaST5vz6/103698
 
 #EXTINF:-1 cuid="25" group-title="M3U8" tvg-chno="25" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [FHD@25] [M3U8] (Afb) (Canal 25)
 http://14.177.59.185:8889/nero.php?id=220973
