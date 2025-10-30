@@ -57,8 +57,7 @@ def lista_menu_principal():
         ("> Instalar y configurar sección TV de Kodi | Reinstalar fuente por defecto", "tv", "tv.png"),
         ("> Elegir fuente para sección TV de Kodi", "fuente", "tv2.png"),
         ("> Configurar Reproductor Externo | Android y Windows", "rep_ext", "repro.png"),
-        ("> Actualizar TV", "actualizar", "update.png"),
-        ("> TEST", "test", "")
+        ("> Actualizar TV", "actualizar", "update.png")
     ]
 
     for label, action, icon_file in menu_items:
