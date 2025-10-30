@@ -460,7 +460,7 @@ def inst_tv():
 ### pvr iniciado = connected / parado = vacio
 def pvr_parada_mon():
     xbmc.executebuiltin(f"Notification({remodtv_addon_name},Parando Sección de TV.,1000,)")
-    max_attempts = 60  # Número máximo de intentos
+    max_attempts = 100  # Número máximo de intentos
     attempts = 0
     while attempts < max_attempts:
         xbmc.log(f"REMOD TV Esperando parada de PVR", level=xbmc.LOGINFO)
@@ -471,7 +471,7 @@ def pvr_parada_mon():
             xbmc.log(f"REMOD TV PVR parado", level=xbmc.LOGINFO)
             return True
         else:
-            xbmc.sleep(1000)
+            xbmc.sleep(2000)
             attempts += 1
     return False
 
@@ -479,7 +479,7 @@ def pvr_parada_mon():
 ### pvr iniciado = connected / parado = vacio
 def pvr_inicio_mon():
     xbmc.executebuiltin(f"Notification({remodtv_addon_name},Iniciando Sección de TV.,1000,)")
-    max_attempts = 60  # Número máximo de intentos
+    max_attempts = 100  # Número máximo de intentos
     attempts = 0
     while attempts < max_attempts:
         xbmc.log(f"REMOD TV Esperando inicio de PVR", level=xbmc.LOGINFO)
@@ -490,7 +490,7 @@ def pvr_inicio_mon():
             xbmc.log(f"REMOD TV PVR iniciado", level=xbmc.LOGINFO)
             return True
         else:
-            xbmc.sleep(1000)
+            xbmc.sleep(2000)
             attempts += 1
     return False
 
