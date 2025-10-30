@@ -2165,10 +2165,10 @@ http://127.0.0.1:6878/ace/getstream?id=579218b871ee71aa63694776366f5f03f81c6d05&
 http://127.0.0.1:6878/ace/getstream?id=21be4fe2052fc66456b4f233428bb40a681bf863&pid=345
 
 #EXTINF:-1 cuid="722" group-title="M3U8" tvg-chno="722" tvg-id="NFL RED ZONE" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/nfl-red-zone-us.png" tvg-name="NFL RED ZONE",NFL RED ZONE [HD@30] [M3U8] (DrTv) (Canal 722)
-http://tv.proyectox.vip:8080/schaterdey/pXNaST5vz6/154175
+http://tv.proyectox.vip:8080/schaterdey/pXNaST5vz6/154378
 
 #EXTINF:-1 cuid="723" group-title="M3U8" tvg-chno="723" tvg-id="NFL RED ZONE" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/nfl-red-zone-us.png" tvg-name="NFL RED ZONE",NFL RED ZONE [HD@30] [M3U8] (DrTv) (Canal 723)
-http://tv.proyectox.vip:8080/schaterdey/pXNaST5vz6/154176
+http://tv.proyectox.vip:8080/schaterdey/pXNaST5vz6/154379
 
 #EXTINF:-1 cuid="724" group-title="ACS" tvg-chno="724" tvg-id="NFL USA" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/misc/sports/leagues/nfl-us.png" tvg-name="NFL USA",NFL USA [SD@60] [ACS] (NeEr) (Canal 724)
 http://127.0.0.1:6878/ace/getstream?id=5a71a114fdf460fc90f88b959f83625b964a5d62&pid=346
@@ -2730,14 +2730,3 @@ https://a1xs.vip/ppv4
 
 #EXTINF:-1 cuid="910" group-title="M3U8" tvg-chno="910" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 1",Live Event 5 [FHD@25] [M3U8] (A1x) (Canal 910)
 https://a1xs.vip/ppv5
-
-#EXTINF:-1 tvg-id="" tvg-name="Copa del Rey 12:00 CD Sant Jordi vs Osasuna (L)" tvg-logo="https://i.pinimg.com/474x/bf/98/94/bf989461daf2636bf55cccb2df2764d9.jpg" group-title="EVENTOS PPV",Copa del Rey 12:00 CD Sant Jordi vs Osasuna (L)
-http://tv.proyectox.vip:8080/schaterdey/pXNaST5vz6/154210
-#EXTINF:-1 tvg-id="" tvg-name="Copa del Rey 12:00 Los Garres vs Elche (L)" tvg-logo="https://i.pinimg.com/474x/bf/98/94/bf989461daf2636bf55cccb2df2764d9.jpg" group-title="EVENTOS PPV",Copa del Rey 12:00 Los Garres vs Elche (L)
-http://tv.proyectox.vip:8080/schaterdey/pXNaST5vz6/154211
-#EXTINF:-1 tvg-id="" tvg-name="Copa del Rey 13:00 Sant Just vs Mallorca (L)" tvg-logo="https://i.pinimg.com/474x/bf/98/94/bf989461daf2636bf55cccb2df2764d9.jpg" group-title="EVENTOS PPV",Copa del Rey 13:00 Sant Just vs Mallorca (L)
-http://tv.proyectox.vip:8080/schaterdey/pXNaST5vz6/154212
-#EXTINF:-1 tvg-id="" tvg-name="Copa del Rey 14:00 Yuncos vs Rayo Vallecano (L)" tvg-logo="https://i.pinimg.com/474x/bf/98/94/bf989461daf2636bf55cccb2df2764d9.jpg" group-title="EVENTOS PPV",Copa del Rey 14:00 Yuncos vs Rayo Vallecano (L)
-http://tv.proyectox.vip:8080/schaterdey/pXNaST5vz6/154213
-#EXTINF:-1 tvg-id="" tvg-name="Copa del Rey 14:00 Lucena vs Villarreal (L)" tvg-logo="https://i.pinimg.com/474x/bf/98/94/bf989461daf2636bf55cccb2df2764d9.jpg" group-title="EVENTOS PPV",Copa del Rey 14:00 Lucena vs Villarreal (L)
-http://tv.proyectox.vip:8080/schaterdey/pXNaST5vz6/154214
