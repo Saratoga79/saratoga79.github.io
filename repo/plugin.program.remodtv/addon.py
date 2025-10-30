@@ -467,11 +467,12 @@ def pvr_parada_mon():
         pvr_estado = xbmc.getInfoLabel(f"PVR.BackendHost")
         xbmc.log(f"REMOD TV Estado PVR: {pvr_estado}", level=xbmc.LOGINFO)
         # Verificar si el diálogo de confirmación está visible
-        if not pvr_estado == 'connected':
+        # if not pvr_estado == 'connected':
+        if pvr_estado == '':
             xbmc.log(f"REMOD TV PVR parado", level=xbmc.LOGINFO)
             return True
         else:
-            xbmc.sleep(2000)
+            xbmc.sleep(1000)
             attempts += 1
     return False
 
@@ -490,7 +491,7 @@ def pvr_inicio_mon():
             xbmc.log(f"REMOD TV PVR iniciado", level=xbmc.LOGINFO)
             return True
         else:
-            xbmc.sleep(2000)
+            xbmc.sleep(1000)
             attempts += 1
     return False
 
