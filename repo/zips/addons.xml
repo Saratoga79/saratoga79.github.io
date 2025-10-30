@@ -18,7 +18,7 @@
 			<fanart>recursos/imagenes/poster.png</fanart>
 		</assets>
 	</extension>
-</addon><addon id="plugin.program.remodtv" name="ReMod TV" version="25.10.29.0" provider-name="Saratoga">
+</addon><addon id="plugin.program.remodtv" name="ReMod TV" version="25.10.30.0" provider-name="Saratoga">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1" /> 
 	</requires>

@@ -57,7 +57,8 @@ def lista_menu_principal():
         ("> Instalar y configurar sección TV de Kodi | Reinstalar fuente por defecto", "tv", "tv.png"),
         ("> Elegir fuente para sección TV de Kodi", "fuente", "tv2.png"),
         ("> Configurar Reproductor Externo | Android y Windows", "rep_ext", "repro.png"),
-        ("> Actualizar TV", "actualizar", "update.png")
+        ("> Actualizar TV", "actualizar", "update.png"),
+        ("> TEST", "test", "")
     ]
 
     for label, action, icon_file in menu_items:
@@ -249,7 +250,8 @@ def comp_version():
     if version_anterior is None:
         xbmc.log("REMOD TV No hay registro previo. Guardando versión actual.", xbmc.LOGINFO)
         guardar_version(version_actual)
-        return
+        # return
+        return False
     xbmc.log("REMOD TV Versión guardada previamente: %s" % version_anterior, xbmc.LOGINFO)
     if version_actual != version_anterior:
         xbmc.log("REMOD TV El addon se ha actualizado", xbmc.LOGINFO)
@@ -258,8 +260,10 @@ def comp_version():
         xbmcgui.Dialog().notification(f"{remodtv_addon_name}","Actualizado de v%s->[COLOR blue]v%s[/COLOR]" % (version_anterior, version_actual),xbmcgui.NOTIFICATION_INFO,5000)
         ### Finalmente, actualizamos el registro
         guardar_version(version_actual)
+        return True
     else:
         xbmc.log("REMOD TV No hay cambios de versión.", xbmc.LOGINFO)
+        return False
 
 ### comrpobación de versión
 xbmc.log(f"REMOD TV Comprobando actualización.", level=xbmc.LOGINFO)
@@ -411,52 +415,107 @@ def addon_inst_confirm(addon_id):
     return False
         
 
-### instala solo iptv simple sin iptv merge
+### instala iptv simple
 def inst_tv():
     addons = ["pvr.iptvsimple"]
     addon_id = 'pvr.iptvsimple'
     lista_addons(addons, False)
-    xbmc.sleep(1500)
-    res = inst_addon(addon_id)
+    res = pvr_parada_mon()
     if res:
-        archivos_config()
-        res = addon_inst_confirm(addon_id)
-        if res:
-            lista_addons(addons, True)
-            xbmc.sleep(1500)
-            xbmc.log(f"REMOD TV IPTV Simple activado.", level=xbmc.LOGINFO)
-            xbmc.executebuiltin(f"Notification({remodtv_addon_name},IPTV Simple activado.,1000,)")
-            xbmc.executebuiltin(f"Notification({remodtv_addon_name},En unos 30s estará disponible la sección TV de Kodi.,5000,)")
-        else:
-            xbmc.log(f"REMOD TV Error activando IPTV Simple.", level=xbmc.LOGINFO)
-            xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error activando IPTV Simple.,3000,)")
-    else:
-        res = addon_borrar_datos(addon_id)
+        res = inst_addon(addon_id)
         if res:
             archivos_config()
-            lista_addons(addons, True)
-            xbmc.sleep(1500)
-            xbmc.log(f"REMOD TV Recargando Addon ya instalando IPTV Simple.", level=xbmc.LOGINFO)
-            xbmc.executebuiltin(f"Notification({remodtv_addon_name},Recargando IPTV Simple.,1000,)")
-            xbmc.executebuiltin(f"Notification({remodtv_addon_name},En unos 30s estará disponible la sección TV de Kodi.,5000,)")
+            res = addon_inst_confirm(addon_id)
+            if res:
+                lista_addons(addons, True)
+                res = pvr_inicio_mon()
+                if res:
+                    xbmc.log(f"REMOD TV IPTV Simple activado.", level=xbmc.LOGINFO)
+                    xbmc.executebuiltin(f"Notification({remodtv_addon_name},Sección de TV recargada.,3000,)")
+                else:
+                    xbmc.log(f"REMOD TV Error1 iniciando IPTV Simple.", level=xbmc.LOGINFO)
+                    xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error iniciando IPTV Simple.,3000,)")
+            else:
+                xbmc.log(f"REMOD TV Error activando IPTV Simple.", level=xbmc.LOGINFO)
+                xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error activando IPTV Simple.,3000,)")
+        else:
+            res = addon_borrar_datos(addon_id)
+            if res:
+                archivos_config()
+                lista_addons(addons, True)
+                res = pvr_inicio_mon()
+                if res:
+                    xbmc.log(f"REMOD TV IPTV Simple activado.", level=xbmc.LOGINFO)
+                    xbmc.executebuiltin(f"Notification({remodtv_addon_name},Sección de TV recargada.,3000,)")
+                else:
+                    xbmc.log(f"REMOD TV Error2 iniciando IPTV Simple.", level=xbmc.LOGINFO)
+                    xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error iniciando IPTV Simple.,3000,)")
+            else:
+                xbmc.log(f"REMOD TV Error borrando datos IPTV Simple.", level=xbmc.LOGINFO)
+                xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error borrando datos IPTV Simple.,3000,)")
+    else:
+        xbmc.log(f"REMOD TV Error parando IPTV Simple.", level=xbmc.LOGINFO)
+        xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error parando IPTV Simple.,3000,)")
+
+
+### pvr iniciado = connected / parado = vacio
+def pvr_parada_mon():
+    xbmc.executebuiltin(f"Notification({remodtv_addon_name},Parando Sección de TV.,1000,)")
+    max_attempts = 60  # Número máximo de intentos
+    attempts = 0
+    while attempts < max_attempts:
+        xbmc.log(f"REMOD TV Esperando parada de PVR", level=xbmc.LOGINFO)
+        pvr_estado = xbmc.getInfoLabel(f"PVR.BackendHost")
+        xbmc.log(f"REMOD TV Estado PVR: {pvr_estado}", level=xbmc.LOGINFO)
+        # Verificar si el diálogo de confirmación está visible
+        if not pvr_estado == 'connected':
+            xbmc.log(f"REMOD TV PVR parado", level=xbmc.LOGINFO)
+            return True
+        else:
+            xbmc.sleep(1000)
+            attempts += 1
+    return False
+
+
+### pvr iniciado = connected / parado = vacio
+def pvr_inicio_mon():
+    xbmc.executebuiltin(f"Notification({remodtv_addon_name},Iniciando Sección de TV.,1000,)")
+    max_attempts = 60  # Número máximo de intentos
+    attempts = 0
+    while attempts < max_attempts:
+        xbmc.log(f"REMOD TV Esperando inicio de PVR", level=xbmc.LOGINFO)
+        pvr_estado = xbmc.getInfoLabel(f"PVR.BackendHost")
+        xbmc.log(f"REMOD TV Estado PVR: {pvr_estado}", level=xbmc.LOGINFO)
+        # Verificar si el diálogo de confirmación está visible
+        if pvr_estado == 'connected':
+            xbmc.log(f"REMOD TV PVR iniciado", level=xbmc.LOGINFO)
+            return True
+        else:
+            xbmc.sleep(1000)
+            attempts += 1
+    return False
 
 
 def actualizar_tv():
-    xbmc.executebuiltin(f"Notification({remodtv_addon_name},Reiniciando IPTV Simple.,5000,)")
+    xbmc.executebuiltin(f"Notification({remodtv_addon_name},Reiniciando IPTV Simple.,1000,)")
     addons = ["pvr.iptvsimple"]
     addon_id = 'pvr.iptvsimple'
     res = lista_addons(addons, False)
-    xbmc.sleep(2000)
+    res = pvr_parada_mon()
     if res:
         res = lista_addons(addons, True)
-        xbmc.sleep(2000)
         if res:
-            xbmc.executebuiltin(f"Notification({remodtv_addon_name},En unos 30s estará disponible la sección TV de Kodi.,5000,)")
+            res = pvr_inicio_mon()
+            if res:
+                xbmc.executebuiltin(f"Notification({remodtv_addon_name},Sección de TV recargada.,3000,)")
+                return True
+            else:
+                xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error al iniciar IPTV Simple.,5000,)")
         else:
             xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error al activar IPTV Simple.,5000,)")
     else:
         xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error al desactivar IPTV Simple.,5000,)")
-        
+       
         
 def buscar_actualizacion():
     xbmc.log(f"REMOD TV Actualizando Addon Repos.", level=xbmc.LOGINFO)
@@ -520,6 +579,47 @@ def act_ajuste(ajuste_id):
         xbmc.executebuiltin(f'Skin.SetBool({ajuste_id},false)')
 
 
+### test ###
+
+
+def manejar_cambio_estado(nuevo_estado):
+    if nuevo_estado == 'Starting':
+        xbmc.log('PVR está arrancando…', xbmc.LOGNOTICE)
+    elif nuevo_estado == 'Started':
+        xbmc.log('PVR ya está activo.', xbmc.LOGNOTICE)
+    elif nuevo_estado == 'Stopping':
+        xbmc.log('PVR se está deteniendo.', xbmc.LOGNOTICE)
+    elif nuevo_estado == 'Stopped':
+        xbmc.log('PVR está detenido.', xbmc.LOGNOTICE)
+    else:
+        xbmc.log(f'Estado PVR desconocido: {nuevo_estado}', xbmc.LOGWARNING)
+        return False
+
+
+# ----------------------------------------------------------------------
+# Bucle principal de monitorización.
+# ----------------------------------------------------------------------
+def monitor_pvr():
+    ultimo_estado = None
+    monitor = xbmc.Monitor()          # <-- objeto que controla abortRequest
+
+    while not monitor.abortRequested():    # <-- forma correcta de comprobarlo
+        # Lee el estado actual del PVR Manager
+        estado_actual = xbmc.getInfoLabel('System.PVRManager.State')
+
+        # Si ha cambiado respecto al último valor conocido, actúa
+        if estado_actual != ultimo_estado:
+            xbmc.log(f'PVR Manager cambió a: {estado_actual}', xbmc.LOGINFO)
+            # manejar_cambio_estado(estado_actual)
+            # ultimo_estado = estado_actual
+
+        # Espera medio segundo antes de volver a consultar.
+        # Puedes ajustar este intervalo según la reactividad que necesites.
+        xbmc.sleep(500)   # 0.5 s
+        
+        
+###
+
 ### acciones del menu principal
 if not ARGS:
     # No hay parámetros → menú principal
@@ -542,8 +642,9 @@ else:
         ajuste_id = "homemenunotvbutton"
         act_ajuste(ajuste_id)
     elif action == "info":
-        buscar_actualizacion()
-        mostrar_changelog()
+        res = buscar_actualizacion()
+        if not res:
+            mostrar_changelog()
     elif action == "rep_ext":
         rep_act = leer_rep_ext()
         lista_menu_rep_ext()
@@ -702,6 +803,12 @@ else:
         rep_act = leer_rep_ext()
         
     elif action == "test":
+        # actualizar_tv()
+        # monitor_pvr()
+        # avtivado = connected / desactivado = vació
+        pvr_estado = xbmc.getInfoLabel(f"PVR.BackendHost")
+        xbmc.log(f"REMOD TV Estado PVR: {pvr_estado}", level=xbmc.LOGINFO)
+        
         pass
     else:
         ### Acción desconocida → volver al menú principal
