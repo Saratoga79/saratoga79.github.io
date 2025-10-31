@@ -1685,17 +1685,17 @@ http://127.0.0.1:6878/ace/getstream?id=f7fa1e42376d1d65d1bf5abca8728dff273d02d7&
 #EXTINF:-1 cuid="561" group-title="ACS" tvg-chno="561" tvg-id="M+ Deportes 7" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/deportes-7-por-movistar-plus-es.png" tvg-name="M+ Deportes 7",M+ Deportes 7 [FHD@25] [ACS] (Elc) (Canal 561)
 http://127.0.0.1:6878/ace/getstream?id=070f82d6443a52962d6a2ed9954c979b29404932&pid=219
 
-#EXTINF:-1 cuid="562" group-title="ACS" tvg-chno="562" tvg-id="Movistar Plus+ HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png" tvg-name="Movistar Plus+ HD",Movistar Plus+ HD [FHD@25] [ACS] (Elc) (Canal 562)
-http://127.0.0.1:6878/ace/getstream?id=1ab443f5b4beb6d586f19e8b25b9f9646cf2ab78&pid=220
+#EXTINF:-1 cuid="562" group-title="ACS" tvg-chno="562" tvg-id="Movistar Plus+ HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png" tvg-name="Movistar Plus+ HD",Movistar Plus+ HD [FHD@25] [ACS] (NeEr) (Canal 562)
+http://127.0.0.1:6878/ace/getstream?id=b6ffbbc72a5b6b579faf79ebac229af7a25b933b&pid=220
 
-#EXTINF:-1 cuid="563" group-title="ACS" tvg-chno="563" tvg-id="Movistar Plus+ HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png" tvg-name="Movistar Plus+ HD",Movistar Plus+ HD [FHD@25] [ACS] (NeEr) (Canal 563)
-http://127.0.0.1:6878/ace/getstream?id=b6ffbbc72a5b6b579faf79ebac229af7a25b933b&pid=221
+#EXTINF:-1 cuid="563" group-title="ACS" tvg-chno="563" tvg-id="Movistar Plus+ HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png" tvg-name="Movistar Plus+ HD",Movistar Plus+ HD [HD@25] [ACS] (NeEr6) (Canal 563)
+http://127.0.0.1:6878/ace/getstream?id=199190e3f28c1de0be34bccf0d3568dc65209b99&pid=221
 
 #EXTINF:-1 cuid="564" group-title="ACS" tvg-chno="564" tvg-id="Movistar Plus+ HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png" tvg-name="Movistar Plus+ HD",Movistar Plus+ HD [HD@25] [ACS] (NeEr6) (Canal 564)
-http://127.0.0.1:6878/ace/getstream?id=199190e3f28c1de0be34bccf0d3568dc65209b99&pid=222
+http://127.0.0.1:6878/ace/getstream?id=5866e83279307bf919068ae7a0d250e4e424e464&pid=222
 
-#EXTINF:-1 cuid="565" group-title="ACS" tvg-chno="565" tvg-id="Movistar Plus+ HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png" tvg-name="Movistar Plus+ HD",Movistar Plus+ HD [HD@25] [ACS] (NeEr6) (Canal 565)
-http://127.0.0.1:6878/ace/getstream?id=5866e83279307bf919068ae7a0d250e4e424e464&pid=223
+#EXTINF:-1 cuid="565" group-title="ACS" tvg-chno="565" tvg-id="Movistar Plus+ HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png" tvg-name="Movistar Plus+ HD",Movistar Plus+ HD [FHD@25] [ACS] (Elc) (Canal 565)
+http://127.0.0.1:6878/ace/getstream?id=1ab443f5b4beb6d586f19e8b25b9f9646cf2ab78&pid=223
 
 #EXTINF:-1 cuid="566" group-title="ACS" tvg-chno="566" tvg-id="Movistar Plus+ HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png" tvg-name="Movistar Plus+ HD",Movistar Plus+ HD [FHD@25] [ACS] (NeEr) (Canal 566)
 http://127.0.0.1:6878/ace/getstream?id=8c67cdb5ba81976662c3a67984a9545d9cfb0f70&pid=224
