@@ -2284,7 +2284,7 @@ http://127.0.0.1:6878/ace/getstream?id=14407b00d454cb7dc0d70aa26e8bbc554f457f00&
 #EXTINF:-1 cuid="761" group-title="ACS" tvg-chno="761" tvg-id="PL | Eleven Sports 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/international/eleven-sports-1-int.png" tvg-name="Eleven Sports 1",PL | Eleven Sports 1 4K [UHD@50] [ACS] (SpTv) (Canal 761)
 http://127.0.0.1:6878/ace/getstream?id=7ac2d74ef6df9d15012992d7e0e635a95f58c652&pid=367
 
-#EXTINF:-1 cuid="762" group-title="M3U8" tvg-chno="762" tvg-id="PL | Eleven Sports 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/international/eleven-sports-1-int.png" tvg-name="Eleven Sports 1",PL | Eleven Sports 1 [UHD@50] [M3U8] (A1x) (Canal 762)
+#EXTINF:-1 cuid="762" group-title="M3U8" tvg-chno="762" tvg-id="PL | Eleven Sports 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/international/eleven-sports-1-int.png" tvg-name="Eleven Sports 1",PL | Eleven Sports 1 4K [UHD@50] [M3U8] (A1x) (Canal 762)
 https://a1xs.vip/14001
 
 #EXTINF:-1 cuid="763" group-title="M3U8" tvg-chno="763" tvg-id="PL | Eleven Sports 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/international/eleven-sports-1-int.png" tvg-name="Eleven Sports 1",PL | Eleven Sports 1 [FHD@50] [M3U8] (La2) (Canal 763)
