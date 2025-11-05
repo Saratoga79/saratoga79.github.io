@@ -782,7 +782,7 @@ http://127.0.0.1:6878/ace/getstream?id=cb6410a6355a645cfc6f6f5a7c7d71298fcbc2c5&
 #EXTINF:-1 cuid="260" group-title="M3U8" tvg-chno="260" tvg-id="M+ Liga de Campeones 5" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/liga-de-campeones-5-por-movistar-plus-es.png" tvg-name="M+ Liga de Campeones 5",M+ Liga de Campeones 5 [FHD@25] [M3U8] (BiZa) (Canal 260)
 http://tv.zapping.life:8080/mayleenfunez1/135535683598/95777
 
-#EXTINF:-1 cuid="261" group-title="M3U8" tvg-chno="261" tvg-id="M+ Liga de Campeones 5" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/liga-de-campeones-5-por-movistar-plus-es.png" tvg-name="M+ Liga de Campeones 5",M+ Liga de Campeones 5 [FHD@25] [M3U8] (DrMu2) (Canal 261)
+#EXTINF:-1 cuid="261" group-title="M3U8" tvg-chno="261" tvg-id="M+ Liga de Campeones 5" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/liga-de-campeones-5-por-movistar-plus-es.png" tvg-name="M+ Liga de Campeones 5",M+ Liga de Campeones 5 [FHD@25] [M3U8] (DrVi4) (Canal 261)
 http://vipbftn.xyz:8080/VIP0125173697175244/11737217471119/269
 
 #EXTINF:-1 cuid="262" group-title="ACS" tvg-chno="262" tvg-id="M+ Liga de Campeones 6" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/liga-de-campeones-6-por-movistar-plus-es.png" tvg-name="M+ Liga de Campeones 6",M+ Liga de Campeones 6 [FHD@25] [ACS] (Elc) (Canal 262)
