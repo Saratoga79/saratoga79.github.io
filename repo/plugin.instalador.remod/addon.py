@@ -58,13 +58,13 @@ def lista_menu_principal():
         (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} | Mostrar Changelog", "info", "info.png"),
         ("> Instalar ReMod TV", "remodtv", "remodtv.png"),
         ("> Instalar [COLOR red]Kodi[/COLOR][COLOR yellow]Spain[/COLOR][COLOR red]Tv[/COLOR]", "ks", "ks.png"),
-        ("> Instalar AceStream Channels | AceStream Channels & Horus", "acs_channels", "acs_channels.png"),
-        ("> Instalar GreenBall | GreenBall & Horus", "greenball", "greenball.gif"),
+        ("> Instalar AceStream Channels | AceStream Channels & Horus | [COLOR red]No funciona[/COLOR]", "acs_channels", "acs_channels.png"),
+        ("> Instalar GreenBall | GreenBall & Horus | [COLOR red]No funciona[/COLOR]", "greenball", "greenball.gif"),
         ("> Instalar [COLOR red]TACONES[/COLOR]", "tacones", "tacones.png"),
         ("> Instalar Balandro", "balandro", "balandro.png"),
         ("> Instalar Magellan", "magellan", "magellan.png"),
         ("> Instalar Alfa", "alfa", "alfa.png"),
-        ("> Instalar Moe´s TV | Duff You & Moe´s TV", "moes", "moes.jpg")
+        ("> Instalar Moe´s TV | Duff You & Moe´s TV | [COLOR orange]Sin soporte[/COLOR]", "moes", "moes.jpg")
     ]
 
     for label, action, icon_file in menu_items:
