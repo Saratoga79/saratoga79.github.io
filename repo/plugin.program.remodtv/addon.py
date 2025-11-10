@@ -82,8 +82,9 @@ def fuente():
         (" Direct (Por defecto) | http directos", "lis_dir", "1.png"),
         (" ACE | Protocolo acestream://", "lis_ace", "2.png"),
         (" Horus | Para addon Horus", "lis_hor", "3.png"),
-        (" ReModTV | [ACS] http directos y [M3U8] con VPN necesaria", "lis_rm", "4.png"),
-        (" Fuentes de repuesto para la sección de TV:", "", "tv2.png"),
+        (" ReModTV | [ACS] http directos y [M3U8] | VPN necesaria", "lis_rm", "4.png"),
+        (" TVpass | Directos | NBA | NHL | NFL | VPN necesaria", "lis_tvp", "5.png"),
+        (" Fuentes de repuesto para la sección de TV:", "fuente", "tv2.png"),
         (" Direct (Por defecto) | http directos", "lis_dir_rep", "1.png"),
         (" ACE | Protocolo acestream://", "lis_ace_rep", "2.png"),
         (" Horus | Para addon Horus", "lis_hor_rep", "3.png")
@@ -472,7 +473,7 @@ def pvr_parada_mon():
             xbmc.log(f"REMOD TV PVR parado", level=xbmc.LOGINFO)
             return True
         else:
-            xbmc.sleep(1000)
+            xbmc.sleep(3000)
             attempts += 1
     return False
 
@@ -491,7 +492,7 @@ def pvr_inicio_mon():
             xbmc.log(f"REMOD TV PVR iniciado", level=xbmc.LOGINFO)
             return True
         else:
-            xbmc.sleep(1000)
+            xbmc.sleep(3000)
             attempts += 1
     return False
 
@@ -696,6 +697,13 @@ else:
         archivos_config()
         actualizar_tv()
         fue_sel = '4 ReModTV'
+        guardar_fuente(fue_sel)
+        fue_act = leer_fuente()
+    elif action == "lis_tvp":
+        carp = 'tvp'
+        archivos_config()
+        actualizar_tv()
+        fue_sel = '5 TVpass'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
         
