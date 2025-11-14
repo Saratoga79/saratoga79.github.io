@@ -1,4 +1,8 @@
 > ReMod Instalador
+> Versión = 25.11.14.0
+> Cambios respecto a la versión anterior
+	- Añadida nueva fuente de inStalación para Ace Channels desde repo GTKing
+	
 > Versión = 25.11.07.0
 > Cambios respecto a la versión anterior
 	- Añadida información de funcionamiento de addons

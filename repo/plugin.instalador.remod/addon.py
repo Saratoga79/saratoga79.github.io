@@ -58,7 +58,7 @@ def lista_menu_principal():
         (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} | Mostrar Changelog", "info", "info.png"),
         ("> Instalar ReMod TV", "remodtv", "remodtv.png"),
         ("> Instalar [COLOR red]Kodi[/COLOR][COLOR yellow]Spain[/COLOR][COLOR red]Tv[/COLOR]", "ks", "ks.png"),
-        ("> Instalar AceStream Channels | AceStream Channels & Horus | [COLOR red]No funciona[/COLOR]", "acs_channels", "acs_channels.png"),
+        ("> Instalar AceStream Channels | AceStream Channels & Horus", "acs_channels", "acs_channels.png"),
         ("> Instalar GreenBall | GreenBall & Horus | [COLOR red]No funciona[/COLOR]", "greenball", "greenball.gif"),
         ("> Instalar [COLOR red]TACONES[/COLOR]", "tacones", "tacones.png"),
         ("> Instalar Balandro", "balandro", "balandro.png"),
@@ -119,7 +119,6 @@ def mostrar_changelog():
             5000
         )
         return
-    # Muestra el texto en un visor de diálogos
     dlg = xbmcgui.Dialog()
     dlg.textviewer('Changelog', contenido)
 
@@ -128,7 +127,6 @@ def mostrar_changelog():
 VERSION_FILE = os.path.join(xbmcvfs.translatePath("special://profile/addon_data/%s" % remod_instalador_addon_id), "last_version.json")
 
 def leer_ultima_version():
-    """Lee la versión que guardamos la última vez que se ejecutó el script."""
     if not os.path.isfile(VERSION_FILE):
         return None
     try:
@@ -141,7 +139,6 @@ def leer_ultima_version():
 
 
 def guardar_version(version):
-    """Guarda la versión actual para la próxima comparación."""
     os.makedirs(os.path.dirname(VERSION_FILE), exist_ok=True)
     try:
         with open(VERSION_FILE, "w") as f:
@@ -151,30 +148,26 @@ def guardar_version(version):
 
 
 def comp_version():
-    # version_actual = obtener_version_instalada()
     version_actual = remod_instalador_addon_version
     version_anterior = leer_ultima_version()
-
     xbmc.log("REMOD INSTALADOR Versión actual: %s" % version_actual, xbmc.LOGINFO)
-
     if version_anterior is None:
         xbmc.log("REMOD INSTALADOR No hay registro previo. Guardando versión actual.", xbmc.LOGINFO)
         guardar_version(version_actual)
         return
-
     xbmc.log("REMOD INSTALADOR Versión guardada previamente: %s" % version_anterior, xbmc.LOGINFO)
-
     if version_actual != version_anterior:
         xbmc.log("REMOD INSTALADOR El addon se ha actualizado", xbmc.LOGINFO)
         ### Modificaciones
         mostrar_changelog()
         xbmcgui.Dialog().notification(f"{remod_instalador_addon_name}","Actualizado de v%s->[COLOR blue]v%s[/COLOR]" % (version_anterior, version_actual),xbmcgui.NOTIFICATION_INFO,5000)
-        # Finalmente, actualizamos el registro
+        ### Finalmente, actualizamos el registro
         guardar_version(version_actual)
     else:
         xbmc.log("REMOD INSTALADOR No hay cambios de versión.", xbmc.LOGINFO)
 
 ### comrpobación de versión
+xbmc.log(f"REMOD INSTALADOR Comprobando actualización.", level=xbmc.LOGINFO)
 comp_version()
 
 
@@ -283,7 +276,7 @@ def download_zip_from_url(url):
 ### instala tacones
 def inst_tacones():
     xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Tacones,1500,)")
-    xbmc.log(f"REMOD INSTALADOR Iniciando inst_tacones.", level=xbmc.LOGINFO)
+    xbmc.log(f"REMOD INSTALADOR Iniciando Instalación Ttacones.", level=xbmc.LOGINFO)
     ### config
     base_url = 'https://konectas.github.io/Addons%20Video/'
     download_path = os.path.join(addons_home, 'packages')
@@ -309,11 +302,38 @@ def inst_tacones():
 ### instala Kodispaintv
 def inst_kodispaintv():
     xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando KodiSpainTv.,1500,)")
-    xbmc.log(f"REMOD INSTALADOR Iniciando inst_kodispaintv.", level=xbmc.LOGINFO)
+    xbmc.log(f"REMOD INSTALADOR Iniciando instalación Kodispaintv.", level=xbmc.LOGINFO)
     ### config func
     base_url = 'https://konectas.github.io/Addons%20Video/'
     download_path = os.path.join(addons_home, 'packages')
     pattern = r'plugin\.video\.kodispaintv-\d{1,2}\.\d{1,2}\.\d{1,2}\.zip'
+    # Realizar la solicitud GET
+    xbmc.log(f"REMOD INSTALADOR Buscando archivo zip.", level=xbmc.LOGINFO)
+    with urllib.request.urlopen(base_url) as response:
+        html = response.read().decode()
+    # Buscar el patrón del archivo zip
+    match = re.search(pattern, html)
+    if match:
+        xbmc.log(f"REMOD INSTALADOR Archivo encontrado zip.", level=xbmc.LOGINFO)
+        download_url = f"{base_url}{match.group(0)}"
+        download_zip_from_url(download_url)
+        xbmc.sleep(1000)
+        xbmc.log(f"REMOD INSTALADOR Actualizando Addon Repos.", level=xbmc.LOGINFO)
+        xbmc.executebuiltin(f"UpdateAddonRepos()", True)
+        xbmc.sleep(1000)
+        xbmc.log(f"REMOD INSTALADOR Actualizando Local Addon.", level=xbmc.LOGINFO)
+        xbmc.executebuiltin(f"UpdateLocalAddons()", True)
+        xbmc.sleep(1000)
+        xbmc.log(f"REMOD INSTALADOR Fin instalación kodispaintv.", level=xbmc.LOGINFO)
+     
+### instala acestream channels
+def inst_acs_channels():
+    xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando AceStream Channels.,1500,)")
+    xbmc.log(f"REMOD INSTALADOR Iniciando instalación AceStream Channels.", level=xbmc.LOGINFO)
+    ### config func
+    base_url = 'https://github.com/gtkingbuild/Repo-GTKing/raw/refs/heads/master/omega/zips/plugin.video.acestream_channels/'
+    download_path = os.path.join(addons_home, 'packages')
+    pattern = r'plugin\.video\.acestream_channels-\d{1,2}\.\d{1,2}\.\d{1,2}\.zip'
     # Realizar la solicitud GET
     xbmc.log(f"REMOD INSTALADOR Buscando archivo zip.", level=xbmc.LOGINFO)
     with urllib.request.urlopen(base_url) as response:
@@ -427,11 +447,16 @@ else:
         inst_tacones()
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addon.,5000,)")
         addon_id = 'plugin.video.tacones'
-        addon_inst_check(addon_id)
+        res = addon_inst_check(addon_id)
         xbmc.sleep(1000)
     elif action == "acs_channels":
+        inst_acs_channels()
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addon.,5000,)")
         addon_id = 'plugin.video.acestream_channels'
-        res = inst_addon(addon_id)
+        res = addon_inst_check(addon_id)
+        xbmc.sleep(1000)
+        # addon_id = 'plugin.video.acestream_channels'
+        # res = inst_addon(addon_id)
         if res:
             addon_inst_confirm(addon_id)
         addon_id = 'script.module.horus'
