@@ -344,14 +344,14 @@ def inst_acs_channels():
         xbmc.log(f"REMOD INSTALADOR Archivo encontrado zip.", level=xbmc.LOGINFO)
         download_url = f"{base_url}{match.group(0)}"
         download_zip_from_url(download_url)
-        xbmc.sleep(1000)
-        xbmc.log(f"REMOD INSTALADOR Actualizando Addon Repos.", level=xbmc.LOGINFO)
-        xbmc.executebuiltin(f"UpdateAddonRepos()", True)
-        xbmc.sleep(1000)
-        xbmc.log(f"REMOD INSTALADOR Actualizando Local Addon.", level=xbmc.LOGINFO)
-        xbmc.executebuiltin(f"UpdateLocalAddons()", True)
-        xbmc.sleep(1000)
-        xbmc.log(f"REMOD INSTALADOR Fin instalación kodispaintv.", level=xbmc.LOGINFO)
+        # xbmc.sleep(1000)
+        # xbmc.log(f"REMOD INSTALADOR Actualizando Addon Repos.", level=xbmc.LOGINFO)
+        # xbmc.executebuiltin(f"UpdateAddonRepos()", True)
+        # xbmc.sleep(1000)
+        # xbmc.log(f"REMOD INSTALADOR Actualizando Local Addon.", level=xbmc.LOGINFO)
+        # xbmc.executebuiltin(f"UpdateLocalAddons()", True)
+        # xbmc.sleep(1000)
+        xbmc.log(f"REMOD INSTALADOR Fin instalación AceStream Channels.", level=xbmc.LOGINFO)
      
 
 def inst_addon(addon_id):
@@ -447,22 +447,23 @@ else:
         inst_tacones()
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addon.,5000,)")
         addon_id = 'plugin.video.tacones'
-        res = addon_inst_check(addon_id)
+        addon_inst_check(addon_id)
         xbmc.sleep(1000)
     elif action == "acs_channels":
         inst_acs_channels()
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addon.,5000,)")
         addon_id = 'plugin.video.acestream_channels'
-        res = addon_inst_check(addon_id)
-        xbmc.sleep(1000)
-        # addon_id = 'plugin.video.acestream_channels'
-        # res = inst_addon(addon_id)
-        if res:
-            addon_inst_confirm(addon_id)
+        addon_inst_check(addon_id)
         addon_id = 'script.module.horus'
         res = inst_addon(addon_id)
         if res:
-            addon_inst_confirm(addon_id)
+            res = addon_inst_confirm(addon_id)
+            if res:
+                if xbmc.getCondVisibility('system.platform.android'):
+                    xbmc.sleep(1000)
+                    xbmc.log(f"REMOD INSTALADOR Activando Reproductor Externo en Horus en Android.", level=xbmc.LOGINFO)
+                    addon_set = xbmcaddon.Addon('script.module.horus')
+                    addon_set.setSettingBool('reproductor_externo', True)
     elif action == "greenball":
         repo_url = 'https://ajsm90.github.io/greenball.repo/repo/zips/repository.greenball/repository.greenball-1.0.0.zip'
         addon_id = 'repository.greenball'
@@ -481,12 +482,18 @@ else:
                 addon_id = 'plugin.video.GreenBall'
                 res = inst_addon(addon_id)
                 if res:
-                    addon_inst_confirm(addon_id)
+                    res = addon_inst_confirm(addon_id)
                     if res:
                         addon_id = 'script.module.horus'
                         res = inst_addon(addon_id)
                         if res:
-                            addon_inst_confirm(addon_id)
+                            res = addon_inst_confirm(addon_id)
+                            if res:
+                                if xbmc.getCondVisibility('system.platform.android'):
+                                    xbmc.sleep(1000)
+                                    xbmc.log(f"REMOD INSTALADOR Activando Reproductor Externo en Horus en Android.", level=xbmc.LOGINFO)
+                                    addon_set = xbmcaddon.Addon('script.module.horus')
+                                    addon_set.setSettingBool('reproductor_externo', True)
     elif action == "balandro":
         addon_id = 'plugin.video.balandro'
         res = inst_addon(addon_id)

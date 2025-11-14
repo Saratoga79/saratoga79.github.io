@@ -1,4 +1,8 @@
 > ReMod Instalador
+> Versión = 25.11.14.1
+> Cambios respecto a la versión anterior
+	- En Android al isntalar Horus se activa el ajuste de Reproductor Externo
+	
 > Versión = 25.11.14.0
 > Cambios respecto a la versión anterior
 	- Añadida nueva fuente de inStalación para Ace Channels desde repo GTKing
