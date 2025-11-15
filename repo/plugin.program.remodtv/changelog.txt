@@ -1,4 +1,15 @@
 > ReMod TV
+> Versión = 25.11.16.0
+> Cambios respecto a la versión anterior:
+	- Añadidas nuevas fuentes:
+		- 6 AF1CIONADOS
+		- 7 Eventos
+	
+> Versión = 25.11.10.0
+> Cambios respecto a la versión anterior:
+	- Añadida nueva fuente:
+		- 5 TVpass
+	
 > Versión = 25.10.30.3
 > Cambios respecto a la versión anterior:
 	- Pequeñas mejoras

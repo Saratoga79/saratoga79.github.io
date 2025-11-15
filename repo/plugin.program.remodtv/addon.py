@@ -84,6 +84,8 @@ def fuente():
         (" Horus | Para addon Horus", "lis_hor", "3.png"),
         (" ReModTV | [ACS] http directos y [M3U8] | VPN necesaria", "lis_rm", "4.png"),
         (" TVpass | Directos | NBA | NHL | NFL | VPN necesaria", "lis_tvp", "5.png"),
+        (" AF1CIONADOS | http directos", "lis_af1", "6.png"),
+        (" Eventos Ace Stream | http directos", "lis_eve", "7.png"),
         (" Fuentes de repuesto para la sección de TV:", "fuente", "tv2.png"),
         (" Direct (Por defecto) | http directos", "lis_dir_rep", "1.png"),
         (" ACE | Protocolo acestream://", "lis_ace_rep", "2.png"),
@@ -250,8 +252,7 @@ def comp_version():
     if version_anterior is None:
         xbmc.log("REMOD TV No hay registro previo. Guardando versión actual.", xbmc.LOGINFO)
         guardar_version(version_actual)
-        # return
-        return False
+        return
     xbmc.log("REMOD TV Versión guardada previamente: %s" % version_anterior, xbmc.LOGINFO)
     if version_actual != version_anterior:
         xbmc.log("REMOD TV El addon se ha actualizado", xbmc.LOGINFO)
@@ -260,10 +261,8 @@ def comp_version():
         xbmcgui.Dialog().notification(f"{remodtv_addon_name}","Actualizado de v%s->[COLOR blue]v%s[/COLOR]" % (version_anterior, version_actual),xbmcgui.NOTIFICATION_INFO,5000)
         ### Finalmente, actualizamos el registro
         guardar_version(version_actual)
-        return True
     else:
         xbmc.log("REMOD TV No hay cambios de versión.", xbmc.LOGINFO)
-        return False
 
 ### comrpobación de versión
 xbmc.log(f"REMOD TV Comprobando actualización.", level=xbmc.LOGINFO)
@@ -704,6 +703,20 @@ else:
         archivos_config()
         actualizar_tv()
         fue_sel = '5 TVpass'
+        guardar_fuente(fue_sel)
+        fue_act = leer_fuente()
+    elif action == "lis_af1":
+        carp = 'af1'
+        archivos_config()
+        actualizar_tv()
+        fue_sel = '6 AF1CIONADOS'
+        guardar_fuente(fue_sel)
+        fue_act = leer_fuente()
+    elif action == "lis_eve":
+        carp = 'eve'
+        archivos_config()
+        actualizar_tv()
+        fue_sel = '7 Eventos'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
         
