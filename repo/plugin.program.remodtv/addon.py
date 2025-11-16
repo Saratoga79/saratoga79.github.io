@@ -713,7 +713,8 @@ else:
         if xbmc.getCondVisibility('system.platform.windows'):
             subprocess.run(f'start "" "{url}"', shell=True, check=False)
         elif xbmc.getCondVisibility('system.platform.android'):
-            subprocess.run(["am","start","-a","android.intent.action.VIEW","-d",url], check=False)
+            comando = f'StartAndroidActivity("","android.intent.action.VIEW","","{url}")'
+            xbmc.executebuiltin(comando)
         else:
             import webbrowser
             webbrowser.open(url)
@@ -730,26 +731,66 @@ else:
             try:
                 apk_path = descargar_apk(url_descarga)
                 dialog = xbmcgui.Dialog()
-                dialog.ok(f"{remodtv_addon_name}", f"ARchivo descargado en la carpta Download.")
+                dialog.ok(f"{remodtv_addon_name}", f"Archivo descargado en la carpta Download de la memoria interna.")
+            except Exception as e:
+                xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
+        else:
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android\n\nVisita Repo ReMod como alternativa.")
+           
+    elif action == "kd64":
+        if xbmc.getCondVisibility('system.platform.android'):
+            url_descarga = (
+                "https://www.dropbox.com/scl/fi/cp67xnaobrb4nwzi4d2cc/"
+                "kodi-21.2-Omega-arm64-v8a-ReMod-v251026.0.apk?"
+                "rlkey=fv7rsmfsm0z3ys3lauin0wj40&st=sqibau4o&dl=1"
+            )
+
+            try:
+                apk_path = descargar_apk(url_descarga)
+                dialog = xbmcgui.Dialog()
+                dialog.ok(f"{remodtv_addon_name}", f"Archivo descargado en la carpta Download de la memoria interna.")
             except Exception as e:
                 xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
         else:
             dialog = xbmcgui.Dialog()
             dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android\n\nVisita Repo ReMod como alternativa.")
             
-        
-    elif action == "kd64":
-        import webbrowser
-        url = "https://aftv.news/6228405"
-        webbrowser.open(url, new=0, autoraise=True)
     elif action == "acs32":
-        import webbrowser
-        url = "https://aftv.news/8556139"
-        webbrowser.open(url, new=0, autoraise=True)
+        if xbmc.getCondVisibility('system.platform.android'):
+            url_descarga = (
+                "https://www.dropbox.com/scl/fi/q6tw8up1g9tz25aexsgzp/"
+                "Ace-Stream-Pro-3.2.14.5-ReMod-armeabi-v7a-251115.0.apk?"
+                "rlkey=uo3v69u460szln0yrfj9wcnl9&st=xixazm12&dl=1"
+            )
+
+            try:
+                apk_path = descargar_apk(url_descarga)
+                dialog = xbmcgui.Dialog()
+                dialog.ok(f"{remodtv_addon_name}", f"Archivo descargado en la carpta Download de la memoria interna.")
+            except Exception as e:
+                xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
+        else:
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android\n\nVisita Repo ReMod como alternativa.")
+            
     elif action == "acs64":
-        import webbrowser
-        url = "https://aftv.news/6027271"
-        webbrowser.open(url, new=0, autoraise=True)
+        if xbmc.getCondVisibility('system.platform.android'):
+            url_descarga = (
+                "https://www.dropbox.com/scl/fi/uqubndkwexygoycgosnii/"
+                "Ace-Stream-Pro-3.2.14.5-ReMod-arm64-v8a-251115.0.apk?"
+                "rlkey=6ychgclsj6lwcb0hs8yagox3q&st=rjixm84m&dl=1"
+            )
+
+            try:
+                apk_path = descargar_apk(url_descarga)
+                dialog = xbmcgui.Dialog()
+                dialog.ok(f"{remodtv_addon_name}", f"Archivo descargado en la carpta Download de la memoria interna.")
+            except Exception as e:
+                xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
+        else:
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android\n\nVisita Repo ReMod como alternativa.")
         
     elif action == "lis_dir":
         carp = 'dir'
