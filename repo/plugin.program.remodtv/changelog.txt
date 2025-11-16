@@ -1,5 +1,10 @@
 > ReMod TV
-> Versión = 25.11.16.0
+> Versión = 25.11.16.1
+> Cambios respecto a la versión anterior:
+	- Añadida nueva sección de Herramientas (en desarrollo)
+	- Pequeñas mejoras
+	
+> Versión = 25.11.25.0
 > Cambios respecto a la versión anterior:
 	- Añadidas nuevas fuentes:
 		- 6 AF1CIONADOS
