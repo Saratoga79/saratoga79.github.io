@@ -1,5 +1,5 @@
 > ReMod TV
-> Versión = 25.11.17.0
+> Versión = 25.11.17.1
 > Cambios respecto a la versión anterior:
 	- Sección de Herramientas
 	

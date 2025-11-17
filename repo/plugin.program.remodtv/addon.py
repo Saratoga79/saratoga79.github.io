@@ -298,8 +298,6 @@ def comp_version():
         xbmcgui.Dialog().notification(f"{remodtv_addon_name}","Actualizado de v%s->[COLOR blue]v%s[/COLOR]" % (version_anterior, version_actual),xbmcgui.NOTIFICATION_INFO,5000)
         ### Finalmente, actualizamos el registro
         guardar_version(version_actual)
-        ### 251117
-        lista_menu_principal()
         return True
     else:
         xbmc.log("REMOD TV No hay cambios de versión.", xbmc.LOGINFO)
