@@ -1268,14 +1268,14 @@ http://14.162.63.32:8889/nero.php?id=292613
 #EXTINF:-1 cuid="422" group-title="M3U8" tvg-chno="422" tvg-id="DAZN 4 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-4-es.png" tvg-name="DAZN 4 HD",DAZN 4 [SD@25] [M3U8] (Afb) (Canal 422)
 http://14.162.63.32:8889/nero.php?id=292619
 
-#EXTINF:-1 cuid="423" group-title="ACS" tvg-chno="423" tvg-id="DAZN ACB" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/spain/dazn-es.png" tvg-name="DAZN ACB 4",DAZN ACB [FHD@50] [ACS] (NeEr) (Canal 423)
+#EXTINF:-1 cuid="423" group-title="ACS" tvg-chno="423" tvg-id="Liga Endesa" tvg-logo="https://www.acb.com/Documentos/Cabeceras/logo-competicion-4b.png" tvg-name="Liga Endesa",Liga Endesa [FHD@50] [ACS] (NeEr) (Canal 423)
 http://127.0.0.1:6878/ace/getstream?id=1c8f3326142645fb3678075c7171d650594be795&pid=158
 
-#EXTINF:-1 cuid="424" group-title="ACS" tvg-chno="424" tvg-id="DAZN ACB 4" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/spain/dazn-es.png" tvg-name="DAZN ACB 4",DAZN ACB 4 [FHD@50] [ACS] (NeEr) (Canal 424)
-http://127.0.0.1:6878/ace/getstream?id=34944c86bad01c3963ef113c28c033858085adb7&pid=159
+#EXTINF:-1 cuid="424" group-title="ACS" tvg-chno="424" tvg-id="Liga Endesa" tvg-logo="https://www.acb.com/Documentos/Cabeceras/logo-competicion-4b.png" tvg-name="Liga Endesa",Liga Endesa [FHD@50] [ACS] (NeEr) (Canal 424)
+http://127.0.0.1:6878/ace/getstream?id=0f86119f233fd64fe85cc0b4a9059590d06d242a&pid=159
 
-#EXTINF:-1 cuid="425" group-title="ACS" tvg-chno="425" tvg-id="DAZN ACB 5" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/spain/dazn-es.png" tvg-name="DAZN ACB 5",DAZN ACB 5 [FHD@50] [ACS] (NeEr) (Canal 425)
-http://127.0.0.1:6878/ace/getstream?id=0f86119f233fd64fe85cc0b4a9059590d06d242a&pid=160
+#EXTINF:-1 cuid="425" group-title="ACS" tvg-chno="425" tvg-id="Liga Endesa" tvg-logo="https://www.acb.com/Documentos/Cabeceras/logo-competicion-4b.png" tvg-name="Liga Endesa",Liga Endesa [FHD@50] [ACS] (NeEr) (Canal 425)
+http://127.0.0.1:6878/ace/getstream?id=34944c86bad01c3963ef113c28c033858085adb7&pid=160
 
 #EXTINF:-1 cuid="426" group-title="ACS" tvg-chno="426" tvg-id="Mixed TV" tvg-logo="https://cdn-icons-png.freepik.com/512/5723/5723356.png" tvg-name="Mixed TV",Mixed TV [FHD@30] [ACS] (NeEr3) (Canal 426)
 http://127.0.0.1:6878/ace/getstream?id=eb25ebc41fc51710b098f860b33b3229d11921b3&pid=161
