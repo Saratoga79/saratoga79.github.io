@@ -4,7 +4,7 @@
 
 ### Cambios respecto a la versión anterior:
 
-Cambiado el Reproductor Externo por defecto al nuevo Ace Stream de McK, Ace Stream Media McK | org.acestream.media
+Cambiado el Reproductor Externo por defecto al nuevo Ace Stream Pro ReMod o Ace Stream de McK, Ace Stream Media McK | org.acestream.media
 
 ## Versión: 251025.0
 

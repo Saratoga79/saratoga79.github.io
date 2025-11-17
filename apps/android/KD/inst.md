@@ -19,5 +19,10 @@
 
 7. Las fuentes preinstaladas estarán disponibles a partir del segundo inicio de Kodi.
 
+### Ace Stream Instrucciones:
 
-11. Descarga la app Ace Stream Media McK | org.acestream.media e instálala
+11. Descarga la app Ace Stream Pro ReMod o Ace Stream Media de McK | org.acestream.media e instálala
+
+12. Abre la app, da los permisos pedidos, y elige la opción "Ace Player" en Ajustes > Ajustes del jugador > Jugador seleccionado
+
+	12.1 Fuerze el cierre de la app (Recomendado)
