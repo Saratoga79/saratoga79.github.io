@@ -40,8 +40,8 @@ carp = 'dir'
 rep_sel = '0'
 rep_act = 'Por defecto'
 fue_act = 'Por defecto'
-### descargas android
-CARPETA_DESCARGAS = Path("/storage/emulated/0/Download")
+### carpeta descargas en android
+android_carpeta_descargas = Path("/storage/emulated/0/Download")
     
 ### parametros
 BASE_URL = sys.argv[0]
@@ -63,7 +63,7 @@ def lista_menu_principal():
         ("> Configurar Reproductor Externo | Android y Windows", "rep_ext", "repro.png"),
         ("> Actualizar TV", "actualizar", "refresh.png"),
         ("", "", ""),
-        ("> Herramientas | En desarrollo", "herr", "herr.png"),
+        ("> Herramientas", "herr", "herr.png"),
     ]
 
     for label, action, icon_file in menu_items:
@@ -120,10 +120,15 @@ def lista_menu_herramientas():
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
         ("> Visitar Repo ReMod", "nav", "nav.png"),
+        ("KODI:", "herr", "tool.png"),
         ("> Descargar Kodi ReMod armeabi-v7a | 32 bits | Android", "kd32", "download.png"),
         ("> Descargar Kodi ReMod arm64-v8a | 64 bits | Android", "kd64", "download.png"),
+        ("ACE STREAM:", "herr", "tool.png"),
         ("> Descargar Ace Stream ReMod armeabi-v7a | 32 bits | Android", "acs32", "download.png"),
-        ("> Descargar Ace Stream ReMod arm64-v8a | 64 bits | Android", "acs64", "download.png")
+        ("> Descargar Ace Stream ReMod arm64-v8a | 64 bits | Android", "acs64", "download.png"),
+        ("ACE SERVE:", "herr", "tool.png"),
+        ("> Descargar Ace Stream ReMod armeabi-v7a | 32 bits | Android", "as32", "download.png"),
+        ("> Descargar Ace Stream ReMod arm64-v8a | 64 bits | Android", "as64", "download.png")
     ]
 
     for label, action, icon_file in menu_items:
@@ -146,7 +151,7 @@ def lista_menu_rep_ext():
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
         (f"Elige la aplicación del Reprouctor Externo | Actual: {rep_act}", "rep_ext", "repro.png"),
-        ("Ace Stream Media McK | org.acestream.media", "pcf0", "android.png"),
+        ("Ace Stream Media ReMod & Ace Stream Media McK | org.acestream.media", "pcf0", "android.png"),
         ("Ace Stream Media ATV | org.acestream.media.atv", "pcf1", "android.png"),
         ("Ace Stream Media Web | org.acestream.media.web", "pcf2", "android.png"),
         ("Ace Stream Node | org.acestream.node", "pcf3", "android.png"),
@@ -179,12 +184,7 @@ def lista_menu_rep_ext():
                                     listitem=li,
                                     isFolder=True)
     xbmcplugin.endOfDirectory(HANDLE)
-
-
-
-
-
-    
+   
 
 ### mostrar changelog
 def mostrar_changelog():
@@ -298,6 +298,9 @@ def comp_version():
         xbmcgui.Dialog().notification(f"{remodtv_addon_name}","Actualizado de v%s->[COLOR blue]v%s[/COLOR]" % (version_anterior, version_actual),xbmcgui.NOTIFICATION_INFO,5000)
         ### Finalmente, actualizamos el registro
         guardar_version(version_actual)
+        ### 251117
+        lista_menu_principal()
+        return True
     else:
         xbmc.log("REMOD TV No hay cambios de versión.", xbmc.LOGINFO)
 
@@ -659,10 +662,10 @@ def descargar_apk(url: str) -> Path:
     Devuelve la ruta completa del archivo guardado.
     """
     # Aseguramos que la carpeta exista (por si alguna vez falta)
-    CARPETA_DESCARGAS.mkdir(parents=True, exist_ok=True)
+    android_carpeta_descargas.mkdir(parents=True, exist_ok=True)
 
     nombre_archivo = nombre_desde_url(url)
-    ruta_completa = CARPETA_DESCARGAS / nombre_archivo
+    ruta_completa = android_carpeta_descargas / nombre_archivo
 
     # Descarga en bloques de 8 KB
     with urllib.request.urlopen(url) as resp, open(ruta_completa, "wb") as out_file:
@@ -718,8 +721,7 @@ else:
         else:
             import webbrowser
             webbrowser.open(url)
-                
-        
+    
     elif action == "kd32":
         if xbmc.getCondVisibility('system.platform.android'):
             url_descarga = (
@@ -736,7 +738,7 @@ else:
                 xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
         else:
             dialog = xbmcgui.Dialog()
-            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android\n\nVisita Repo ReMod como alternativa.")
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android.\n\nVisita Repo ReMod como alternativa.")
            
     elif action == "kd64":
         if xbmc.getCondVisibility('system.platform.android'):
@@ -754,7 +756,7 @@ else:
                 xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
         else:
             dialog = xbmcgui.Dialog()
-            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android\n\nVisita Repo ReMod como alternativa.")
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android.\n\nVisita Repo ReMod como alternativa.")
             
     elif action == "acs32":
         if xbmc.getCondVisibility('system.platform.android'):
@@ -772,7 +774,7 @@ else:
                 xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
         else:
             dialog = xbmcgui.Dialog()
-            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android\n\nVisita Repo ReMod como alternativa.")
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android.\n\nVisita Repo ReMod como alternativa.")
             
     elif action == "acs64":
         if xbmc.getCondVisibility('system.platform.android'):
@@ -790,7 +792,43 @@ else:
                 xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
         else:
             dialog = xbmcgui.Dialog()
-            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android\n\nVisita Repo ReMod como alternativa.")
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android.\n\nVisita Repo ReMod como alternativa.")
+        
+            
+    elif action == "as32":
+        if xbmc.getCondVisibility('system.platform.android'):
+            
+            url_descarga = (
+                "https://saratoga79.github.io/apps/android/AS/"
+                "org.free.aceserve-1.4.3-arm.apk"
+            )
+
+            try:
+                apk_path = descargar_apk(url_descarga)
+                dialog = xbmcgui.Dialog()
+                dialog.ok(f"{remodtv_addon_name}", f"Archivo descargado en la carpta Download de la memoria interna.")
+            except Exception as e:
+                xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
+        else:
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android.\n\nVisita Repo ReMod como alternativa.")
+            
+    elif action == "as64":
+        if xbmc.getCondVisibility('system.platform.android'):
+            url_descarga = (
+                "https://saratoga79.github.io/apps/android/AS/"
+                "org.free.aceserve-1.4.3-arm64.apk"
+            )
+
+            try:
+                apk_path = descargar_apk(url_descarga)
+                dialog = xbmcgui.Dialog()
+                dialog.ok(f"{remodtv_addon_name}", f"Archivo descargado en la carpta Download de la memoria interna.")
+            except Exception as e:
+                xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
+        else:
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android.\n\nVisita Repo ReMod como alternativa.")
         
     elif action == "lis_dir":
         carp = 'dir'
