@@ -57,7 +57,7 @@ def build_url(query):
 def lista_menu_principal():
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
-        (f"{remodtv_addon_name} versión: {remodtv_addon_version} | Buscar actualizaciones | Mostrar Changelog", "info", "info.png"),
+        (f"{remodtv_addon_name} versión: {remodtv_addon_version} | Buscar actualizaciones", "info", "info.png"),
         ("> Instalar y configurar sección TV de Kodi | Reinstalar fuente por defecto", "tv", "tv.png"),
         ("> Elegir fuente para sección TV de Kodi", "fuente", "tv2.png"),
         ("> Configurar Reproductor Externo | Android y Windows", "rep_ext", "repro.png"),
@@ -120,15 +120,15 @@ def lista_menu_herramientas():
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
         ("> Visitar Repo ReMod", "nav", "nav.png"),
-        ("KODI:", "herr", "tool.png"),
+        ("Kodi ReMod v251026.0 | org.xbmc.kodi | Actualizado el 26/10/2025:", "herr", "tool.png"),
         ("> Descargar Kodi ReMod armeabi-v7a | 32 bits | Android", "kd32", "download.png"),
         ("> Descargar Kodi ReMod arm64-v8a | 64 bits | Android", "kd64", "download.png"),
-        ("ACE STREAM:", "herr", "tool.png"),
-        ("> Descargar Ace Stream ReMod armeabi-v7a | 32 bits | Android", "acs32", "download.png"),
-        ("> Descargar Ace Stream ReMod arm64-v8a | 64 bits | Android", "acs64", "download.png"),
-        ("ACE SERVE:", "herr", "tool.png"),
-        ("> Descargar Ace Stream ReMod armeabi-v7a | 32 bits | Android", "as32", "download.png"),
-        ("> Descargar Ace Stream ReMod arm64-v8a | 64 bits | Android", "as64", "download.png")
+        ("Ace Stream Pro ReMod v251115.0 | org.acestream.media | Actualizado el 16/11/2025:", "herr", "tool.png"),
+        ("> Descargar Ace Stream Pro ReMod armeabi-v7a | 32 bits | Android", "acs32", "download.png"),
+        ("> Descargar Ace Stream Pro ReMod arm64-v8a | 64 bits | Android", "acs64", "download.png"),
+        ("Ace Serve v1.4.3 | org.free.aceserve | Actualizado el 10/11/2025:", "herr", "tool.png"),
+        ("> Descargar Ace Serve armeabi-v7a | 32 bits | Android", "as32", "download.png"),
+        ("> Descargar Ace Serve arm64-v8a | 64 bits | Android", "as64", "download.png")
     ]
 
     for label, action, icon_file in menu_items:
@@ -701,8 +701,8 @@ else:
         act_ajuste(ajuste_id)
     elif action == "info":
         res = buscar_actualizacion()
-        if not res:
-            mostrar_changelog()
+        # if not res:
+            # mostrar_changelog()
     elif action == "rep_ext":
         rep_act = leer_rep_ext()
         lista_menu_rep_ext()
