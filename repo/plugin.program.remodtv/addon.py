@@ -698,11 +698,14 @@ def descargar_apk(url: str) -> Path:
 
     return ruta_completa
 
+def abrir_en_telegram(url):
+    # Construimos el Intent con el esquema tg://
+    intent_uri = f'tg://resolve?domain=telegram&url={urllib.parse.quote(url)}'
+    # Ejecutamos el comando am start (Android Activity Manager)
+    subprocess.call(['am', 'start', '-a', 'android.intent.action.VIEW', '-d', intent_uri])
+
 
 ### test
-
-
-
 
 ### test        
     
@@ -856,8 +859,7 @@ else:
         else:
             dialog = xbmcgui.Dialog()
             dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
-        
-            
+                    
     elif action == "warp1":
         if xbmc.getCondVisibility('system.platform.android'):
             url_descarga = (
@@ -877,8 +879,12 @@ else:
             dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
         
     elif action == "wgt":
-        tele_url = ("tg://resolve?domain=telegram&url=" + urllib.parse.quote("https://telegra.ph/Alternativa-para-tener-Cloudflare-WARP-y-Proton-VPN-en-dispositivos-AndroidAndroidTV-08-24-2"))
-
+        if xbmc.getCondVisibility('system.platform.android'):
+            abrir_en_telegram('https://telegra.ph/Alternativa-para-tener-Cloudflare-WARP-y-Proton-VPN-en-dispositivos-AndroidAndroidTV-08-24-2')
+        else:
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
+            
     elif action == "lis_dir":
         carp = 'dir'
         archivos_config()

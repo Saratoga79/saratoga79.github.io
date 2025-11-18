@@ -1,5 +1,5 @@
 > ReMod TV
-> Versión = 25.11.18.1
+> Versión = 25.11.18.2
 > Cambios respecto a la versión anterior:
 	- Pequeñas mejoras
 	- Añadida nueva sección de Guías y Tutoriales (en desarrollo)
