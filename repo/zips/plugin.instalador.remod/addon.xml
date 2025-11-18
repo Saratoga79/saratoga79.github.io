@@ -1,10 +1,10 @@
 <addon
 	id="plugin.instalador.remod"
 	name="ReMod Instalador"
-	version="25.11.14.1"
+	version="25.11.18.0"
 	provider-name="Saratoga">
 	<requires>
-		<import addon="xbmc.python" version="3.0.1"/>
+		<import addon="xbmc.python" version="3.0.1"/> <!-- Mín Kodi 20+ -->
 	</requires>
 	<extension point="xbmc.python.pluginsource" library="addon.py">
 		<provides>executable</provides>
@@ -14,8 +14,55 @@
 		<description>Instala tus addons favoritos</description>
 		<license></license>
 		<platform>all</platform>
-		<website></website>
-		<news></news>
+		<website>https://saratoga79.github.io/</website>
+		<news>
+> Versión = 25.11.18.0
+> Cambios respecto a la versión anterior
+	- Pequeñas mejoras
+
+> Versión = 25.11.14.1
+> Cambios respecto a la versión anterior
+	- En Android al isntalar Horus se activa el ajuste de Reproductor Externo
+	
+> Versión = 25.11.14.0
+> Cambios respecto a la versión anterior
+	- Añadida nueva fuente de inStalación para Ace Channels desde repo GTKing
+	
+> Versión = 25.11.07.0
+> Cambios respecto a la versión anterior
+	- Añadida información de funcionamiento de addons
+	
+> Versión = 25.09.26.2
+> Cambios respecto a la versión anterior
+	- Mejoras y correcciones
+	
+> Versión = 25.09.25.2
+> Cambios respecto a la versión anterior:
+	- Mejoras
+	
+> Versión = 25.09.25.1
+> Cambios respecto a la versión anterior:
+	- Mejoras y correcciones
+	
+> Versión = 25.09.25.0
+> Cambios respecto a la versión anterior:
+	- Conversión de Servicio a Programa
+	
+> Versión = 25.09.24.2
+> Cambios respecto a la versión anterior:
+	- Priemera versión. Basado en el servicio ReMod Instalador
+> Opciones de Instalación:
+	- Instalar ReMod TV
+	- Instalar KodiSpainTv
+	- Instalar Tacones
+	- Instalar AceStream Channels
+	- Instalar GreenBall
+	- Instalar Balandro
+	- Instalar Magellan
+	- Instalar Alfa
+	- Instalar Moe´s TV
+	- Seleccionar Reproductor Externo para AceStream
+		</news>
         <assets>
 			<icon>recursos/imagenes/icono.png</icon>
 			<fanart>recursos/imagenes/poster.png</fanart>

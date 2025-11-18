@@ -17,6 +17,8 @@ from pathlib import Path
 from typing import Iterable
 import subprocess
 
+import xml.etree.ElementTree as ET
+
 xbmc.log(f"REMOD TV INICIO", level=xbmc.LOGINFO)
 ### info del addon remodtv incluido en la app (special://xbmc)
 remodtv_addon = xbmcaddon.Addon('plugin.program.remodtv')
@@ -55,7 +57,6 @@ def build_url(query):
 
 ### lista del menu pirncipal
 def lista_menu_principal():
-    ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
         (f"{remodtv_addon_name} versión: {remodtv_addon_version} | Buscar actualizaciones", "info", "info.png"),
         ("> Instalar y configurar sección TV de Kodi | Reinstalar fuente por defecto", "tv", "tv.png"),
@@ -63,7 +64,8 @@ def lista_menu_principal():
         ("> Configurar Reproductor Externo | Android y Windows", "rep_ext", "repro.png"),
         ("> Actualizar TV", "actualizar", "refresh.png"),
         ("", "", ""),
-        ("> Herramientas", "herr", "herr.png"),
+        ("> Herramientas y Utilidades", "herr", "herr.png"),
+        ("> Guías y Tutoriales", "guias", "tutos.png")
     ]
 
     for label, action, icon_file in menu_items:
@@ -82,7 +84,6 @@ def lista_menu_principal():
     xbmcplugin.endOfDirectory(HANDLE)
     
 def fuente():
-    ### Cada opción contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
         (f"Elige la fuente para la sección de TV | Actual: {fue_act}", "fuente", "tv2.png"),
         (" Direct (Por defecto) || [ACS]", "lis_dir", "1.png"),
@@ -114,21 +115,22 @@ def fuente():
     xbmcplugin.endOfDirectory(HANDLE)
 
 
-### lista del menu configurar reproductor externo
+### lista del menu herramientas
 def lista_menu_herramientas():
-    xbmc.log(f"REMOD TV Reproductor actual: {rep_act}", xbmc.LOGINFO)
-    ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
-        ("> Visitar Repo ReMod", "nav", "nav.png"),
+        ("Herramientas y Utilidades:", "herr", "herr.png"),
+        ("> Visita Repo ReMod par abtener más información", "nav", "nav.png"),
         ("Kodi ReMod v251026.0 | org.xbmc.kodi | Actualizado el 26/10/2025:", "herr", "tool.png"),
-        ("> Descargar Kodi ReMod armeabi-v7a | 32 bits | Android", "kd32", "download.png"),
-        ("> Descargar Kodi ReMod arm64-v8a | 64 bits | Android", "kd64", "download.png"),
+        ("> Descargar Kodi ReMod armeabi-v7a | 32 bits | Android | ATV", "kd32", "download.png"),
+        ("> Descargar Kodi ReMod arm64-v8a | 64 bits | Android | ATV", "kd64", "download.png"),
         ("Ace Stream Pro ReMod v251115.0 | org.acestream.media | Actualizado el 16/11/2025:", "herr", "tool.png"),
-        ("> Descargar Ace Stream Pro ReMod armeabi-v7a | 32 bits | Android", "acs32", "download.png"),
-        ("> Descargar Ace Stream Pro ReMod arm64-v8a | 64 bits | Android", "acs64", "download.png"),
+        ("> Descargar Ace Stream Pro ReMod armeabi-v7a | 32 bits | Android | ATV", "acs32", "download.png"),
+        ("> Descargar Ace Stream Pro ReMod arm64-v8a | 64 bits | Android | ATV", "acs64", "download.png"),
         ("Ace Serve v1.4.3 | org.free.aceserve | Actualizado el 10/11/2025:", "herr", "tool.png"),
-        ("> Descargar Ace Serve armeabi-v7a | 32 bits | Android", "as32", "download.png"),
-        ("> Descargar Ace Serve arm64-v8a | 64 bits | Android", "as64", "download.png")
+        ("> Descargar Ace Serve armeabi-v7a | 32 bits | Android | ATV", "as32", "download.png"),
+        ("> Descargar Ace Serve arm64-v8a | 64 bits | Android | ATV", "as64", "download.png"),
+        ("WARP | com.cloudflare.onedotonedotonedotone | Actualizado el 17/11/2025:", "herr", "tool.png"),
+        ("> Descargar WARP Mando Fix para ATV por Jota | 32 bits | 64 bits | Android | ATV", "warp1", "download.png"),
     ]
 
     for label, action, icon_file in menu_items:
@@ -146,9 +148,30 @@ def lista_menu_herramientas():
                                     isFolder=True)
     xbmcplugin.endOfDirectory(HANDLE)
 
-### lista del menu herramientas
+### lista del menu guias
+def lista_menu_guias():
+    menu_items = [
+        ("Guías y Tutoriales:", "guias", "guias.png"),
+        ("> Alternativa para tener Cloudflare WARP y Proton VPN | Telegra.ph (Telegram)", "wgt", "wgt.png")
+    ]
+
+    for label, action, icon_file in menu_items:
+        url = build_url({"action": action})
+        ### Creamos el ListItem
+        li = xbmcgui.ListItem(label=label)
+        ### Ruta absoluta al icono
+        icon_path = xbmcvfs.translatePath(os.path.join(remodtv_addon_path, 'recursos', 'imagenes', icon_file))
+        ###  Asignamos el icono
+        li.setArt({'icon': icon_path, 'thumb': icon_path})
+        ### Indicamos que es una carpeta (un sub‑menú o acción que abre algo)
+        xbmcplugin.addDirectoryItem(handle=HANDLE,
+                                    url=url,
+                                    listitem=li,
+                                    isFolder=True)
+    xbmcplugin.endOfDirectory(HANDLE)
+
+### lista del menu configurar reproductor externo
 def lista_menu_rep_ext():
-    ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
         (f"Elige la aplicación del Reprouctor Externo | Actual: {rep_act}", "rep_ext", "repro.png"),
         ("Ace Stream Media ReMod & Ace Stream Media McK | org.acestream.media", "pcf0", "android.png"),
@@ -675,7 +698,13 @@ def descargar_apk(url: str) -> Path:
 
     return ruta_completa
 
-    
+
+### test
+
+
+
+
+### test        
     
     
 ### acciones del menu principal
@@ -701,13 +730,13 @@ else:
         act_ajuste(ajuste_id)
     elif action == "info":
         res = buscar_actualizacion()
-        # if not res:
-            # mostrar_changelog()
     elif action == "rep_ext":
         rep_act = leer_rep_ext()
         lista_menu_rep_ext()
     elif action == "herr":
         lista_menu_herramientas()
+    elif action == "guias":
+        lista_menu_guias()
         
     elif action == "nav":
         url = "https://saratoga79.github.io/"
@@ -736,7 +765,7 @@ else:
                 xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
         else:
             dialog = xbmcgui.Dialog()
-            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android.\n\nVisita Repo ReMod como alternativa.")
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
            
     elif action == "kd64":
         if xbmc.getCondVisibility('system.platform.android'):
@@ -754,7 +783,7 @@ else:
                 xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
         else:
             dialog = xbmcgui.Dialog()
-            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android.\n\nVisita Repo ReMod como alternativa.")
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
             
     elif action == "acs32":
         if xbmc.getCondVisibility('system.platform.android'):
@@ -772,7 +801,7 @@ else:
                 xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
         else:
             dialog = xbmcgui.Dialog()
-            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android.\n\nVisita Repo ReMod como alternativa.")
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
             
     elif action == "acs64":
         if xbmc.getCondVisibility('system.platform.android'):
@@ -790,7 +819,7 @@ else:
                 xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
         else:
             dialog = xbmcgui.Dialog()
-            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android.\n\nVisita Repo ReMod como alternativa.")
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
         
             
     elif action == "as32":
@@ -809,7 +838,7 @@ else:
                 xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
         else:
             dialog = xbmcgui.Dialog()
-            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android.\n\nVisita Repo ReMod como alternativa.")
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
             
     elif action == "as64":
         if xbmc.getCondVisibility('system.platform.android'):
@@ -826,8 +855,34 @@ else:
                 xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
         else:
             dialog = xbmcgui.Dialog()
-            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android.\n\nVisita Repo ReMod como alternativa.")
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
         
+            
+    elif action == "warp1":
+        if xbmc.getCondVisibility('system.platform.android'):
+            url_descarga = (
+                "https://www.dropbox.com/scl/fi/ldfhghh1wr7wa4sc4e216/"
+                "1.1.1.1_Warp.6.38.5.Mando.ATV.fix.apk?"
+                "rlkey=qy1s2do2zq1uon7gzsi56tzs6&st=4cesoko8&dl=1"
+            )
+
+            try:
+                apk_path = descargar_apk(url_descarga)
+                dialog = xbmcgui.Dialog()
+                dialog.ok(f"{remodtv_addon_name}", f"Archivo descargado en la carpta Download de la memoria interna.")
+            except Exception as e:
+                xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
+        else:
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
+        
+    elif action == "wgt":
+        if xbmc.getCondVisibility('system.platform.android'):
+            tele_url = ("tg://resolve?domain=telegram&url=" + urllib.parse.quote("https://telegra.ph/Alternativa-para-tener-Cloudflare-WARP-y-Proton-VPN-en-dispositivos-AndroidAndroidTV-08-24-2"))
+        else:
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
+
     elif action == "lis_dir":
         carp = 'dir'
         archivos_config()
@@ -898,7 +953,7 @@ else:
         fue_sel = '7 Agenda Deportiva'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
-        
+
     elif action == "pcf0":
         rep_sel = '0'
         ele_rep(rep_sel)
@@ -1001,15 +1056,7 @@ else:
         reproductor = 'Por defecto de Kodi'
         guardar_rep_ext(reproductor)
         rep_act = leer_rep_ext()
-        
-    elif action == "test":
-        # actualizar_tv()
-        # monitor_pvr()
-        # avtivado = connected / desactivado = vació
-        pvr_estado = xbmc.getInfoLabel(f"PVR.BackendHost")
-        xbmc.log(f"REMOD TV Estado PVR: {pvr_estado}", level=xbmc.LOGINFO)
-        
-        pass
+
     else:
         ### Acción desconocida → volver al menú principal
         lista_menu_principal()

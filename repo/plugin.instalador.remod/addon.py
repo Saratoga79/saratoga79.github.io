@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 import xbmc
 import xbmcplugin
 import xbmcgui
@@ -55,7 +56,7 @@ def build_url(query):
 def lista_menu_principal():
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
-        (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} | Mostrar Changelog", "info", "info.png"),
+        (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} | Buscar actualizaciones", "info", "info.png"),
         ("> Instalar ReMod TV", "remodtv", "remodtv.png"),
         ("> Instalar [COLOR red]Kodi[/COLOR][COLOR yellow]Spain[/COLOR][COLOR red]Tv[/COLOR]", "ks", "ks.png"),
         ("> Instalar AceStream Channels | AceStream Channels & Horus", "acs_channels", "acs_channels.png"),
@@ -426,7 +427,6 @@ else:
     action = ARGS.get('action', [None])[0]
     if action == "info":
         buscar_actualizacion()
-        mostrar_changelog()
     elif action == "remodtv":
         addon_id = 'plugin.program.remodtv'
         res = inst_addon(addon_id)

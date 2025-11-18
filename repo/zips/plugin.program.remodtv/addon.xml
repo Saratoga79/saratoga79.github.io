@@ -1,7 +1,7 @@
 <addon 
 	id="plugin.program.remodtv"
 	name="ReMod TV"
-	version="25.11.17.2"
+	version="25.11.18.0"
 	provider-name="Saratoga">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1"/> <!-- Mín Kodi 20+ -->
@@ -10,12 +10,146 @@
 		<provides>executable</provides>
 	</extension>
 	<extension point="xbmc.addon.metadata">
-		<summary>ReModTV</summary>
-		<description>Instala y configura ReModTV</description>
+		<summary>ReMod TV</summary>
+		<description>Instala y configura ReMod TV</description>
 		<license></license>
 		<platform>all</platform>
-		<website></website>
-		<news></news>
+		<website>https://saratoga79.github.io/</website>
+		<news>
+> Versión = 25.11.18.0
+> Cambios respecto a la versión anterior:
+	- Pequeñas mejoras
+	- Añadida nueva sección de Guías y Tutoriales (en desarrollo)
+	- Añadida nueva herramienta WARP para Android/ATV con corrección para poder activarla con el mando en ATV por Jota
+	
+> Versión = 25.11.17.2
+> Cambios respecto a la versión anterior:
+	- Añadida opción de descarga de apps a la sección de Herramientas
+	
+> ReMod TV
+> Versión = 25.11.17.1
+> Cambios respecto a la versión anterior:
+	- Sección de Herramientas
+	
+> ReMod TV
+> Versión = 25.11.17.0
+> Cambios respecto a la versión anterior:
+	- Sección de Herramientas
+	
+> Versión = 25.11.16.2
+> Cambios respecto a la versión anterior:
+	- Sección de Herramientas (en desarrollo)
+	
+> Versión = 25.11.16.1
+> Cambios respecto a la versión anterior:
+	- Añadida nueva sección de Herramientas (en desarrollo)
+	- Pequeñas mejoras
+	
+> Versión = 25.11.25.0
+> Cambios respecto a la versión anterior:
+	- Añadidas nuevas fuentes:
+		- 6 AF1CIONADOS
+		- 7 Eventos
+	
+> Versión = 25.11.10.0
+> Cambios respecto a la versión anterior:
+	- Añadida nueva fuente:
+		- 5 TVpass
+	
+> Versión = 25.10.30.3
+> Cambios respecto a la versión anterior:
+	- Pequeñas mejoras
+	
+> Versión = 25.10.29.0
+> Cambios respecto a la versión anterior:
+	- Pequeñas mejoras
+	
+> Versión = 25.10.26.1
+> Cambios respecto a la versión anterior:
+	- Mejoras en los nombres de los Reproductores Externos
+	
+> Versión = 25.10.26.0
+> Cambios respecto a la versión anterior:
+	- Correcciones y mejoras
+	
+> Versión = 25.10.24.0
+> Cambios respecto a la versión anterior:
+	- Corrección del indicador de fuente actual en la primera instalación del addon
+	
+> Versión = 25.10.23.1
+> Cambios respecto a la versión anterior:
+	- Indicador de fuente actual añadido al menu para Elegir la fuente para sección de TV
+	
+> Versión = 25.10.23.0
+> Cambios respecto a la versión anterior:
+	- Menú para Configurar el Reproductor Externo renovado
+	- Añadido nuevo Reproductor Externo Ace Stream Pro Mod | org.acestream.nodf | Android
+	- Addon limitado a versiones de Kodi 20+
+	
+> Versión = 25.10.22.2
+> Cambios respecto a la versión anterior:
+	- Añadidas fuentes de repuesto para las fuentes Direct (1), ACE (2) y Horus (3)
+	
+> Versión = 25.10.22.1
+> Cambios respecto a la versión anterior:
+	- Correcciones y mejoras
+	
+> Versión = 25.10.22.0
+> Cambios respecto a la versión anterior:
+	- Corregido el fallo al elegir la fuente ACE (2)
+	
+> Versión = 25.10.21.0
+> Cambios respecto a la versión anterior:
+	- La sección de TV se activa automáticamente si está desactivado después de actualizar la lista de TV manualmente
+	- Limpieza y pequeñas mejoras en código
+	- AceServe 1.3.5 y versiones anteriores (en la fuente ReMod)
+	
+> Versión = 25.10.20.0
+> Cambios respecto a la versión anterior:
+	- Nueva fuente para sección de TV, ReModTV (4) con enlaces [ACS] y [M3U8], estos últimos rquieren de VPN
+	- AceServe 1.3.4 (en la fuente ReMod)
+	- Limpieza de código
+	
+> Versión = 25.10.19.2
+> Cambios respecto a la versión anterior:
+	- La sección de TV se activa automáticamente si está desactivado después de conigurar e instalar dicha sección.
+	
+> Versión = 25.10.19.0
+> Cambios respecto a la versión anterior:
+	- Añadida opción dentro de configuración de Reproductor Externo para dejar los ajustes originales, como cuando se instaló Kodi.
+	- Añadidas las apps de AceServe a la fuente.
+	- AceServe 1.3.2 (en la fuente ReMod)
+	
+> Versión = 25.10.18.1
+> Cambios respecto a la versión anterior:
+	- Añadida opción de configuración de Reproductor Externo para Windows
+	- Añadido control de versión de addon y changelog
+	- Correcciones y mejoras
+	
+> Versión = 25.10.17.4
+> Cambios respecto a la versión anterior:
+	- Corrección error activación de addon (subprocess)
+	- Corrección ruta fuentes (carp)
+	
+> Versión = 25.10.17.1
+> Cambios respecto a la versión anterior:
+	- Correcciones y mejoras
+	- Añadido menú para selección la fuente directa, ACE y Horus.
+	
+> Versión = 25.10.17.0
+> Cambios respecto a la versión anterior:
+	- Correcciones y mejoras
+	- Añadido menú para Configurar el Reproductor Externo ACS en Android.
+	- Iconos por www.thiings.co/things
+	
+> Versión = 25.10.16.0
+> Cambios respecto a la versión anterior:
+	- Añadido menú para Configurar el Reproductor Externo ACS en Android.
+	
+> Versión = 25.10.14.0
+> Cambios respecto a la versión anterior:
+	- Versión inicial.
+		</news>
         <assets>
 			<icon>recursos/imagenes/icono.png</icon>
 			<fanart>recursos/imagenes/poster.png</fanart>
