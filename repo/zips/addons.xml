@@ -65,7 +65,7 @@
 			<fanart>recursos/imagenes/poster.png</fanart>
 		</assets>
 	</extension>
-</addon><addon id="plugin.program.remodtv" name="ReMod TV" version="25.11.18.2" provider-name="Saratoga">
+</addon><addon id="plugin.program.remodtv" name="ReMod TV" version="25.11.18.3" provider-name="Saratoga">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1" /> 
 	</requires>
@@ -79,10 +79,9 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
-&gt; Versión = 25.11.18.1
+&gt; Versión = 25.11.18.3
 &gt; Cambios respecto a la versión anterior:
 	- Pequeñas mejoras
-	- Añadida nueva sección de Guías y Tutoriales (en desarrollo)
 	- Añadida nueva herramienta WARP para Android/ATV con corrección para poder activarla con el mando en ATV por Jota
 	
 &gt; Versión = 25.11.17.2

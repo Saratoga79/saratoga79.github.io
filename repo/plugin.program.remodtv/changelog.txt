@@ -1,8 +1,7 @@
 > ReMod TV
-> Versión = 25.11.18.2
+> Versión = 25.11.18.3
 > Cambios respecto a la versión anterior:
 	- Pequeñas mejoras
-	- Añadida nueva sección de Guías y Tutoriales (en desarrollo)
 	- Añadida nueva herramienta WARP para Android/ATV con corrección para poder activarla con el mando en ATV por Jota
 	
 > Versión = 25.11.17.2
