@@ -877,11 +877,7 @@ else:
             dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
         
     elif action == "wgt":
-        if xbmc.getCondVisibility('system.platform.android'):
-            tele_url = ("tg://resolve?domain=telegram&url=" + urllib.parse.quote("https://telegra.ph/Alternativa-para-tener-Cloudflare-WARP-y-Proton-VPN-en-dispositivos-AndroidAndroidTV-08-24-2"))
-        else:
-            dialog = xbmcgui.Dialog()
-            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
+        tele_url = ("tg://resolve?domain=telegram&url=" + urllib.parse.quote("https://telegra.ph/Alternativa-para-tener-Cloudflare-WARP-y-Proton-VPN-en-dispositivos-AndroidAndroidTV-08-24-2"))
 
     elif action == "lis_dir":
         carp = 'dir'
