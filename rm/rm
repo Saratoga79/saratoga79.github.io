@@ -218,8 +218,8 @@ http://vipketseyket.top:8080/VIP01834172639516298/40c119f5f5cb/97138
 #EXTINF:-1 cuid="72" group-title="M3U8" tvg-chno="72" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [M3U8] (DrVi1) (Canal 72)
 http://vipketseyket.top:8080/VIP01834172639516298/40c119f5f5cb/97193
 
-#EXTINF:-1 cuid="73" group-title="M3U8" tvg-chno="73" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@50] [M3U8] (DrVi1) (Canal 73)
-http://vipketseyket.top:8080/VIP013311731594534260/56876e250de2/244
+#EXTINF:-1 cuid="73" group-title="M3U8" tvg-chno="73" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@50] [M3U8] (DrVi4) (Canal 73)
+http://vipketseyket.top:8080/VIP011371755270674553/72f356ab29af/244
 
 #EXTINF:-1 cuid="74" group-title="M3U8" tvg-chno="74" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@50] [M3U8] (DrVi2) (Canal 74)
 http://vipketseyket.top:8080/VIP01834172639516298/40c119f5f5cb/244
@@ -233,8 +233,8 @@ http://1play.cool:25461/streaming/clients_live.php?username=2132580232&password=
 #EXTINF:-1 cuid="77" group-title="M3U8" tvg-chno="77" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@25] [M3U8] (LaPr) (Canal 77)
 http://live.detodotvplay.com:8080/Risario8/Pineda13/58695
 
-#EXTINF:-1 cuid="78" group-title="M3U8" tvg-chno="78" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@25] [M3U8] (DrVi1) (Canal 78)
-http://vipketseyket.top:8080/VIP013311731594534260/56876e250de2/243
+#EXTINF:-1 cuid="78" group-title="M3U8" tvg-chno="78" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@50] [M3U8] (DrVi4) (Canal 78)
+http://vipketseyket.top:8080/VIP011371755270674553/72f356ab29af/243
 
 #EXTINF:-1 cuid="79" group-title="M3U8" tvg-chno="79" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@25] [M3U8] (DrVi2) (Canal 79)
 http://vipketseyket.top:8080/VIP01834172639516298/40c119f5f5cb/243
@@ -845,7 +845,7 @@ http://195.23.75.15:8000/udp/239.100.6.48:1234
 #EXTINF:-1 cuid="281" group-title="M3U8" tvg-chno="281" tvg-id="PT | DAZN 1" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DAZN%201.png" tvg-name="PT | DAZN 1",PT | DAZN 1 [FHD@50] [M3U8] (Canal 281)
 http://176.65.146.108:8022/play/a06r/index.m3u8
 
-#EXTINF:-1 cuid="282" group-title="M3U8" tvg-chno="282" tvg-id="PT | DAZN 1" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DAZN%201.png" tvg-name="PT | DAZN 1",PT | DAZN 1 [UHD@25] [M3U8] (DrLi) (Canal 282)
+#EXTINF:-1 cuid="282" group-title="M3U8" tvg-chno="282" tvg-id="PT | DAZN 1" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DAZN%201.png" tvg-name="PT | DAZN 1",PT | DAZN 1 [HD@25] [M3U8] (DrLi) (Canal 282)
 http://live.prsc.xyz:80/paulocaminho10/4ykJEB6McG/51
 
 #EXTINF:-1 cuid="283" group-title="M3U8" tvg-chno="283" tvg-id="PT | DAZN 1" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DAZN%201.png" tvg-name="PT | DAZN 1",PT | DAZN 1 [UHD@25] [M3U8] (DrMi) (Canal 283)
