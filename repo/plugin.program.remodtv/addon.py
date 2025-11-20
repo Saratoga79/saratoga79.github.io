@@ -125,7 +125,7 @@ def lista_menu_herramientas():
         ("Ace Stream Pro ReMod v251115.0 | org.acestream.media | Actualizado el 16/11/2025:", "herr", "tool.png"),
         ("> Descargar Ace Stream Pro ReMod armeabi-v7a | 32 bits | Android | ATV", "acs32", "download.png"),
         ("> Descargar Ace Stream Pro ReMod arm64-v8a | 64 bits | Android | ATV", "acs64", "download.png"),
-        ("Ace Serve v1.5.0 | org.free.aceserve | Actualizado el 10/11/2025:", "herr", "tool.png"),
+        ("Ace Serve v1.5.0 | org.free.aceserve | Actualizado el 20/11/2025:", "herr", "tool.png"),
         ("> Descargar Ace Serve armeabi-v7a | 32 bits | Android | ATV", "as32", "download.png"),
         ("> Descargar Ace Serve arm64-v8a | 64 bits | Android | ATV", "as64", "download.png"),
         ("WARP | com.cloudflare.onedotonedotonedotone | Actualizado el 17/11/2025:", "herr", "tool.png"),
@@ -173,7 +173,7 @@ def lista_menu_guias():
 def lista_menu_rep_ext():
     menu_items = [
         (f"Elige la aplicación del Reprouctor Externo | Actual: {rep_act}", "rep_ext", "repro.png"),
-        ("Ace Stream Media ReMod & Ace Stream Media McK | org.acestream.media", "pcf0", "android.png"),
+        ("Ace Stream Media ReMod | Ace Stream Media McK | org.acestream.media", "pcf0", "android.png"),
         ("Ace Stream Media ATV | org.acestream.media.atv", "pcf1", "android.png"),
         ("Ace Stream Media Web | org.acestream.media.web", "pcf2", "android.png"),
         ("Ace Stream Node | org.acestream.node", "pcf3", "android.png"),
@@ -183,7 +183,7 @@ def lista_menu_rep_ext():
         ("Ace Stream Core Web | org.acestream.core.web", "pcf7", "android.png"),
         ("Ace Stream Live | org.acestream.live", "pcf8", "android.png"),
         ("Ace Stream Pro Mod | org.acestream.nodf", "pcf15", "android.png"),
-        ("AceServe | org.free.aceserve", "pcf12", "android.png"),
+        ("Ace Serve | org.free.aceserve", "pcf12", "android.png"),
         ("MPVkt | live.mehiz.mpvkt", "pcf9", "android.png"),
         ("MPV | is.xyz.mpv", "pcf10", "android.png"),
         ("VLC | org.videolan.vlc", "pcf11", "android.png"),
@@ -945,7 +945,7 @@ else:
     elif action == "pcf0":
         rep_sel = '0'
         ele_rep(rep_sel)
-        reproductor = 'Ace Stream Media McK'
+        reproductor = 'Ace Stream Media ReMod | Ace Stream Media McK'
         guardar_rep_ext(reproductor)
         rep_act = leer_rep_ext()
     elif action == "pcf1":
@@ -1017,7 +1017,7 @@ else:
     elif action == "pcf12":
         rep_sel = '12'
         ele_rep(rep_sel)
-        reproductor = 'AceServe'
+        reproductor = 'Ace Serve'
         guardar_rep_ext(reproductor)
         rep_act = leer_rep_ext()
     elif action == "pcf13":

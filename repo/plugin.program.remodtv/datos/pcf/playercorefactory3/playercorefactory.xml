@@ -1,6 +1,6 @@
 <playercorefactory>
 	<players>
-		<player name="Ace Stream Media McK" type="ExternalPlayer" audio="false" video="true">
+		<player name="Ace Stream ReMod | Ace Stream Media McK" type="ExternalPlayer" audio="false" video="true">
 			<filename>org.acestream.media</filename>
 			<hidexbmc>true</hidexbmc>
 		</player>
@@ -35,10 +35,10 @@
 		<player name="Ace Stream Core Web" type="ExternalPlayer" audio="false" video="true">
 			<filename>org.acestream.core.web</filename>
 			<hidexbmc>true</hidexbmc>
+		</player>
 		<player name="Ace Stream Live" type="ExternalPlayer" audio="false" video="true">
 			<filename>org.acestream.live</filename>
 			<hidexbmc>true</hidexbmc>
-		</player>
 		</player>
 		<player name="MPVkt" type="ExternalPlayer" audio="false" video="true">
 			<filename>live.mehiz.mpvkt</filename>

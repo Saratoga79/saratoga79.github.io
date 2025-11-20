@@ -1,4 +1,8 @@
 > ReMod TV
+> Versión = 25.11.20.2
+> Cambios respecto a la versión anterior
+	- Actualizados nombres de Reproductores Externos
+	
 > Versión = 25.11.20.1
 > Cambios respecto a la versión anterior
 	- Actualizado Ace Serve a la v1.5.0 en la sección de Herramientas y Utilidades

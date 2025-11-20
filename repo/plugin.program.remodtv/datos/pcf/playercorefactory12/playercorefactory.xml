@@ -1,6 +1,6 @@
 <playercorefactory>
 	<players>
-		<player name="Ace Stream Media McK" type="ExternalPlayer" audio="false" video="true">
+		<player name="Ace Stream ReMod | Ace Stream Media McK" type="ExternalPlayer" audio="false" video="true">
 			<filename>org.acestream.media</filename>
 			<hidexbmc>true</hidexbmc>
 		</player>
