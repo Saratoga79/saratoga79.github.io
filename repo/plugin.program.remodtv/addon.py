@@ -125,7 +125,7 @@ def lista_menu_herramientas():
         ("Ace Stream Pro ReMod v251115.0 | org.acestream.media | Actualizado el 16/11/2025:", "herr", "tool.png"),
         ("> Descargar Ace Stream Pro ReMod armeabi-v7a | 32 bits | Android | ATV", "acs32", "download.png"),
         ("> Descargar Ace Stream Pro ReMod arm64-v8a | 64 bits | Android | ATV", "acs64", "download.png"),
-        ("Ace Serve v1.4.3 | org.free.aceserve | Actualizado el 10/11/2025:", "herr", "tool.png"),
+        ("Ace Serve v1.5.0 | org.free.aceserve | Actualizado el 10/11/2025:", "herr", "tool.png"),
         ("> Descargar Ace Serve armeabi-v7a | 32 bits | Android | ATV", "as32", "download.png"),
         ("> Descargar Ace Serve arm64-v8a | 64 bits | Android | ATV", "as64", "download.png"),
         ("WARP | com.cloudflare.onedotonedotonedotone | Actualizado el 17/11/2025:", "herr", "tool.png"),
