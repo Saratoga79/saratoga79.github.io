@@ -65,7 +65,7 @@
 			<fanart>recursos/imagenes/poster.png</fanart>
 		</assets>
 	</extension>
-</addon><addon id="plugin.program.remodtv" name="ReMod TV" version="25.11.18.3" provider-name="Saratoga">
+</addon><addon id="plugin.program.remodtv" name="ReMod TV" version="25.11.20.0" provider-name="Saratoga">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1" /> 
 	</requires>
@@ -79,6 +79,10 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
+&gt; Versión = 25.11.20.0
+&gt; Cambios respecto a la versión anterior:
+	- Actualizado Ace Serve a la v1.5.0
+	
 &gt; Versión = 25.11.18.3
 &gt; Cambios respecto a la versión anterior:
 	- Pequeñas mejoras

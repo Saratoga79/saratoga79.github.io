@@ -1,7 +1,7 @@
 <addon 
 	id="plugin.program.remodtv"
 	name="ReMod TV"
-	version="25.11.18.3"
+	version="25.11.20.0"
 	provider-name="Saratoga">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1"/> <!-- Mín Kodi 20+ -->
@@ -16,6 +16,10 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
+> Versión = 25.11.20.0
+> Cambios respecto a la versión anterior:
+	- Actualizado Ace Serve a la v1.5.0
+	
 > Versión = 25.11.18.3
 > Cambios respecto a la versión anterior:
 	- Pequeñas mejoras

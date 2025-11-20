@@ -823,7 +823,7 @@ else:
             
             url_descarga = (
                 "https://saratoga79.github.io/apps/android/AS/"
-                "org.free.aceserve-1.4.3-arm.apk"
+                "org.free.aceserve-1.5.0-arm.apk"
             )
 
             try:
@@ -840,7 +840,7 @@ else:
         if xbmc.getCondVisibility('system.platform.android'):
             url_descarga = (
                 "https://saratoga79.github.io/apps/android/AS/"
-                "org.free.aceserve-1.4.3-arm64.apk"
+                "org.free.aceserve-1.5.0-arm64.apk"
             )
 
             try:
