@@ -380,77 +380,77 @@ http://pddqrmu.mmastertv.xyz:80/RafetSalii/2893482853/191145
 #EXTINF:-1 cuid="126" group-title="M3U8" tvg-chno="126" tvg-id="LaLiga TV BAR HD" tvg-logo="https://r2.thesportsdb.com/images/media/channel/logo/2sm1mj1692971330.png" tvg-name="LaLiga TV BAR",UK | LaLiga TV BAR [HD@25] [M3U8] (La2) (Canal 126)
 https://directplaylive.sbs/live/foot6/chunks.m3u8
 
-#EXTINF:-1 cuid="127" group-title="M3U8" tvg-chno="127" tvg-id="Vix LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/world-latin-america/vix-lam.png" tvg-name="Vix LaLiga",MX | Vix LaLiga [FHD@30] [M3U8] (BiZa) (Canal 127)
-http://tv.zapping.life:8080/mayleenfunez1/135535683598/9601
+#EXTINF:-1 cuid="127" group-title="M3U8" tvg-chno="127" tvg-id="Supersport" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/south-africa/supersport-laliga-za.png" tvg-name="LaLiga TV BAR",ZA | Supersport LaLiga [FHD@25] [M3U8] (La2) (Canal 127)
+http://145.239.5.177:80/565/index.m3u8
 
-#EXTINF:-1 cuid="128" group-title="M3U8" tvg-chno="128" tvg-id="Vix LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/world-latin-america/vix-lam.png" tvg-name="Vix LaLiga",MX | Vix LaLiga [FHD@30] [M3U8] (La2) (Canal 128)
-http://172.93.102.112:8989/279308_.m3u8
-
-#EXTINF:-1 cuid="129" group-title="M3U8" tvg-chno="129" tvg-id="Vix LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/world-latin-america/vix-lam.png" tvg-name="Vix LaLiga",MX | Vix LaLiga [FHD@30] [M3U8] (La2) (Canal 129)
-http://190.61.116.105:8002/play/a0gh/index.m3u8
-
-#EXTINF:-1 cuid="130" group-title="M3U8" tvg-chno="130" tvg-id="Vix LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/world-latin-america/vix-lam.png" tvg-name="Vix LaLiga",MX | Vix LaLiga [FHD@30] [M3U8] (La2) (Canal 130)
-http://38.159.227.123:8000/play/a0a7/index.m3u8
-
-#EXTINF:-1 cuid="131" group-title="M3U8" tvg-chno="131" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [FHD@30] [M3U8] (La2) (Canal 131)
+#EXTINF:-1 cuid="128" group-title="M3U8" tvg-chno="128" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [FHD@30] [M3U8] (La2) (Canal 128)
 https://tvjrflix.appsjr.pro/temporal/redirect.php?url=http://xcm.budtv-ultra.com:9000/budtv/budtvline/8Y3ymUpJESps/281171.m3u8
 
-#EXTINF:-1 cuid="132" group-title="M3U8" tvg-chno="132" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [FHD@30] [M3U8] (La2) (Canal 132)
-http://45.164.151.197:8000/play/sky/index.m3u8
+#EXTINF:-1 cuid="129" group-title="M3U8" tvg-chno="129" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [FHD@30] [M3U8] (La2) (Canal 129)
+http://tv.zapping.life:8080/abelardo2020/ES4G1y3eXX/9599
 
-#EXTINF:-1 cuid="133" group-title="M3U8" tvg-chno="133" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [FHD@30] [M3U8] (La2) (Canal 133)
+#EXTINF:-1 cuid="130" group-title="M3U8" tvg-chno="130" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [FHD@30] [M3U8] (La2) (Canal 130)
 http://190.92.10.66:4000/play/a001/index.m3u8
 
-#EXTINF:-1 cuid="134" group-title="M3U8" tvg-chno="134" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [FHD@30] [M3U8] (La2) (Canal 134)
+#EXTINF:-1 cuid="131" group-title="M3U8" tvg-chno="131" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [FHD@30] [M3U8] (La2) (Canal 131)
 http://181.78.109.48:9998/play/a06r/index.m3u8
 
-#EXTINF:-1 cuid="135" group-title="M3U8" tvg-chno="135" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [FHD@30] [M3U8] (La2) (Canal 135)
+#EXTINF:-1 cuid="132" group-title="M3U8" tvg-chno="132" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [FHD@30] [M3U8] (La2) (Canal 132)
 http://181.119.103.113:12500/play/a0di/index.m3u8
 
-#EXTINF:-1 cuid="136" group-title="M3U8" tvg-chno="136" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [FHD@30] [M3U8] (La2) (Canal 136)
+#EXTINF:-1 cuid="133" group-title="M3U8" tvg-chno="133" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [FHD@30] [M3U8] (La2) (Canal 133)
 http://181.78.106.127:9000/play/ca030/index.m3u8
 
-#EXTINF:-1 cuid="137" group-title="M3U8" tvg-chno="137" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [FHD@30] [M3U8] (LaPr) (Canal 137)
+#EXTINF:-1 cuid="134" group-title="M3U8" tvg-chno="134" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [FHD@30] [M3U8] (LaPr) (Canal 134)
 http://live.detodotvplay.com:8080/Risario8/Pineda13/369989
 
-#EXTINF:-1 cuid="138" group-title="M3U8" tvg-chno="138" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [HD@60] [M3U8] (La2) (Canal 138)
+#EXTINF:-1 cuid="135" group-title="M3U8" tvg-chno="135" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [HD@60] [M3U8] (La2) (Canal 135)
 http://190.14.10.19:16000/play/a09u/index.m3u8
 
-#EXTINF:-1 cuid="139" group-title="M3U8" tvg-chno="139" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [HD@60] [M3U8] (ClTv) (Canal 139)
+#EXTINF:-1 cuid="136" group-title="M3U8" tvg-chno="136" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [HD@60] [M3U8] (ClTv) (Canal 136)
 http://streamprostk.com:2082/live/stkjugta/7493/57435.ts
 
-#EXTINF:-1 cuid="140" group-title="M3U8" tvg-chno="140" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [HD@30] [M3U8] (La2) (Canal 140)
+#EXTINF:-1 cuid="137" group-title="M3U8" tvg-chno="137" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [HD@30] [M3U8] (La2) (Canal 137)
 http://tv.zapping.life:8080/abelardo2020/ES4G1y3eXX/9601
 
-#EXTINF:-1 cuid="141" group-title="M3U8" tvg-chno="141" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [HD@30] [M3U8] (Eve) (Canal 141)
+#EXTINF:-1 cuid="138" group-title="M3U8" tvg-chno="138" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [HD@30] [M3U8] (Eve) (Canal 138)
 http://xpaneltv.com:8080/live/AngeloAng/49687548/90561.ts
 
-#EXTINF:-1 cuid="142" group-title="M3U8" tvg-chno="142" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [SD@30] [M3U8] (La2) (Canal 142)
+#EXTINF:-1 cuid="139" group-title="M3U8" tvg-chno="139" tvg-id="Sky Sports LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-icon-uk.png" tvg-name="LaLiga TV BAR",UK | Sky Sports LaLiga [SD@30] [M3U8] (La2) (Canal 139)
 http://190.111.16.106:40000/play/a09r
 
-#EXTINF:-1 cuid="143" group-title="M3U8" tvg-chno="143" tvg-id="ESPN Deportes" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/espn-deportes-us.png" tvg-name="ESPN Deportes",MX | ESPN Deportes [HD@60] [M3U8] (La2) (Canal 143)
+#EXTINF:-1 cuid="140" group-title="M3U8" tvg-chno="140" tvg-id="ESPN Deportes" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/espn-deportes-us.png" tvg-name="ESPN Deportes",MX | ESPN Deportes [HD@60] [M3U8] (La2) (Canal 140)
 https://tv-max4k-us.aayushmansinghrajpurohit95.workers.dev/476956.m3u8
 
-#EXTINF:-1 cuid="144" group-title="M3U8" tvg-chno="144" tvg-id="ESPN Deportes" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/espn-deportes-us.png" tvg-name="ESPN Deportes",MX | ESPN Deportes [HD@60] [M3U8] (La2) (Canal 144)
+#EXTINF:-1 cuid="141" group-title="M3U8" tvg-chno="141" tvg-id="ESPN Deportes" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/espn-deportes-us.png" tvg-name="ESPN Deportes",MX | ESPN Deportes [HD@60] [M3U8] (La2) (Canal 141)
 https://tv-max4k-us.aayushmansinghrajpurohit95.workers.dev/763.m3u8
 
-#EXTINF:-1 cuid="145" group-title="M3U8" tvg-chno="145" tvg-id="ESPN Deportes" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/espn-deportes-us.png" tvg-name="ESPN Deportes",MX | ESPN Deportes [HD@60] [M3U8] (La2) (Canal 145)
+#EXTINF:-1 cuid="142" group-title="M3U8" tvg-chno="142" tvg-id="ESPN Deportes" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/espn-deportes-us.png" tvg-name="ESPN Deportes",MX | ESPN Deportes [HD@60] [M3U8] (La2) (Canal 142)
 https://fusion4k.aayushmansinghrajpurohit95.workers.dev/763.m3u8
 
-#EXTINF:-1 cuid="146" group-title="M3U8" tvg-chno="146" tvg-id="ESPN Deportes" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/espn-deportes-us.png" tvg-name="ESPN Deportes",MX | ESPN Deportes [HD@60] [M3U8] (La2) (Canal 146)
+#EXTINF:-1 cuid="143" group-title="M3U8" tvg-chno="143" tvg-id="ESPN Deportes" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/espn-deportes-us.png" tvg-name="ESPN Deportes",MX | ESPN Deportes [HD@60] [M3U8] (La2) (Canal 143)
 https://fusion4k.aayushmansinghrajpurohit95.workers.dev/476956.m3u8
 
-#EXTINF:-1 cuid="147" group-title="M3U8" tvg-chno="147" tvg-id="ESPN Deportes" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/espn-deportes-us.png" tvg-name="ESPN Deportes",MX | ESPN Deportes [HD@60] [M3U8] (La2) (Canal 147)
+#EXTINF:-1 cuid="144" group-title="M3U8" tvg-chno="144" tvg-id="ESPN Deportes" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/espn-deportes-us.png" tvg-name="ESPN Deportes",MX | ESPN Deportes [HD@60] [M3U8] (La2) (Canal 144)
 https://s@saz.blitzen.store/deportes.m3u8
 
-#EXTINF:-1 cuid="148" group-title="M3U8" tvg-chno="148" tvg-id="ESPN Deportes" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/espn-deportes-us.png" tvg-name="ESPN Deportes",MX | ESPN Deportes [HD@60] [M3U8] (La2) (Canal 148)
+#EXTINF:-1 cuid="145" group-title="M3U8" tvg-chno="145" tvg-id="ESPN Deportes" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/espn-deportes-us.png" tvg-name="ESPN Deportes",MX | ESPN Deportes [HD@60] [M3U8] (La2) (Canal 145)
 http://Tdo@origin.thetvapp.to/hls/espn-deportes/mono.m3u8
 
-#EXTINF:-1 cuid="149" group-title="M3U8" tvg-chno="149" tvg-id="ESPN Deportes" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/espn-deportes-us.png" tvg-name="ESPN Deportes",MX | ESPN Deportes [HD@30] [M3U8] (LaPr) (Canal 149)
+#EXTINF:-1 cuid="146" group-title="M3U8" tvg-chno="146" tvg-id="ESPN Deportes" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/espn-deportes-us.png" tvg-name="ESPN Deportes",MX | ESPN Deportes [HD@30] [M3U8] (La2) (Canal 146)
 http://104.243.40.13:8989/279426_.m3u8
 
-#EXTINF:-1 cuid="150" group-title="M3U8" tvg-chno="150" tvg-id="ESPN Deportes" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/espn-deportes-us.png" tvg-name="ESPN Deportes",MX | ESPN Deportes [HD@30] [M3U8] (LaPr) (Canal 150)
+#EXTINF:-1 cuid="147" group-title="M3U8" tvg-chno="147" tvg-id="ESPN Deportes" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/espn-deportes-us.png" tvg-name="ESPN Deportes",MX | ESPN Deportes [HD@30] [M3U8] (LaPr) (Canal 147)
 http://live.detodotvplay.com:8080/Risario8/Pineda13/212
+
+#EXTINF:-1 cuid="148" group-title="M3U8" tvg-chno="148" tvg-id="Vix LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/world-latin-america/vix-lam.png" tvg-name="Vix LaLiga",MX | Vix LaLiga [FHD@30] [M3U8] (La2) (Canal 148)
+http://172.93.102.112:8989/279308_.m3u8
+
+#EXTINF:-1 cuid="149" group-title="M3U8" tvg-chno="149" tvg-id="Vix LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/world-latin-america/vix-lam.png" tvg-name="Vix LaLiga",MX | Vix LaLiga [FHD@30] [M3U8] (La2) (Canal 149)
+http://190.61.116.105:8002/play/a0gh/index.m3u8
+
+#EXTINF:-1 cuid="150" group-title="M3U8" tvg-chno="150" tvg-id="Vix LaLiga" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/world-latin-america/vix-lam.png" tvg-name="Vix LaLiga",MX | Vix LaLiga [FHD@30] [M3U8] (La2) (Canal 150)
+http://38.159.227.123:8000/play/a0a7/index.m3u8
 
 #EXTINF:-1 cuid="151" group-title="ACS" tvg-chno="151" tvg-id="DSPORTS.(COL).(DTSC).co" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/world-latin-america/dsports-lam.png" tvg-name="DSPORTS (COL) (DTSC)",CO | DSPORTS [FHD@30] [ACS] (NeEr) (Canal 151)
 http://127.0.0.1:6878/ace/getstream?id=176f0b8565a161f87c81a4a250463e3eaf678fb5&pid=37
@@ -2488,302 +2488,305 @@ http://127.0.0.1:6878/ace/getstream?id=8dbe2d515e9131fa311353537736f8c94be9b26d&
 #EXTINF:-1 cuid="829" group-title="M3U8" tvg-chno="829" tvg-id="Sky Sports Football" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-premier-league-uk.png" tvg-name="UK | Sky Sport Football",UK | Sky Sports Football [FHD@50] [M3U8] (DrLi) (Canal 829)
 https://A1xs.vip/2000003
 
-#EXTINF:-1 cuid="830" group-title="ACS" tvg-chno="830" tvg-id="Sky Sports Arena" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-arena-uk.png" tvg-name="UK | Sky Sport Football",UK | Sky Sports Arena [HD@25] [ACS] (SpTv) (Canal 830)
+#EXTINF:-1 cuid="830" group-title="ACS" tvg-chno="830" tvg-id="Sky Sports Arena" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-arena-uk.png" tvg-name="UK | Sky Sport Arena",UK | Sky Sports Arena [HD@25] [ACS] (SpTv) (Canal 830)
 http://127.0.0.1:6878/ace/getstream?id=d317a003e8047da2c36a2a2bb2289578c9a3b79c&pid=392
 
-#EXTINF:-1 cuid="831" group-title="ACS" tvg-chno="831" tvg-id="Sky Sports Cricket" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-cricket-uk.png" tvg-name="UK | Sky Sport Football",UK | Sky Sports Cricket [HD@25] [ACS] (SpTv) (Canal 831)
+#EXTINF:-1 cuid="831" group-title="ACS" tvg-chno="831" tvg-id="Sky Sports Cricket" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-cricket-uk.png" tvg-name="UK | Sky Sport Cricket",UK | Sky Sports Cricket [HD@25] [ACS] (SpTv) (Canal 831)
 http://127.0.0.1:6878/ace/getstream?id=6d95e4b0893e155cc674b84e0763150c445d3ddd&pid=393
 
-#EXTINF:-1 cuid="832" group-title="ACS" tvg-chno="832" tvg-id="PremierSports 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/premier-sports-uk.png" tvg-name="PremierSports 1",UK | PremierSports 1 [FHD@50] [ACS] (NeLo) (Canal 832)
+#EXTINF:-1 cuid="832" group-title="ACS" tvg-chno="832" tvg-id="Sky Sports Altitude" tvg-logo="https://github.com/tv-logo/tv-logos/blob/main/countries/united-states/altitude-sports-us.png" tvg-name="UK | Sky Sport Altitude",UK | Sky Sports Altitude [HD@25] [ACS] (SpTv) (Canal 832)
+http://tv.zapping.life:8080/mayleenfunez1/135535683598/9601
+
+#EXTINF:-1 cuid="833" group-title="ACS" tvg-chno="833" tvg-id="PremierSports 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/premier-sports-uk.png" tvg-name="PremierSports 1",UK | PremierSports 1 [FHD@50] [ACS] (NeLo) (Canal 833)
 http://127.0.0.1:6878/ace/getstream?id=75a56863b6fe0407ad4305b4d7ee5643c3923565&pid=394
 
-#EXTINF:-1 cuid="833" group-title="ACS" tvg-chno="833" tvg-id="PremierSports 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/premier-sports-2-uk.png" tvg-name="PremierSports 2",UK | PremierSports 2 [FHD@50] [ACS] (NeLo) (Canal 833)
+#EXTINF:-1 cuid="834" group-title="ACS" tvg-chno="834" tvg-id="PremierSports 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/premier-sports-2-uk.png" tvg-name="PremierSports 2",UK | PremierSports 2 [FHD@50] [ACS] (NeLo) (Canal 834)
 http://127.0.0.1:6878/ace/getstream?id=4903ca695edb64bc72ae29eb85a5333ba0139537&pid=395
 
-#EXTINF:-1 cuid="834" group-title="ACS" tvg-chno="834" tvg-id="RU | ACETOP 1" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/HD-TV_Logo.svg/2560px-HD-TV_Logo.svg.png" tvg-name="RU | ACETOP 1",RU | ACETOP 1 [HD@50] [ACS] (Canal 834)
+#EXTINF:-1 cuid="835" group-title="ACS" tvg-chno="835" tvg-id="RU | ACETOP 1" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/HD-TV_Logo.svg/2560px-HD-TV_Logo.svg.png" tvg-name="RU | ACETOP 1",RU | ACETOP 1 [HD@50] [ACS] (Canal 835)
 http://127.0.0.1:6878/ace/getstream?id=2b0acad014567bbbe0664904af8c001754283eb1&pid=396
 
-#EXTINF:-1 cuid="835" group-title="ACS" tvg-chno="835" tvg-id="RU | ACETOP 1" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/HD-TV_Logo.svg/2560px-HD-TV_Logo.svg.png" tvg-name="RU | ACETOP 1",RU | ACETOP 1 [HD@50] [ACS] (Canal 835)
+#EXTINF:-1 cuid="836" group-title="ACS" tvg-chno="836" tvg-id="RU | ACETOP 1" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/HD-TV_Logo.svg/2560px-HD-TV_Logo.svg.png" tvg-name="RU | ACETOP 1",RU | ACETOP 1 [HD@50] [ACS] (Canal 836)
 http://127.0.0.1:6878/ace/getstream?id=65d49691687add6a93692a757817bac4f204ed1f&pid=397
 
-#EXTINF:-1 cuid="836" group-title="ACS" tvg-chno="836" tvg-id="RU | ACETOP 2" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/HD-TV_Logo.svg/2560px-HD-TV_Logo.svg.png" tvg-name="RU | ACETOP 2",RU | ACETOP 2 [HD@50] [ACS] (Canal 836)
+#EXTINF:-1 cuid="837" group-title="ACS" tvg-chno="837" tvg-id="RU | ACETOP 2" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/HD-TV_Logo.svg/2560px-HD-TV_Logo.svg.png" tvg-name="RU | ACETOP 2",RU | ACETOP 2 [HD@50] [ACS] (Canal 837)
 http://127.0.0.1:6878/ace/getstream?id=5f569f3ecf8b4d2f2f4bc732dd7023568f76e4a9&pid=398
 
-#EXTINF:-1 cuid="837" group-title="ACS" tvg-chno="837" tvg-id="RU | ACETOP 2" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/HD-TV_Logo.svg/2560px-HD-TV_Logo.svg.png" tvg-name="RU | ACETOP 2",RU | ACETOP 2 [HD@50] [ACS] (Canal 837)
+#EXTINF:-1 cuid="838" group-title="ACS" tvg-chno="838" tvg-id="RU | ACETOP 2" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/HD-TV_Logo.svg/2560px-HD-TV_Logo.svg.png" tvg-name="RU | ACETOP 2",RU | ACETOP 2 [HD@50] [ACS] (Canal 838)
 http://127.0.0.1:6878/ace/getstream?id=78637dab85e7948057165ad0c80b3db475dd9c3d&pid=399
 
-#EXTINF:-1 cuid="838" group-title="ACS" tvg-chno="838" tvg-id="Pimple TV 1" tvg-logo="https://updowntoday.com/images/thumbnail/img?d=pimple.tv" tvg-name="Pimple TV",RU | Pimple TV 1 [FHD@50] [ACS] (4pda) (Canal 838)
+#EXTINF:-1 cuid="839" group-title="ACS" tvg-chno="839" tvg-id="Pimple TV 1" tvg-logo="https://updowntoday.com/images/thumbnail/img?d=pimple.tv" tvg-name="Pimple TV",RU | Pimple TV 1 [FHD@50] [ACS] (4pda) (Canal 839)
 http://127.0.0.1:6878/ace/getstream?id=bc99becb2a74f8f455d6dbaa3bd85c6c7e938a6c&pid=400
 
-#EXTINF:-1 cuid="839" group-title="ACS" tvg-chno="839" tvg-id="Pimple TV 2" tvg-logo="https://updowntoday.com/images/thumbnail/img?d=pimple.tv" tvg-name="Pimple TV",RU | Pimple TV 2 [FHD@50] [ACS] (4pda) (Canal 839)
+#EXTINF:-1 cuid="840" group-title="ACS" tvg-chno="840" tvg-id="Pimple TV 2" tvg-logo="https://updowntoday.com/images/thumbnail/img?d=pimple.tv" tvg-name="Pimple TV",RU | Pimple TV 2 [FHD@50] [ACS] (4pda) (Canal 840)
 http://127.0.0.1:6878/ace/getstream?id=016d48fb89bb9505ab3f883db1bfb3a7c0a3eccc&pid=401
 
-#EXTINF:-1 cuid="840" group-title="ACS" tvg-chno="840" tvg-id="Pimple TV 3" tvg-logo="https://updowntoday.com/images/thumbnail/img?d=pimple.tv" tvg-name="Pimple TV",RU | Pimple TV 3 [FHD@50] [ACS] (4pda) (Canal 840)
+#EXTINF:-1 cuid="841" group-title="ACS" tvg-chno="841" tvg-id="Pimple TV 3" tvg-logo="https://updowntoday.com/images/thumbnail/img?d=pimple.tv" tvg-name="Pimple TV",RU | Pimple TV 3 [FHD@50] [ACS] (4pda) (Canal 841)
 http://127.0.0.1:6878/ace/getstream?id=e38b33c56332de27ff25df223cdf488b1ec6051f&pid=402
 
-#EXTINF:-1 cuid="841" group-title="ACS" tvg-chno="841" tvg-id="Pimple TV 4" tvg-logo="https://updowntoday.com/images/thumbnail/img?d=pimple.tv" tvg-name="Pimple TV",RU | Pimple TV 4 [FHD@50] [ACS] (4pda) (Canal 841)
+#EXTINF:-1 cuid="842" group-title="ACS" tvg-chno="842" tvg-id="Pimple TV 4" tvg-logo="https://updowntoday.com/images/thumbnail/img?d=pimple.tv" tvg-name="Pimple TV",RU | Pimple TV 4 [FHD@50] [ACS] (4pda) (Canal 842)
 http://127.0.0.1:6878/ace/getstream?id=350b2044f1c9e87e18d8fbda1bcc456c22cf9296&pid=403
 
-#EXTINF:-1 cuid="842" group-title="ACS" tvg-chno="842" tvg-id="Pimple TV 5" tvg-logo="https://updowntoday.com/images/thumbnail/img?d=pimple.tv" tvg-name="Pimple TV",RU | Pimple TV 5 [FHD@50] [ACS] (4pda) (Canal 842)
+#EXTINF:-1 cuid="843" group-title="ACS" tvg-chno="843" tvg-id="Pimple TV 5" tvg-logo="https://updowntoday.com/images/thumbnail/img?d=pimple.tv" tvg-name="Pimple TV",RU | Pimple TV 5 [FHD@50] [ACS] (4pda) (Canal 843)
 http://127.0.0.1:6878/ace/getstream?id=aca05dc506242324c1727525d0535ceda24f8dea&pid=404
 
-#EXTINF:-1 cuid="843" group-title="ACS" tvg-chno="843" tvg-id="Pimple TV 6" tvg-logo="https://updowntoday.com/images/thumbnail/img?d=pimple.tv" tvg-name="Pimple TV",RU | Pimple TV 6 [FHD@50] [ACS] (4pda) (Canal 843)
+#EXTINF:-1 cuid="844" group-title="ACS" tvg-chno="844" tvg-id="Pimple TV 6" tvg-logo="https://updowntoday.com/images/thumbnail/img?d=pimple.tv" tvg-name="Pimple TV",RU | Pimple TV 6 [FHD@50] [ACS] (4pda) (Canal 844)
 http://127.0.0.1:6878/ace/getstream?id=8442b5c7c99e5af57c2c40c1e28153072968988a&pid=405
 
-#EXTINF:-1 cuid="844" group-title="ACS" tvg-chno="844" tvg-id="match-football1" tvg-logo="https://teleprogramma.tv/images/match-football-1.png" tvg-name="Матч! Футбол 1 HD",RU | MATCH! Football 1 [FHD@50] [ACS] (SpTv) (Canal 844)
+#EXTINF:-1 cuid="845" group-title="ACS" tvg-chno="845" tvg-id="match-football1" tvg-logo="https://teleprogramma.tv/images/match-football-1.png" tvg-name="Матч! Футбол 1 HD",RU | MATCH! Football 1 [FHD@50] [ACS] (SpTv) (Canal 845)
 http://127.0.0.1:6878/ace/getstream?id=b28db77c5084da7993395d77df96c30bb134f0a9&pid=406
 
-#EXTINF:-1 cuid="845" group-title="M3U8" tvg-chno="845" tvg-id="match-football1" tvg-logo="https://teleprogramma.tv/images/match-football-1.png" tvg-name="Матч! Футбол 1 HD",RU | MATCH! Football 1 [FHD@50] [M3U8] (La2) (Canal 845)
+#EXTINF:-1 cuid="846" group-title="M3U8" tvg-chno="846" tvg-id="match-football1" tvg-logo="https://teleprogramma.tv/images/match-football-1.png" tvg-name="Матч! Футбол 1 HD",RU | MATCH! Football 1 [FHD@50] [M3U8] (La2) (Canal 846)
 http://ott.watch/stream/D3FX33QMIH1/130.m3u8
 
-#EXTINF:-1 cuid="846" group-title="ACS" tvg-chno="846" tvg-id="match-football2" tvg-logo="https://teleprogramma.tv/images/match-football-2.png" tvg-name="Матч! Футбол 2 HD",RU | MATCH! Football 2 [FHD@50] [ACS] (SpTv) (Canal 846)
+#EXTINF:-1 cuid="847" group-title="ACS" tvg-chno="847" tvg-id="match-football2" tvg-logo="https://teleprogramma.tv/images/match-football-2.png" tvg-name="Матч! Футбол 2 HD",RU | MATCH! Football 2 [FHD@50] [ACS] (SpTv) (Canal 847)
 http://127.0.0.1:6878/ace/getstream?id=ffbf8c687c788d9a1a7c651e24802ee773ff3f04&pid=407
 
-#EXTINF:-1 cuid="847" group-title="M3U8" tvg-chno="847" tvg-id="match-football2" tvg-logo="https://teleprogramma.tv/images/match-football-2.png" tvg-name="Матч! Футбол 2 HD",RU | MATCH! Football 2 [FHD@50] [M3U8] (La2) (Canal 847)
+#EXTINF:-1 cuid="848" group-title="M3U8" tvg-chno="848" tvg-id="match-football2" tvg-logo="https://teleprogramma.tv/images/match-football-2.png" tvg-name="Матч! Футбол 2 HD",RU | MATCH! Football 2 [FHD@50] [M3U8] (La2) (Canal 848)
 http://ott.watch/stream/D3FX33QMIH1/142.m3u8
 
-#EXTINF:-1 cuid="848" group-title="ACS" tvg-chno="848" tvg-id="match-football3" tvg-logo="https://teleprogramma.tv/images/match-football-3.png" tvg-name="Матч! Футбол 3 HD",RU | MATCH! Football 3 [FHD@50] [ACS] (SpTv) (Canal 848)
+#EXTINF:-1 cuid="849" group-title="ACS" tvg-chno="849" tvg-id="match-football3" tvg-logo="https://teleprogramma.tv/images/match-football-3.png" tvg-name="Матч! Футбол 3 HD",RU | MATCH! Football 3 [FHD@50] [ACS] (SpTv) (Canal 849)
 http://127.0.0.1:6878/ace/getstream?id=b6baa046075d82da300fc1b16de96067a8b9540e&pid=408
 
-#EXTINF:-1 cuid="849" group-title="M3U8" tvg-chno="849" tvg-id="match-football3" tvg-logo="https://teleprogramma.tv/images/match-football-3.png" tvg-name="Матч! Футбол 3 HD",RU | MATCH! Football 3 [FHD@50] [M3U8] (La2) (Canal 849)
+#EXTINF:-1 cuid="850" group-title="M3U8" tvg-chno="850" tvg-id="match-football3" tvg-logo="https://teleprogramma.tv/images/match-football-3.png" tvg-name="Матч! Футбол 3 HD",RU | MATCH! Football 3 [FHD@50] [M3U8] (La2) (Canal 850)
 http://ott.watch/stream/D3FX33QMIH1/185.m3u8
 
-#EXTINF:-1 cuid="850" group-title="ACS" tvg-chno="850" tvg-id="match-tv" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/russia/match-ru.png" tvg-name="Матч!",RU | MATCH! [FHD@25] [ACS] (SpTv) (Canal 850)
+#EXTINF:-1 cuid="851" group-title="ACS" tvg-chno="851" tvg-id="match-tv" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/russia/match-ru.png" tvg-name="Матч!",RU | MATCH! [FHD@25] [ACS] (SpTv) (Canal 851)
 http://127.0.0.1:6878/ace/getstream?id=a203f6b935a8ad8659c4c76c1d9c13afa6368ef2&pid=409
 
-#EXTINF:-1 cuid="851" group-title="ACS" tvg-chno="851" tvg-id="setanta1-kz" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/d/d2/Setanta_Sports_1_2019.png/revision/latest?cb=20220714215318" tvg-name="Setanta Sports 1 HD KZ",UA | SETANTA SPORTS 1 [FHD@25] [ACS] (SpTv) (Canal 851)
+#EXTINF:-1 cuid="852" group-title="ACS" tvg-chno="852" tvg-id="setanta1-kz" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/d/d2/Setanta_Sports_1_2019.png/revision/latest?cb=20220714215318" tvg-name="Setanta Sports 1 HD KZ",UA | SETANTA SPORTS 1 [FHD@25] [ACS] (SpTv) (Canal 852)
 http://127.0.0.1:6878/ace/getstream?id=42fe2ce3ef6b92653a74d85b6e98c2ba0abee707&pid=410
 
-#EXTINF:-1 cuid="852" group-title="M3U8" tvg-chno="852" tvg-id="setanta1-kz" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/d/d2/Setanta_Sports_1_2019.png/revision/latest?cb=20220714215318" tvg-name="Setanta Sports 1 HD KZ",UA | SETANTA SPORTS 1 [FHD@25] [M3U8] (La2) (Canal 852)
+#EXTINF:-1 cuid="853" group-title="M3U8" tvg-chno="853" tvg-id="setanta1-kz" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/d/d2/Setanta_Sports_1_2019.png/revision/latest?cb=20220714215318" tvg-name="Setanta Sports 1 HD KZ",UA | SETANTA SPORTS 1 [FHD@25] [M3U8] (La2) (Canal 853)
 http://vod.splay.uz/live_splay/original/Setanta1HD/tracks-v1a1/mono.m3u8
 
-#EXTINF:-1 cuid="853" group-title="M3U8" tvg-chno="853" tvg-id="setanta1-kz" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/d/d2/Setanta_Sports_1_2019.png/revision/latest?cb=20220714215318" tvg-name="Setanta Sports 1 HD KZ",UA | SETANTA SPORTS 1 [FHD@25] [M3U8] (La2) (Canal 853)
+#EXTINF:-1 cuid="854" group-title="M3U8" tvg-chno="854" tvg-id="setanta1-kz" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/d/d2/Setanta_Sports_1_2019.png/revision/latest?cb=20220714215318" tvg-name="Setanta Sports 1 HD KZ",UA | SETANTA SPORTS 1 [FHD@25] [M3U8] (La2) (Canal 854)
 http://ott.watch/stream/D3FX33QMIH1/234.m3u8
 
-#EXTINF:-1 cuid="854" group-title="M3U8" tvg-chno="854" tvg-id="setanta1-kz" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/d/d2/Setanta_Sports_1_2019.png/revision/latest?cb=20220714215318" tvg-name="Setanta Sports 1 HD KZ",UA | SETANTA SPORTS 1 [FHD@25] [M3U8] (La2) (Canal 854)
+#EXTINF:-1 cuid="855" group-title="M3U8" tvg-chno="855" tvg-id="setanta1-kz" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/d/d2/Setanta_Sports_1_2019.png/revision/latest?cb=20220714215318" tvg-name="Setanta Sports 1 HD KZ",UA | SETANTA SPORTS 1 [FHD@25] [M3U8] (La2) (Canal 855)
 http://141.95.55.143/CH1147/index.m3u8
 
-#EXTINF:-1 cuid="855" group-title="ACS" tvg-chno="855" tvg-id="setanta2-kz" tvg-logo="https://static.wikia.nocookie.net/logaekranowe/images/9/9b/Setanta-sports-2.png/revision/latest/scale-to-width-down/2582?cb=20220625204742&path-prefix=pl" tvg-name="Setanta Sports 2 HD KZ",UA | SETANTA SPORTS 2 [FHD@25] [ACS] (SpTv) (Canal 855)
+#EXTINF:-1 cuid="856" group-title="ACS" tvg-chno="856" tvg-id="setanta2-kz" tvg-logo="https://static.wikia.nocookie.net/logaekranowe/images/9/9b/Setanta-sports-2.png/revision/latest/scale-to-width-down/2582?cb=20220625204742&path-prefix=pl" tvg-name="Setanta Sports 2 HD KZ",UA | SETANTA SPORTS 2 [FHD@25] [ACS] (SpTv) (Canal 856)
 http://127.0.0.1:6878/ace/getstream?id=f6d68cfa8694f814983f2a5757f4e0c4964b880c&pid=411
 
-#EXTINF:-1 cuid="856" group-title="M3U8" tvg-chno="856" tvg-id="setanta2-kz" tvg-logo="https://static.wikia.nocookie.net/logaekranowe/images/9/9b/Setanta-sports-2.png/revision/latest/scale-to-width-down/2582?cb=20220625204742&path-prefix=pl" tvg-name="Setanta Sports 2 HD KZ",UA | SETANTA SPORTS 2 [FHD@25] [M3U8] (La2) (Canal 856)
+#EXTINF:-1 cuid="857" group-title="M3U8" tvg-chno="857" tvg-id="setanta2-kz" tvg-logo="https://static.wikia.nocookie.net/logaekranowe/images/9/9b/Setanta-sports-2.png/revision/latest/scale-to-width-down/2582?cb=20220625204742&path-prefix=pl" tvg-name="Setanta Sports 2 HD KZ",UA | SETANTA SPORTS 2 [FHD@25] [M3U8] (La2) (Canal 857)
 http://vod.splay.uz/live_splay/original/Setanta2HD/tracks-v1a1/mono.m3u8
 
-#EXTINF:-1 cuid="857" group-title="M3U8" tvg-chno="857" tvg-id="setanta2-kz" tvg-logo="https://static.wikia.nocookie.net/logaekranowe/images/9/9b/Setanta-sports-2.png/revision/latest/scale-to-width-down/2582?cb=20220625204742&path-prefix=pl" tvg-name="Setanta Sports 2 HD KZ",UA | SETANTA SPORTS 2 [FHD@25] [M3U8] (La2) (Canal 857)
+#EXTINF:-1 cuid="858" group-title="M3U8" tvg-chno="858" tvg-id="setanta2-kz" tvg-logo="https://static.wikia.nocookie.net/logaekranowe/images/9/9b/Setanta-sports-2.png/revision/latest/scale-to-width-down/2582?cb=20220625204742&path-prefix=pl" tvg-name="Setanta Sports 2 HD KZ",UA | SETANTA SPORTS 2 [FHD@25] [M3U8] (La2) (Canal 858)
 http://ott.watch/stream/D3FX33QMIH1/235.m3u8
 
-#EXTINF:-1 cuid="858" group-title="ACS" tvg-chno="858" tvg-id="mir-basketbola" tvg-logo="https://static.wikia.nocookie.net/logaekranowe/images/9/9b/Setanta-sports-2.png/revision/latest/scale-to-width-down/2582?cb=20220625204742&path-prefix=pl" tvg-name="Мир баскетбола",RU | Basketball World [FHD@25] [ACS] (SpTv) (Canal 858)
+#EXTINF:-1 cuid="859" group-title="ACS" tvg-chno="859" tvg-id="mir-basketbola" tvg-logo="https://static.wikia.nocookie.net/logaekranowe/images/9/9b/Setanta-sports-2.png/revision/latest/scale-to-width-down/2582?cb=20220625204742&path-prefix=pl" tvg-name="Мир баскетбола",RU | Basketball World [FHD@25] [ACS] (SpTv) (Canal 859)
 http://127.0.0.1:6878/ace/getstream?id=c4acde347445b0a07a9e8695b4254bee2b2df570&pid=412
 
-#EXTINF:-1 cuid="859" group-title="M3U8" tvg-chno="859" tvg-id="RO | Digi Sport 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/romania/digi-sport-1-ro.png" tvg-name="RO | Digi Sport 1",RO | Digi Sport 1 [HD@25] [M3U8] (La2) (Canal 859)
+#EXTINF:-1 cuid="860" group-title="M3U8" tvg-chno="860" tvg-id="RO | Digi Sport 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/romania/digi-sport-1-ro.png" tvg-name="RO | Digi Sport 1",RO | Digi Sport 1 [HD@25] [M3U8] (La2) (Canal 860)
 http://wo0dyefk.dienalt.org/iptv/DV3AC2Q6YSR9XE/2523/index.m3u8
 
-#EXTINF:-1 cuid="860" group-title="M3U8" tvg-chno="860" tvg-id="RO | Digi Sport 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/romania/digi-sport-2-ro.png" tvg-name="RO | Digi Sport 2",RO | Digi Sport 2 [FHD@25] [M3U8] (La2) (Canal 860)
+#EXTINF:-1 cuid="861" group-title="M3U8" tvg-chno="861" tvg-id="RO | Digi Sport 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/romania/digi-sport-2-ro.png" tvg-name="RO | Digi Sport 2",RO | Digi Sport 2 [FHD@25] [M3U8] (La2) (Canal 861)
 http://wo0dyefk.dienalt.org/iptv/DV3AC2Q6YSR9XE/2522/index.m3u8
 
-#EXTINF:-1 cuid="861" group-title="M3U8" tvg-chno="861" tvg-id="RO | Digi Sport 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/romania/digi-sport-2-ro.png" tvg-name="RO | Digi Sport 2",RO | Digi Sport 2 [FHD@25] [M3U8] (Canal 861)
+#EXTINF:-1 cuid="862" group-title="M3U8" tvg-chno="862" tvg-id="RO | Digi Sport 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/romania/digi-sport-2-ro.png" tvg-name="RO | Digi Sport 2",RO | Digi Sport 2 [FHD@25] [M3U8] (Canal 862)
 http://89.238.193.38:8000/play/a075/index.m3u8
 
-#EXTINF:-1 cuid="862" group-title="M3U8" tvg-chno="862" tvg-id="RO | Digi Sport 3" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/romania/digi-sport-3-ro.png" tvg-name="RO | Digi Sport 3",RO | Digi Sport 3 [FHD@25] [M3U8] (Canal 862)
+#EXTINF:-1 cuid="863" group-title="M3U8" tvg-chno="863" tvg-id="RO | Digi Sport 3" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/romania/digi-sport-3-ro.png" tvg-name="RO | Digi Sport 3",RO | Digi Sport 3 [FHD@25] [M3U8] (Canal 863)
 http://wo0dyefk.dienalt.org/iptv/DV3AC2Q6YSR9XE/2524/index.m3u8
 
-#EXTINF:-1 cuid="863" group-title="M3U8" tvg-chno="863" tvg-id="RO | Digi Sport 4" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/romania/digi-sport-4-ro.png" tvg-name="RO | Digi Sport 4",RO | Digi Sport 4 [FHD@25] [M3U8] (La2) (Canal 863)
+#EXTINF:-1 cuid="864" group-title="M3U8" tvg-chno="864" tvg-id="RO | Digi Sport 4" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/romania/digi-sport-4-ro.png" tvg-name="RO | Digi Sport 4",RO | Digi Sport 4 [FHD@25] [M3U8] (La2) (Canal 864)
 http://wo0dyefk.dienalt.org/iptv/DV3AC2Q6YSR9XE/2538/index.m3u8
 
-#EXTINF:-1 cuid="864" group-title="ACS" tvg-chno="864" tvg-id="DE | DAZN 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/germany/dazn1-de.png" tvg-id="DE | DAZN 1",DE | DAZN 1 [FHD@50] [ACS] (NeEr) (Canal 864)
+#EXTINF:-1 cuid="865" group-title="ACS" tvg-chno="865" tvg-id="DE | DAZN 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/germany/dazn1-de.png" tvg-id="DE | DAZN 1",DE | DAZN 1 [FHD@50] [ACS] (NeEr) (Canal 865)
 http://127.0.0.1:6878/ace/getstream?id=635b61c1f240449163260cd914d10d886a54fee3&pid=413
 
-#EXTINF:-1 cuid="865" group-title="ACS" tvg-chno="865" tvg-id="DE | DAZN 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/germany/dazn1-de.png" tvg-id="DE | DAZN 1",DE | DAZN 1 [FHD@50] [ACS] (NeLo) (Canal 865)
+#EXTINF:-1 cuid="866" group-title="ACS" tvg-chno="866" tvg-id="DE | DAZN 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/germany/dazn1-de.png" tvg-id="DE | DAZN 1",DE | DAZN 1 [FHD@50] [ACS] (NeLo) (Canal 866)
 http://127.0.0.1:6878/ace/getstream?id=897e73c9d578848f596585314ecb9ae067c0e229&pid=414
 
-#EXTINF:-1 cuid="866" group-title="M3U8" tvg-chno="866" tvg-id="DE | DAZN 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/germany/dazn1-de.png" tvg-id="DE | DAZN 2",DE | DAZN 2 [FHD@50] [M3U8] (DrMi) (Canal 866)
+#EXTINF:-1 cuid="867" group-title="M3U8" tvg-chno="867" tvg-id="DE | DAZN 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/germany/dazn1-de.png" tvg-id="DE | DAZN 2",DE | DAZN 2 [FHD@50] [M3U8] (DrMi) (Canal 867)
 http://update1.miicrosoft.es:80/Grigore_Cirstea_L/fanGtWYigpAe2b4RC7btDkEewglyDF/77246
 
-#EXTINF:-1 cuid="867" group-title="M3U8" tvg-chno="867" tvg-id="DE | DAZN 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/germany/dazn1-de.png" tvg-id="DE | DAZN 2",DE | DAZN 2 [FHD@50] [M3U8] (DrMi) (Canal 867)
+#EXTINF:-1 cuid="868" group-title="M3U8" tvg-chno="868" tvg-id="DE | DAZN 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/germany/dazn1-de.png" tvg-id="DE | DAZN 2",DE | DAZN 2 [FHD@50] [M3U8] (DrMi) (Canal 868)
 http://update2.miicrosoft.es:80/Grigore_Cirstea_L/fanGtWYigpAe2b4RC7btDkEewglyDF/77246
 
-#EXTINF:-1 cuid="868" group-title="ACS" tvg-chno="868" tvg-id="DE | DAZN 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/germany/dazn2-de.png" tvg-id="DE | DAZN 2,DE | DAZN 2 [FHD@50] [ACS] (NeEr) (Canal 868)
+#EXTINF:-1 cuid="869" group-title="ACS" tvg-chno="869" tvg-id="DE | DAZN 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/germany/dazn2-de.png" tvg-id="DE | DAZN 2,DE | DAZN 2 [FHD@50] [ACS] (NeEr) (Canal 869)
 http://127.0.0.1:6878/ace/getstream?id=d4f56cda0a15f47e7820daaac8e37b4d67d9c918&pid=415
 
-#EXTINF:-1 cuid="869" group-title="ACS" tvg-chno="869" tvg-id="DE | DAZN 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/germany/dazn2-de.png" tvg-id="DE | DAZN 2",DE | DAZN 2 [FHD@25] [ACS] (NeLo) (Canal 869)
+#EXTINF:-1 cuid="870" group-title="ACS" tvg-chno="870" tvg-id="DE | DAZN 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/germany/dazn2-de.png" tvg-id="DE | DAZN 2",DE | DAZN 2 [FHD@25] [ACS] (NeLo) (Canal 870)
 http://127.0.0.1:6878/ace/getstream?id=12ea555d431dbe51fc8e4ca745aec09fe22a4865&pid=416
 
-#EXTINF:-1 cuid="870" group-title="ACS" tvg-chno="870" tvg-id="DE | DAZN 3" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/germany/dazn3-de.png" tvg-name="DE | DAZN 3",DE | DAZN 3 [FHD@50] [ACS] (NeEr) (Canal 870)
+#EXTINF:-1 cuid="871" group-title="ACS" tvg-chno="871" tvg-id="DE | DAZN 3" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/germany/dazn3-de.png" tvg-name="DE | DAZN 3",DE | DAZN 3 [FHD@50] [ACS] (NeEr) (Canal 871)
 http://127.0.0.1:6878/ace/getstream?id=692d6a47ba99fbfc67fa947e468e859c7f2b9564&pid=417
 
-#EXTINF:-1 cuid="871" group-title="ACS" tvg-chno="871" tvg-id="DE | Magenta Sport 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/austria/magenta-sport-1-at.png" tvg-name="Magenta Sport 1",DE | Magenta Sport 1 [FHD@50] [ACS] (SpTv) (Canal 871)
+#EXTINF:-1 cuid="872" group-title="ACS" tvg-chno="872" tvg-id="DE | Magenta Sport 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/austria/magenta-sport-1-at.png" tvg-name="Magenta Sport 1",DE | Magenta Sport 1 [FHD@50] [ACS] (SpTv) (Canal 872)
 http://127.0.0.1:6878/ace/getstream?id=501141c649a2b78c4965cbf3257224181cc55072&pid=418
 
-#EXTINF:-1 cuid="872" group-title="ACS" tvg-chno="872" tvg-id="DE | Magenta Sport 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/austria/magenta-sport-2-at.png" tvg-name="Magenta Sport 2",DE | Magenta Sport 2 [FHD@50] [ACS] (SpTv) (Canal 872)
+#EXTINF:-1 cuid="873" group-title="ACS" tvg-chno="873" tvg-id="DE | Magenta Sport 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/austria/magenta-sport-2-at.png" tvg-name="Magenta Sport 2",DE | Magenta Sport 2 [FHD@50] [ACS] (SpTv) (Canal 873)
 http://127.0.0.1:6878/ace/getstream?id=ab0d54995bdcea2d8f9f588ef631ebbfb3f5a9ab&pid=419
 
-#EXTINF:-1 cuid="873" group-title="ACS" tvg-chno="873" tvg-id="DE | Magenta Sport 3" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/austria/magenta-sport-3-at.png" tvg-name="Magenta Sport 3",DE | Magenta Sport 3 [FHD@50] [ACS] (SpTv) (Canal 873)
+#EXTINF:-1 cuid="874" group-title="ACS" tvg-chno="874" tvg-id="DE | Magenta Sport 3" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/austria/magenta-sport-3-at.png" tvg-name="Magenta Sport 3",DE | Magenta Sport 3 [FHD@50] [ACS] (SpTv) (Canal 874)
 http://127.0.0.1:6878/ace/getstream?id=d0ca51f6145514ee605c2ef5d5a137e2a08c95b8&pid=420
 
-#EXTINF:-1 cuid="874" group-title="ACS" tvg-chno="874" tvg-id="DE | Magenta Sport 4" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/austria/magenta-sport-4-at.png" tvg-name="Magenta Sport 4",DE | Magenta Sport 4 [FHD@50] [ACS] (SpTv) (Canal 874)
+#EXTINF:-1 cuid="875" group-title="ACS" tvg-chno="875" tvg-id="DE | Magenta Sport 4" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/austria/magenta-sport-4-at.png" tvg-name="Magenta Sport 4",DE | Magenta Sport 4 [FHD@50] [ACS] (SpTv) (Canal 875)
 http://127.0.0.1:6878/ace/getstream?id=1fb794b1503c5955b75ea0106ee6360b80d78849&pid=421
 
-#EXTINF:-1 cuid="875" group-title="ACS" tvg-chno="875" tvg-id="DE | Magenta Sport 5" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/austria/magenta-sport-5-at.png" tvg-name="Magenta Sport 5",DE | Magenta Sport 5 [FHD@50] [ACS] (SpTv) (Canal 875)
+#EXTINF:-1 cuid="876" group-title="ACS" tvg-chno="876" tvg-id="DE | Magenta Sport 5" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/austria/magenta-sport-5-at.png" tvg-name="Magenta Sport 5",DE | Magenta Sport 5 [FHD@50] [ACS] (SpTv) (Canal 876)
 http://127.0.0.1:6878/ace/getstream?id=428b92f3c71cd3cbf66ef6193808b39d16a52730&pid=422
 
-#EXTINF:-1 cuid="876" group-title="ACS" tvg-chno="876" tvg-id="DE | Magenta Sport 6" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/austria/magenta-sport-6-at.png" tvg-name="Magenta Sport 6",DE | Magenta Sport 6 [FHD@50] [ACS] (SpTv) (Canal 876)
+#EXTINF:-1 cuid="877" group-title="ACS" tvg-chno="877" tvg-id="DE | Magenta Sport 6" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/austria/magenta-sport-6-at.png" tvg-name="Magenta Sport 6",DE | Magenta Sport 6 [FHD@50] [ACS] (SpTv) (Canal 877)
 http://127.0.0.1:6878/ace/getstream?id=14317c55fadc80ef2b7fb42b3d53e8ccb3b52cd8&pid=423
 
-#EXTINF:-1 cuid="877" group-title="ACS" tvg-chno="877" tvg-id="DE | Magenta Sport 7" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/austria/magenta-sport-7-at.png" tvg-name="Magenta Sport 7",DE | Magenta Sport 7 [FHD@50] [ACS] (SpTv) (Canal 877)
+#EXTINF:-1 cuid="878" group-title="ACS" tvg-chno="878" tvg-id="DE | Magenta Sport 7" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/austria/magenta-sport-7-at.png" tvg-name="Magenta Sport 7",DE | Magenta Sport 7 [FHD@50] [ACS] (SpTv) (Canal 878)
 http://127.0.0.1:6878/ace/getstream?id=ac839cda9709255c21a98af455731f037e77a9e4&pid=424
 
-#EXTINF:-1 cuid="878" group-title="ACS" tvg-chno="878" tvg-id="DE | Magenta Sport 8" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/austria/magenta-sport-8-at.png" tvg-name="Magenta Sport 8",DE | Magenta Sport 8 [FHD@50] [ACS] (SpTv) (Canal 878)
+#EXTINF:-1 cuid="879" group-title="ACS" tvg-chno="879" tvg-id="DE | Magenta Sport 8" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/austria/magenta-sport-8-at.png" tvg-name="Magenta Sport 8",DE | Magenta Sport 8 [FHD@50] [ACS] (SpTv) (Canal 879)
 http://127.0.0.1:6878/ace/getstream?id=11c5823d4196a90b509f03df1fe78e13cfbbb175&pid=425
 
-#EXTINF:-1 cuid="879" group-title="ACS" tvg-chno="879" tvg-id="DE | Magenta Sport 9" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/austria/magenta-sport-9-at.png" tvg-name="Magenta Sport 9",DE | Magenta Sport 9 [FHD@50] [ACS] (SpTv) (Canal 879)
+#EXTINF:-1 cuid="880" group-title="ACS" tvg-chno="880" tvg-id="DE | Magenta Sport 9" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/austria/magenta-sport-9-at.png" tvg-name="Magenta Sport 9",DE | Magenta Sport 9 [FHD@50] [ACS] (SpTv) (Canal 880)
 http://127.0.0.1:6878/ace/getstream?id=86495fe134ff065d5217497babe6be33f81d37d1&pid=426
 
-#EXTINF:-1 cuid="880" group-title="ACS" tvg-chno="880" tvg-id="DE | Magenta Sport 10" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/austria/magenta-sport-10-at.png" tvg-name="Magenta Sport 10",DE | Magenta Sport 10 [FHD@50] [ACS] (SpTv) (Canal 880)
+#EXTINF:-1 cuid="881" group-title="ACS" tvg-chno="881" tvg-id="DE | Magenta Sport 10" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/austria/magenta-sport-10-at.png" tvg-name="Magenta Sport 10",DE | Magenta Sport 10 [FHD@50] [ACS] (SpTv) (Canal 881)
 http://127.0.0.1:6878/ace/getstream?id=6058a4c0f2569bd81c687aa7dfb48b8a9569fb29&pid=427
 
-#EXTINF:-1 cuid="881" group-title="ACS" tvg-chno="881" tvg-id="DE | Magenta Sport 11" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/austria/magenta-sport-11-at.png" tvg-name="Magenta Sport 11",DE | Magenta Sport 11 [FHD@50] [ACS] (SpTv) (Canal 881)
+#EXTINF:-1 cuid="882" group-title="ACS" tvg-chno="882" tvg-id="DE | Magenta Sport 11" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/austria/magenta-sport-11-at.png" tvg-name="Magenta Sport 11",DE | Magenta Sport 11 [FHD@50] [ACS] (SpTv) (Canal 882)
 http://127.0.0.1:6878/ace/getstream?id=c21316ad4b7f44eaf6fcfb2c245c46de8b746cc6&pid=428
 
-#EXTINF:-1 cuid="882" group-title="ACS" tvg-chno="882" tvg-id="Fight Network" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/fight-network-us.png" tvg-name="Fight Network",US | Fight Network [FHD@30] [ACS] (Canal 882)
+#EXTINF:-1 cuid="883" group-title="ACS" tvg-chno="883" tvg-id="Fight Network" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/fight-network-us.png" tvg-name="Fight Network",US | Fight Network [FHD@30] [ACS] (Canal 883)
 http://127.0.0.1:6878/ace/getstream?id=2d4b53402ff6158ec5aa4b38a80a773b5e00da0d&pid=429
 
-#EXTINF:-1 cuid="883" group-title="ACS" tvg-chno="883" tvg-id="МАТЧ боец" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/russia/match-boets-ru.png" tvg-name="МАТЧ боец",RU | MATCH! Fighter [FHD@30] [ACS] (Canal 883)
+#EXTINF:-1 cuid="884" group-title="ACS" tvg-chno="884" tvg-id="МАТЧ боец" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/russia/match-boets-ru.png" tvg-name="МАТЧ боец",RU | MATCH! Fighter [FHD@30] [ACS] (Canal 884)
 http://127.0.0.1:6878/ace/getstream?id=42f556bbf90466efa5a84141c5e3be9e5174c531&pid=430
 
-#EXTINF:-1 cuid="884" group-title="ACS" tvg-chno="884" tvg-id="МАТЧ боец" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/russia/match-boets-ru.png" tvg-name="МАТЧ боец",RU | MATCH! Fighter [FHD@30] [ACS] (SpTv) (Canal 884)
+#EXTINF:-1 cuid="885" group-title="ACS" tvg-chno="885" tvg-id="МАТЧ боец" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/russia/match-boets-ru.png" tvg-name="МАТЧ боец",RU | MATCH! Fighter [FHD@30] [ACS] (SpTv) (Canal 885)
 http://127.0.0.1:6878/ace/getstream?id=822654b2c0db24d1de149cb21fdd44a3b968fbfa&pid=431
 
-#EXTINF:-1 cuid="885" group-title="ACS" tvg-chno="885" tvg-id="UFC Fight Pass" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/ufc-fight-pass-us.png" tvg-name="UFC Fight Pass",UFC Fight Pass [FHD@30] [ACS] (NeEr) (Canal 885)
+#EXTINF:-1 cuid="886" group-title="ACS" tvg-chno="886" tvg-id="UFC Fight Pass" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/ufc-fight-pass-us.png" tvg-name="UFC Fight Pass",UFC Fight Pass [FHD@30] [ACS] (NeEr) (Canal 886)
 http://127.0.0.1:6878/ace/getstream?id=108aebe20efc826e56f3a1cb01117a124a6b89ad&pid=432
 
-#EXTINF:-1 cuid="886" group-title="ACS" tvg-chno="886" tvg-id="UFC Fight Pass" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/ufc-fight-pass-us.png" tvg-name="UFC Fight Pass",UFC Fight Pass [FHD@30] [ACS] (NeEr) (Canal 886)
+#EXTINF:-1 cuid="887" group-title="ACS" tvg-chno="887" tvg-id="UFC Fight Pass" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/ufc-fight-pass-us.png" tvg-name="UFC Fight Pass",UFC Fight Pass [FHD@30] [ACS] (NeEr) (Canal 887)
 http://127.0.0.1:6878/ace/getstream?id=96537527b2d5e858b2e6c863a00dec304254091d&pid=433
 
-#EXTINF:-1 cuid="887" group-title="ACS" tvg-chno="887" tvg-id="UFC Eventos 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/ufc-fight-pass-us.png" tvg-name="UFC Eventos 1",UFC Eventos 1 [FHD@30] [ACS] (NeEr) (Canal 887)
+#EXTINF:-1 cuid="888" group-title="ACS" tvg-chno="888" tvg-id="UFC Eventos 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/ufc-fight-pass-us.png" tvg-name="UFC Eventos 1",UFC Eventos 1 [FHD@30] [ACS] (NeEr) (Canal 888)
 http://127.0.0.1:6878/ace/getstream?id=9efe41de7f5dcafc9395591feb959832e09683ff&pid=434
 
-#EXTINF:-1 cuid="888" group-title="ACS" tvg-chno="888" tvg-id="UFC 317 ESPN" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/ufc-fight-pass-us.png" tvg-name="UFC 317 ESPN",UFC 317 ESPN [SD@30] [ACS] (NeEr) (Canal 888)
+#EXTINF:-1 cuid="889" group-title="ACS" tvg-chno="889" tvg-id="UFC 317 ESPN" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/ufc-fight-pass-us.png" tvg-name="UFC 317 ESPN",UFC 317 ESPN [SD@30] [ACS] (NeEr) (Canal 889)
 http://127.0.0.1:6878/ace/getstream?id=f3fdef8de18c33683856c1eb9240f696f43f2e28&pid=435
 
-#EXTINF:-1 cuid="889" group-title="ACS" tvg-chno="889" tvg-id="UDAR" tvg-logo="https://taplink.st/a/3/c/e/0/adf13a.png" tvg-name="UDAR",RU | UDAR [FHD@25] [ACS] (Canal 889)
+#EXTINF:-1 cuid="890" group-title="ACS" tvg-chno="890" tvg-id="UDAR" tvg-logo="https://taplink.st/a/3/c/e/0/adf13a.png" tvg-name="UDAR",RU | UDAR [FHD@25] [ACS] (Canal 890)
 http://127.0.0.1:6878/ace/getstream?id=d2374e2375a4275738e0dbed2f47d0114ad1cb64&pid=436
 
-#EXTINF:-1 cuid="890" group-title="ACS" tvg-chno="890" tvg-id="FOX SPORTS 2 LatinoAmerica HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Fox_Sports_2mx.png/1024px-Fox_Sports_2mx.png" tvg-name="FOX SPORTS 2 LatinoAmerica HD",MX | FOX SPORTS 2 [FHD@30] [ACS] (Canal 890)
+#EXTINF:-1 cuid="891" group-title="ACS" tvg-chno="891" tvg-id="FOX SPORTS 2 LatinoAmerica HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Fox_Sports_2mx.png/1024px-Fox_Sports_2mx.png" tvg-name="FOX SPORTS 2 LatinoAmerica HD",MX | FOX SPORTS 2 [FHD@30] [ACS] (Canal 891)
 http://127.0.0.1:6878/ace/getstream?id=162942adc047d0f78eac056effbe5bbec54a5e51&pid=437
 
-#EXTINF:-1 cuid="891" group-title="ACS" tvg-chno="891" tvg-id="FightBox" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/international/fightbox-hd-int.png" tvg-name="FightBox",RU | FightBox [FHD@25] [ACS] (SpTv) (Canal 891)
+#EXTINF:-1 cuid="892" group-title="ACS" tvg-chno="892" tvg-id="FightBox" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/international/fightbox-hd-int.png" tvg-name="FightBox",RU | FightBox [FHD@25] [ACS] (SpTv) (Canal 892)
 http://127.0.0.1:6878/ace/getstream?id=49b734a5a3365674480089264be00ae28fabb640&pid=438
 
-#EXTINF:-1 cuid="892" group-title="ACS" tvg-chno="892" tvg-id="MMA TV" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/misc/vod/mma-tv-vod.png" tvg-name="MMA TV",RU | MMA TV [FHD@25] [ACS] (SpTv) (Canal 892)
+#EXTINF:-1 cuid="893" group-title="ACS" tvg-chno="893" tvg-id="MMA TV" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/misc/vod/mma-tv-vod.png" tvg-name="MMA TV",RU | MMA TV [FHD@25] [ACS] (SpTv) (Canal 893)
 http://127.0.0.1:6878/ace/getstream?id=a7e4499c869037073c97deb47a50d1e7090b1c04&pid=439
 
-#EXTINF:-1 cuid="893" group-title="M3U8" tvg-chno="893" tvg-id="MMA TV" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/misc/vod/mma-tv-vod.png" tvg-name="MMA TV",RU | MMA TV [FHD@25] [M3U8] (HeLu) (Canal 893)
+#EXTINF:-1 cuid="894" group-title="M3U8" tvg-chno="894" tvg-id="MMA TV" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/misc/vod/mma-tv-vod.png" tvg-name="MMA TV",RU | MMA TV [FHD@25] [M3U8] (HeLu) (Canal 894)
 https://streams2.sofast.tv/ptnr-sportstrible/title-MMA_Sportstrible/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/f6b049e4-885e-4551-85ac-8eef0b33d3a2/playlist.m3u8
 
-#EXTINF:-1 cuid="894" group-title="ACS" tvg-chno="894" tvg-id="Hard Knocks" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/misc/vod/hard-knocks-vod.png" tvg-name="Hard Knocks",US | Hard Knocks [FHD@30] [ACS] (Canal 894)
+#EXTINF:-1 cuid="895" group-title="ACS" tvg-chno="895" tvg-id="Hard Knocks" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/misc/vod/hard-knocks-vod.png" tvg-name="Hard Knocks",US | Hard Knocks [FHD@30] [ACS] (Canal 895)
 http://127.0.0.1:6878/ace/getstream?id=08a3b71f9e5c7bca6383d39b372f8cb80a78fcd5&pid=440
 
-#EXTINF:-1 cuid="895" group-title="ACS" tvg-chno="895" tvg-id="Hard Knocks" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/misc/vod/hard-knocks-vod.png" tvg-name="Hard Knocks",US | Hard Knocks [SD@30] [ACS] (Canal 895)
+#EXTINF:-1 cuid="896" group-title="ACS" tvg-chno="896" tvg-id="Hard Knocks" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/misc/vod/hard-knocks-vod.png" tvg-name="Hard Knocks",US | Hard Knocks [SD@30] [ACS] (Canal 896)
 http://127.0.0.1:6878/ace/getstream?id=626fc7cf70680d1d77b4b5293be94f63c910ee92&pid=441
 
-#EXTINF:-1 cuid="896" group-title="ACS" tvg-chno="896" tvg-id="TNA Wrestling" tvg-logo="http://images.wikia.com/prowrestling/images/c/c3/TNA_Wrestling_Logo.png" tvg-name="TNA Wrestling",US | TNA Wrestling [FHD@30] [ACS] (Canal 896)
+#EXTINF:-1 cuid="897" group-title="ACS" tvg-chno="897" tvg-id="TNA Wrestling" tvg-logo="http://images.wikia.com/prowrestling/images/c/c3/TNA_Wrestling_Logo.png" tvg-name="TNA Wrestling",US | TNA Wrestling [FHD@30] [ACS] (Canal 897)
 http://127.0.0.1:6878/ace/getstream?id=f4d0d947ba895ef4b923d89641e3cbb1be9437e1&pid=442
 
-#EXTINF:-1 cuid="897" group-title="ACS" tvg-chno="897" tvg-id="TNA iMPACT" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/misc/vod/impact-wrestling-vod-us.png" tvg-name="TNA iMPACT",US | TNA iMPACT [FHD@30] [ACS] (Canal 897)
+#EXTINF:-1 cuid="898" group-title="ACS" tvg-chno="898" tvg-id="TNA iMPACT" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/misc/vod/impact-wrestling-vod-us.png" tvg-name="TNA iMPACT",US | TNA iMPACT [FHD@30] [ACS] (Canal 898)
 http://127.0.0.1:6878/ace/getstream?id=4f98a49711e705feb7e550e4223fcbe7f94a8c5f&pid=443
 
-#EXTINF:-1 cuid="898" group-title="M3U8" tvg-chno="898" tvg-id="Professional Fighters League" tvg-logo="https://newera.sportspro.com/wp-content/uploads/2022/10/pfl-logo-color-2x1-1-2048x1024.png" tvg-name="Professional Fighters League",US | Professional Fighters League [FHD@30] [M3U8] (Canal 898)
+#EXTINF:-1 cuid="899" group-title="M3U8" tvg-chno="899" tvg-id="Professional Fighters League" tvg-logo="https://newera.sportspro.com/wp-content/uploads/2022/10/pfl-logo-color-2x1-1-2048x1024.png" tvg-name="Professional Fighters League",US | Professional Fighters League [FHD@30] [M3U8] (Canal 899)
 https://d856dff4.wurl.com/U3BvcnRzVHJpYmFsLWdiX1BGTE1NQV9ITFM/playlist.m3u8
 
-#EXTINF:-1 cuid="899" group-title="M3U8" tvg-chno="899" tvg-id="United Fight Alliance" tvg-logo="https://unitedfightalliance.com/wp-content/uploads/2024/01/cropped-Screenshot_2024-01-16_174700-removebg-preview-1.png" tvg-name="United Fight Alliance",US | United Fight Alliance [FHD@30] [M3U8] (Canal 899)
+#EXTINF:-1 cuid="900" group-title="M3U8" tvg-chno="900" tvg-id="United Fight Alliance" tvg-logo="https://unitedfightalliance.com/wp-content/uploads/2024/01/cropped-Screenshot_2024-01-16_174700-removebg-preview-1.png" tvg-name="United Fight Alliance",US | United Fight Alliance [FHD@30] [M3U8] (Canal 900)
 https://9ab4bcc639c845d2b682105f4e9Afbf8.mediatailor.us-east-1.amazonaws.com/v1/master/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/SportsTribal-eu_UnitedFightAlliance/playlist.m3u8
 
-#EXTINF:-1 cuid="900" group-title="ACS" tvg-chno="900" tvg-id="TNT.Sports.1.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-1-uk.png" tvg-name="UK | TNT Sports 1",AR | TNT Sports 1 [FHD@30] [ACS] (NeEr) (Canal 900)
+#EXTINF:-1 cuid="901" group-title="ACS" tvg-chno="901" tvg-id="TNT.Sports.1.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-1-uk.png" tvg-name="UK | TNT Sports 1",AR | TNT Sports 1 [FHD@30] [ACS] (NeEr) (Canal 901)
 http://127.0.0.1:6878/ace/getstream?id=7128f677f2f1cdfcb3f5241852cd06a677640c76&pid=444
 
-#EXTINF:-1 cuid="901" group-title="ACS" tvg-chno="901" tvg-id="TNT.Sports.1.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-1-uk.png" tvg-name="UK | TNT Sports 1",AR | TNT Sports 1 [FHD@25] [ACS] (NeEr) (Canal 901)
+#EXTINF:-1 cuid="902" group-title="ACS" tvg-chno="902" tvg-id="TNT.Sports.1.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-1-uk.png" tvg-name="UK | TNT Sports 1",AR | TNT Sports 1 [FHD@25] [ACS] (NeEr) (Canal 902)
 http://127.0.0.1:6878/ace/getstream?id=5ccaf1da1ab3972502f2b35e581d7ab2f9b4965e&pid=445
 
-#EXTINF:-1 cuid="902" group-title="ACS" tvg-chno="902" tvg-id="TNT.Sports.1.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-1-uk.png" tvg-name="UK | TNT Sports 1",UK | TNT Sports 1 [FHD@50] [ACS] (NeEr) (Canal 902)
+#EXTINF:-1 cuid="903" group-title="ACS" tvg-chno="903" tvg-id="TNT.Sports.1.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-1-uk.png" tvg-name="UK | TNT Sports 1",UK | TNT Sports 1 [FHD@50] [ACS] (NeEr) (Canal 903)
 http://127.0.0.1:6878/ace/getstream?id=363f1d119b1971237318c0d953ab6eea5eb7c592&pid=446
 
-#EXTINF:-1 cuid="903" group-title="ACS" tvg-chno="903" tvg-id="TNT.Sports.1.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-1-uk.png" tvg-name="UK | TNT Sports 1",UK | TNT Sports 1 [FHD@25] [ACS] (SpTv) (Canal 903)
+#EXTINF:-1 cuid="904" group-title="ACS" tvg-chno="904" tvg-id="TNT.Sports.1.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-1-uk.png" tvg-name="UK | TNT Sports 1",UK | TNT Sports 1 [FHD@25] [ACS] (SpTv) (Canal 904)
 http://127.0.0.1:6878/ace/getstream?id=efc60cfe5e3a349baa02bcc49f6647c21a9c3c5b&pid=447
 
-#EXTINF:-1 cuid="904" group-title="M3U8" tvg-chno="904" tvg-id="TNT.Sports.1.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-1-uk.png" tvg-name="UK | TNT Sports 1",UK | TNT Sports 1 [FHD@50] [M3U8] (A1x) (Canal 904)
+#EXTINF:-1 cuid="905" group-title="M3U8" tvg-chno="905" tvg-id="TNT.Sports.1.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-1-uk.png" tvg-name="UK | TNT Sports 1",UK | TNT Sports 1 [FHD@50] [M3U8] (A1x) (Canal 905)
 https://A1xs.vip/2000021
 
-#EXTINF:-1 cuid="905" group-title="M3U8" tvg-chno="905" tvg-id="TNT.Sports.1.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-1-uk.png" tvg-name="UK | TNT Sports 1",UK | TNT Sports 1 [FHD@25] [M3U8] (La2) (Canal 905)
+#EXTINF:-1 cuid="906" group-title="M3U8" tvg-chno="906" tvg-id="TNT.Sports.1.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-1-uk.png" tvg-name="UK | TNT Sports 1",UK | TNT Sports 1 [FHD@25] [M3U8] (La2) (Canal 906)
 https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/director/VE1NTE5MmVjYzhmYTE3LWZkMDgtZDQ2NC0xMzU3LWE5MmE0Mzk3/master.m3u8
 
-#EXTINF:-1 cuid="906" group-title="ACS" tvg-chno="906" tvg-id="TNT.Sports.2.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-2-uk.png" tvg-name="UK | TNT Sports 2",UK | TNT Sports 2 [FHD@25] [ACS] (SpTv) (Canal 906)
+#EXTINF:-1 cuid="907" group-title="ACS" tvg-chno="907" tvg-id="TNT.Sports.2.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-2-uk.png" tvg-name="UK | TNT Sports 2",UK | TNT Sports 2 [FHD@25] [ACS] (SpTv) (Canal 907)
 http://127.0.0.1:6878/ace/getstream?id=d63d8a57cf471394bfa9f619bbd68b01ae27a801&pid=448
 
-#EXTINF:-1 cuid="907" group-title="M3U8" tvg-chno="907" tvg-id="TNT.Sports.2.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-2-uk.png" tvg-name="UK | TNT Sports 2",UK | TNT Sports 2 [FHD@25] [M3U8] (La2) (Canal 907)
+#EXTINF:-1 cuid="908" group-title="M3U8" tvg-chno="908" tvg-id="TNT.Sports.2.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-2-uk.png" tvg-name="UK | TNT Sports 2",UK | TNT Sports 2 [FHD@25] [M3U8] (La2) (Canal 908)
 https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/director/VE1NGY2YTlkMjFlMzNiLTNlN2ItZTQ4NC1jMWVjLWY5ZjU0Mzg5/master.m3u8
 
-#EXTINF:-1 cuid="908" group-title="M3U8" tvg-chno="908" tvg-id="TNT.Sports.2.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-2-uk.png" tvg-name="UK | TNT Sports 2",UK | TNT Sports 2 [FHD@25] [M3U8] (Canal 908)
+#EXTINF:-1 cuid="909" group-title="M3U8" tvg-chno="909" tvg-id="TNT.Sports.2.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-2-uk.png" tvg-name="UK | TNT Sports 2",UK | TNT Sports 2 [FHD@25] [M3U8] (Canal 909)
 https://7pal.short.gy/tntspts2
 
-#EXTINF:-1 cuid="909" group-title="M3U8" tvg-chno="909" tvg-id="TNT.Sports.2.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-2-uk.png" tvg-name="UK | TNT Sports 2",UK | TNT Sports 2 [FHD@50] [M3U8] (A1x) (Canal 909)
+#EXTINF:-1 cuid="910" group-title="M3U8" tvg-chno="910" tvg-id="TNT.Sports.2.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-2-uk.png" tvg-name="UK | TNT Sports 2",UK | TNT Sports 2 [FHD@50] [M3U8] (A1x) (Canal 910)
 https://A1xs.vip/2000022
 
-#EXTINF:-1 cuid="910" group-title="ACS" tvg-chno="910" tvg-id="TNT.Sports.3.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-3-uk.png" tvg-name="UK | TNT Sports 3",UK | TNT Sports 3 [FHD@25] [ACS] (SpTv) (Canal 910)
+#EXTINF:-1 cuid="911" group-title="ACS" tvg-chno="911" tvg-id="TNT.Sports.3.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-3-uk.png" tvg-name="UK | TNT Sports 3",UK | TNT Sports 3 [FHD@25] [ACS] (SpTv) (Canal 911)
 http://127.0.0.1:6878/ace/getstream?id=5f966c123759de46dff29c379266b7a403452033&pid=449
 
-#EXTINF:-1 cuid="911" group-title="M3U8" tvg-chno="911" tvg-id="TNT.Sports.3.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-3-uk.png" tvg-name="UK | TNT Sports 3",UK | TNT Sports 3 [FHD@50] [M3U8] (A1x) (Canal 911)
+#EXTINF:-1 cuid="912" group-title="M3U8" tvg-chno="912" tvg-id="TNT.Sports.3.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-3-uk.png" tvg-name="UK | TNT Sports 3",UK | TNT Sports 3 [FHD@50] [M3U8] (A1x) (Canal 912)
 https://A1xs.vip/2000023
 
-#EXTINF:-1 cuid="912" group-title="M3U8" tvg-chno="912" tvg-id="TNT.Sports.3.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-3-uk.png" tvg-name="UK | TNT Sports 3",UK | TNT Sports 3 [FHD@25] [M3U8] (La2) (Canal 912)
+#EXTINF:-1 cuid="913" group-title="M3U8" tvg-chno="913" tvg-id="TNT.Sports.3.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-3-uk.png" tvg-name="UK | TNT Sports 3",UK | TNT Sports 3 [FHD@25] [M3U8] (La2) (Canal 913)
 https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/director/VE1ZDU3NjA3NzY4OTFjLWRkNzktMjE4NC1lN2E1LTkwNWRmY2Fm/master.m3u8
 
-#EXTINF:-1 cuid="913" group-title="ACS" tvg-chno="913" tvg-id="TNT.Sports.4.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-4-uk.png" tvg-name="UK | TNT Sports 4",UK | TNT Sports 4 [FHD@25] [ACS] (SpTv) (Canal 913)
+#EXTINF:-1 cuid="914" group-title="ACS" tvg-chno="914" tvg-id="TNT.Sports.4.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-4-uk.png" tvg-name="UK | TNT Sports 4",UK | TNT Sports 4 [FHD@25] [ACS] (SpTv) (Canal 914)
 http://127.0.0.1:6878/ace/getstream?id=fc5089d8e1519872fdf951779ccbca913acc9bce&pid=450
 
-#EXTINF:-1 cuid="914" group-title="M3U8" tvg-chno="914" tvg-id="TNT.Sports.4.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-4-uk.png" tvg-name="UK | TNT Sports 4",UK | TNT Sports 4 [FHD@50] [M3U8] (A1x) (Canal 914)
+#EXTINF:-1 cuid="915" group-title="M3U8" tvg-chno="915" tvg-id="TNT.Sports.4.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-4-uk.png" tvg-name="UK | TNT Sports 4",UK | TNT Sports 4 [FHD@50] [M3U8] (A1x) (Canal 915)
 https://A1xs.vip/2000024
 
-#EXTINF:-1 cuid="915" group-title="M3U8" tvg-chno="915" tvg-id="TNT.Sports.4.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-4-uk.png" tvg-name="UK | TNT Sports 4",UK | TNT Sports 4 [FHD@25] [M3U8] (La2) (Canal 915)
+#EXTINF:-1 cuid="916" group-title="M3U8" tvg-chno="916" tvg-id="TNT.Sports.4.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-4-uk.png" tvg-name="UK | TNT Sports 4",UK | TNT Sports 4 [FHD@25] [M3U8] (La2) (Canal 916)
 https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/director/VE1MzMyYzk1MGY3ZWIyLWM3NzgtNjNkNC1jODNhLWZmYjRjYzg1/master.m3u8
 
-#EXTINF:-1 cuid="916" group-title="M3U8" tvg-chno="916" tvg-id="TNT.Sports.5.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-5-uk.png" tvg-name="UK | TNT Sports 5",UK | TNT Sports 5 [FHD@25] [M3U8] (La2) (Canal 916)
+#EXTINF:-1 cuid="917" group-title="M3U8" tvg-chno="917" tvg-id="TNT.Sports.5.HD.uk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-5-uk.png" tvg-name="UK | TNT Sports 5",UK | TNT Sports 5 [FHD@25] [M3U8] (La2) (Canal 917)
 https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/director/VE1ZGE3MDdjOWNmOGNhLWY1MjktYmRiNC1kYjY4LTQwMTQ3OWZj/master.m3u8
 
-#EXTINF:-1 cuid="917" group-title="ACS" tvg-chno="917" tvg-id="NBA.TV.USA.us" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nba-tv-us.png" tvg-name="NBA TV",US | NBA TV [FHD@30] [ACS] (NeEr) (Canal 917)
+#EXTINF:-1 cuid="918" group-title="ACS" tvg-chno="918" tvg-id="NBA.TV.USA.us" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nba-tv-us.png" tvg-name="NBA TV",US | NBA TV [FHD@30] [ACS] (NeEr) (Canal 918)
 http://127.0.0.1:6878/ace/getstream?id=b0f64a40f333ef5cc02c2b6d4a8c3f4b73dd8073&pid=451
 
-#EXTINF:-1 cuid="918" group-title="ACS" tvg-chno="918" tvg-id="NBA.TV.USA.us" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nba-tv-us.png" tvg-name="NBA TV",US | NBA TV [FHD@30] [ACS] (SpTv) (Canal 918)
+#EXTINF:-1 cuid="919" group-title="ACS" tvg-chno="919" tvg-id="NBA.TV.USA.us" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nba-tv-us.png" tvg-name="NBA TV",US | NBA TV [FHD@30] [ACS] (SpTv) (Canal 919)
 http://127.0.0.1:6878/ace/getstream?id=e72d03fb9694164317260f684470be9ab781ed95&pid=452
 
-#EXTINF:-1 cuid="919" group-title="M3U8" tvg-chno="919" tvg-id="NBA.TV.USA.us" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nba-tv-us.png" tvg-name="NBA Network",US | NBA Network [HD@60] (M3U8) (Canal 919)
+#EXTINF:-1 cuid="920" group-title="M3U8" tvg-chno="920" tvg-id="NBA.TV.USA.us" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nba-tv-us.png" tvg-name="NBA Network",US | NBA Network [HD@60] (M3U8) (Canal 920)
 https://A1xs.vip/40000031
 
-#EXTINF:-1 cuid="920" group-title="ACS" tvg-chno="920" tvg-id="CBS.Sports.Network.USA.us" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/cbs-sports-network-us.png" tvg-name="CBS Sports Network USA",US | CBS SPORTS NETWORK [HD@60] [ACS] (Canal 920)
+#EXTINF:-1 cuid="921" group-title="ACS" tvg-chno="921" tvg-id="CBS.Sports.Network.USA.us" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/cbs-sports-network-us.png" tvg-name="CBS Sports Network USA",US | CBS SPORTS NETWORK [HD@60] [ACS] (Canal 921)
 http://127.0.0.1:6878/ace/getstream?id=bfc49b39eed44f5e3a5f4ad060d463901a049dd1&pid=453
 
-#EXTINF:-1 cuid="921" group-title="M3U8" tvg-chno="921" tvg-id="CBS.Sports.Network.USA.us" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/cbs-sports-network-us.png" tvg-name="CBS Sports Network USA",US | CBS SPORTS NETWORK [HD@60] [M3U8] (La2) (Canal 921)
+#EXTINF:-1 cuid="922" group-title="M3U8" tvg-chno="922" tvg-id="CBS.Sports.Network.USA.us" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/cbs-sports-network-us.png" tvg-name="CBS Sports Network USA",US | CBS SPORTS NETWORK [HD@60] [M3U8] (La2) (Canal 922)
 http://212.102.60.231:80/CBS_SPORTS_NETWORK/index.m3u8
 
-#EXTINF:-1 cuid="922" group-title="M3U8" tvg-chno="922" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 1",Live Event 1 [FHD@25] [M3U8] (A1x) (Canal 922)
+#EXTINF:-1 cuid="923" group-title="M3U8" tvg-chno="923" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 1",Live Event 1 [FHD@25] [M3U8] (A1x) (Canal 923)
 https://a1xs.vip/ppv1
 
-#EXTINF:-1 cuid="923" group-title="M3U8" tvg-chno="923" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 2",Live Event 2 [FHD@25] [M3U8] (A1x) (Canal 923)
+#EXTINF:-1 cuid="924" group-title="M3U8" tvg-chno="924" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 2",Live Event 2 [FHD@25] [M3U8] (A1x) (Canal 924)
 https://a1xs.vip/ppv2
 
-#EXTINF:-1 cuid="924" group-title="M3U8" tvg-chno="924" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 3",Live Event 3 [FHD@25] [M3U8] (A1x) (Canal 924)
+#EXTINF:-1 cuid="925" group-title="M3U8" tvg-chno="925" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 3",Live Event 3 [FHD@25] [M3U8] (A1x) (Canal 925)
 https://a1xs.vip/ppv3
 
-#EXTINF:-1 cuid="925" group-title="M3U8" tvg-chno="925" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 4",Live Event 4 [FHD@25] [M3U8] (A1x) (Canal 925)
+#EXTINF:-1 cuid="926" group-title="M3U8" tvg-chno="926" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 4",Live Event 4 [FHD@25] [M3U8] (A1x) (Canal 926)
 https://a1xs.vip/ppv4
 
-#EXTINF:-1 cuid="926" group-title="M3U8" tvg-chno="926" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 5",Live Event 5 [FHD@25] [M3U8] (A1x) (Canal 926)
+#EXTINF:-1 cuid="927" group-title="M3U8" tvg-chno="927" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 5",Live Event 5 [FHD@25] [M3U8] (A1x) (Canal 927)
 https://a1xs.vip/ppv5
 
-#EXTINF:-1 cuid="927" group-title="M3U8" tvg-chno="927" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 6",Live Event 6 [FHD@25] [M3U8] (A1x) (Canal 927)
+#EXTINF:-1 cuid="928" group-title="M3U8" tvg-chno="928" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 6",Live Event 6 [FHD@25] [M3U8] (A1x) (Canal 928)
 https://a1xs.vip/ppv6
 
-#EXTINF:-1 cuid="928" group-title="M3U8" tvg-chno="928" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 7",Live Event 7 [FHD@25] [M3U8] (A1x) (Canal 928)
+#EXTINF:-1 cuid="929" group-title="M3U8" tvg-chno="929" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 7",Live Event 7 [FHD@25] [M3U8] (A1x) (Canal 929)
 https://a1xs.vip/ppv7
 
-#EXTINF:-1 cuid="929" group-title="M3U8" tvg-chno="929" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 8",Live Event 8 [FHD@25] [M3U8] (A1x) (Canal 929)
+#EXTINF:-1 cuid="930" group-title="M3U8" tvg-chno="930" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 8",Live Event 8 [FHD@25] [M3U8] (A1x) (Canal 930)
 https://a1xs.vip/ppv8
