@@ -11,12 +11,12 @@ import re
 import zipfile
 import json
 import urllib.request
-from urllib.request import urlopen
+import urllib.error
 import urllib.parse
+from urllib.request import urlopen
 from pathlib import Path
 from typing import Iterable
 import subprocess
-
 import xml.etree.ElementTree as ET
 
 xbmc.log(f"REMOD TV INICIO", level=xbmc.LOGINFO)
@@ -38,6 +38,36 @@ addons_addon_data = os.path.join(addons_userdata, 'addon_data')
 changelog = os.path.join(remodtv_addon_path, 'changelog.txt')
 ### paths fuente
 carp = 'dir'
+### variables estado de fuentes
+fue1 = "https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/data/listas/lista_iptv.m3u"
+fue2 = 'https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/data/listas/lista_fuera_iptv.m3u'
+fue3 = 'https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/data/listas/lista_kodi.m3u'
+fue4 = 'https://raw.githubusercontent.com/Saratoga79/saratoga79.github.io/refs/heads/master/rm/rm'
+fue5 = 'https://tvpass.org/playlist/m3u'
+fue6 = 'https://raw.githubusercontent.com/yIsus-mEx/AF1CIONADOS/refs/heads/main/Acestream.iDs.m3u'
+fue7 = 'https://raw.githubusercontent.com/ezdakit/zukzeuk_listas/refs/heads/main/zz_eventos/zz_eventos_all_ott.m3u'
+fue8 = 'https://www.google.com'
+fue9 = 'https://www.google.com'
+fue10 = 'https://www.google.com'
+fue11 = 'https://k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004.ipns.dweb.link/data/listas/lista_iptv.m3u'
+fue12 = 'https://k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004.ipns.dweb.link/data/listas/lista_fuera_iptv.m3u'
+fue13 = 'https://k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004.ipns.dweb.link/data/listas/lista_kodi.m3u'
+### lista de fuentes
+fue_lis = ["fue1", "fue2", "fue3", "fue4", "fue5", "fue6", "fue7", "fue8", "fue9", "fue10", "fue11", "fue12", "fue13"]
+### variables estado de fuentes
+fue1_est = 'Disponible'
+fue2_est = 'Disponible'
+fue3_est = 'Disponible'
+fue4_est = 'Disponible'
+fue5_est = 'Disponible'
+fue6_est = 'Disponible'
+fue7_est = 'Disponible'
+fue8_est = 'Disponible'
+fue9_est = 'Disponible'
+fue10_est = 'Disponible'
+fue11_est = 'Disponible'
+fue12_est = 'Disponible'
+fue13_est = 'Disponible'
 ### variables para archivos json
 rep_sel = '0'
 rep_act = 'Por defecto'
@@ -60,7 +90,7 @@ def lista_menu_principal():
     menu_items = [
         (f"{remodtv_addon_name} versión: {remodtv_addon_version} | Buscar actualizaciones", "info", "info.png"),
         ("> Instalar y configurar sección TV de Kodi | Reinstalar fuente por defecto", "tv", "tv.png"),
-        ("> Elegir fuente para sección TV de Kodi", "fuente", "tv2.png"),
+        ("> Elegir fuente para sección TV de Kodi | Comprobar estado de las fuentes", "fuente", "tv2.png"),
         ("> Configurar Reproductor Externo | Android y Windows", "rep_ext", "repro.png"),
         ("> Actualizar TV", "actualizar", "refresh.png"),
         ("", "", ""),
@@ -85,17 +115,17 @@ def lista_menu_principal():
 def fuente():
     menu_items = [
         (f"Elige la fuente para la sección de TV | Actual: {fue_act}", "fuente", "tv2.png"),
-        (" Direct (Por defecto) || [ACS]", "lis_dir", "1.png"),
-        (" ACE || [ACS]", "lis_ace", "2.png"),
-        (" Horus || [ACS]", "lis_hor", "3.png"),
-        (" ReModTV || [ACS] [M3U8]", "lis_rm", "4.png"),
-        (" TVpass || [M3U8]", "lis_tvp", "5.png"),
-        (" AF1CIONADOS || [ACS]", "lis_af1", "6.png"),
-        (" Agenda Deportiva || [ACS]", "lis_eve", "7.png"),
+        (f" Direct (Por defecto) || Tipo de eventos: [ACS] | Estado: {fue1_est}", "lis_dir", "1.png"),
+        (f" ACE || Tipo de eventos: [ACS] | Estado: {fue2_est}", "lis_ace", "2.png"),
+        (f" Horus || Tipo de eventos: [ACS] | Estado: {fue3_est}", "lis_hor", "3.png"),
+        (f" ReModTV || Tipo de eventos: [ACS] y [M3U8] (VPN recomendada) | Estado: {fue4_est}", "lis_rm", "4.png"),
+        (f" TVpass || Tipo de eventos: [M3U8] (VPN recomendada) | Estado: {fue5_est}", "lis_tvp", "5.png"),
+        (f" AF1CIONADOS || Tipo de eventos: [ACS] | Estado: {fue6_est}", "lis_af1", "6.png"),
+        (f" Agenda Deportiva || Tipo de eventos: [ACS] | Estado: {fue7_est}", "lis_eve", "7.png"),
         (" Fuentes de repuesto para la sección de TV:", "fuente", "tv2.png"),
-        (" Direct || [ACS]", "lis_dir_rep", "1.png"),
-        (" ACE || [ACS]", "lis_ace_rep", "2.png"),
-        (" Horus || [ACS]", "lis_hor_rep", "3.png")
+        (f" Direct || Tipo de eventos: [ACS] | Estado: {fue11_est}", "lis_dir_rep", "1.png"),
+        (f" ACE || Tipo de eventos: [ACS] | Estado: {fue12_est}", "lis_ace_rep", "2.png"),
+        (f" Horus || Tipo de eventos: [ACS] | Estado: {fue13_est}", "lis_hor_rep", "3.png")
     ]
 
     for label, action, icon_file in menu_items:
@@ -118,7 +148,7 @@ def fuente():
 def lista_menu_herramientas():
     menu_items = [
         ("Herramientas y Utilidades:", "herr", "herr.png"),
-        ("> Visita Repo ReMod par abtener más información", "nav", "nav.png"),
+        ("> Visita Repo ReMod para obtener más información", "nav", "nav.png"),
         ("Kodi ReMod v251026.0 | org.xbmc.kodi | Actualizado el 26/10/2025:", "herr", "tool.png"),
         ("> Descargar Kodi ReMod armeabi-v7a | 32 bits | Android | ATV", "kd32", "download.png"),
         ("> Descargar Kodi ReMod arm64-v8a | 64 bits | Android | ATV", "kd64", "download.png"),
@@ -698,6 +728,86 @@ def descargar_apk(url: str) -> Path:
     return ruta_completa
 
 
+
+
+# ----------------------------------------------------------------------
+# 2️⃣  Función que traduce códigos HTTP → texto en español
+# ----------------------------------------------------------------------
+def texto_desde_codigo(codigo):
+    """
+    Convierte un código HTTP (int o str) en una descripción amigable.
+    Si el argumento ya es una cadena de eror (p.ej. "URLError …") se devuelve tal cual.
+    """
+    try:
+        codigo_int = int(codigo)          # Normalizamos a entero cuando sea posible
+    except (ValueError, TypeError):
+        return str(codigo)             # Ya es texto de error
+
+    mapa = {
+        200: "Disponible",
+        301: "Movido permanentemente",
+        302: "Redirigido temporalmente",
+        400: "Petición incorrecta",
+        401: "No autorizado",
+        403: "Prohibido",
+        404: "No encontrado",
+        408: "Tiempo de espera agotado",
+        500: "Error interno del servidor",
+       502: "Puerta de enlace incorrecta",
+        503: "Servicio no disponible",
+        504: "Tiempo de espera de puerta de enlace agotado",
+    }
+    return mapa.get(codigo_int, f"Código {codigo_int}")
+
+
+def obtener_estado(url, timeout=3):
+    DEFAULT_HEADERS = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "Chrome/124.0.0.0 Safari/537.36"
+        ),
+        "Accept": "*/*",
+        "Accept-Encoding": "gzip, deflate",
+        "Origin": "https://addons.kodi.tv",   # opcional, ayuda a algunos gateways
+    }
+    req = urllib.request.Request(url, headers=DEFAULT_HEADERS, method="HEAD")
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return resp.getcode()          # 200, 301, …
+    except urllib.error.HTTPError as e:
+        # Aquí e.code contiene el código de error (404, 403, …)
+        return e.code
+    except urllib.error.URLError as e:
+        return f"URLError {e.reason}"
+    except Exception as e:
+        return f"Error inesperado: {e}"
+
+# ------------------------------------------------------------------
+# 4️⃣  Función principal que recorre la lista y crea variables dinámicas
+# ------------------------------------------------------------------
+def fue_est_test():
+    """
+    - Muestra una notificación breve.
+    - Recorre `fue_lis` (lista con nombres de variables que contienen URLs).
+    - Consulta cada URL.
+    - Convierte el código a texto amigable.
+    - Crea la variable dinámica <nombre>_est con ese texto.
+    - Escribe todo en el log de Kodi.
+    """
+    xbmc.executebuiltin(
+        f"Notification({remodtv_addon_name},Comprobando estado de las fuentes.,1000,)"
+    )
+
+    for nombre in fue_lis:                # Ej.: ["fue1", "fue2", "fue3"]
+        url = globals()[nombre]           # Obtiene la URL real a partir del nombre
+        codigo = obtener_estado(url)      # Nunca lanza excepción
+        descripcion = texto_desde_codigo(codigo)
+
+        # Variable dinámica <nombre>_est (p.ej. fue1_est)
+        globals()[f"{nombre}_est"] = descripcion
+
+        xbmc.log(f"PVR Manager [{nombre}] Estado: {descripcion}", xbmc.LOGINFO)
+        
 ### test
 
 ### test        
@@ -718,6 +828,7 @@ else:
         fue_sel = '1 Direct'
         guardar_fuente(fue_sel)
     elif action == "fuente":
+        fue_est_test()
         fue_act = leer_fuente()
         fuente()
     elif action == "actualizar":

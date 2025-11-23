@@ -1,4 +1,8 @@
 > ReMod TV
+> Versión = 25.11.23.0
+> Cambios respecto a la versión anterior
+	- Añadida comprobación de estado de fuentes
+	
 > Versión = 25.11.20.2
 > Cambios respecto a la versión anterior
 	- Actualizados nombres de Reproductores Externos
