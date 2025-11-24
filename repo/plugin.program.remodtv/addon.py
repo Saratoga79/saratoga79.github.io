@@ -55,19 +55,19 @@ fue13 = 'https://k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004.ipns.d
 ### lista de fuentes
 fue_lis = ["fue1", "fue2", "fue3", "fue4", "fue5", "fue6", "fue7", "fue8", "fue9", "fue10", "fue11", "fue12", "fue13"]
 ### variables estado de fuentes
-fue1_est = 'Disponible'
-fue2_est = 'Disponible'
-fue3_est = 'Disponible'
-fue4_est = 'Disponible'
-fue5_est = 'Disponible'
-fue6_est = 'Disponible'
-fue7_est = 'Disponible'
-fue8_est = 'Disponible'
-fue9_est = 'Disponible'
-fue10_est = 'Disponible'
-fue11_est = 'Disponible'
-fue12_est = 'Disponible'
-fue13_est = 'Disponible'
+fue1_est = 'Desonocido'
+fue2_est = 'Desonocido'
+fue3_est = 'Desonocido'
+fue4_est = 'Desonocido'
+fue5_est = 'Desonocido'
+fue6_est = 'Desonocido'
+fue7_est = 'Desonocido'
+fue8_est = 'Desonocido'
+fue9_est = 'Desonocido'
+fue10_est = 'Desonocido'
+fue11_est = 'Desonocido'
+fue12_est = 'Desonocido'
+fue13_est = 'Desonocido'
 ### variables para archivos json
 rep_sel = '0'
 rep_act = 'Por defecto'
@@ -88,16 +88,16 @@ def build_url(query):
 ### lista del menu pirncipal
 def lista_menu_principal():
     menu_items = [
-        (f"{remodtv_addon_name} versión: {remodtv_addon_version} | Buscar actualizaciones", "info", "info.png"),
-        ("> Instalar y configurar sección TV de Kodi | Reinstalar fuente por defecto", "tv", "tv.png"),
-        ("> Elegir fuente para sección TV de Kodi | Comprobar estado de las fuentes", "fuente", "tv2.png"),
-        ("> Configurar Reproductor Externo | Android y Windows", "rep_ext", "repro.png"),
-        ("> Actualizar TV", "actualizar", "refresh.png"),
-        ("", "", ""),
-        ("> Herramientas y Utilidades", "herr", "herr.png")
+        (f"{remodtv_addon_name} versión: {remodtv_addon_version} | Buscar actualizaciones", "info", "info.png", True),
+        ("> Instalar y configurar sección TV de Kodi | Reinstalar fuente por defecto", "tv", "tv.png", True),
+        ("> Elegir fuente para sección TV de Kodi | Comprobar estado de las fuentes", "fuente", "tv2.png", True),
+        ("> Configurar Reproductor Externo | Android y Windows", "rep_ext", "repro.png", True),
+        ("> Actualizar TV", "actualizar", "refresh.png", True),
+        ("", "", "", False),
+        ("> Herramientas y Utilidades", "herr", "herr.png", True)
     ]
 
-    for label, action, icon_file in menu_items:
+    for label, action, icon_file, is_folder in menu_items:
         url = build_url({"action": action})
         ### Creamos el ListItem
         li = xbmcgui.ListItem(label=label)
@@ -109,26 +109,30 @@ def lista_menu_principal():
         xbmcplugin.addDirectoryItem(handle=HANDLE,
                                     url=url,
                                     listitem=li,
-                                    isFolder=True)
+                                    isFolder=is_folder)
     xbmcplugin.endOfDirectory(HANDLE)
     
 def fuente():
+    fue_est_test()
     menu_items = [
-        (f"Elige la fuente para la sección de TV | Actual: {fue_act}", "fuente", "tv2.png"),
-        (f" Direct (Por defecto) || Tipo de eventos: [ACS] | Estado: {fue1_est}", "lis_dir", "1.png"),
-        (f" ACE || Tipo de eventos: [ACS] | Estado: {fue2_est}", "lis_ace", "2.png"),
-        (f" Horus || Tipo de eventos: [ACS] | Estado: {fue3_est}", "lis_hor", "3.png"),
-        (f" ReModTV || Tipo de eventos: [ACS] y [M3U8] (VPN recomendada) | Estado: {fue4_est}", "lis_rm", "4.png"),
-        (f" TVpass || Tipo de eventos: [M3U8] (VPN recomendada) | Estado: {fue5_est}", "lis_tvp", "5.png"),
-        (f" AF1CIONADOS || Tipo de eventos: [ACS] | Estado: {fue6_est}", "lis_af1", "6.png"),
-        (f" Agenda Deportiva || Tipo de eventos: [ACS] | Estado: {fue7_est}", "lis_eve", "7.png"),
-        (" Fuentes de repuesto para la sección de TV:", "fuente", "tv2.png"),
-        (f" Direct || Tipo de eventos: [ACS] | Estado: {fue11_est}", "lis_dir_rep", "1.png"),
-        (f" ACE || Tipo de eventos: [ACS] | Estado: {fue12_est}", "lis_ace_rep", "2.png"),
-        (f" Horus || Tipo de eventos: [ACS] | Estado: {fue13_est}", "lis_hor_rep", "3.png")
+        (f"Fuentes Principales para la sección de TV | Actual: {fue_act}", "", "tv2.png", False),
+        (f" Direct (Por defecto) || Tipo de eventos: [ACS] | Estado: {fue1_est}", "lis_dir", "1.png", True),
+        (f" ACE || Tipo de eventos: [ACS] | Estado: {fue2_est}", "lis_ace", "2.png", True),
+        (f" Horus || Tipo de eventos: [ACS] | Estado: {fue3_est}", "lis_hor", "3.png", True),
+        (f" ReModTV || Tipo de eventos: [ACS] y [M3U8] (VPN recomendada) | Estado: {fue4_est}", "lis_rm", "4.png", True),
+        (f" TVpass || Tipo de eventos: [M3U8] (VPN recomendada) | Estado: {fue5_est}", "lis_tvp", "5.png", True),
+        (f" AF1CIONADOS || Tipo de eventos: [ACS] | Estado: {fue6_est}", "lis_af1", "6.png", True),
+        (f" Agenda Deportiva || Tipo de eventos: [ACS] | Estado: {fue7_est}", "lis_eve", "7.png", True),
+        ("Fuentes de Repuesto para la sección de TV:", "", "tv2.png", False),
+        (f" Direct || Tipo de eventos: [ACS] | Estado: {fue11_est}", "lis_dir_rep", "1.png", True),
+        (f" ACE || Tipo de eventos: [ACS] | Estado: {fue12_est}", "lis_ace_rep", "2.png", True),
+        (f" Horus || Tipo de eventos: [ACS] | Estado: {fue13_est}", "lis_hor_rep", "3.png", True)
     ]
 
-    for label, action, icon_file in menu_items:
+    for label, action, icon_file, is_folder in menu_items:
+        # Saltamos entradas vacías (servían solo como separador)
+        if not label.strip():
+            continue
         url = build_url({"action": action})
         ### Creamos el ListItem
         li = xbmcgui.ListItem(label=label)
@@ -140,29 +144,32 @@ def fuente():
         xbmcplugin.addDirectoryItem(handle=HANDLE,
                                     url=url,
                                     listitem=li,
-                                    isFolder=True)
+                                    isFolder=is_folder)
     xbmcplugin.endOfDirectory(HANDLE)
 
 
 ### lista del menu herramientas
 def lista_menu_herramientas():
     menu_items = [
-        ("Herramientas y Utilidades:", "herr", "herr.png"),
-        ("> Visita Repo ReMod para obtener más información", "nav", "nav.png"),
-        ("Kodi ReMod v251026.0 | org.xbmc.kodi | Actualizado el 26/10/2025:", "herr", "tool.png"),
-        ("> Descargar Kodi ReMod armeabi-v7a | 32 bits | Android | ATV", "kd32", "download.png"),
-        ("> Descargar Kodi ReMod arm64-v8a | 64 bits | Android | ATV", "kd64", "download.png"),
-        ("Ace Stream Pro ReMod v251115.0 | org.acestream.media | Actualizado el 16/11/2025:", "herr", "tool.png"),
-        ("> Descargar Ace Stream Pro ReMod armeabi-v7a | 32 bits | Android | ATV", "acs32", "download.png"),
-        ("> Descargar Ace Stream Pro ReMod arm64-v8a | 64 bits | Android | ATV", "acs64", "download.png"),
-        ("Ace Serve v1.5.0 | org.free.aceserve | Actualizado el 20/11/2025:", "herr", "tool.png"),
-        ("> Descargar Ace Serve armeabi-v7a | 32 bits | Android | ATV", "as32", "download.png"),
-        ("> Descargar Ace Serve arm64-v8a | 64 bits | Android | ATV", "as64", "download.png"),
-        ("WARP | com.cloudflare.onedotonedotonedotone | Actualizado el 17/11/2025:", "herr", "tool.png"),
-        ("> Descargar WARP Mando Fix para ATV por Jota | 32 bits | 64 bits | Android | ATV", "warp1", "download.png"),
+        ("Herramientas y Utilidades:", "", "herr.png", False),
+        ("> Visita Repo ReMod para obtener más información", "nav", "nav.png", True),
+        ("Kodi ReMod v251026.0 | org.xbmc.kodi | Actualizado el 26/10/2025:", "", "tool.png", False),
+        ("> Descargar Kodi ReMod armeabi-v7a | 32 bits | Android | ATV", "kd32", "download.png", True),
+        ("> Descargar Kodi ReMod arm64-v8a | 64 bits | Android | ATV", "kd64", "download.png", True),
+        ("Ace Stream Pro ReMod v251115.0 | org.acestream.media | Actualizado el 16/11/2025:", "", "tool.png", False),
+        ("> Descargar Ace Stream Pro ReMod armeabi-v7a | 32 bits | Android | ATV", "acs32", "download.png", True),
+        ("> Descargar Ace Stream Pro ReMod arm64-v8a | 64 bits | Android | ATV", "acs64", "download.png", True),
+        ("Ace Serve v1.5.3 | org.free.aceserve | Actualizado el 24/11/2025:", "", "tool.png", False),
+        ("> Descargar Ace Serve armeabi-v7a | 32 bits | Android | ATV", "as32", "download.png", True),
+        ("> Descargar Ace Serve arm64-v8a | 64 bits | Android | ATV", "as64", "download.png", True),
+        ("WARP | com.cloudflare.onedotonedotonedotone | Actualizado el 17/11/2025:", "", "tool.png", False),
+        ("> Descargar WARP Mando Fix para ATV por Jota | 32 bits | 64 bits | Android | ATV", "warp1", "download.png", True),
     ]
 
-    for label, action, icon_file in menu_items:
+    for label, action, icon_file, is_folder in menu_items:
+        # Saltamos entradas vacías (servían solo como separador)
+        if not label.strip():
+            continue
         url = build_url({"action": action})
         ### Creamos el ListItem
         li = xbmcgui.ListItem(label=label)
@@ -174,17 +181,20 @@ def lista_menu_herramientas():
         xbmcplugin.addDirectoryItem(handle=HANDLE,
                                     url=url,
                                     listitem=li,
-                                    isFolder=True)
+                                    isFolder=is_folder)
     xbmcplugin.endOfDirectory(HANDLE)
 
 ### lista del menu guias
 def lista_menu_guias():
     menu_items = [
-        ("Guías y Tutoriales:", "guias", "guias.png"),
-        ("> Alternativa para tener Cloudflare WARP y Proton VPN | Telegra.ph (Telegram)", "wgt", "wgt.png")
+        ("Guías y Tutoriales:", "guias", "guias.png", False),
+        ("> Alternativa para tener Cloudflare WARP y Proton VPN | Telegra.ph (Telegram)", "wgt", "wgt.png", True)
     ]
 
-    for label, action, icon_file in menu_items:
+    for label, action, icon_file, is_folder in menu_items:
+        # Saltamos entradas vacías (servían solo como separador)
+        if not label.strip():
+            continue
         url = build_url({"action": action})
         ### Creamos el ListItem
         li = xbmcgui.ListItem(label=label)
@@ -196,33 +206,36 @@ def lista_menu_guias():
         xbmcplugin.addDirectoryItem(handle=HANDLE,
                                     url=url,
                                     listitem=li,
-                                    isFolder=True)
+                                    isFolder=is_folder)
     xbmcplugin.endOfDirectory(HANDLE)
 
 ### lista del menu configurar reproductor externo
 def lista_menu_rep_ext():
     menu_items = [
-        (f"Elige la aplicación del Reprouctor Externo | Actual: {rep_act}", "rep_ext", "repro.png"),
-        ("Ace Stream Media ReMod | Ace Stream Media McK | org.acestream.media", "pcf0", "android.png"),
-        ("Ace Stream Media ATV | org.acestream.media.atv", "pcf1", "android.png"),
-        ("Ace Stream Media Web | org.acestream.media.web", "pcf2", "android.png"),
-        ("Ace Stream Node | org.acestream.node", "pcf3", "android.png"),
-        ("Ace Stream Node Web | org.acestream.node.web", "pcf4", "android.png"),
-        ("Ace Stream Core | org.acestream.core", "pcf5", "android.png"),
-        ("Ace Stream Core ATV | org.acestream.core.atv", "pcf6", "android.png"),
-        ("Ace Stream Core Web | org.acestream.core.web", "pcf7", "android.png"),
-        ("Ace Stream Live | org.acestream.live", "pcf8", "android.png"),
-        ("Ace Stream Pro Mod | org.acestream.nodf", "pcf15", "android.png"),
-        ("Ace Serve | org.free.aceserve", "pcf12", "android.png"),
-        ("MPVkt | live.mehiz.mpvkt", "pcf9", "android.png"),
-        ("MPV | is.xyz.mpv", "pcf10", "android.png"),
-        ("VLC | org.videolan.vlc", "pcf11", "android.png"),
-        ("Ace Stream oficial", "pcf13", "win.png"),
-        ("VLC y Ace Stream oficial", "pcf14", "win.png"),        
-        ("Restaurar por defecto a como cuando se instaló Kodi", "pcf_rest", "restore.png")
+        (f"Elige la aplicación del Reprouctor Externo | Actual: {rep_act}", "", "repro.png", False),
+        ("Ace Stream Media ReMod | Ace Stream Media McK | org.acestream.media", "pcf0", "android.png", True),
+        ("Ace Stream Media ATV | org.acestream.media.atv", "pcf1", "android.png", True),
+        ("Ace Stream Media Web | org.acestream.media.web", "pcf2", "android.png", True),
+        ("Ace Stream Node | org.acestream.node", "pcf3", "android.png", True),
+        ("Ace Stream Node Web | org.acestream.node.web", "pcf4", "android.png", True),
+        ("Ace Stream Core | org.acestream.core", "pcf5", "android.png", True),
+        ("Ace Stream Core ATV | org.acestream.core.atv", "pcf6", "android.png", True),
+        ("Ace Stream Core Web | org.acestream.core.web", "pcf7", "android.png", True),
+        ("Ace Stream Live | org.acestream.live", "pcf8", "android.png", True),
+        ("Ace Stream Pro Mod | org.acestream.nodf", "pcf15", "android.png", True),
+        ("Ace Serve | org.free.aceserve", "pcf12", "android.png", True),
+        ("MPVkt | live.mehiz.mpvkt", "pcf9", "android.png", True),
+        ("MPV | is.xyz.mpv", "pcf10", "android.png", True),
+        ("VLC | org.videolan.vlc", "pcf11", "android.png", True),
+        ("Ace Stream oficial", "pcf13", "win.png", True),
+        ("VLC y Ace Stream oficial", "pcf14", "win.png", True),        
+        ("Restaurar por defecto a como cuando se instaló Kodi", "pcf_rest", "restore.png", True)
     ]
 
-    for label, action, icon_file in menu_items:
+    for label, action, icon_file, is_folder in menu_items:
+        # Saltamos entradas vacías (servían solo como separador)
+        if not label.strip():
+            continue
         url = build_url({"action": action})
         ### Creamos el ListItem
         li = xbmcgui.ListItem(label=label)
@@ -234,7 +247,7 @@ def lista_menu_rep_ext():
         xbmcplugin.addDirectoryItem(handle=HANDLE,
                                     url=url,
                                     listitem=li,
-                                    isFolder=True)
+                                    isFolder=is_folder)
     xbmcplugin.endOfDirectory(HANDLE)
    
 
@@ -753,14 +766,14 @@ def texto_desde_codigo(codigo):
         404: "No encontrado",
         408: "Tiempo de espera agotado",
         500: "Error interno del servidor",
-       502: "Puerta de enlace incorrecta",
+        502: "Puerta de enlace incorrecta",
         503: "Servicio no disponible",
         504: "Tiempo de espera de puerta de enlace agotado",
     }
     return mapa.get(codigo_int, f"Código {codigo_int}")
 
 
-def obtener_estado(url, timeout=3):
+def obtener_estado(url, timeout=10):
     DEFAULT_HEADERS = {
         "User-Agent": (
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -786,14 +799,6 @@ def obtener_estado(url, timeout=3):
 # 4️⃣  Función principal que recorre la lista y crea variables dinámicas
 # ------------------------------------------------------------------
 def fue_est_test():
-    """
-    - Muestra una notificación breve.
-    - Recorre `fue_lis` (lista con nombres de variables que contienen URLs).
-    - Consulta cada URL.
-    - Convierte el código a texto amigable.
-    - Crea la variable dinámica <nombre>_est con ese texto.
-    - Escribe todo en el log de Kodi.
-    """
     xbmc.executebuiltin(
         f"Notification({remodtv_addon_name},Comprobando estado de las fuentes.,1000,)"
     )
@@ -828,7 +833,6 @@ else:
         fue_sel = '1 Direct'
         guardar_fuente(fue_sel)
     elif action == "fuente":
-        fue_est_test()
         fue_act = leer_fuente()
         fuente()
     elif action == "actualizar":
@@ -934,7 +938,7 @@ else:
             
             url_descarga = (
                 "https://saratoga79.github.io/apps/android/AS/"
-                "org.free.aceserve-1.5.0-arm.apk"
+                "org.free.aceserve-1.5.3-arm.apk"
             )
 
             try:
@@ -951,7 +955,7 @@ else:
         if xbmc.getCondVisibility('system.platform.android'):
             url_descarga = (
                 "https://saratoga79.github.io/apps/android/AS/"
-                "org.free.aceserve-1.5.0-arm64.apk"
+                "org.free.aceserve-1.5.3-arm64.apk"
             )
 
             try:
@@ -989,6 +993,7 @@ else:
         fue_sel = '1 Direct'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
+        fuente()
     elif action == "lis_dir_rep":
         carp = 'dir_rep'
         archivos_config()
@@ -996,6 +1001,7 @@ else:
         fue_sel = '1 Direct Repuesto'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
+        fuente()
     elif action == "lis_ace":
         carp = 'ace'
         archivos_config()
@@ -1003,6 +1009,7 @@ else:
         fue_sel = '2 ACE'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
+        fuente()
     elif action == "lis_ace_rep":
         carp = 'ace_rep'
         archivos_config()
@@ -1010,6 +1017,7 @@ else:
         fue_sel = '2 ACE Repuesto'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
+        fuente()
     elif action == "lis_hor":
         carp = 'hor'
         archivos_config()
@@ -1024,6 +1032,7 @@ else:
         fue_sel = '3 Horus Repuesto'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
+        fuente()
     elif action == "lis_rm":
         carp = 'rm'
         archivos_config()
@@ -1031,6 +1040,7 @@ else:
         fue_sel = '4 ReModTV'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
+        fuente()
     elif action == "lis_tvp":
         carp = 'tvp'
         archivos_config()
@@ -1038,6 +1048,7 @@ else:
         fue_sel = '5 TVpass'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
+        fuente()
     elif action == "lis_af1":
         carp = 'af1'
         archivos_config()
@@ -1045,6 +1056,7 @@ else:
         fue_sel = '6 AF1CIONADOS'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
+        fuente()
     elif action == "lis_eve":
         carp = 'eve'
         archivos_config()
@@ -1052,6 +1064,7 @@ else:
         fue_sel = '7 Agenda Deportiva'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
+        fuente()
 
     elif action == "pcf0":
         rep_sel = '0'
