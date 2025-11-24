@@ -2889,3 +2889,12 @@ https://a1xs.vip/ppv7
 
 #EXTINF:-1 cuid="963" group-title="M3U8" tvg-chno="963" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 8",Live Event 8 [FHD@25] [M3U8] (A1x) (Canal 963)
 https://a1xs.vip/ppv8
+
+#EXTINF:-1 cuid="964" group-title="M3U8" tvg-chno="964" tvg-logo="https://proxy.lalifeier.eu.org/https://raw.githubusercontent.com/linitfor/epg/main/logo/LaLiga TV.png" group-title="体育",LaLiga TV [FHD@25] [M3U8] (IpCN) (Canal 964)
+https://tv.iill.top/beesport/La_Liga_TV_Live_TV
+
+#EXTINF:-1 cuid="965" group-title="M3U8" tvg-chno="965" tvg-logo="https://proxy.lalifeier.eu.org/https://raw.githubusercontent.com/linitfor/epg/main/logo/LaLiga TV.png" group-title="体育",LaLiga TV [FHD@25] [M3U8] (IpCN) (Canal 965)
+https://tv.iill.top/beesport/SuperSport_LaLiga_Live_TV
+
+#EXTINF:-1 cuid="966" group-title="M3U8" tvg-chno="966" tvg-logo="https://proxy.lalifeier.eu.org/https://raw.githubusercontent.com/linitfor/epg/main/logo/LaLiga TV.png" group-title="体育",DAZN [FHD@25] [M3U8] (IpCN) (Canal 966)
+https://tv.iill.top/beesport/DAZN_Live_TV
