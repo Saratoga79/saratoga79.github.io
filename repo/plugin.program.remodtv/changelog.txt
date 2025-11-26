@@ -1,4 +1,8 @@
 > ReMod TV
+> Versión = 25.11.26.1
+> Cambios respecto a la versión anterior
+	- Pequeñas mejoras
+	
 > Versión = 25.11.25.0
 > Cambios respecto a la versión anterior
 	- Mejoras varias

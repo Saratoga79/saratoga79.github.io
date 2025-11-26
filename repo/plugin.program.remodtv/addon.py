@@ -48,218 +48,6 @@ fue_act = 'Por defecto'
 ### carpeta descargas en android
 android_carpeta_descargas = Path("/storage/emulated/0/Download")
 
-### estados de las fuentes desde variables anterior
-def fue_comprobar_y_guardar_estados_old():
-    # Diccionario que vamos a serializar
-    resultados = {}
-
-    for nombre in fue_lis:
-        # Obtén la URL real a partir del nombre de variable global
-        url = globals().get(nombre)
-        if not url:
-            xbmc.log(f"PVR Manager [{nombre}] No se encontró la URL.", xbmc.LOGWARNING)
-            continue
-
-        codigo = obtener_estado(url)            # nunca lanza excepción
-        descripcion = texto_desde_codigo(codigo)
-
-        # Guardamos tanto la descripción como el código numérico (útil para depurar)
-        resultados[nombre] = {
-            "url": url,
-            "codigo": codigo,
-            "descripcion": descripcion,
-        }
-
-        # Variable dinámica <nombre>_est (p.ej. fue1_est) – opcional
-        globals()[f"{nombre}_est"] = descripcion
-
-        xbmc.log(
-            f"PVR Manager [{nombre}] Estado: {descripcion} (código {codigo})",
-            xbmc.LOGINFO,
-        )
-
-    # ------------------------------------------------------------------
-    # Serializamos el diccionario a JSON
-    # ------------------------------------------------------------------
-    try:
-        with open(fue_est_file, "w", encoding="utf-8") as fp:
-            json.dump(resultados, fp, ensure_ascii=False, indent=2)
-
-        xbmc.log(f"PVR Manager → Estado guardado en {fue_est_file}", xbmc.LOGINFO)
-    except Exception as exc:
-        xbmc.log(f"PVR Manager → Error al guardar JSON: {exc}", xbmc.LOGERROR)
-
-
-def crear_variables_url_desde_json():
-    """
-    Lee fue_lis.json y crea variables globales
-    fue1, fue2, … con la URL correspondiente.
-    """
-    try:
-        with open(fue_lis, "r", encoding="utf-8") as fp:
-            data = json.load(fp)                     # {'fue1': {'url': 'https://…'}, …}
-    except Exception as exc:
-        xbmc.log(f"PVR Manager → Error al leer {fue_lis}: {exc}", xbmc.LOGERROR)
-        return
-
-    for nombre, info in data.items():
-        url = info.get("url", "")
-        globals()[nombre] = url                     # crea la variable global fue1 = "https://…"
-        xbmc.log(f"PVR Manager → Variable {nombre} = {url}", xbmc.LOGDEBUG)
-
-def fue_comprobar_y_guardar_estados():
-    """
-    1️⃣  Lee fue_lis.json (solo URLs).
-    2️⃣  Para cada fuente:
-        • obtiene el código HTTP con obtener_estado().
-        • traduce el código a texto legible con texto_desde_codigo().
-        • construye un dict con url, codigo y descripcion.
-    3️⃣  Guarda el resultado en estados_fuentes.json.
-    4️⃣  (Opcional) crea variables dinámicas fueX_est para código legacy.
-    """
-    # -------------------------------------------------
-    # Cargar la lista de URLs
-    # -------------------------------------------------
-    try:
-        with open(fue_lis, "r", encoding="utf-8") as fp:
-            lista_raw = json.load(fp)                     # {'fue1': {'url': 'https://…'}, …}
-        xbmc.log(f"PVR Manager → Lista de URLs cargada ({len(lista_raw)} fuentes)", xbmc.LOGINFO)
-    except Exception as exc:
-        xbmc.log(f"PVR Manager → Error al leer {fue_lis}: {exc}", xbmc.LOGERROR)
-        return
-
-    # -------------------------------------------------
-    # Recorrer cada fuente y obtener su estado
-    # -------------------------------------------------
-    resultados = {}
-    for nombre, info in lista_raw.items():
-        url = info.get("url", "")
-        if not url:
-            xbmc.log(f"PVR Manager [{nombre}] Sin URL → marcado como 'Desconocido'",
-                     xbmc.LOGWARNING)
-            resultados[nombre] = {
-                "url": "",
-                "codigo": "Sin URL",
-                "descripcion": "Desconocido"
-            }
-            continue
-
-        codigo = obtener_estado(url)                     # 200, 404, "URLError …", etc.
-        descripcion = texto_desde_codigo(codigo)
-
-        resultados[nombre] = {
-            "url": url,
-            "codigo": codigo,
-            "descripcion": descripcion,
-        }
-
-        # ---- Variable dinámica opcional (legacy) ----
-        globals()[f"{nombre}_est"] = descripcion
-
-        xbmc.log(
-            f"PVR Manager [{nombre}] Estado: {descripcion} (código {codigo})",
-            xbmc.LOGINFO,
-        )
-
-    # -------------------------------------------------
-    # Guardar el diccionario completo en JSON
-    # -------------------------------------------------
-    try:
-        # os.makedirs(PROFILE, exist_ok=True)   # por si la carpeta de perfil no existía
-        with open(fue_est_file, "w", encoding="utf-8") as fp:
-            json.dump(resultados, fp, ensure_ascii=False, indent=2)
-        xbmc.log(f"PVR Manager → Estados guardados en {fue_est_file}", xbmc.LOGINFO)
-    except Exception as exc:
-        xbmc.log(f"PVR Manager → Error al guardar JSON: {exc}", xbmc.LOGERROR)
-
-
-def fue_cargar_estados():
-    """
-    Lee el archivo JSON y devuelve un dict plano:
-    {
-        "fue1": "Error inesperado: The read operation timed out",
-        "fue2": "Disponible",
-        ...
-    }
-    Si algo falla, devuelve valores por defecto ("Desconocido").
-    """
-    defaults = {f"fue{i}": "Desconocido" for i in range(1, 14)}   # 1‑13
-
-    try:
-        with open(fue_est_file, "r", encoding="utf-8") as fp:
-            raw = json.load(fp)                                 # diccionario anidado
-        # xbmc.log(f"PVR Manager → JSON crudo: {raw}", xbmc.LOGINFO)
-
-        # Extraemos únicamente la clave 'descripcion' de cada fuente
-        estados = {}
-        for clave, info in raw.items():
-            # `info` es otro dict con keys: url, codigo, descripcion
-            descripcion = info.get("descripcion", "Desconocido")
-            estados[clave] = descripcion
-
-        # Rellenamos con defaults por si falta alguna clave
-        for k, d in defaults.items():
-            estados.setdefault(k, d)
-
-        xbmc.log(f"PVR Manager → Estados procesados: {estados}", xbmc.LOGINFO)
-        return estados
-
-    except Exception as exc:
-        xbmc.log(f"PVR Manager → Error al leer JSON: {exc}", xbmc.LOGERROR)
-        return defaults
-        xbmc.log(f"PVR Manager → Estados finales: {traducidos}", xbmc.LOGINFO)
-        return traducidos
-
-    except Exception as exc:
-        xbmc.log(f"PVR Manager → Error al leer JSON: {exc}", xbmc.LOGERROR)
-        return defaults
-        
-        
-def texto_desde_codigo(codigo):
-    """Convierte un código HTTP (int o str) en texto legible."""
-    try:
-        codigo_int = int(codigo)          # Normalizamos a entero cuando sea posible
-    except (ValueError, TypeError):
-        return str(codigo)                # Ya es texto de error
-
-    mapa = {
-        200: "Disponible",
-        301: "Movido permanentemente",
-        302: "Redirigido temporalmente",
-        400: "Petición incorrecta",
-        401: "No autorizado",
-        403: "Prohibido",
-        404: "No encontrado",
-        408: "Tiempo de espera agotado",
-        500: "Error interno del servidor",
-        502: "Puerta de enlace incorrecta",
-        503: "Servicio no disponible",
-        504: "Tiempo de espera de puerta de enlace agotado",
-    }
-    return mapa.get(codigo_int, f"Código {codigo_int}")
-
-def obtener_estado(url, timeout=10):
-    DEFAULT_HEADERS = {
-        "User-Agent": (
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "Chrome/124.0.0.0 Safari/537.36"
-        ),
-        "Accept": "*/*",
-        "Accept-Encoding": "gzip, deflate",
-        "Origin": "https://addons.kodi.tv",   # opcional, ayuda a algunos gateways
-    }
-
-    req = urllib.request.Request(url, headers=DEFAULT_HEADERS, method="HEAD")
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
-            return resp.getcode()          # 200, 301, …
-    except urllib.error.HTTPError as e:
-        return e.code                     # 404, 403, …
-    except urllib.error.URLError as e:
-        return f"URLError {e.reason}"
-    except Exception as e:
-        return f"Error inesperado: {e}"
-
 
 ### parametros
 BASE_URL = sys.argv[0]
@@ -892,12 +680,7 @@ def monitor_pvr():
         # Si ha cambiado respecto al último valor conocido, actúa
         if estado_actual != ultimo_estado:
             xbmc.log(f'PVR Manager cambió a: {estado_actual}', xbmc.LOGINFO)
-            # manejar_cambio_estado(estado_actual)
-            # ultimo_estado = estado_actual
-
-        # Espera medio segundo antes de volver a consultar.
-        # Puedes ajustar este intervalo según la reactividad que necesites.
-        xbmc.sleep(500)   # 0.5 s
+        xbmc.sleep(500)
         
         
 
@@ -906,10 +689,6 @@ def nombre_desde_url(url: str) -> str:
     return os.path.basename(urllib.parse.urlparse(url).path)
 
 def descargar_apk(url: str) -> Path:
-    """
-    Descarga la APK desde `url` y la guarda en /storage/emulated/0/Download.
-    Devuelve la ruta completa del archivo guardado.
-    """
     # Aseguramos que la carpeta exista (por si alguna vez falta)
     android_carpeta_descargas.mkdir(parents=True, exist_ok=True)
 
@@ -927,7 +706,141 @@ def descargar_apk(url: str) -> Path:
     return ruta_completa
 
 
+def crear_variables_url_desde_json():
+    try:
+        with open(fue_lis, "r", encoding="utf-8") as fp:
+            data = json.load(fp)                     # {'fue1': {'url': 'https://…'}, …}
+    except Exception as exc:
+        xbmc.log(f"PVR Manager → Error al leer {fue_lis}: {exc}", xbmc.LOGERROR)
+        return
 
+    for nombre, info in data.items():
+        url = info.get("url", "")
+        globals()[nombre] = url                     # crea la variable global fue1 = "https://…"
+        xbmc.log(f"PVR Manager → Variable {nombre} = {url}", xbmc.LOGDEBUG)
+
+def fue_comprobar_y_guardar_estados():
+    try:
+        with open(fue_lis, "r", encoding="utf-8") as fp:
+            lista_raw = json.load(fp)
+        xbmc.log(f"PVR Manager → Lista de URLs cargada ({len(lista_raw)} fuentes)", xbmc.LOGINFO)
+    except Exception as exc:
+        xbmc.log(f"PVR Manager → Error al leer {fue_lis}: {exc}", xbmc.LOGERROR)
+        return
+    resultados = {}
+    for nombre, info in lista_raw.items():
+        url = info.get("url", "")
+        if not url:
+            xbmc.log(f"PVR Manager [{nombre}] Sin URL → marcado como 'Desconocido'",
+                     xbmc.LOGWARNING)
+            resultados[nombre] = {
+                "url": "",
+                "codigo": "Sin URL",
+                "descripcion": "Desconocido"
+            }
+            continue
+
+        codigo = obtener_estado(url)
+        descripcion = texto_desde_codigo(codigo)
+
+        resultados[nombre] = {
+            "url": url,
+            "codigo": codigo,
+            "descripcion": descripcion,
+        }
+
+        # ---- Variable dinámica opcional (legacy) ----
+        globals()[f"{nombre}_est"] = descripcion
+
+        xbmc.log(
+            f"PVR Manager [{nombre}] Estado: {descripcion} (código {codigo})",
+            xbmc.LOGINFO,
+        )
+
+    try:
+        with open(fue_est_file, "w", encoding="utf-8") as fp:
+            json.dump(resultados, fp, ensure_ascii=False, indent=2)
+        xbmc.log(f"PVR Manager → Estados guardados en {fue_est_file}", xbmc.LOGINFO)
+    except Exception as exc:
+        xbmc.log(f"PVR Manager → Error al guardar JSON: {exc}", xbmc.LOGERROR)
+
+
+def fue_cargar_estados():
+    defaults = {f"fue{i}": "Desconocido" for i in range(1, 14)}   # 1‑13
+
+    try:
+        with open(fue_est_file, "r", encoding="utf-8") as fp:
+            raw = json.load(fp)                                 # diccionario anidado
+
+        # Extraemos únicamente la clave 'descripcion' de cada fuente
+        estados = {}
+        for clave, info in raw.items():
+            # `info` es otro dict con keys: url, codigo, descripcion
+            descripcion = info.get("descripcion", "Desconocido")
+            estados[clave] = descripcion
+
+        # Rellenamos con defaults por si falta alguna clave
+        for k, d in defaults.items():
+            estados.setdefault(k, d)
+
+        xbmc.log(f"PVR Manager → Estados procesados: {estados}", xbmc.LOGINFO)
+        return estados
+
+    except Exception as exc:
+        xbmc.log(f"PVR Manager → Error al leer JSON: {exc}", xbmc.LOGERROR)
+        return defaults
+        xbmc.log(f"PVR Manager → Estados finales: {traducidos}", xbmc.LOGINFO)
+        return traducidos
+
+    except Exception as exc:
+        xbmc.log(f"PVR Manager → Error al leer JSON: {exc}", xbmc.LOGERROR)
+        return defaults
+        
+        
+def texto_desde_codigo(codigo):
+    """Convierte un código HTTP (int o str) en texto legible."""
+    try:
+        codigo_int = int(codigo)          # Normalizamos a entero cuando sea posible
+    except (ValueError, TypeError):
+        return str(codigo)                # Ya es texto de error
+
+    mapa = {
+        200: "Disponible",
+        301: "Movido permanentemente",
+        302: "Redirigido temporalmente",
+        400: "Petición incorrecta",
+        401: "No autorizado",
+        403: "Prohibido",
+        404: "No encontrado",
+        408: "Tiempo de espera agotado",
+        500: "Error interno del servidor",
+        502: "Puerta de enlace incorrecta",
+        503: "Servicio no disponible",
+        504: "Tiempo de espera de puerta de enlace agotado",
+    }
+    return mapa.get(codigo_int, f"Código {codigo_int}")
+
+def obtener_estado(url, timeout=10):
+    DEFAULT_HEADERS = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "Chrome/124.0.0.0 Safari/537.36"
+        ),
+        "Accept": "*/*",
+        "Accept-Encoding": "gzip, deflate",
+        "Origin": "https://addons.kodi.tv",   # opcional, ayuda a algunos gateways
+    }
+
+    req = urllib.request.Request(url, headers=DEFAULT_HEADERS, method="HEAD")
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return resp.getcode()          # 200, 301, …
+    except urllib.error.HTTPError as e:
+        return e.code                     # 404, 403, …
+    except urllib.error.URLError as e:
+        return f"URLError {e.reason}"
+    except Exception as e:
+        return f"Error inesperado: {e}"
         
 ### test
 
@@ -951,7 +864,9 @@ else:
         guardar_fuente(fue_sel)
     ### menú principal selección fuente
     elif action == "fuente":
+        xbmc.executebuiltin(f"Notification({remodtv_addon_name},Comprobando fuentes...,3000,)")
         fue_act = leer_fuente()
+        xbmc.sleep(2500)
         fue_comprobar_y_guardar_estados()
         lista_menu_fuente()
     ### menú principal iactualizar tv
@@ -981,7 +896,7 @@ else:
         fue_sel = '1 Direct'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
-        lista_menu_fuente()
+        xbmc.sleep(2500)
     ### menú selección fuente 11
     elif action == "lis_dir_rep":
         carp = '11'
@@ -990,7 +905,7 @@ else:
         fue_sel = '1 Direct Repuesto'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
-        lista_menu_fuente()
+        xbmc.sleep(2500)
     ### menú selección fuente 2
     elif action == "lis_ace":
         carp = '2'
@@ -999,7 +914,7 @@ else:
         fue_sel = '2 ACE'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
-        lista_menu_fuente()
+        xbmc.sleep(2500)
     ### menú selección fuente 12
     elif action == "lis_ace_rep":
         carp = '12'
@@ -1008,7 +923,7 @@ else:
         fue_sel = '2 ACE Repuesto'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
-        lista_menu_fuente()
+        xbmc.sleep(2500)
     ### menú selección fuente 3
     elif action == "lis_hor":
         carp = '3'
@@ -1017,6 +932,7 @@ else:
         fue_sel = '3 Horus'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
+        xbmc.sleep(2500)
     ### menú selección fuente 13
     elif action == "lis_hor_rep":
         carp = '13'
@@ -1025,7 +941,7 @@ else:
         fue_sel = '3 Horus Repuesto'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
-        lista_menu_fuente()
+        xbmc.sleep(2500)
     ### menú selección fuente 4
     elif action == "lis_rm":
         carp = '4'
@@ -1034,7 +950,7 @@ else:
         fue_sel = '4 ReModTV'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
-        lista_menu_fuente()
+        xbmc.sleep(2500)
     ### menú selección fuente 5
     elif action == "lis_tvp":
         carp = '5'
@@ -1043,7 +959,7 @@ else:
         fue_sel = '5 TVpass'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
-        lista_menu_fuente()
+        xbmc.sleep(2500)
     ### menú selección fuente 6
     elif action == "lis_af1":
         carp = '6'
@@ -1052,7 +968,7 @@ else:
         fue_sel = '6 AF1CIONADOS'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
-        lista_menu_fuente()
+        xbmc.sleep(2500)
     ### menú selección fuente 7
     elif action == "lis_eve":
         carp = '7'
@@ -1061,8 +977,7 @@ else:
         fue_sel = '7 Agenda Deportiva'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
-        xbmc.sleep(1000)
-        lista_menu_fuente()
+        xbmc.sleep(2500)
 
     ### menu selección de reprodcutor externo 0
     elif action == "pcf0":
