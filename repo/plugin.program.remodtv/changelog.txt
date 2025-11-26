@@ -1,4 +1,8 @@
 > ReMod TV
+> Versión = 25.11.25.0
+> Cambios respecto a la versión anterior
+	- Mejoras varias
+	
 > Versión = 25.11.24.0
 > Cambios respecto a la versión anterior
 	- Actualizado Ace Serve a la v1.5.3 en la sección de Herramientas y Utilidades

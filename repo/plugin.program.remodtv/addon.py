@@ -37,44 +37,230 @@ addons_addon_data = os.path.join(addons_userdata, 'addon_data')
 ### changelog
 changelog = os.path.join(remodtv_addon_path, 'changelog.txt')
 ### paths fuente
-carp = 'dir'
-### variables estado de fuentes
-fue1 = "https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/data/listas/lista_iptv.m3u"
-fue2 = 'https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/data/listas/lista_fuera_iptv.m3u'
-fue3 = 'https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/data/listas/lista_kodi.m3u'
-fue4 = 'https://raw.githubusercontent.com/Saratoga79/saratoga79.github.io/refs/heads/master/rm/rm'
-fue5 = 'https://tvpass.org/playlist/m3u'
-fue6 = 'https://raw.githubusercontent.com/yIsus-mEx/AF1CIONADOS/refs/heads/main/Acestream.iDs.m3u'
-fue7 = 'https://raw.githubusercontent.com/ezdakit/zukzeuk_listas/refs/heads/main/zz_eventos/zz_eventos_all_ott.m3u'
-fue8 = 'https://www.google.com'
-fue9 = 'https://www.google.com'
-fue10 = 'https://www.google.com'
-fue11 = 'https://k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004.ipns.dweb.link/data/listas/lista_iptv.m3u'
-fue12 = 'https://k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004.ipns.dweb.link/data/listas/lista_fuera_iptv.m3u'
-fue13 = 'https://k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004.ipns.dweb.link/data/listas/lista_kodi.m3u'
-### lista de fuentes
-fue_lis = ["fue1", "fue2", "fue3", "fue4", "fue5", "fue6", "fue7", "fue8", "fue9", "fue10", "fue11", "fue12", "fue13"]
-### variables estado de fuentes
-fue1_est = 'Desonocido'
-fue2_est = 'Desonocido'
-fue3_est = 'Desonocido'
-fue4_est = 'Desonocido'
-fue5_est = 'Desonocido'
-fue6_est = 'Desonocido'
-fue7_est = 'Desonocido'
-fue8_est = 'Desonocido'
-fue9_est = 'Desonocido'
-fue10_est = 'Desonocido'
-fue11_est = 'Desonocido'
-fue12_est = 'Desonocido'
-fue13_est = 'Desonocido'
+carp = '1'
+### control de fuente
+fue_lis = os.path.join(remodtv_addon_datos, 'lista_fue', 'fue_lis.json')
+fue_est_file = os.path.join(addons_addon_data, remodtv_addon_id, 'estado_fuentes.json')
 ### variables para archivos json
 rep_sel = '0'
 rep_act = 'Por defecto'
 fue_act = 'Por defecto'
 ### carpeta descargas en android
 android_carpeta_descargas = Path("/storage/emulated/0/Download")
-    
+
+### estados de las fuentes desde variables anterior
+def fue_comprobar_y_guardar_estados_old():
+    # Diccionario que vamos a serializar
+    resultados = {}
+
+    for nombre in fue_lis:
+        # Obtén la URL real a partir del nombre de variable global
+        url = globals().get(nombre)
+        if not url:
+            xbmc.log(f"PVR Manager [{nombre}] No se encontró la URL.", xbmc.LOGWARNING)
+            continue
+
+        codigo = obtener_estado(url)            # nunca lanza excepción
+        descripcion = texto_desde_codigo(codigo)
+
+        # Guardamos tanto la descripción como el código numérico (útil para depurar)
+        resultados[nombre] = {
+            "url": url,
+            "codigo": codigo,
+            "descripcion": descripcion,
+        }
+
+        # Variable dinámica <nombre>_est (p.ej. fue1_est) – opcional
+        globals()[f"{nombre}_est"] = descripcion
+
+        xbmc.log(
+            f"PVR Manager [{nombre}] Estado: {descripcion} (código {codigo})",
+            xbmc.LOGINFO,
+        )
+
+    # ------------------------------------------------------------------
+    # Serializamos el diccionario a JSON
+    # ------------------------------------------------------------------
+    try:
+        with open(fue_est_file, "w", encoding="utf-8") as fp:
+            json.dump(resultados, fp, ensure_ascii=False, indent=2)
+
+        xbmc.log(f"PVR Manager → Estado guardado en {fue_est_file}", xbmc.LOGINFO)
+    except Exception as exc:
+        xbmc.log(f"PVR Manager → Error al guardar JSON: {exc}", xbmc.LOGERROR)
+
+
+def crear_variables_url_desde_json():
+    """
+    Lee fue_lis.json y crea variables globales
+    fue1, fue2, … con la URL correspondiente.
+    """
+    try:
+        with open(fue_lis, "r", encoding="utf-8") as fp:
+            data = json.load(fp)                     # {'fue1': {'url': 'https://…'}, …}
+    except Exception as exc:
+        xbmc.log(f"PVR Manager → Error al leer {fue_lis}: {exc}", xbmc.LOGERROR)
+        return
+
+    for nombre, info in data.items():
+        url = info.get("url", "")
+        globals()[nombre] = url                     # crea la variable global fue1 = "https://…"
+        xbmc.log(f"PVR Manager → Variable {nombre} = {url}", xbmc.LOGDEBUG)
+
+def fue_comprobar_y_guardar_estados():
+    """
+    1️⃣  Lee fue_lis.json (solo URLs).
+    2️⃣  Para cada fuente:
+        • obtiene el código HTTP con obtener_estado().
+        • traduce el código a texto legible con texto_desde_codigo().
+        • construye un dict con url, codigo y descripcion.
+    3️⃣  Guarda el resultado en estados_fuentes.json.
+    4️⃣  (Opcional) crea variables dinámicas fueX_est para código legacy.
+    """
+    # -------------------------------------------------
+    # Cargar la lista de URLs
+    # -------------------------------------------------
+    try:
+        with open(fue_lis, "r", encoding="utf-8") as fp:
+            lista_raw = json.load(fp)                     # {'fue1': {'url': 'https://…'}, …}
+        xbmc.log(f"PVR Manager → Lista de URLs cargada ({len(lista_raw)} fuentes)", xbmc.LOGINFO)
+    except Exception as exc:
+        xbmc.log(f"PVR Manager → Error al leer {fue_lis}: {exc}", xbmc.LOGERROR)
+        return
+
+    # -------------------------------------------------
+    # Recorrer cada fuente y obtener su estado
+    # -------------------------------------------------
+    resultados = {}
+    for nombre, info in lista_raw.items():
+        url = info.get("url", "")
+        if not url:
+            xbmc.log(f"PVR Manager [{nombre}] Sin URL → marcado como 'Desconocido'",
+                     xbmc.LOGWARNING)
+            resultados[nombre] = {
+                "url": "",
+                "codigo": "Sin URL",
+                "descripcion": "Desconocido"
+            }
+            continue
+
+        codigo = obtener_estado(url)                     # 200, 404, "URLError …", etc.
+        descripcion = texto_desde_codigo(codigo)
+
+        resultados[nombre] = {
+            "url": url,
+            "codigo": codigo,
+            "descripcion": descripcion,
+        }
+
+        # ---- Variable dinámica opcional (legacy) ----
+        globals()[f"{nombre}_est"] = descripcion
+
+        xbmc.log(
+            f"PVR Manager [{nombre}] Estado: {descripcion} (código {codigo})",
+            xbmc.LOGINFO,
+        )
+
+    # -------------------------------------------------
+    # Guardar el diccionario completo en JSON
+    # -------------------------------------------------
+    try:
+        # os.makedirs(PROFILE, exist_ok=True)   # por si la carpeta de perfil no existía
+        with open(fue_est_file, "w", encoding="utf-8") as fp:
+            json.dump(resultados, fp, ensure_ascii=False, indent=2)
+        xbmc.log(f"PVR Manager → Estados guardados en {fue_est_file}", xbmc.LOGINFO)
+    except Exception as exc:
+        xbmc.log(f"PVR Manager → Error al guardar JSON: {exc}", xbmc.LOGERROR)
+
+
+def fue_cargar_estados():
+    """
+    Lee el archivo JSON y devuelve un dict plano:
+    {
+        "fue1": "Error inesperado: The read operation timed out",
+        "fue2": "Disponible",
+        ...
+    }
+    Si algo falla, devuelve valores por defecto ("Desconocido").
+    """
+    defaults = {f"fue{i}": "Desconocido" for i in range(1, 14)}   # 1‑13
+
+    try:
+        with open(fue_est_file, "r", encoding="utf-8") as fp:
+            raw = json.load(fp)                                 # diccionario anidado
+        # xbmc.log(f"PVR Manager → JSON crudo: {raw}", xbmc.LOGINFO)
+
+        # Extraemos únicamente la clave 'descripcion' de cada fuente
+        estados = {}
+        for clave, info in raw.items():
+            # `info` es otro dict con keys: url, codigo, descripcion
+            descripcion = info.get("descripcion", "Desconocido")
+            estados[clave] = descripcion
+
+        # Rellenamos con defaults por si falta alguna clave
+        for k, d in defaults.items():
+            estados.setdefault(k, d)
+
+        xbmc.log(f"PVR Manager → Estados procesados: {estados}", xbmc.LOGINFO)
+        return estados
+
+    except Exception as exc:
+        xbmc.log(f"PVR Manager → Error al leer JSON: {exc}", xbmc.LOGERROR)
+        return defaults
+        xbmc.log(f"PVR Manager → Estados finales: {traducidos}", xbmc.LOGINFO)
+        return traducidos
+
+    except Exception as exc:
+        xbmc.log(f"PVR Manager → Error al leer JSON: {exc}", xbmc.LOGERROR)
+        return defaults
+        
+        
+def texto_desde_codigo(codigo):
+    """Convierte un código HTTP (int o str) en texto legible."""
+    try:
+        codigo_int = int(codigo)          # Normalizamos a entero cuando sea posible
+    except (ValueError, TypeError):
+        return str(codigo)                # Ya es texto de error
+
+    mapa = {
+        200: "Disponible",
+        301: "Movido permanentemente",
+        302: "Redirigido temporalmente",
+        400: "Petición incorrecta",
+        401: "No autorizado",
+        403: "Prohibido",
+        404: "No encontrado",
+        408: "Tiempo de espera agotado",
+        500: "Error interno del servidor",
+        502: "Puerta de enlace incorrecta",
+        503: "Servicio no disponible",
+        504: "Tiempo de espera de puerta de enlace agotado",
+    }
+    return mapa.get(codigo_int, f"Código {codigo_int}")
+
+def obtener_estado(url, timeout=10):
+    DEFAULT_HEADERS = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "Chrome/124.0.0.0 Safari/537.36"
+        ),
+        "Accept": "*/*",
+        "Accept-Encoding": "gzip, deflate",
+        "Origin": "https://addons.kodi.tv",   # opcional, ayuda a algunos gateways
+    }
+
+    req = urllib.request.Request(url, headers=DEFAULT_HEADERS, method="HEAD")
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return resp.getcode()          # 200, 301, …
+    except urllib.error.HTTPError as e:
+        return e.code                     # 404, 403, …
+    except urllib.error.URLError as e:
+        return f"URLError {e.reason}"
+    except Exception as e:
+        return f"Error inesperado: {e}"
+
+
 ### parametros
 BASE_URL = sys.argv[0]
 HANDLE = int(sys.argv[1])
@@ -87,6 +273,7 @@ def build_url(query):
 
 ### lista del menu pirncipal
 def lista_menu_principal():
+    estados = fue_cargar_estados()
     menu_items = [
         (f"{remodtv_addon_name} versión: {remodtv_addon_version} | Buscar actualizaciones", "info", "info.png", True),
         ("> Instalar y configurar sección TV de Kodi | Reinstalar fuente por defecto", "tv", "tv.png", True),
@@ -112,23 +299,22 @@ def lista_menu_principal():
                                     isFolder=is_folder)
     xbmcplugin.endOfDirectory(HANDLE)
     
-def fuente():
-    fue_est_test()
+def lista_menu_fuente():
+    estados = fue_cargar_estados()
     menu_items = [
         (f"Fuentes Principales para la sección de TV | Actual: {fue_act}", "", "tv2.png", False),
-        (f" Direct (Por defecto) || Tipo de eventos: [ACS] | Estado: {fue1_est}", "lis_dir", "1.png", True),
-        (f" ACE || Tipo de eventos: [ACS] | Estado: {fue2_est}", "lis_ace", "2.png", True),
-        (f" Horus || Tipo de eventos: [ACS] | Estado: {fue3_est}", "lis_hor", "3.png", True),
-        (f" ReModTV || Tipo de eventos: [ACS] y [M3U8] (VPN recomendada) | Estado: {fue4_est}", "lis_rm", "4.png", True),
-        (f" TVpass || Tipo de eventos: [M3U8] (VPN recomendada) | Estado: {fue5_est}", "lis_tvp", "5.png", True),
-        (f" AF1CIONADOS || Tipo de eventos: [ACS] | Estado: {fue6_est}", "lis_af1", "6.png", True),
-        (f" Agenda Deportiva || Tipo de eventos: [ACS] | Estado: {fue7_est}", "lis_eve", "7.png", True),
+        (f" Direct (Por defecto) || Tipo de eventos: [ACS] | Estado: {estados.get('fue1')}", "lis_dir", "1.png", True),
+        (f" ACE || Tipo de eventos: [ACS] | Estado: {estados.get('fue2')}", "lis_ace", "2.png", True),
+        (f" Horus || Tipo de eventos: [ACS] | Estado: {estados.get('fue3')}", "lis_hor", "3.png", True),
+        (f" ReModTV || Tipo de eventos: [ACS] y [M3U8] (VPN recomendada) | Estado: {estados.get('fue4')}", "lis_rm", "4.png", True),
+        (f" TVpass || Tipo de eventos: [M3U8] (VPN recomendada) | Estado: {estados.get('fue5')}", "lis_tvp", "5.png", True),
+        (f" AF1CIONADOS || Tipo de eventos: [ACS] | Estado: {estados.get('fue6')}", "lis_af1", "6.png", True),
+        (f" Agenda Deportiva || Tipo de eventos: [ACS] | Estado: {estados.get('fue7')}", "lis_eve", "7.png", True),
         ("Fuentes de Repuesto para la sección de TV:", "", "tv2.png", False),
-        (f" Direct || Tipo de eventos: [ACS] | Estado: {fue11_est}", "lis_dir_rep", "1.png", True),
-        (f" ACE || Tipo de eventos: [ACS] | Estado: {fue12_est}", "lis_ace_rep", "2.png", True),
-        (f" Horus || Tipo de eventos: [ACS] | Estado: {fue13_est}", "lis_hor_rep", "3.png", True)
+        (f" Direct || Tipo de eventos: [ACS] | Estado: {estados.get('fue11')}", "lis_dir_rep", "1.png", True),
+        (f" ACE || Tipo de eventos: [ACS] | Estado: {estados.get('fue12')}", "lis_ace_rep", "2.png", True),
+        (f" Horus || Tipo de eventos: [ACS] | Estado: {estados.get('fue13')}", "lis_hor_rep", "3.png", True),
     ]
-
     for label, action, icon_file, is_folder in menu_items:
         # Saltamos entradas vacías (servían solo como separador)
         if not label.strip():
@@ -742,76 +928,6 @@ def descargar_apk(url: str) -> Path:
 
 
 
-
-# ----------------------------------------------------------------------
-# 2️⃣  Función que traduce códigos HTTP → texto en español
-# ----------------------------------------------------------------------
-def texto_desde_codigo(codigo):
-    """
-    Convierte un código HTTP (int o str) en una descripción amigable.
-    Si el argumento ya es una cadena de eror (p.ej. "URLError …") se devuelve tal cual.
-    """
-    try:
-        codigo_int = int(codigo)          # Normalizamos a entero cuando sea posible
-    except (ValueError, TypeError):
-        return str(codigo)             # Ya es texto de error
-
-    mapa = {
-        200: "Disponible",
-        301: "Movido permanentemente",
-        302: "Redirigido temporalmente",
-        400: "Petición incorrecta",
-        401: "No autorizado",
-        403: "Prohibido",
-        404: "No encontrado",
-        408: "Tiempo de espera agotado",
-        500: "Error interno del servidor",
-        502: "Puerta de enlace incorrecta",
-        503: "Servicio no disponible",
-        504: "Tiempo de espera de puerta de enlace agotado",
-    }
-    return mapa.get(codigo_int, f"Código {codigo_int}")
-
-
-def obtener_estado(url, timeout=10):
-    DEFAULT_HEADERS = {
-        "User-Agent": (
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "Chrome/124.0.0.0 Safari/537.36"
-        ),
-        "Accept": "*/*",
-        "Accept-Encoding": "gzip, deflate",
-        "Origin": "https://addons.kodi.tv",   # opcional, ayuda a algunos gateways
-    }
-    req = urllib.request.Request(url, headers=DEFAULT_HEADERS, method="HEAD")
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
-            return resp.getcode()          # 200, 301, …
-    except urllib.error.HTTPError as e:
-        # Aquí e.code contiene el código de error (404, 403, …)
-        return e.code
-    except urllib.error.URLError as e:
-        return f"URLError {e.reason}"
-    except Exception as e:
-        return f"Error inesperado: {e}"
-
-# ------------------------------------------------------------------
-# 4️⃣  Función principal que recorre la lista y crea variables dinámicas
-# ------------------------------------------------------------------
-def fue_est_test():
-    xbmc.executebuiltin(
-        f"Notification({remodtv_addon_name},Comprobando estado de las fuentes.,1000,)"
-    )
-
-    for nombre in fue_lis:                # Ej.: ["fue1", "fue2", "fue3"]
-        url = globals()[nombre]           # Obtiene la URL real a partir del nombre
-        codigo = obtener_estado(url)      # Nunca lanza excepción
-        descripcion = texto_desde_codigo(codigo)
-
-        # Variable dinámica <nombre>_est (p.ej. fue1_est)
-        globals()[f"{nombre}_est"] = descripcion
-
-        xbmc.log(f"PVR Manager [{nombre}] Estado: {descripcion}", xbmc.LOGINFO)
         
 ### test
 
@@ -824,248 +940,131 @@ if not ARGS:
     lista_menu_principal()
 else:
     action = ARGS.get('action', [None])[0]
+    ### menú principal instalar y configurar tv
     if action == "tv":
-        carp = 'dir'
+        carp = '1'
         inst_tv()
-        ### activar seección TV en menú principal
+        # activar seección TV en menú principal
         ajuste_id = "homemenunotvbutton"
         act_ajuste(ajuste_id)
         fue_sel = '1 Direct'
         guardar_fuente(fue_sel)
+    ### menú principal selección fuente
     elif action == "fuente":
         fue_act = leer_fuente()
-        fuente()
+        fue_comprobar_y_guardar_estados()
+        lista_menu_fuente()
+    ### menú principal iactualizar tv
     elif action == "actualizar":
         actualizar_tv()
         ajuste_id = "homemenunotvbutton"
         act_ajuste(ajuste_id)
+    ### menú principal buscar actuazliación
     elif action == "info":
         res = buscar_actualizacion()
+    ### menú principal selección reproductor externo
     elif action == "rep_ext":
         rep_act = leer_rep_ext()
         lista_menu_rep_ext()
+    ### menú principal herramientas
     elif action == "herr":
         lista_menu_herramientas()
+    ### menú principal guías
     elif action == "guias":
         lista_menu_guias()
         
-    elif action == "nav":
-        url = "https://saratoga79.github.io/"
-        if xbmc.getCondVisibility('system.platform.windows'):
-            subprocess.run(f'start "" "{url}"', shell=True, check=False)
-        elif xbmc.getCondVisibility('system.platform.android'):
-            comando = f'StartAndroidActivity("","android.intent.action.VIEW","","{url}")'
-            xbmc.executebuiltin(comando)
-        else:
-            import webbrowser
-            webbrowser.open(url)
-    
-    elif action == "kd32":
-        if xbmc.getCondVisibility('system.platform.android'):
-            url_descarga = (
-                "https://www.dropbox.com/scl/fi/o5aqzragrsy0qllj758wh/"
-                "kodi-21.2-Omega-armeabi-v7a-ReMod-v251026.0.apk?"
-                "rlkey=vxznh4zu8ekpc0z5tohho7rje&st=m5dqwkm5&dl=1"
-            )
-
-            try:
-                apk_path = descargar_apk(url_descarga)
-                dialog = xbmcgui.Dialog()
-                dialog.ok(f"{remodtv_addon_name}", f"Archivo descargado en la carpta Download de la memoria interna.")
-            except Exception as e:
-                xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
-        else:
-            dialog = xbmcgui.Dialog()
-            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
-           
-    elif action == "kd64":
-        if xbmc.getCondVisibility('system.platform.android'):
-            url_descarga = (
-                "https://www.dropbox.com/scl/fi/cp67xnaobrb4nwzi4d2cc/"
-                "kodi-21.2-Omega-arm64-v8a-ReMod-v251026.0.apk?"
-                "rlkey=fv7rsmfsm0z3ys3lauin0wj40&st=sqibau4o&dl=1"
-            )
-
-            try:
-                apk_path = descargar_apk(url_descarga)
-                dialog = xbmcgui.Dialog()
-                dialog.ok(f"{remodtv_addon_name}", f"Archivo descargado en la carpta Download de la memoria interna.")
-            except Exception as e:
-                xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
-        else:
-            dialog = xbmcgui.Dialog()
-            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
-            
-    elif action == "acs32":
-        if xbmc.getCondVisibility('system.platform.android'):
-            url_descarga = (
-                "https://www.dropbox.com/scl/fi/q6tw8up1g9tz25aexsgzp/"
-                "Ace-Stream-Pro-3.2.14.5-ReMod-armeabi-v7a-251115.0.apk?"
-                "rlkey=uo3v69u460szln0yrfj9wcnl9&st=xixazm12&dl=1"
-            )
-
-            try:
-                apk_path = descargar_apk(url_descarga)
-                dialog = xbmcgui.Dialog()
-                dialog.ok(f"{remodtv_addon_name}", f"Archivo descargado en la carpta Download de la memoria interna.")
-            except Exception as e:
-                xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
-        else:
-            dialog = xbmcgui.Dialog()
-            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
-            
-    elif action == "acs64":
-        if xbmc.getCondVisibility('system.platform.android'):
-            url_descarga = (
-                "https://www.dropbox.com/scl/fi/uqubndkwexygoycgosnii/"
-                "Ace-Stream-Pro-3.2.14.5-ReMod-arm64-v8a-251115.0.apk?"
-                "rlkey=6ychgclsj6lwcb0hs8yagox3q&st=rjixm84m&dl=1"
-            )
-
-            try:
-                apk_path = descargar_apk(url_descarga)
-                dialog = xbmcgui.Dialog()
-                dialog.ok(f"{remodtv_addon_name}", f"Archivo descargado en la carpta Download de la memoria interna.")
-            except Exception as e:
-                xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
-        else:
-            dialog = xbmcgui.Dialog()
-            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
-        
-            
-    elif action == "as32":
-        if xbmc.getCondVisibility('system.platform.android'):
-            
-            url_descarga = (
-                "https://saratoga79.github.io/apps/android/AS/"
-                "org.free.aceserve-1.5.3-arm.apk"
-            )
-
-            try:
-                apk_path = descargar_apk(url_descarga)
-                dialog = xbmcgui.Dialog()
-                dialog.ok(f"{remodtv_addon_name}", f"Archivo descargado en la carpta Download de la memoria interna.")
-            except Exception as e:
-                xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
-        else:
-            dialog = xbmcgui.Dialog()
-            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
-            
-    elif action == "as64":
-        if xbmc.getCondVisibility('system.platform.android'):
-            url_descarga = (
-                "https://saratoga79.github.io/apps/android/AS/"
-                "org.free.aceserve-1.5.3-arm64.apk"
-            )
-
-            try:
-                apk_path = descargar_apk(url_descarga)
-                dialog = xbmcgui.Dialog()
-                dialog.ok(f"{remodtv_addon_name}", f"Archivo descargado en la carpta Download de la memoria interna.")
-            except Exception as e:
-                xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
-        else:
-            dialog = xbmcgui.Dialog()
-            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
-                    
-    elif action == "warp1":
-        if xbmc.getCondVisibility('system.platform.android'):
-            url_descarga = (
-                "https://www.dropbox.com/scl/fi/ldfhghh1wr7wa4sc4e216/"
-                "1.1.1.1_Warp.6.38.5.Mando.ATV.fix.apk?"
-                "rlkey=qy1s2do2zq1uon7gzsi56tzs6&st=4cesoko8&dl=1"
-            )
-
-            try:
-                apk_path = descargar_apk(url_descarga)
-                dialog = xbmcgui.Dialog()
-                dialog.ok(f"{remodtv_addon_name}", f"Archivo descargado en la carpta Download de la memoria interna.")
-            except Exception as e:
-                xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
-        else:
-            dialog = xbmcgui.Dialog()
-            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
-                    
+    ### menú selección fuente 1
     elif action == "lis_dir":
-        carp = 'dir'
+        carp = '1'
         archivos_config()
         actualizar_tv()
         fue_sel = '1 Direct'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
-        fuente()
+        lista_menu_fuente()
+    ### menú selección fuente 11
     elif action == "lis_dir_rep":
-        carp = 'dir_rep'
+        carp = '11'
         archivos_config()
         actualizar_tv()
         fue_sel = '1 Direct Repuesto'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
-        fuente()
+        lista_menu_fuente()
+    ### menú selección fuente 2
     elif action == "lis_ace":
-        carp = 'ace'
+        carp = '2'
         archivos_config()
         actualizar_tv()
         fue_sel = '2 ACE'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
-        fuente()
+        lista_menu_fuente()
+    ### menú selección fuente 12
     elif action == "lis_ace_rep":
-        carp = 'ace_rep'
+        carp = '12'
         archivos_config()
         actualizar_tv()
         fue_sel = '2 ACE Repuesto'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
-        fuente()
+        lista_menu_fuente()
+    ### menú selección fuente 3
     elif action == "lis_hor":
-        carp = 'hor'
+        carp = '3'
         archivos_config()
         actualizar_tv()
         fue_sel = '3 Horus'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
+    ### menú selección fuente 13
     elif action == "lis_hor_rep":
-        carp = 'hor_rep'
+        carp = '13'
         archivos_config()
         actualizar_tv()
         fue_sel = '3 Horus Repuesto'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
-        fuente()
+        lista_menu_fuente()
+    ### menú selección fuente 4
     elif action == "lis_rm":
-        carp = 'rm'
+        carp = '4'
         archivos_config()
         actualizar_tv()
         fue_sel = '4 ReModTV'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
-        fuente()
+        lista_menu_fuente()
+    ### menú selección fuente 5
     elif action == "lis_tvp":
-        carp = 'tvp'
+        carp = '5'
         archivos_config()
         actualizar_tv()
         fue_sel = '5 TVpass'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
-        fuente()
+        lista_menu_fuente()
+    ### menú selección fuente 6
     elif action == "lis_af1":
-        carp = 'af1'
+        carp = '6'
         archivos_config()
         actualizar_tv()
         fue_sel = '6 AF1CIONADOS'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
-        fuente()
+        lista_menu_fuente()
+    ### menú selección fuente 7
     elif action == "lis_eve":
-        carp = 'eve'
+        carp = '7'
         archivos_config()
         actualizar_tv()
         fue_sel = '7 Agenda Deportiva'
         guardar_fuente(fue_sel)
         fue_act = leer_fuente()
-        fuente()
+        xbmc.sleep(1000)
+        lista_menu_fuente()
 
+    ### menu selección de reprodcutor externo 0
     elif action == "pcf0":
         rep_sel = '0'
         ele_rep(rep_sel)
@@ -1168,6 +1167,144 @@ else:
         reproductor = 'Por defecto de Kodi'
         guardar_rep_ext(reproductor)
         rep_act = leer_rep_ext()
+
+    ### menú herramientas abrir repo en navegador
+    elif action == "nav":
+        url = "https://saratoga79.github.io/"
+        if xbmc.getCondVisibility('system.platform.windows'):
+            subprocess.run(f'start "" "{url}"', shell=True, check=False)
+        elif xbmc.getCondVisibility('system.platform.android'):
+            comando = f'StartAndroidActivity("","android.intent.action.VIEW","","{url}")'
+            xbmc.executebuiltin(comando)
+        else:
+            import webbrowser
+            webbrowser.open(url)
+    ### menú herramientas descargar kodi 32
+    elif action == "kd32":
+        if xbmc.getCondVisibility('system.platform.android'):
+            url_descarga = (
+                "https://www.dropbox.com/scl/fi/o5aqzragrsy0qllj758wh/"
+                "kodi-21.2-Omega-armeabi-v7a-ReMod-v251026.0.apk?"
+                "rlkey=vxznh4zu8ekpc0z5tohho7rje&st=m5dqwkm5&dl=1"
+            )
+
+            try:
+                apk_path = descargar_apk(url_descarga)
+                dialog = xbmcgui.Dialog()
+                dialog.ok(f"{remodtv_addon_name}", f"Archivo descargado en la carpta Download de la memoria interna.")
+            except Exception as e:
+                xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
+        else:
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
+    ### menú herramientas descargar kodi 64
+    elif action == "kd64":
+        if xbmc.getCondVisibility('system.platform.android'):
+            url_descarga = (
+                "https://www.dropbox.com/scl/fi/cp67xnaobrb4nwzi4d2cc/"
+                "kodi-21.2-Omega-arm64-v8a-ReMod-v251026.0.apk?"
+                "rlkey=fv7rsmfsm0z3ys3lauin0wj40&st=sqibau4o&dl=1"
+            )
+
+            try:
+                apk_path = descargar_apk(url_descarga)
+                dialog = xbmcgui.Dialog()
+                dialog.ok(f"{remodtv_addon_name}", f"Archivo descargado en la carpta Download de la memoria interna.")
+            except Exception as e:
+                xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
+        else:
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
+    ### menú herramientas descargar acs 32
+    elif action == "acs32":
+        if xbmc.getCondVisibility('system.platform.android'):
+            url_descarga = (
+                "https://www.dropbox.com/scl/fi/q6tw8up1g9tz25aexsgzp/"
+                "Ace-Stream-Pro-3.2.14.5-ReMod-armeabi-v7a-251115.0.apk?"
+                "rlkey=uo3v69u460szln0yrfj9wcnl9&st=xixazm12&dl=1"
+            )
+
+            try:
+                apk_path = descargar_apk(url_descarga)
+                dialog = xbmcgui.Dialog()
+                dialog.ok(f"{remodtv_addon_name}", f"Archivo descargado en la carpta Download de la memoria interna.")
+            except Exception as e:
+                xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
+        else:
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
+    ### menú herramientas descargar acs 64
+    elif action == "acs64":
+        if xbmc.getCondVisibility('system.platform.android'):
+            url_descarga = (
+                "https://www.dropbox.com/scl/fi/uqubndkwexygoycgosnii/"
+                "Ace-Stream-Pro-3.2.14.5-ReMod-arm64-v8a-251115.0.apk?"
+                "rlkey=6ychgclsj6lwcb0hs8yagox3q&st=rjixm84m&dl=1"
+            )
+
+            try:
+                apk_path = descargar_apk(url_descarga)
+                dialog = xbmcgui.Dialog()
+                dialog.ok(f"{remodtv_addon_name}", f"Archivo descargado en la carpta Download de la memoria interna.")
+            except Exception as e:
+                xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
+        else:
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
+    ### menú herramientas descargar ace serve 32
+    elif action == "as32":
+        if xbmc.getCondVisibility('system.platform.android'):
+            
+            url_descarga = (
+                "https://saratoga79.github.io/apps/android/AS/"
+                "org.free.aceserve-1.5.3-arm.apk"
+            )
+
+            try:
+                apk_path = descargar_apk(url_descarga)
+                dialog = xbmcgui.Dialog()
+                dialog.ok(f"{remodtv_addon_name}", f"Archivo descargado en la carpta Download de la memoria interna.")
+            except Exception as e:
+                xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
+        else:
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
+    ### menú herramientas descargar ace serve 64
+    elif action == "as64":
+        if xbmc.getCondVisibility('system.platform.android'):
+            url_descarga = (
+                "https://saratoga79.github.io/apps/android/AS/"
+                "org.free.aceserve-1.5.3-arm64.apk"
+            )
+
+            try:
+                apk_path = descargar_apk(url_descarga)
+                dialog = xbmcgui.Dialog()
+                dialog.ok(f"{remodtv_addon_name}", f"Archivo descargado en la carpta Download de la memoria interna.")
+            except Exception as e:
+                xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
+        else:
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
+    ### menú herramientas descargar warp
+    elif action == "warp1":
+        if xbmc.getCondVisibility('system.platform.android'):
+            url_descarga = (
+                "https://www.dropbox.com/scl/fi/ldfhghh1wr7wa4sc4e216/"
+                "1.1.1.1_Warp.6.38.5.Mando.ATV.fix.apk?"
+                "rlkey=qy1s2do2zq1uon7gzsi56tzs6&st=4cesoko8&dl=1"
+            )
+
+            try:
+                apk_path = descargar_apk(url_descarga)
+                dialog = xbmcgui.Dialog()
+                dialog.ok(f"{remodtv_addon_name}", f"Archivo descargado en la carpta Download de la memoria interna.")
+            except Exception as e:
+                xbmc.log(f"REMOD TV Error de descarga", level=xbmc.LOGINFO)
+        else:
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\nVisita Repo ReMod como alternativa.")
+
 
     else:
         ### Acción desconocida → volver al menú principal
