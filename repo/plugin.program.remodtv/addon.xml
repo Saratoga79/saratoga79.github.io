@@ -1,7 +1,7 @@
 <addon 
 	id="plugin.program.remodtv"
 	name="ReMod TV"
-	version="25.11.27.0"
+	version="25.11.27.1"
 	provider-name="Saratoga">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1"/> <!-- Mín Kodi 20+ -->
@@ -16,7 +16,16 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
+> Versión = 25.11.27.1
+> Cambios respecto a la versión anterior
+	- Añadida nueva fuente: 8 Chucky
+	- Pequeñas mejoras
+	
 > Versión = 25.11.27.0
+> Cambios respecto a la versión anterior
+	- Pequeñas mejoras
+	
+> Versión = 25.11.25.0
 > Cambios respecto a la versión anterior
 	- Mejoras varias
 	
@@ -32,8 +41,9 @@
 > Versión = 25.11.20.2
 > Cambios respecto a la versión anterior
 	- Actualizados nombres de Reproductores Externos
-> Versión = 25.11.20.0
-> Cambios respecto a la versión anterior:
+	
+> Versión = 25.11.20.1
+> Cambios respecto a la versión anterior
 	- Actualizado Ace Serve a la v1.5.0 en la sección de Herramientas y Utilidades
 	
 > Versión = 25.11.18.3
@@ -168,6 +178,7 @@
 > Versión = 25.10.14.0
 > Cambios respecto a la versión anterior:
 	- Versión inicial.
+
 		</news>
         <assets>
 			<icon>recursos/imagenes/icono.png</icon>

@@ -1,4 +1,9 @@
 > ReMod TV
+> Versión = 25.11.27.1
+> Cambios respecto a la versión anterior
+	- Añadida nueva fuente: 8 Chucky
+	- Pequeñas mejoras
+	
 > Versión = 25.11.27.0
 > Cambios respecto a la versión anterior
 	- Pequeñas mejoras

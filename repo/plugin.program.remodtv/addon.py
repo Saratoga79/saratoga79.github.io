@@ -16,6 +16,7 @@ import urllib.parse
 from urllib.request import urlopen
 from pathlib import Path
 from typing import Iterable
+from typing import Optional
 import subprocess
 import xml.etree.ElementTree as ET
 
@@ -47,16 +48,60 @@ rep_act = 'Por defecto'
 fue_act = 'Por defecto'
 ### carpeta descargas en android
 android_carpeta_descargas = Path("/storage/emulated/0/Download")
-
-### parametros
+### parametros lista de menús
 BASE_URL = sys.argv[0]
 HANDLE = int(sys.argv[1])
 ARGS = urllib.parse.parse_qs(sys.argv[2][1:])  ### elimina el '?' inicial
+action = ARGS.get('action', [None])[0]
+ICON_DIR = os.path.join(remodtv_addon_path, 'recursos', 'imagenes')
 
+### control de back
+class BackMonitor(xbmc.Monitor):
+    def __init__(self):
+        super().__init__()
+        self._running = True
+
+    def waitForAbort(self, timeout):
+        # Este método se llama en un bucle; devolvemos True si se pulsa Back
+        if xbmc.getCondVisibility('Control.IsVisible(10000)'):   # contenedor activo
+            # Detectamos la tecla Back mediante la API de eventos
+            # (alternativa: usar xbmcgui.Window().getProperty('CurrentWindow')
+            # y comparar con el ID del contenedor)
+            pass
+        return super().waitForAbort(timeout)
+
+    def onScreensaverActivated(self):
+        # No usamos, pero necesario para la clase Monitor
+        pass
+
+# def handle_back_action():
+    """Llamado cuando detectamos la tecla Back."""
+    # xbmc.log("Back pressed – returning to main menu", xbmc.LOGINFO)
+    # Forzamos una actualización del contenedor con el menú principal
+    # xbmc.executebuiltin(f'Container.Update({BASE_URL}?action=prin,replace)')
+
+# Registro del monitor (ejecutar una sola vez al iniciar el addon)
+# if not xbmc.getCondVisibility('System.HasAddon(plugin.program.remodtv)'):
+    # Evitamos crear varios monitores si el addon se llama varias veces
+    # monitor = BackMonitor()
+    # En un hilo separado (para no bloquear la UI) podrías hacer:
+    # threading.Thread(target=monitor.waitForAbort, args=(0.1,)).start()
+
+### gestión iconos menús
+def get_icon_path(fname: str) -> Optional[str]:
+    """
+    Devuelve la ruta absoluta del icono si el archivo existe.
+    Si no existe escribe un warning en el log y devuelve None.
+    """
+    full = os.path.join(ICON_DIR, fname)
+    if xbmcvfs.exists(full):
+        return full
+    xbmc.log(f"REMOD TV – Icono no encontrado: {fname}", xbmc.LOGWARNING)
+    return None    
 ### Construye una URL interna del addon a partir de un dict
-def build_url(query):
+def build_url(query: dict) -> str:
+    """Construye la URL interna del addon a partir de un dict."""
     return BASE_URL + '?' + urllib.parse.urlencode(query)
-
 
 ### lista del menu pirncipal
 def lista_menu_principal():
@@ -73,58 +118,83 @@ def lista_menu_principal():
         ("> Herramientas y Utilidades", "herr", "herr.png", True)
     ]
 
+    # --------------------------------------------------------------
+    # Añadir cada ListItem al contenedor
+    # --------------------------------------------------------------
     for label, action, icon_file, is_folder in menu_items:
+        if not label.strip():           # ignora separadores vacíos
+            continue
+
         url = build_url({"action": action})
-        ### Creamos el ListItem
         li = xbmcgui.ListItem(label=label)
-        ### Ruta absoluta al icono
-        icon_path = xbmcvfs.translatePath(os.path.join(remodtv_addon_path, 'recursos', 'imagenes', icon_file))
-        ###  Asignamos el icono
-        li.setArt({'icon': icon_path, 'thumb': icon_path})
-        ### Indicamos que es una carpeta (un sub‑menú o acción que abre algo)
-        xbmcplugin.addDirectoryItem(handle=HANDLE,
-                                    url=url,
-                                    listitem=li,
-                                    isFolder=is_folder)
-    xbmcplugin.endOfDirectory(HANDLE)
+
+        # ---- ICONO ------------------------------------------------
+        icon_path = get_icon_path(icon_file)
+        if icon_path:
+            li.setArt({'icon': icon_path, 'thumb': icon_path})
+
+        xbmcplugin.addDirectoryItem(
+            handle=HANDLE,
+            url=url,
+            listitem=li,
+            isFolder=is_folder
+        )
+
+    # --------------------------------------------------------------
+    # Cerrar el contenedor
+    # --------------------------------------------------------------
+    xbmcplugin.endOfDirectory(HANDLE, cacheToDisc=False)
     
+
 def lista_menu_fuente():
     estados = fue_cargar_estados()
     fue_act = leer_fuente()
+    # ----- cabecera del contenedor -----
+    xbmcplugin.setPluginCategory(HANDLE, "ReModTV – Fuentes")
+    # xbmcplugin.setContent(HANDLE, "files")
     menu_items = [
         (f"Fuentes Principales para la sección de TV | Actual: {fue_act}", "", "tv2.png", False),
-        (f" Direct (Por defecto) || Tipo de eventos: [ACS] | Estado: {estados.get('fue1')}", "lis_dir", "1.png", True),
-        (f" ACE || Tipo de eventos: [ACS] | Estado: {estados.get('fue2')}", "lis_ace", "2.png", True),
-        (f" Horus || Tipo de eventos: [ACS] | Estado: {estados.get('fue3')}", "lis_hor", "3.png", True),
-        (f" ReModTV || Tipo de eventos: [ACS] y [M3U8] (VPN recomendada) | Estado: {estados.get('fue4')}", "lis_rm", "4.png", True),
-        (f" TVpass || Tipo de eventos: [M3U8] (VPN recomendada) | Estado: {estados.get('fue5')}", "lis_tvp", "5.png", True),
-        (f" AF1CIONADOS || Tipo de eventos: [ACS] | Estado: {estados.get('fue6')}", "lis_af1", "6.png", True),
-        (f" Agenda Deportiva || Tipo de eventos: [ACS] | Estado: {estados.get('fue7')}", "lis_eve", "7.png", True),
+        (f" Direct (Por defecto) || Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue1')}", "lis_dir", "1.png", True),
+        (f" ACE || Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue2')}", "lis_ace", "2.png", True),
+        (f" Horus || Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue3')}", "lis_hor", "3.png", True),
+        (f" ReModTV || Tipo de eventos: [COLOR blue][ACS][/COLOR] y [COLOR yellow][M3U8][/COLOR] [COLOR orange](VPN recomendada)[/COLOR] | Estado: {estados.get('fue4')}", "lis_rm", "4.png", True),
+        (f" TVpass || Tipo de eventos: [COLOR yellow][M3U8][/COLOR] [COLOR orange](VPN recomendada)[/COLOR] | Estado: {estados.get('fue5')}", "lis_tvp", "5.png", True),
+        (f" AF1CIONADOS || Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue6')}", "lis_af1", "6.png", True),
+        (f" Agenda Deportiva || Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue7')}", "lis_eve", "7.png", True),
+        (f" Chucky || Tipo de eventos: [COLOR yellow][M3U8][/COLOR] [COLOR orange](VPN recomendada)[/COLOR] | Estado: {estados.get('fue8')}", "lis_chu", "8.png", True),
         ("Fuentes de Repuesto para la sección de TV:", "", "tv2.png", False),
-        (f" Direct || Tipo de eventos: [ACS] | Estado: {estados.get('fue11')}", "lis_dir_rep", "1.png", True),
-        (f" ACE || Tipo de eventos: [ACS] | Estado: {estados.get('fue12')}", "lis_ace_rep", "2.png", True),
-        (f" Horus || Tipo de eventos: [ACS] | Estado: {estados.get('fue13')}", "lis_hor_rep", "3.png", True),
+        (f" Direct || Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue11')}", "lis_dir_rep", "1.png", True),
+        (f" ACE || Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue12')}", "lis_ace_rep", "2.png", True),
+        (f" Horus || Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue13')}", "lis_hor_rep", "3.png", True),
     ]
 
+    # --------------------------------------------------------------
+    # Añadir cada ListItem al contenedor
+    # --------------------------------------------------------------
     for label, action, icon_file, is_folder in menu_items:
-        # Saltamos entradas vacías (servían solo como separador)
-        if not label.strip():
+        if not label.strip():           # ignora separadores vacíos
             continue
-        url = build_url({"action": action})
-        ### Creamos el ListItem
-        li = xbmcgui.ListItem(label=label)
-        ### Ruta absoluta al icono
-        icon_path = xbmcvfs.translatePath(os.path.join(remodtv_addon_path, 'recursos', 'imagenes', icon_file))
-        ###  Asignamos el icono
-        li.setArt({'icon': icon_path, 'thumb': icon_path})
-        ### Indicamos que es una carpeta (un sub‑menú o acción que abre algo)
-        xbmcplugin.addDirectoryItem(handle=HANDLE,
-                                    url=url,
-                                    listitem=li,
-                                    isFolder=is_folder)
-    xbmcplugin.endOfDirectory(HANDLE)
-   
 
+        url = build_url({"action": action})
+        li = xbmcgui.ListItem(label=label)
+
+        # ---- ICONO ------------------------------------------------
+        icon_path = get_icon_path(icon_file)
+        if icon_path:
+            li.setArt({'icon': icon_path, 'thumb': icon_path})
+
+        xbmcplugin.addDirectoryItem(
+            handle=HANDLE,
+            url=url,
+            listitem=li,
+            isFolder=is_folder
+        )
+
+    # --------------------------------------------------------------
+    # Cerrar el contenedor
+    # --------------------------------------------------------------
+    xbmcplugin.endOfDirectory(HANDLE, cacheToDisc=False)
+    
 ### lista del menu configurar reproductor externo
 def lista_menu_rep_ext():
     rep_act = leer_rep_ext()
@@ -149,23 +219,33 @@ def lista_menu_rep_ext():
         ("Restaurar por defecto a como cuando se instaló Kodi", "pcf_rest", "restore.png", True)
     ]
 
+    # --------------------------------------------------------------
+    # Añadir cada ListItem al contenedor
+    # --------------------------------------------------------------
     for label, action, icon_file, is_folder in menu_items:
-        # Saltamos entradas vacías (servían solo como separador)
-        if not label.strip():
+        if not label.strip():           # ignora separadores vacíos
             continue
+
         url = build_url({"action": action})
-        ### Creamos el ListItem
         li = xbmcgui.ListItem(label=label)
-        ### Ruta absoluta al icono
-        icon_path = xbmcvfs.translatePath(os.path.join(remodtv_addon_path, 'recursos', 'imagenes', icon_file))
-        ###  Asignamos el icono
-        li.setArt({'icon': icon_path, 'thumb': icon_path})
-        ### Indicamos que es una carpeta (un sub‑menú o acción que abre algo)
-        xbmcplugin.addDirectoryItem(handle=HANDLE,
-                                    url=url,
-                                    listitem=li,
-                                    isFolder=is_folder)
-    xbmcplugin.endOfDirectory(HANDLE)
+
+        # ---- ICONO ------------------------------------------------
+        icon_path = get_icon_path(icon_file)
+        if icon_path:
+            li.setArt({'icon': icon_path, 'thumb': icon_path})
+
+        xbmcplugin.addDirectoryItem(
+            handle=HANDLE,
+            url=url,
+            listitem=li,
+            isFolder=is_folder
+        )
+
+    # --------------------------------------------------------------
+    # Cerrar el contenedor
+    # --------------------------------------------------------------
+    xbmcplugin.endOfDirectory(HANDLE, cacheToDisc=False)
+    
    
 
 ### lista del menu herramientas
@@ -186,23 +266,33 @@ def lista_menu_herramientas():
         ("> Descargar WARP Mando Fix para ATV por Jota | 32 bits | 64 bits | Android | ATV", "warp1", "download.png", True),
     ]
 
+    # --------------------------------------------------------------
+    # Añadir cada ListItem al contenedor
+    # --------------------------------------------------------------
     for label, action, icon_file, is_folder in menu_items:
-        # Saltamos entradas vacías (servían solo como separador)
-        if not label.strip():
+        if not label.strip():           # ignora separadores vacíos
             continue
+
         url = build_url({"action": action})
-        ### Creamos el ListItem
         li = xbmcgui.ListItem(label=label)
-        ### Ruta absoluta al icono
-        icon_path = xbmcvfs.translatePath(os.path.join(remodtv_addon_path, 'recursos', 'imagenes', icon_file))
-        ###  Asignamos el icono
-        li.setArt({'icon': icon_path, 'thumb': icon_path})
-        ### Indicamos que es una carpeta (un sub‑menú o acción que abre algo)
-        xbmcplugin.addDirectoryItem(handle=HANDLE,
-                                    url=url,
-                                    listitem=li,
-                                    isFolder=is_folder)
-    xbmcplugin.endOfDirectory(HANDLE)
+
+        # ---- ICONO ------------------------------------------------
+        icon_path = get_icon_path(icon_file)
+        if icon_path:
+            li.setArt({'icon': icon_path, 'thumb': icon_path})
+
+        xbmcplugin.addDirectoryItem(
+            handle=HANDLE,
+            url=url,
+            listitem=li,
+            isFolder=is_folder
+        )
+
+    # --------------------------------------------------------------
+    # Cerrar el contenedor
+    # --------------------------------------------------------------
+    xbmcplugin.endOfDirectory(HANDLE, cacheToDisc=False)
+    
 
 
 ### mostrar changelog
@@ -829,14 +919,20 @@ def obtener_estado(url, timeout=10):
 
 ### test        
     
-    
-### acciones del menu principal
+   
+
+# ----------------------------------------------------------------------
+#  ENTRADA PRINCIPAL DEL ADDON
+# ----------------------------------------------------------------------
 if not ARGS:
-    # No hay parámetros → menú principal
     lista_menu_principal()
 else:
     action = ARGS.get('action', [None])[0]
+    if action == "prin":
+        lista_menu_principal()
     ### menú principal instalar y configurar tv
+    if action == "prin":
+        lista_menu_principal()
     if action == "tv":
         carp = '1'
         inst_tv()
@@ -876,7 +972,6 @@ else:
         fue_act = leer_fuente()
         dialog = xbmcgui.Dialog()
         dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
-        lista_menu_principal()
     ### menú selección fuente 11
     elif action == "lis_dir_rep":
         carp = '11'
@@ -887,7 +982,6 @@ else:
         fue_act = leer_fuente()
         dialog = xbmcgui.Dialog()
         dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
-        lista_menu_principal()
     ### menú selección fuente 2
     elif action == "lis_ace":
         carp = '2'
@@ -898,7 +992,6 @@ else:
         fue_act = leer_fuente()
         dialog = xbmcgui.Dialog()
         dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
-        lista_menu_principal()
     ### menú selección fuente 12
     elif action == "lis_ace_rep":
         carp = '12'
@@ -909,7 +1002,6 @@ else:
         fue_act = leer_fuente()
         dialog = xbmcgui.Dialog()
         dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
-        lista_menu_principal()
     ### menú selección fuente 3
     elif action == "lis_hor":
         carp = '3'
@@ -920,7 +1012,6 @@ else:
         fue_act = leer_fuente()
         dialog = xbmcgui.Dialog()
         dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
-        lista_menu_principal()
     ### menú selección fuente 13
     elif action == "lis_hor_rep":
         carp = '13'
@@ -931,7 +1022,6 @@ else:
         fue_act = leer_fuente()
         dialog = xbmcgui.Dialog()
         dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
-        lista_menu_principal()
     ### menú selección fuente 4
     elif action == "lis_rm":
         carp = '4'
@@ -942,7 +1032,6 @@ else:
         fue_act = leer_fuente()
         dialog = xbmcgui.Dialog()
         dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
-        lista_menu_principal()
     ### menú selección fuente 5
     elif action == "lis_tvp":
         carp = '5'
@@ -953,7 +1042,6 @@ else:
         fue_act = leer_fuente()
         dialog = xbmcgui.Dialog()
         dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
-        lista_menu_principal()
     ### menú selección fuente 6
     elif action == "lis_af1":
         carp = '6'
@@ -964,7 +1052,6 @@ else:
         fue_act = leer_fuente()
         dialog = xbmcgui.Dialog()
         dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
-        lista_menu_principal()
     ### menú selección fuente 7
     elif action == "lis_eve":
         carp = '7'
@@ -975,7 +1062,15 @@ else:
         fue_act = leer_fuente()
         dialog = xbmcgui.Dialog()
         dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
-        lista_menu_principal()
+    elif action == "lis_chu":
+        carp = '8'
+        archivos_config()
+        actualizar_tv()
+        fue_sel = '8 Chucky'
+        guardar_fuente(fue_sel)
+        fue_act = leer_fuente()
+        dialog = xbmcgui.Dialog()
+        dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
     ### menu selección de reprodcutor externo 0
     elif action == "pcf0":
         rep_sel = '0'
@@ -983,119 +1078,102 @@ else:
         reproductor = 'Ace Stream Media ReMod | Ace Stream Media McK'
         guardar_rep_ext(reproductor)
         rep_act = leer_rep_ext()
-        lista_menu_principal()
     elif action == "pcf1":
         rep_sel = '1'
         ele_rep(rep_sel)
         reproductor = 'Ace Stream Media ATV'
         guardar_rep_ext(reproductor)
         rep_act = leer_rep_ext()
-        lista_menu_principal()
     elif action == "pcf2":
         rep_sel = '2'
         ele_rep(rep_sel)
         reproductor = 'Ace Stream Media Web'
         guardar_rep_ext(reproductor)
         rep_act = leer_rep_ext()
-        lista_menu_principal()
     elif action == "pcf3":
         rep_sel = '3'
         ele_rep(rep_sel)
         reproductor = 'Ace Stream Media Node'
         guardar_rep_ext(reproductor)
         rep_act = leer_rep_ext()
-        lista_menu_principal()
     elif action == "pcf4":
         rep_sel = '4'
         ele_rep(rep_sel)
         reproductor = 'Ace Stream Media Node Web'
         guardar_rep_ext(reproductor)
         rep_act = leer_rep_ext()
-        lista_menu_principal()
     elif action == "pcf5":
         rep_sel = '5'
         ele_rep(rep_sel)
         reproductor = 'Ace Stream Media Core'
         guardar_rep_ext(reproductor)
         rep_act = leer_rep_ext()
-        lista_menu_principal()
     elif action == "pcf6":
         rep_sel = '6'
         ele_rep(rep_sel)
         reproductor = 'Ace Stream Media Core ATV'
         guardar_rep_ext(reproductor)
         rep_act = leer_rep_ext()
-        lista_menu_principal()
     elif action == "pcf7":
         rep_sel = '7'
         ele_rep(rep_sel)
         reproductor = 'Ace Stream Media Core Web'
         guardar_rep_ext(reproductor)
         rep_act = leer_rep_ext()
-        lista_menu_principal()
     elif action == "pcf8":
         rep_sel = '8'
         ele_rep(rep_sel)
         reproductor = 'Ace Stream Live'
         guardar_rep_ext(reproductor)
         rep_act = leer_rep_ext()
-        lista_menu_principal()
     elif action == "pcf9":
         rep_sel = '9'
         ele_rep(rep_sel)
         reproductor = 'MPVkt'
         guardar_rep_ext(reproductor)
         rep_act = leer_rep_ext()
-        lista_menu_principal()
     elif action == "pcf10":
         rep_sel = '10'
         ele_rep(rep_sel)
         reproductor = 'MPV'
         guardar_rep_ext(reproductor)
         rep_act = leer_rep_ext()
-        lista_menu_principal()
     elif action == "pcf11":
         rep_sel = '11'
         ele_rep(rep_sel)
         reproductor = 'VLC'
         guardar_rep_ext(reproductor)
         rep_act = leer_rep_ext()
-        lista_menu_principal()
     elif action == "pcf12":
         rep_sel = '12'
         ele_rep(rep_sel)
         reproductor = 'Ace Serve'
         guardar_rep_ext(reproductor)
         rep_act = leer_rep_ext()
-        lista_menu_principal()
     elif action == "pcf13":
         rep_sel = '13'
         ele_rep(rep_sel)
         reproductor = 'Ace Stream oficial'
         guardar_rep_ext(reproductor)
         rep_act = leer_rep_ext()
-        lista_menu_principal()
     elif action == "pcf14":
         rep_sel = '14'
         ele_rep(rep_sel)
         reproductor = 'VLC y Ace Stream oficial'
         guardar_rep_ext(reproductor)
         rep_act = leer_rep_ext()
-        lista_menu_principal()
     elif action == "pcf15":
         rep_sel = '15'
         ele_rep(rep_sel)
         reproductor = 'Ace Stream Pro Mod'
         guardar_rep_ext(reproductor)
         rep_act = leer_rep_ext()
-        lista_menu_principal()
     elif action == "pcf_rest":
         rep_sel = 'rest_pcf'
         ele_rep(rep_sel)
         reproductor = 'Por defecto de Kodi'
         guardar_rep_ext(reproductor)
         rep_act = leer_rep_ext()
-        lista_menu_principal()
     ### menú herramientas abrir repo en navegador
     elif action == "nav":
         url = "https://saratoga79.github.io/"
