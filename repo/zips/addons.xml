@@ -65,7 +65,7 @@
 			<fanart>recursos/imagenes/poster.png</fanart>
 		</assets>
 	</extension>
-</addon><addon id="plugin.program.remodtv" name="ReMod TV" version="25.11.26.1" provider-name="Saratoga">
+</addon><addon id="plugin.program.remodtv" name="ReMod TV" version="25.11.27.0" provider-name="Saratoga">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1" /> 
 	</requires>
@@ -79,7 +79,7 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
-&gt; Versión = 25.11.26.1
+&gt; Versión = 25.11.27.0
 &gt; Cambios respecto a la versión anterior
 	- Mejoras varias
 	
