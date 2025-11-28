@@ -1155,7 +1155,7 @@ http://update2.miicrosoft.es:80/Grigore_Cirstea_L/fanGtWYigpAe2b4RC7btDkEewglyDF
 http://wo0dyefk.dienalt.org/iptv/DV3AC2Q6YSR9XE/19158/index.m3u8
 
 #EXTINF:-1 cuid="385" group-title="M3U8" tvg-chno="385" tvg-id="PT | DAZN 1" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DAZN%201.png" tvg-name="PT | DAZN 1",PT | DAZN 1 [SD@50] [M3U8] (Afb) (Canal 385)
-http://123.24.20.26:8889/wed.php?id=5374
+http://113.178.80.176:8889/wed.php?id=5374
 
 #EXTINF:-1 cuid="386" group-title="M3U8" tvg-chno="386" tvg-id="PT | DAZN 1" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DAZN%201.png" tvg-name="PT | DAZN 1",PT | DAZN 1 [SD@50] [M3U8] (DrMi) (Canal 386)
 http://update1.miicrosoft.es:80/Grigore_Cirstea_L/fanGtWYigpAe2b4RC7btDkEewglyDF/79182
@@ -1176,7 +1176,7 @@ http://176.65.146.108:8022/play/a072/index.m3u8
 http://89.45.13.153:25461/play/live.php?mac=00:1A:79:4B:B2:99&stream=1021585&extension=ts
 
 #EXTINF:-1 cuid="392" group-title="M3U8" tvg-chno="392" tvg-id="PT | DAZN 2" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DAZN%202.png" tvg-name="PT | DAZN 2",PT | DAZN 2 [FHD@25] [M3U8] (Afb) (Canal 392)
-http://123.24.20.26:8889/wed.php?id=5375
+http://113.178.80.176:8889/wed.php?id=5375
 
 #EXTINF:-1 cuid="393" group-title="M3U8" tvg-chno="393" tvg-id="PT | DAZN 2" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DAZN%202.png" tvg-name="PT | DAZN 2",PT | DAZN 2 [FHD@25] [M3U8] (DrLi) (Canal 393)
 http://live.prsc.xyz:80/paulocaminho10/4ykJEB6McG/56
@@ -1221,7 +1221,7 @@ http://195.23.75.15:8000/udp/239.100.6.50:1234
 http://176.65.146.108:8022/play/a073/index.m3u8
 
 #EXTINF:-1 cuid="407" group-title="M3U8" tvg-chno="407" tvg-id="PT | DAZN 3" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DAZN%203.png" tvg-name="PT | DAZN 3",PT | DAZN 3 [FHD@25] [M3U8] (Afb) (Canal 407)
-http://123.24.20.26:8889/wed.php?id=5376
+http://113.178.80.176:8889/wed.php?id=5376
 
 #EXTINF:-1 cuid="408" group-title="M3U8" tvg-chno="408" tvg-id="PT | DAZN 3" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DAZN%203.png" tvg-name="PT | DAZN 3",PT | DAZN 3 [FHD@25] [M3U8] (DrLi) (Canal 408)
 http://live.prsc.xyz:80/paulocaminho10/4ykJEB6McG/59
@@ -1242,7 +1242,7 @@ http://195.23.75.15:8000/udp/239.100.6.51:1234
 http://176.65.146.108:8022/play/a06t/index.m3u8
 
 #EXTINF:-1 cuid="414" group-title="M3U8" tvg-chno="414" tvg-id="PT | DAZN 4" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DAZN%204.png" tvg-name="PT | DAZN 4",PT | DAZN 4 [FHD@25] [M3U8] (Afb) (Canal 414)
-http://123.24.20.26:8889/wed.php?id=786
+http://113.178.80.176:8889/wed.php?id=786
 
 #EXTINF:-1 cuid="415" group-title="M3U8" tvg-chno="415" tvg-id="PT | DAZN 4" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DAZN%204.png" tvg-name="PT | DAZN 4",PT | DAZN 4 [FHD@25] [M3U8] (Canal 415)
 http://89.45.13.153:25461/play/live.php?mac=00:1A:79:4B:B2:99&stream=1021588&extension=ts
@@ -1260,7 +1260,7 @@ http://xxip9.top:8080//live/Gizvid192@giz.com/1234@4321/167749.ts
 http://127.0.0.1:6878/ace/getstream?id=4dbe63b44fc4f439f5b634c0d2aa7e0cccad808a&pid=104
 
 #EXTINF:-1 cuid="420" group-title="M3U8" tvg-chno="420" tvg-id="PT | DAZN 5" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DAZN%205.png" tvg-name="PT | DAZN 5",PT | DAZN 5 [FHD@50] [M3U8] (Afb) (Canal 420)
-http://123.24.20.26:8889/wed.php?id=780
+http://113.178.80.176:8889/wed.php?id=780
 
 #EXTINF:-1 cuid="421" group-title="M3U8" tvg-chno="421" tvg-id="PT | DAZN 5" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DAZN%205.png" tvg-name="PT | DAZN 5",PT | DAZN 5 [FHD@50] [M3U8] (Canal 421)
 http://195.23.75.15:8000/udp/239.100.6.52:1234
@@ -1284,13 +1284,13 @@ http://195.23.75.15:8000/udp/239.100.6.53:1234
 http://176.65.146.108:8022/play/a074/index.m3u8
 
 #EXTINF:-1 cuid="428" group-title="M3U8" tvg-chno="428" tvg-id="PT | DAZN 6" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DAZN%206.png" tvg-name="PT | DAZN 6",PT | DAZN 6 [HD@50] [M3U8] (Afb) (Canal 428)
-http://123.24.20.26:8889/wed.php?id=784
+http://113.178.80.176:8889/wed.php?id=784
 
 #EXTINF:-1 cuid="429" group-title="M3U8" tvg-chno="429" tvg-id="PT | DAZN 6" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DAZN%206.png" tvg-name="PT | DAZN 6",PT | DAZN 6 [HD@50] [M3U8] (Canal 429)
 http://89.45.13.153:25461/play/live.php?mac=00:1A:79:4B:B2:99&stream=1021587&extension=ts
 
 #EXTINF:-1 cuid="430" group-title="M3U8" tvg-chno="430" tvg-id="PT | Sport TV 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/portugal/sport-tv-1-pt.png" tvg-name="PT | Sport TV 1",PT | Sport TV 1 [FHD@50] [M3U8] (Afb) (Canal 430)
-http://123.24.20.26:8889/wed.php?id=1060
+http://113.178.80.176:8889/wed.php?id=1060
 
 #EXTINF:-1 cuid="431" group-title="M3U8" tvg-chno="431" tvg-id="PT | Sport TV 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/portugal/sport-tv-1-pt.png" tvg-name="PT | Sport TV 1",PT | Sport TV 1 [FHD@50] [M3U8] (Canal 431)
 http://195.23.75.15:8000/udp/239.100.6.21:1234
@@ -1305,7 +1305,7 @@ http://195.23.75.15:8000/udp/239.100.6.22:1234
 http://176.65.146.108:8022/play/a06i/index.m3u8
 
 #EXTINF:-1 cuid="435" group-title="M3U8" tvg-chno="435" tvg-id="PT | Sport TV 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/portugal/sport-tv-2-pt.png" tvg-name="PT | Sport TV 2",PT | Sport TV 2 [FHD@25] [M3U8] (Afb) (Canal 435)
-http://123.24.20.26:8889/wed.php?id=689
+http://113.178.80.176:8889/wed.php?id=689
 
 #EXTINF:-1 cuid="436" group-title="M3U8" tvg-chno="436" tvg-id="PT | Sport TV 3" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/portugal/sport-tv-3-pt.png" tvg-name="PT | Sport TV 3",PT | Sport TV 3 [FHD@50] [M3U8] (Canal 436)
 http://195.23.75.15:8000/udp/239.100.6.23:1234
@@ -1314,7 +1314,7 @@ http://195.23.75.15:8000/udp/239.100.6.23:1234
 http://176.65.146.108:8022/play/a06j/index.m3u8
 
 #EXTINF:-1 cuid="438" group-title="M3U8" tvg-chno="438" tvg-id="PT | Sport TV 3" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/portugal/sport-tv-3-pt.png" tvg-name="PT | Sport TV 3",PT | Sport TV 3 [FHD@25] [M3U8] (Afb) (Canal 438)
-http://123.24.20.26:8889/wed.php?id=690
+http://113.178.80.176:8889/wed.php?id=690
 
 #EXTINF:-1 cuid="439" group-title="M3U8" tvg-chno="439" tvg-id="PT | Sport TV 4" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/portugal/sport-tv-4-pt.png" tvg-name="PT | Sport TV 4",PT | Sport TV 4 [FHD@50] [M3U8] (Canal 439)
 http://195.23.75.15:8000/udp/239.100.6.24:1234
@@ -1323,7 +1323,7 @@ http://195.23.75.15:8000/udp/239.100.6.24:1234
 http://176.65.146.108:8022/play/a05z/index.m3u8
 
 #EXTINF:-1 cuid="441" group-title="M3U8" tvg-chno="441" tvg-id="PT | Sport TV 4" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/portugal/sport-tv-4-pt.png" tvg-name="PT | Sport TV 4",PT | Sport TV 4 [FHD@25] [M3U8] (Afb) (Canal 441)
-http://123.24.20.26:8889/wed.php?id=691
+http://113.178.80.176:8889/wed.php?id=691
 
 #EXTINF:-1 cuid="442" group-title="M3U8" tvg-chno="442" tvg-id="PT | Sport TV 5" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/portugal/sport-tv-5-pt.png" tvg-name="PT | Sport TV 5",PT | Sport TV 5 [FHD@50] [M3U8] (Canal 442)
 http://195.23.75.15:8000/udp/239.100.6.25:1234
@@ -1332,7 +1332,7 @@ http://195.23.75.15:8000/udp/239.100.6.25:1234
 http://176.65.146.108:8022/play/a06f/index.m3u8
 
 #EXTINF:-1 cuid="444" group-title="M3U8" tvg-chno="444" tvg-id="PT | Sport TV 5" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/portugal/sport-tv-5-pt.png" tvg-name="PT | Sport TV 5",PT | Sport TV 5 [HD@25] [M3U8] (Afb) (Canal 444)
-http://123.24.20.26:8889/wed.php?id=692
+http://113.178.80.176:8889/wed.php?id=692
 
 #EXTINF:-1 cuid="445" group-title="M3U8" tvg-chno="445" tvg-id="PT | Sport TV 6" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/portugal/sport-tv-6-pt.png" tvg-name="PT | Sport TV 6",PT | Sport TV 6 [FHD@50] [M3U8] (Canal 445)
 http://195.23.75.15:8000/udp/239.100.6.26:1234
@@ -1341,7 +1341,7 @@ http://195.23.75.15:8000/udp/239.100.6.26:1234
 http://176.65.146.108:8022/play/a06g/index.m3u8
 
 #EXTINF:-1 cuid="447" group-title="M3U8" tvg-chno="447" tvg-id="PT | Sport TV +" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/portugal/sport-tv-mais-pt.png" tvg-name="PT | Sport TV +",PT | Sport TV + [FHD@25] [M3U8] (Afb) (Canal 447)
-http://123.24.20.26:8889/wed.php?id=824
+http://113.178.80.176:8889/wed.php?id=824
 
 #EXTINF:-1 cuid="448" group-title="M3U8" tvg-chno="448" tvg-id="Now.Sports.Premier.League.1.hk" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/hong-kong/now-sports-premier-league-1-hk.png" tvg-name="HK | Now Sports Premier League",HK | Now Sports Premier League [FHD@30] [M3U8] (A1x) (Canal 448)
 https://A1xs.vip/1100000
