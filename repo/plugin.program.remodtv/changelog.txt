@@ -1,4 +1,8 @@
 > ReMod TV
+> Versión = 25.11.29.0
+> Cambios respecto a la versión anterior
+	- Actualizado Ace Serve a la v1.5.5 en la sección de Herramientas y Utilidades
+	
 > Versión = 25.11.27.1
 > Cambios respecto a la versión anterior
 	- Añadida nueva fuente: 8 Chucky

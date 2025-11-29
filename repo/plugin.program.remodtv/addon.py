@@ -55,37 +55,6 @@ ARGS = urllib.parse.parse_qs(sys.argv[2][1:])  ### elimina el '?' inicial
 action = ARGS.get('action', [None])[0]
 ICON_DIR = os.path.join(remodtv_addon_path, 'recursos', 'imagenes')
 
-### control de back
-class BackMonitor(xbmc.Monitor):
-    def __init__(self):
-        super().__init__()
-        self._running = True
-
-    def waitForAbort(self, timeout):
-        # Este método se llama en un bucle; devolvemos True si se pulsa Back
-        if xbmc.getCondVisibility('Control.IsVisible(10000)'):   # contenedor activo
-            # Detectamos la tecla Back mediante la API de eventos
-            # (alternativa: usar xbmcgui.Window().getProperty('CurrentWindow')
-            # y comparar con el ID del contenedor)
-            pass
-        return super().waitForAbort(timeout)
-
-    def onScreensaverActivated(self):
-        # No usamos, pero necesario para la clase Monitor
-        pass
-
-# def handle_back_action():
-    """Llamado cuando detectamos la tecla Back."""
-    # xbmc.log("Back pressed – returning to main menu", xbmc.LOGINFO)
-    # Forzamos una actualización del contenedor con el menú principal
-    # xbmc.executebuiltin(f'Container.Update({BASE_URL}?action=prin,replace)')
-
-# Registro del monitor (ejecutar una sola vez al iniciar el addon)
-# if not xbmc.getCondVisibility('System.HasAddon(plugin.program.remodtv)'):
-    # Evitamos crear varios monitores si el addon se llama varias veces
-    # monitor = BackMonitor()
-    # En un hilo separado (para no bloquear la UI) podrías hacer:
-    # threading.Thread(target=monitor.waitForAbort, args=(0.1,)).start()
 
 ### gestión iconos menús
 def get_icon_path(fname: str) -> Optional[str]:
@@ -259,7 +228,7 @@ def lista_menu_herramientas():
         ("Ace Stream Pro ReMod v251115.0 | org.acestream.media | Actualizado el 16/11/2025:", "", "tool.png", False),
         ("> Descargar Ace Stream Pro ReMod armeabi-v7a | 32 bits | Android | ATV", "acs32", "download.png", True),
         ("> Descargar Ace Stream Pro ReMod arm64-v8a | 64 bits | Android | ATV", "acs64", "download.png", True),
-        ("Ace Serve v1.5.3 | org.free.aceserve | Actualizado el 24/11/2025:", "", "tool.png", False),
+        ("Ace Serve v1.5.5 | org.free.aceserve | Actualizado el 24/11/2025:", "", "tool.png", False),
         ("> Descargar Ace Serve armeabi-v7a | 32 bits | Android | ATV", "as32", "download.png", True),
         ("> Descargar Ace Serve arm64-v8a | 64 bits | Android | ATV", "as64", "download.png", True),
         ("WARP | com.cloudflare.onedotonedotonedotone | Actualizado el 17/11/2025:", "", "tool.png", False),
@@ -1271,7 +1240,7 @@ else:
             
             url_descarga = (
                 "https://saratoga79.github.io/apps/android/AS/"
-                "org.free.aceserve-1.5.3-arm.apk"
+                "org.free.aceserve-1.5.5-arm.apk"
             )
 
             try:
@@ -1290,7 +1259,7 @@ else:
         if xbmc.getCondVisibility('system.platform.android'):
             url_descarga = (
                 "https://saratoga79.github.io/apps/android/AS/"
-                "org.free.aceserve-1.5.3-arm64.apk"
+                "org.free.aceserve-1.5.5-arm64.apk"
             )
 
             try:
