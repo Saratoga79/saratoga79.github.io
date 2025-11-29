@@ -55,7 +55,6 @@ ARGS = urllib.parse.parse_qs(sys.argv[2][1:])  ### elimina el '?' inicial
 action = ARGS.get('action', [None])[0]
 ICON_DIR = os.path.join(remodtv_addon_path, 'recursos', 'imagenes')
 
-
 ### gestión iconos menús
 def get_icon_path(fname: str) -> Optional[str]:
     """
@@ -76,6 +75,7 @@ def build_url(query: dict) -> str:
 def lista_menu_principal():
     fue_act = leer_fuente()
     rep_act = leer_rep_ext()
+    xbmcplugin.setPluginCategory(HANDLE, "ReModTV – Principal")
     menu_items = [
         (f"{remodtv_addon_name} versión: {remodtv_addon_version} | Buscar actualizaciones", "info", "info.png", True),
         (f"Fuente Actual: {fue_act} | Reproductor Externo: {rep_act}", "", "list.png", False),
@@ -113,16 +113,12 @@ def lista_menu_principal():
     # Cerrar el contenedor
     # --------------------------------------------------------------
     xbmcplugin.endOfDirectory(HANDLE, cacheToDisc=False)
-    
-
+ 
 def lista_menu_fuente():
     estados = fue_cargar_estados()
-    fue_act = leer_fuente()
-    # ----- cabecera del contenedor -----
     xbmcplugin.setPluginCategory(HANDLE, "ReModTV – Fuentes")
-    # xbmcplugin.setContent(HANDLE, "files")
     menu_items = [
-        (f"Fuentes Principales para la sección de TV | Actual: {fue_act}", "", "tv2.png", False),
+        (f"Fuentes Principales para la sección de TV", "", "tv2.png", False),
         (f" Direct (Por defecto) || Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue1')}", "lis_dir", "1.png", True),
         (f" ACE || Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue2')}", "lis_ace", "2.png", True),
         (f" Horus || Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue3')}", "lis_hor", "3.png", True),
@@ -131,44 +127,33 @@ def lista_menu_fuente():
         (f" AF1CIONADOS || Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue6')}", "lis_af1", "6.png", True),
         (f" Agenda Deportiva || Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue7')}", "lis_eve", "7.png", True),
         (f" Chucky || Tipo de eventos: [COLOR yellow][M3U8][/COLOR] [COLOR orange](VPN recomendada)[/COLOR] | Estado: {estados.get('fue8')}", "lis_chu", "8.png", True),
-        ("Fuentes de Repuesto para la sección de TV:", "", "tv2.png", False),
+        ("Fuentes de Repuesto para la sección de TV", "", "tv2.png", False),
         (f" Direct || Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue11')}", "lis_dir_rep", "1.png", True),
         (f" ACE || Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue12')}", "lis_ace_rep", "2.png", True),
-        (f" Horus || Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue13')}", "lis_hor_rep", "3.png", True),
+        (f" Horus || Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue13')}", "lis_hor_rep", "3.png", True)
     ]
 
-    # --------------------------------------------------------------
-    # Añadir cada ListItem al contenedor
-    # --------------------------------------------------------------
     for label, action, icon_file, is_folder in menu_items:
-        if not label.strip():           # ignora separadores vacíos
-            continue
-
         url = build_url({"action": action})
+        ### Creamos el ListItem
         li = xbmcgui.ListItem(label=label)
+        ### Ruta absoluta al icono
+        icon_path = xbmcvfs.translatePath(os.path.join(remodtv_addon_path, 'recursos', 'imagenes', icon_file))
+        ###  Asignamos el icono
+        li.setArt({'icon': icon_path, 'thumb': icon_path})   # thumb también sirve
+        ### Indicamos que es una carpeta (un sub‑menú o acción que abre algo)
+        xbmcplugin.addDirectoryItem(handle=HANDLE,
+                                    url=url,
+                                    listitem=li,
+                                    isFolder=is_folder)
+    xbmcplugin.endOfDirectory(HANDLE)
 
-        # ---- ICONO ------------------------------------------------
-        icon_path = get_icon_path(icon_file)
-        if icon_path:
-            li.setArt({'icon': icon_path, 'thumb': icon_path})
 
-        xbmcplugin.addDirectoryItem(
-            handle=HANDLE,
-            url=url,
-            listitem=li,
-            isFolder=is_folder
-        )
-
-    # --------------------------------------------------------------
-    # Cerrar el contenedor
-    # --------------------------------------------------------------
-    xbmcplugin.endOfDirectory(HANDLE, cacheToDisc=False)
-    
 ### lista del menu configurar reproductor externo
 def lista_menu_rep_ext():
-    rep_act = leer_rep_ext()
+    xbmcplugin.setPluginCategory(HANDLE, "ReModTV – Reproductor Externo")
     menu_items = [
-        (f"Elige la aplicación del Reprouctor Externo | Actual: {rep_act}", "", "repro.png", False),
+        (f"Elige la aplicación del Reprouctor Externo", "", "repro.png", False),
         ("Ace Stream Media ReMod | Ace Stream Media McK | org.acestream.media", "pcf0", "android.png", True),
         ("Ace Stream Media ATV | org.acestream.media.atv", "pcf1", "android.png", True),
         ("Ace Stream Media Web | org.acestream.media.web", "pcf2", "android.png", True),
@@ -215,10 +200,9 @@ def lista_menu_rep_ext():
     # --------------------------------------------------------------
     xbmcplugin.endOfDirectory(HANDLE, cacheToDisc=False)
     
-   
-
-### lista del menu herramientas
+   ### lista del menu herramientas
 def lista_menu_herramientas():
+    xbmcplugin.setPluginCategory(HANDLE, "ReModTV – Herramientas y Utilidades")
     menu_items = [
         ("Herramientas y Utilidades:", "", "herr.png", False),
         ("> Visita Repo ReMod para obtener más información", "nav", "nav.png", True),
@@ -232,7 +216,7 @@ def lista_menu_herramientas():
         ("> Descargar Ace Serve armeabi-v7a | 32 bits | Android | ATV", "as32", "download.png", True),
         ("> Descargar Ace Serve arm64-v8a | 64 bits | Android | ATV", "as64", "download.png", True),
         ("WARP | com.cloudflare.onedotonedotonedotone | Actualizado el 17/11/2025:", "", "tool.png", False),
-        ("> Descargar WARP Mando Fix para ATV por Jota | 32 bits | 64 bits | Android | ATV", "warp1", "download.png", True),
+        ("> Descargar WARP Mando Fix para ATV por Jota | 32 bits | 64 bits | Android | ATV", "warp1", "download.png", True)
     ]
 
     # --------------------------------------------------------------
@@ -862,7 +846,7 @@ def texto_desde_codigo(codigo):
     }
     return mapa.get(codigo_int, f"Código {codigo_int}")
 
-def obtener_estado(url, timeout=10):
+def obtener_estado(url, timeout=5):
     DEFAULT_HEADERS = {
         "User-Agent": (
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -888,8 +872,6 @@ def obtener_estado(url, timeout=10):
 
 ### test        
     
-   
-
 # ----------------------------------------------------------------------
 #  ENTRADA PRINCIPAL DEL ADDON
 # ----------------------------------------------------------------------
@@ -897,11 +879,7 @@ if not ARGS:
     lista_menu_principal()
 else:
     action = ARGS.get('action', [None])[0]
-    if action == "prin":
-        lista_menu_principal()
-    ### menú principal instalar y configurar tv
-    if action == "prin":
-        lista_menu_principal()
+    # lista_menu_principal()
     if action == "tv":
         carp = '1'
         inst_tv()
