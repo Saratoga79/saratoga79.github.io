@@ -1,0 +1,67 @@
+name: Descargar documento programado
+
+# -------------------------------------------------
+# 1️⃣ Programación (cron)
+# -------------------------------------------------
+# La sintaxis es la misma que la de cron de Linux:
+# ┌───────────── minuto (0 - 59)
+# │ ┌───────────── hora (0 - 23)
+# │ │ ┌───────────── día del mes (1 - 31)
+# │ │ │ ┌───────────── mes (1 - 12)
+# │ │ │ │ ┌───────────── día de la semana (0 - 6) (Dom=0)
+# │ │ │ │ │
+# │ │ │ │ │
+# * * * * *
+#
+# Ejemplo: "0 9,15 * * *" → a las 09:00 y 15:00 todos los días
+#
+on:
+  schedule:
+    - cron: '0 9-21 * * *'   # <-- Cambia aquí los horarios deseados
+
+# -------------------------------------------------
+# 2️⃣ Definición del job
+# -------------------------------------------------
+jobs:
+  download:
+    runs-on: ubuntu-latest          # Máquina virtual Linux
+
+    steps:
+      # 2.1️⃣ Checkout opcional (si quieres guardar el archivo en el repo)
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      # 2.2️⃣ Configurar variables (URL y nombre de archivo)
+      - name: Definir variables
+        env:
+          FILE_URL: https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/data/listas/lista_iptv.m3u      # ← Pon aquí la URL completa
+          OUTPUT_PATH: ./rep/21      # ej.: ./downloads/document.pdf
+        run: echo "Variables definidas"
+
+      # 2.3️⃣ Descargar el archivo
+      - name: Descargar archivo con curl
+        env:
+          FILE_URL: ${{ env.FILE_URL }}
+          OUTPUT_PATH: ${{ env.OUTPUT_PATH }}
+        run: |
+          mkdir -p "$(dirname "$OUTPUT_PATH")"
+          curl -L "$FILE_URL" -o "$OUTPUT_PATH"
+          echo "Archivo descargado en $OUTPUT_PATH"
+
+      # 2.4️⃣ (Opcional) Subir el archivo como artefacto de la ejecución
+      - name: Guardar como artefacto
+        if: always()                     # Siempre, aunque falle la descarga
+        uses: actions/upload-artifact@v4
+        with:
+          name: documento-descargado
+          path: ${{ env.OUTPUT_PATH }}
+
+      # 2.5️⃣ (Opcional) Commit y push si deseas que quede en el repo
+      - name: Commit y push del archivo
+        if: success()                    # Sólo si la descarga tuvo éxito
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "${{ env.OUTPUT_PATH }}"
+          git commit -m "📥 Descarga automática del documento $(date +'%Y-%m-%d %H:%M')"
+          git push
