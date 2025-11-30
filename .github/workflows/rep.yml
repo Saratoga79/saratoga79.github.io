@@ -1,9 +1,8 @@
-name: Descargar documento programado
+name: Descargar múltiples documentos (con variable)
 
 on:
   schedule:
-    - cron: '0 9-21 * * *'   # <-- Cambia aquí los horarios deseados
-
+    - cron: '0 9-21 * * *'
 
 jobs:
   download:
@@ -22,9 +21,9 @@ jobs:
           echo "$DOWNLOADS_JSON" | jq -c '.[]' | while read -r item; do
             url=$(echo "$item" | jq -r '.url')
             dest=$(echo "$item" | jq -r '.dest')
-            mkdir -p "$("$dest")"
-            echo "Descargando $url → $dest"
-            curl -L "$url" -o "$dest"
+            mkdir -p "downloads/$(dirname "$dest")"
+            echo "Descargando $url → downloads/$dest"
+            curl -L "$url" -o "downloads/$dest"
           done
 
       - name: Subir artefactos
