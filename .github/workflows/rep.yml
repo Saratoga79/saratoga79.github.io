@@ -1,6 +1,15 @@
 name: Descargar múltiples documentos (con variable)
 
 # -------------------------------------------------
+# 1️⃣  Permisos del token
+# -------------------------------------------------
+permissions:
+  contents: write          # permite push/commit
+  # (opcional) puedes añadir más, por ejemplo:
+  # issues: write
+  # pull-requests: write
+  
+# -------------------------------------------------
 # 1️⃣  Triggers
 # -------------------------------------------------
 on:
