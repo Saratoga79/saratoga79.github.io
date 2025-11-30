@@ -1,23 +1,20 @@
 name: Descargar múltiples documentos (con variable)
 
 # -------------------------------------------------
-# 1️⃣  Permisos del token
+# 1️⃣  Permisos del token (escritura sobre el repo)
 # -------------------------------------------------
 permissions:
-  contents: write          # permite push/commit
-  # (opcional) puedes añadir más, por ejemplo:
-  # issues: write
-  # pull-requests: write
-  
+  contents: write   # permite crear commits y hacer push
+
 # -------------------------------------------------
-# 1️⃣  Triggers
+# 2️⃣  Triggers
 # -------------------------------------------------
 on:
-  # Ejecución programada: cada hora entre las 09:00 y 21:00 UTC
+  # Cada hora entre 09:00 y 21:00 UTC (puedes ajustar el cron)
   schedule:
     - cron: '0 9-21 * * *'
 
-  # Disparador manual (aparecerá el botón “Run workflow”)
+  # Permite lanzar el workflow manualmente para pruebas / depuración
   workflow_dispatch:
     inputs:
       debug:
@@ -26,7 +23,7 @@ on:
         default: 'false'
 
 # -------------------------------------------------
-# 2️⃣  Job
+# 3️⃣  Job
 # -------------------------------------------------
 jobs:
   download:
@@ -34,60 +31,75 @@ jobs:
 
     steps:
       # -------------------------------------------------
-      # 2.1️⃣ Checkout (solo necesario si vas a hacer commit)
+      # 3.1️⃣ Checkout (necesario para poder hacer commit)
       # -------------------------------------------------
       - name: Checkout del repositorio
         uses: actions/checkout@v4
 
       # -------------------------------------------------
-      # 2.2️⃣ Instalar jq (para parsear JSON)
+      # 3.2️⃣ Instalar jq (para leer el JSON)
       # -------------------------------------------------
       - name: Instalar jq
         run: sudo apt-get update && sudo apt-get install -y jq
 
       # -------------------------------------------------
-      # 2.3️⃣ Mostrar el JSON que vamos a procesar (diagnóstico)
+      # 3.3️⃣ Mostrar el JSON (diagnóstico)
       # -------------------------------------------------
       - name: Mostrar JSON usado
         env:
-          DOWNLOADS_JSON: ${{ vars.DOWNLOADS_JSON }}   # <-- variable del repo
+          DOWNLOADS_JSON: ${{ vars.DOWNLOADS_JSON }}
         run: |
           echo "===== CONTENIDO DE DOWNLOADS_JSON ====="
           printf '%s\n' "$DOWNLOADS_JSON"
           echo "=========================================="
 
       # -------------------------------------------------
-      # 2.4️⃣ Descargar según JSON (crea carpetas automáticamente)
+      # 3.4️⃣ Descargar cada archivo a un **temporal** y mover solo si OK
       # -------------------------------------------------
-      - name: Descargar según JSON (variable)
+      - name: Descargar según JSON (seguro)
         env:
           DOWNLOADS_JSON: ${{ vars.DOWNLOADS_JSON }}
           DEBUG_MODE: ${{ github.event.inputs.debug }}
         run: |
-          # Si el usuario activó debug, mostramos cada comando antes de ejecutarlo
+          # Activar modo debug si el usuario lo pidió
           if [ "$DEBUG_MODE" = "true" ]; then set -x; fi
 
+          # Recorrer cada objeto del array JSON
           echo "$DOWNLOADS_JSON" | jq -c '.[]' | while read -r item; do
             url=$(echo "$item" | jq -r '.url')
             dest=$(echo "$item" | jq -r '.dest')
+            # Archivo temporal único (evita colisiones)
+            tmp="${dest}.tmp.$RANDOM"
 
-            # Crea la carpeta destino (incluye sub‑directorios)
+            # Aseguramos que exista el directorio destino
             mkdir -p "$(dirname "$dest")"
 
-            echo "▶️  Descargando $url → $dest"
-            # -f: falla si el código HTTP no es 2xx
+            echo "▶️  Descargando $url → $tmp (temporal)"
+            # -f: falla con códigos HTTP >=400
             # -L: sigue redirecciones
-            curl -fSL "$url" -o "$dest"
+            curl -fSL "$url" -o "$tmp"
             rc=$?
+
             if [ $rc -ne 0 ]; then
-              echo "❌  ERROR al descargar $url (código $rc)"
-            else
-              echo "✅  Descarga completada: $dest"
+              echo "❌  ERROR al descargar $url (código $rc). Mantengo $dest sin cambios."
+              rm -f "$tmp"
+              continue
             fi
+
+            # Verificar que el archivo temporal no esté vacío
+            if [ ! -s "$tmp" ]; then
+              echo "⚠️  Archivo temporal vacío; no sustituyo $dest."
+              rm -f "$tmp"
+              continue
+            fi
+
+            # Todo OK → reemplazar el archivo definitivo
+            echo "✅  Descarga completada. Reemplazando $dest."
+            mv -f "$tmp" "$dest"
           done
 
       # -------------------------------------------------
-      # 2.5️⃣ Listar el contenido final (para confirmar que hay archivos)
+      # 3.5️⃣ Listar el contenido final (para que puedas verlo en los logs)
       # -------------------------------------------------
       - name: Listar contenido de downloads/
         if: always()
@@ -97,7 +109,7 @@ jobs:
           echo "===================================="
 
       # -------------------------------------------------
-      # 2.6️⃣ Subir artefactos (los archivos estarán disponibles para descarga)
+      # 3.6️⃣ Subir artefactos (siempre disponible para descarga)
       # -------------------------------------------------
       - name: Subir artefactos
         if: always()
@@ -107,13 +119,25 @@ jobs:
           path: downloads/**
 
       # -------------------------------------------------
-      # 2.7️⃣ (Opcional) Commit & push de los archivos descargados
+      # 3.7️⃣ Commit y push **solo si hubo cambios reales**
       # -------------------------------------------------
       - name: Commit y push de los archivos descargados
-        if: success()          # solo si todas las descargas fueron exitosas
+        # Sólo se ejecuta si el job terminó sin errores
+        if: success()
         run: |
+          # Configuración del usuario de GitHub Actions
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Añadir los cambios (solo los archivos bajo downloads/)
           git add downloads/**
-          git commit -m "📥 Descarga automática $(date +'%Y-%m-%d %H:%M')"
-          git push
+
+          # ¿Hay diferencias respecto al último commit?
+          # `git diff-index --quiet HEAD` devuelve 0 si NO hay cambios,
+          # 1 si hay cambios. Usamos la lógica OR para crear el commit solo cuando sea necesario.
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "📥 Descarga automática $(date +'%Y-%m-%d %H:%M')"
+            git push
+          else
+            echo "🔎  No se detectaron cambios en los archivos; no se crea commit."
+          fi
