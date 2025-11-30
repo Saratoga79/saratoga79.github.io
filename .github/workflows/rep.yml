@@ -2,7 +2,7 @@ name: Descargar múltiples documentos (con variable)
 
 on:
   schedule:
-    - cron: '0 9-21 * * *'habituales
+    - cron: '0 9-21 * * *'
 
   # 2️⃣ Disparador manual (añádelo)
   workflow_dispatch:
