@@ -4,61 +4,31 @@ on:
   schedule:
     - cron: '0 9-21 * * *'   # <-- Cambia aquí los horarios deseados
 
+
 jobs:
   download:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout del repositorio
+      - name: Checkout
         uses: actions/checkout@v4
 
-      # 1️⃣ Definir variables
-      - name: Definir variables
-        env:
-          FILE_URLS: |
-            https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/data/listas/lista_iptv.m3u
-            https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/data/listas/lista_fuera_iptv.m3u
-            https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/data/listas/lista_kodi.m3u
-          OUTPUT_DIR: ./rep
-        run: |
-          mkdir -p "$OUTPUT_DIR"
-          echo "Variables listas"
+      - name: Instalar jq
+        run: sudo apt-get update && sudo apt-get install -y jq
 
-      # 2️⃣ Descargar cada archivo
-      - name: Descargar archivos con curl
+      - name: Descargar según JSON (variable)
         env:
-          FILE_URLS: ${{ env.FILE_URLS }}
-          OUTPUT_DIR: ${{ env.OUTPUT_DIR }}
+          DOWNLOADS_JSON: ${{ vars.DOWNLOADS_JSON }}   # <‑‑ aquí usamos la variable
         run: |
-          # Recorrer cada línea (cada URL)
-          i=1
-          while IFS= read -r url; do
-            # Extraer nombre de archivo (último segmento después de '/')
-            filename=$(basename "$url")
-            # Si la URL no termina con un nombre útil, usamos un índice
-            if [[ -z "$filename" || "$filename" == */ ]]; then
-              filename="archivo_$i"
-            fi
-            output_path="${OUTPUT_DIR}/${filename}"
-            echo "Descargando $url → $output_path"
-            curl -L "$url" -o "$output_path"
-            ((i++))
-          done <<< "$FILE_URLS"
+          echo "$DOWNLOADS_JSON" | jq -c '.[]' | while read -r item; do
+            url=$(echo "$item" | jq -r '.url')
+            dest=$(echo "$item" | jq -r '.dest')
+            mkdir -p "$("$dest")"
+            echo "Descargando $url → $dest"
+            curl -L "$url" -o "$dest"
+          done
 
-      # 3️⃣ Subir como artefacto (todos los archivos)
-      - name: Guardar como artefacto
-        if: always()
+      - name: Subir artefactos
         uses: actions/upload-artifact@v4
         with:
-          name: documentos-descargados
-          path: ${{ env.OUTPUT_DIR }}/**
-
-      # 4️⃣ (Opcional) Commit & push de los archivos
-      - name: Commit y push
-        if: success()
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "${{ env.OUTPUT_DIR }}/**"
-          git commit -m "📥 Descarga automática de documentos $(date +'%Y-%m-%d %H:%M')"
-          git pushEJEM
+          name: documentos-multiples
+          path: downloads/**
