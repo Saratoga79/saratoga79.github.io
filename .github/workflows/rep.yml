@@ -2,7 +2,16 @@ name: Descargar múltiples documentos (con variable)
 
 on:
   schedule:
-    - cron: '0 9-21 * * *'
+    - cron: '0 9-21 * * *'habituales
+
+  # 2️⃣ Disparador manual (añádelo)
+  workflow_dispatch:
+    # (Opcional) puedes definir inputs que el usuario rellene al lanzar el workflow
+    inputs:
+      debug:
+        description: 'Activar modo debug (true/false)'
+        required: false
+        default: 'false'
 
 jobs:
   download:
