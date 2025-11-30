@@ -1,42 +1,106 @@
 name: Descargar múltiples documentos (con variable)
 
+# -------------------------------------------------
+# 1️⃣  Triggers
+# -------------------------------------------------
 on:
+  # 1️⃣  Ejecución programada (de 09:00 a 21:00 UTC, cada hora)
   schedule:
     - cron: '0 9-21 * * *'
 
-  # 2️⃣ Disparador manual (añádelo)
+  # 2️⃣  Disparador manual (aparecerá el botón “Run workflow”)
   workflow_dispatch:
-    # (Opcional) puedes definir inputs que el usuario rellene al lanzar el workflow
     inputs:
       debug:
         description: 'Activar modo debug (true/false)'
         required: false
         default: 'false'
 
+# -------------------------------------------------
+# 2️⃣  Job
+# -------------------------------------------------
 jobs:
   download:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      # -------------------------------------------------
+      # 2.1️⃣ Checkout (necesario solo si vas a hacer commit)
+      # -------------------------------------------------
+      - name: Checkout del repositorio
         uses: actions/checkout@v4
 
+      # -------------------------------------------------
+      # 2.2️⃣ Instalar jq (para parsear JSON)
+      # -------------------------------------------------
       - name: Instalar jq
         run: sudo apt-get update && sudo apt-get install -y jq
 
+      # -------------------------------------------------
+      # 2.3️⃣ Mostrar el JSON que vamos a procesar (diagnóstico)
+      # -------------------------------------------------
+      - name: Mostrar JSON usado
+        env:
+          DOWNLOADS_JSON: ${{ vars.DOWNLOADS_JSON }}   # <-- variable del repo
+        run: |
+          echo "===== CONTENIDO DE DOWNLOADS_JSON ====="
+          printf '%s\n' "$DOWNLOADS_JSON"
+          echo "=========================================="
+
+      # -------------------------------------------------
+      # 2.4️⃣ Descargar según JSON (variable)
+      # -------------------------------------------------
       - name: Descargar según JSON (variable)
         env:
-          DOWNLOADS_JSON: ${{ vars.DOWNLOADS_JSON }}   # <‑‑ aquí usamos la variable
+          DOWNLOADS_JSON: ${{ vars.DOWNLOADS_JSON }}
+          DEBUG_MODE: ${{ github.event.inputs.debug }}
         run: |
+          # Si el usuario activó debug, mostramos cada comando antes de ejecutarlo
+          if [ "$DEBUG_MODE" = "true" ]; then set -x; fi
+
           echo "$DOWNLOADS_JSON" | jq -c '.[]' | while read -r item; do
             url=$(echo "$item" | jq -r '.url')
             dest=$(echo "$item" | jq -r '.dest')
-            mkdir -p "downloads/$(dirname "$dest")"
-            echo "Descargando $url → downloads/$dest"
-            curl -L "$url" -o "downloads/$dest"
+
+            # Creamos la carpeta destino (si no existe)
+            mkdir -p "$(dirname "$dest")"
+
+            echo "▶️  Descargando $url → $dest"
+            # -f: falla si el código HTTP no es 2xx
+            # -L: sigue redirecciones
+            curl -fSL "$url" -o "$dest"
+            rc=$?
+            if [ $rc -ne 0 ]; then
+              echo "❌  ERROR al descargar $url (código $rc)"
+            else
+              echo "✅  Descarga completada: $dest"
+            fi
           done
 
+      # -------------------------------------------------
+      # 2.5️⃣ Listar el contenido final (para confirmar que hay archivos)
+      # -------------------------------------------------
+      - name: Listar contenido de downloads/
+        if: always()
+        run: |
+          echo "=== LISTADO FINAL DE downloads/ ==="
+          ls -R downloads/ || echo "Carpeta downloads/ no encontrada"
+          echo "===================================="
+
+      # -------------------------------------------------
+      # 2.6️⃣ Subir artefactos (para que los veas en GitHub)
+      # -------------------------------------------------
       - name: Subir artefactos
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: documentos-multiples
           path: downloads/**
+
+      # -------------------------------------------------
+      # 2.7️⃣ (Opcional) Commit & push de los archivos descargados
+      # -------------------------------------------------
+      - name: Commit y push de los archivos descargados
+        if: success()
+        run: |
+          git config --global user.nam
