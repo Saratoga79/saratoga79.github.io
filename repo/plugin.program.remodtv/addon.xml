@@ -1,7 +1,7 @@
 <addon 
 	id="plugin.program.remodtv"
 	name="ReMod TV"
-	version="25.11.29.1"
+	version="25.12.01.0"
 	provider-name="Saratoga">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1"/> <!-- Mín Kodi 20+ -->
@@ -16,6 +16,13 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
+> Versión = 25.12.01.0
+> Cambios respecto a la versión anterior
+	- Añadida Fuente de Repuesto 2 para las fuentes:
+	  - 1 Direct
+	  - 2 ACE
+	  - 3 Horus
+	
 > Versión = 25.11.29.1
 > Cambios respecto a la versión anterior
 	- Actualizado Ace Serve a la v1.5.5 en la sección de Herramientas y Utilidades
@@ -121,7 +128,10 @@
 	
 > Versión = 25.10.22.2
 > Cambios respecto a la versión anterior:
-	- Añadidas fuentes de repuesto para las fuentes Direct (1), ACE (2) y Horus (3)
+	- Añadida Fuente de Repuesto para las fuentes:
+	  - 1 Direct
+	  - 2 ACE
+	  - 3 Horus Direct (1), ACE (2) y Horus (3)
 	
 > Versión = 25.10.22.1
 > Cambios respecto a la versión anterior:
@@ -182,7 +192,6 @@
 > Versión = 25.10.14.0
 > Cambios respecto a la versión anterior:
 	- Versión inicial.
-
 		</news>
         <assets>
 			<icon>recursos/imagenes/icono.png</icon>

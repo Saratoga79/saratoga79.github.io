@@ -23,12 +23,6 @@
   "fue8": {
     "url": "https://raw.githubusercontent.com/chukyvaliente/iptv/refs/heads/main/iptv"
   },
-  "fue9": {
-    "url": ""
-  },
-  "fue10": {
-    "url": ""
-  },
   "fue11": {
     "url": "https://k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004.ipns.dweb.link/data/listas/lista_iptv.m3u"
   },
@@ -37,5 +31,14 @@
   },
   "fue13": {
     "url": "https://k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004.ipns.dweb.link/data/listas/lista_kodi.m3u"
+  },
+  "fue21": {
+    "url": "https://raw.githubusercontent.com/Saratoga79/saratoga79.github.io/refs/heads/master/downloads/rep/21"
+  },
+  "fue22": {
+    "url": "https://raw.githubusercontent.com/Saratoga79/saratoga79.github.io/refs/heads/master/downloads/rep/22"
+  },
+  "fue23": {
+    "url": "https://raw.githubusercontent.com/Saratoga79/saratoga79.github.io/refs/heads/master/downloads/rep/23"
   }
 }
