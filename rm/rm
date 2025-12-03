@@ -134,190 +134,190 @@ http://delta8k.xyz:80/play/live.php?mac=00:1A:79:00:0D:75&stream=1317930&extensi
 #EXTINF:-1 cuid="44" group-title="M3U8" tvg-chno="44" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [HD@25] [M3U8] (LaPr) (Canal 44)
 http://live.detodotvplay.com:8080/Risario8/Pineda13/130125
 
-#EXTINF:-1 cuid="45" group-title="ACS" tvg-chno="45" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@50] [ACS] (Elc) (Canal 45)
-http://127.0.0.1:6878/ace/getstream?id=e2b8a4aba2f4ea3dd68992fcdb65c9e62d910b05&pid=13
+#EXTINF:-1 cuid="45" group-title="ACS" tvg-chno="45" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@50] [ACS] (NeEr6) (Canal 45)
+http://127.0.0.1:6878/ace/getstream?id=911ad127726234b97658498a8b790fdd7516541d&pid=13
 
-#EXTINF:-1 cuid="46" group-title="ACS" tvg-chno="46" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@50] [ACS] (NeEr6) (Canal 46)
-http://127.0.0.1:6878/ace/getstream?id=911ad127726234b97658498a8b790fdd7516541d&pid=14
+#EXTINF:-1 cuid="46" group-title="ACS" tvg-chno="46" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [ACS] (Elc) (Canal 46)
+http://127.0.0.1:6878/ace/getstream?id=7ad14386deef2f45ffe17d30a631dbf79b6a1a87&pid=14
 
 #EXTINF:-1 cuid="47" group-title="ACS" tvg-chno="47" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [ACS] (Elc) (Canal 47)
-http://127.0.0.1:6878/ace/getstream?id=7ad14386deef2f45ffe17d30a631dbf79b6a1a87&pid=15
+http://127.0.0.1:6878/ace/getstream?id=51b363b1c4d42724e05240ad068ad219df8042ec&pid=15
 
-#EXTINF:-1 cuid="48" group-title="ACS" tvg-chno="48" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [ACS] (Elc) (Canal 48)
-http://127.0.0.1:6878/ace/getstream?id=51b363b1c4d42724e05240ad068ad219df8042ec&pid=16
+#EXTINF:-1 cuid="48" group-title="ACS" tvg-chno="48" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [ACS] (SpTv) (Canal 48)
+http://127.0.0.1:6878/ace/getstream?id=b8eb9c9868d487402569bba2d97a8af113d033fe&pid=16
 
-#EXTINF:-1 cuid="49" group-title="ACS" tvg-chno="49" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [ACS] (SpTv) (Canal 49)
-http://127.0.0.1:6878/ace/getstream?id=b8eb9c9868d487402569bba2d97a8af113d033fe&pid=17
+#EXTINF:-1 cuid="49" group-title="ACS" tvg-chno="49" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [HD@25] [ACS] (Elc) (Canal 49)
+http://127.0.0.1:6878/ace/getstream?id=ad42faa399df66dcd62a1cbc9d1c99ed4512d3b8&pid=17
 
-#EXTINF:-1 cuid="50" group-title="ACS" tvg-chno="50" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [HD@25] [ACS] (Elc) (Canal 50)
-http://127.0.0.1:6878/ace/getstream?id=ad42faa399df66dcd62a1cbc9d1c99ed4512d3b8&pid=18
-
-#EXTINF:-1 cuid="51" group-title="M3U8" tvg-chno="51" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [M3U8] (ChIp) (Canal 51)
+#EXTINF:-1 cuid="50" group-title="M3U8" tvg-chno="50" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [M3U8] (ChIp) (Canal 50)
 http://vipipjpapi.top:8080/VIP013591733396006274/58209180da36/255
 
-#EXTINF:-1 cuid="52" group-title="M3U8" tvg-chno="52" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [M3U8] (EaBl) (Canal 52)
+#EXTINF:-1 cuid="51" group-title="M3U8" tvg-chno="51" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [M3U8] (EaBl) (Canal 51)
 http://iplive8k.xyz:80/play/live.php?mac=00:1A:79:05:FF:2A&stream=1082229&extension=ts&play_token=ncG02coqnj
 
-#EXTINF:-1 cuid="53" group-title="M3U8" tvg-chno="53" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [M3U8] (BeSp) (Canal 53)
+#EXTINF:-1 cuid="52" group-title="M3U8" tvg-chno="52" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [M3U8] (BeSp) (Canal 52)
 http://delta8k.xyz:80/play/live.php?mac=00:1A:79:00:0D:75&stream=840008&extension=ts
 
-#EXTINF:-1 cuid="54" group-title="M3U8" tvg-chno="54" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [M3U8] (BeSp) (Canal 54)
+#EXTINF:-1 cuid="53" group-title="M3U8" tvg-chno="53" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [M3U8] (BeSp) (Canal 53)
 http://delta8k.xyz:80/play/live.php?mac=00:1A:79:00:0B:4F&stream=840008&extension=ts
 
-#EXTINF:-1 cuid="55" group-title="M3U8" tvg-chno="55" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [HD@25] [M3U8] (EaBl) (Canal 55)
+#EXTINF:-1 cuid="54" group-title="M3U8" tvg-chno="54" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [HD@25] [M3U8] (EaBl) (Canal 54)
 http://iplive8k.xyz:80/play/live.php?mac=00:1A:79:05:FF:2A&stream=1082231&extension=ts&play_token=ncG02coqnj
 
-#EXTINF:-1 cuid="56" group-title="M3U8" tvg-chno="56" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [SD@25] [M3U8] (BiSp) (Canal 56)
+#EXTINF:-1 cuid="55" group-title="M3U8" tvg-chno="55" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [SD@25] [M3U8] (BiSp) (Canal 55)
 http://fastream.xyz:8080/juan18/83e45w87w/12304
 
-#EXTINF:-1 cuid="57" group-title="ACS" tvg-chno="57" tvg-id="M+ LaLiga 3 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-3-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 3 HD",M+ LaLiga TV 3 [FHD@25] [ACS] (Elc) (Canal 57)
-http://127.0.0.1:6878/ace/getstream?id=382b14499e3d76e557d449d2e5bbc4e4bd63bd39&pid=19
+#EXTINF:-1 cuid="56" group-title="ACS" tvg-chno="56" tvg-id="M+ LaLiga 3 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-3-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 3 HD",M+ LaLiga TV 3 [FHD@25] [ACS] (Elc) (Canal 56)
+http://127.0.0.1:6878/ace/getstream?id=382b14499e3d76e557d449d2e5bbc4e4bd63bd39&pid=18
 
-#EXTINF:-1 cuid="58" group-title="ACS" tvg-chno="58" tvg-id="M+ LaLiga 3 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-3-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 3 HD",M+ LaLiga TV 3 [FHD@25] [ACS] (SpTv) (Canal 58)
-http://127.0.0.1:6878/ace/getstream?id=571ce113b9d600a145766443d7417eccab2e1846&pid=20
+#EXTINF:-1 cuid="57" group-title="ACS" tvg-chno="57" tvg-id="M+ LaLiga 3 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-3-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 3 HD",M+ LaLiga TV 3 [FHD@25] [ACS] (SpTv) (Canal 57)
+http://127.0.0.1:6878/ace/getstream?id=571ce113b9d600a145766443d7417eccab2e1846&pid=19
 
-#EXTINF:-1 cuid="59" group-title="M3U8" tvg-chno="59" tvg-id="M+ LaLiga 3 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-3-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 3 HD",M+ LaLiga TV 3 [FHD@25] [M3U8] (ChIp) (Canal 59)
+#EXTINF:-1 cuid="58" group-title="M3U8" tvg-chno="58" tvg-id="M+ LaLiga 3 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-3-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 3 HD",M+ LaLiga TV 3 [FHD@25] [M3U8] (ChIp) (Canal 58)
 http://vipipjpapi.top:8080/VIP013591733396006274/58209180da36/256
 
-#EXTINF:-1 cuid="60" group-title="M3U8" tvg-chno="60" tvg-id="M+ LaLiga 3 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-3-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 3 HD",M+ LaLiga TV 3 [FHD@25] [M3U8] (EaBl) (Canal 60)
+#EXTINF:-1 cuid="59" group-title="M3U8" tvg-chno="59" tvg-id="M+ LaLiga 3 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-3-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 3 HD",M+ LaLiga TV 3 [FHD@25] [M3U8] (EaBl) (Canal 59)
 http://iplive8k.xyz:80/play/live.php?mac=00:1A:79:05:FF:2A&stream=1354116&extension=ts&play_token=ncG02coqnj
 
-#EXTINF:-1 cuid="61" group-title="M3U8" tvg-chno="61" tvg-id="M+ LaLiga 3 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-3-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 3 HD",M+ LaLiga TV 3 [FHD@25] [M3U8] (BeSp) (Canal 61)
+#EXTINF:-1 cuid="60" group-title="M3U8" tvg-chno="60" tvg-id="M+ LaLiga 3 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-3-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 3 HD",M+ LaLiga TV 3 [FHD@25] [M3U8] (BeSp) (Canal 60)
 http://delta8k.xyz:80/play/live.php?mac=00:1A:79:00:0D:75&stream=840007&extension=ts
 
-#EXTINF:-1 cuid="62" group-title="M3U8" tvg-chno="62" tvg-id="M+ LaLiga 3 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-3-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 3 HD",M+ LaLiga TV 3 [FHD@25] [M3U8] (BeSp) (Canal 62)
+#EXTINF:-1 cuid="61" group-title="M3U8" tvg-chno="61" tvg-id="M+ LaLiga 3 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-3-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 3 HD",M+ LaLiga TV 3 [FHD@25] [M3U8] (BeSp) (Canal 61)
 http://delta8k.xyz:80/play/live.php?mac=00:1A:79:00:0B:4F&stream=840007&extension=ts
 
-#EXTINF:-1 cuid="63" group-title="M3U8" tvg-chno="63" tvg-id="M+ LaLiga 3 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-3-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 3 HD",M+ LaLiga TV 3 [SD@25] [M3U8] (BiSp) (Canal 63)
+#EXTINF:-1 cuid="62" group-title="M3U8" tvg-chno="62" tvg-id="M+ LaLiga 3 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-3-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 3 HD",M+ LaLiga TV 3 [SD@25] [M3U8] (BiSp) (Canal 62)
 http://fastream.xyz:8080/juan18/83e45w87w/60249
 
+#EXTINF:-1 cuid="63" group-title="ACS" tvg-chno="63" tvg-id="M+ LaLiga 4" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-4-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 4 HD",M+ LaLiga TV 4 [FHD@25] [ACS] (Elc) (Canal 63)
+http://127.0.0.1:6878/ace/getstream?id=2a6b1fd8a24b23747db1ea534a51457708523602&pid=20
+
 #EXTINF:-1 cuid="64" group-title="ACS" tvg-chno="64" tvg-id="M+ LaLiga 4" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-4-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 4 HD",M+ LaLiga TV 4 [FHD@25] [ACS] (Elc) (Canal 64)
-http://127.0.0.1:6878/ace/getstream?id=2a6b1fd8a24b23747db1ea534a51457708523602&pid=21
+http://127.0.0.1:6878/ace/getstream?id=1bcee22d5476f2eae9dc2cb24e3685152cf285cb&pid=21
 
-#EXTINF:-1 cuid="65" group-title="ACS" tvg-chno="65" tvg-id="M+ LaLiga 4" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-4-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 4 HD",M+ LaLiga TV 4 [FHD@25] [ACS] (Elc) (Canal 65)
-http://127.0.0.1:6878/ace/getstream?id=1bcee22d5476f2eae9dc2cb24e3685152cf285cb&pid=22
+#EXTINF:-1 cuid="65" group-title="ACS" tvg-chno="65" tvg-id="M+ LaLiga 4" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-4-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 4 HD",M+ LaLiga TV 4 [FHD@25] [ACS] (NeLo) (Canal 65)
+http://127.0.0.1:6878/ace/getstream?id=22178d72e0f255dedd7e56f9474fea879289a6f1&pid=22
 
-#EXTINF:-1 cuid="66" group-title="ACS" tvg-chno="66" tvg-id="M+ LaLiga 4" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-4-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 4 HD",M+ LaLiga TV 4 [FHD@25] [ACS] (NeLo) (Canal 66)
-http://127.0.0.1:6878/ace/getstream?id=22178d72e0f255dedd7e56f9474fea879289a6f1&pid=23
-
-#EXTINF:-1 cuid="67" group-title="M3U8" tvg-chno="67" tvg-id="M+ LaLiga 4" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-4-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 4 HD",M+ LaLiga TV 4 [HD@25] [M3U8] (ChIp) (Canal 67)
+#EXTINF:-1 cuid="66" group-title="M3U8" tvg-chno="66" tvg-id="M+ LaLiga 4" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-4-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 4 HD",M+ LaLiga TV 4 [HD@25] [M3U8] (ChIp) (Canal 66)
 http://vipipjpapi.top:8080/VIP013591733396006274/58209180da36/56470
 
-#EXTINF:-1 cuid="68" group-title="ACS" tvg-chno="68" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [ACS] (Api) (Canal 68)
-http://127.0.0.1:6878/ace/getstream?id=d7725d6b0afea5f598824e8eb30f046fc983f8ab&pid=24
+#EXTINF:-1 cuid="67" group-title="ACS" tvg-chno="67" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [ACS] (Elc) (Canal 67)
+http://127.0.0.1:6878/ace/getstream?id=e2b8a4aba2f4ea3dd68992fcdb65c9e62d910b05&pid=23
 
-#EXTINF:-1 cuid="69" group-title="ACS" tvg-chno="69" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [ACS] (Elc) (Canal 69)
-http://127.0.0.1:6878/ace/getstream?id=99171f30c83bf7ab5df28b39607c91334cc60e4b&pid=25
+#EXTINF:-1 cuid="68" group-title="ACS" tvg-chno="68" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [ACS] (NeLo) (Canal 68)
+http://127.0.0.1:6878/ace/getstream?id=3b5692a70c0d0d1dd23fed31d7886b4aaa64bdaa&pid=24
 
-#EXTINF:-1 cuid="70" group-title="ACS" tvg-chno="70" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@25] [ACS] (NeEr6) (Canal 70)
-http://127.0.0.1:6878/ace/getstream?id=0e50439e68aa2435b38f0563bb2f2e98f32ff4b1&pid=26
+#EXTINF:-1 cuid="69" group-title="ACS" tvg-chno="69" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [ACS] (Api) (Canal 69)
+http://127.0.0.1:6878/ace/getstream?id=d7725d6b0afea5f598824e8eb30f046fc983f8ab&pid=25
 
-#EXTINF:-1 cuid="71" group-title="ACS" tvg-chno="71" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@25] [ACS] (Elc) (Canal 71)
-http://127.0.0.1:6878/ace/getstream?id=74defb8f4ed3a917fd07c21b34f43c17107ec618&pid=27
+#EXTINF:-1 cuid="70" group-title="ACS" tvg-chno="70" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [ACS] (Elc) (Canal 70)
+http://127.0.0.1:6878/ace/getstream?id=99171f30c83bf7ab5df28b39607c91334cc60e4b&pid=26
 
-#EXTINF:-1 cuid="72" group-title="ACS" tvg-chno="72" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@25] [ACS] (NeEr6) (Canal 72)
-http://127.0.0.1:6878/ace/getstream?id=1bb5bf76fb2018d6db9aaa29b1467ecdfabe2884&pid=28
+#EXTINF:-1 cuid="71" group-title="ACS" tvg-chno="71" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@25] [ACS] (NeEr6) (Canal 71)
+http://127.0.0.1:6878/ace/getstream?id=0e50439e68aa2435b38f0563bb2f2e98f32ff4b1&pid=27
 
-#EXTINF:-1 cuid="73" group-title="ACS" tvg-chno="73" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@25] [ACS] (SpTv) (Canal 73)
-http://127.0.0.1:6878/ace/getstream?id=dda5d2cace9bc4cb0918e62bc50d657d4a10496a&pid=29
+#EXTINF:-1 cuid="72" group-title="ACS" tvg-chno="72" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@25] [ACS] (Elc) (Canal 72)
+http://127.0.0.1:6878/ace/getstream?id=74defb8f4ed3a917fd07c21b34f43c17107ec618&pid=28
 
-#EXTINF:-1 cuid="74" group-title="ACS" tvg-chno="74" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [KO] [HD@25] [ACS] (NeEr) (Canal 74)
-http://127.0.0.1:6878/ace/getstream?id=19f28f60c908f987b1a03da078e63320d7bf29e8&pid=30
+#EXTINF:-1 cuid="73" group-title="ACS" tvg-chno="73" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@25] [ACS] (NeEr6) (Canal 73)
+http://127.0.0.1:6878/ace/getstream?id=1bb5bf76fb2018d6db9aaa29b1467ecdfabe2884&pid=29
 
-#EXTINF:-1 cuid="75" group-title="ACS" tvg-chno="75" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [KO] [HD@25] [ACS] (NeEr) (Canal 75)
-http://127.0.0.1:6878/ace/getstream?id=d1596a3988b84a4d2711fd380eb8a53256ad74ae&pid=31
+#EXTINF:-1 cuid="74" group-title="ACS" tvg-chno="74" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@25] [ACS] (SpTv) (Canal 74)
+http://127.0.0.1:6878/ace/getstream?id=dda5d2cace9bc4cb0918e62bc50d657d4a10496a&pid=30
 
-#EXTINF:-1 cuid="76" group-title="M3U8" tvg-chno="76" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@50] [M3U8] (ChIp) (Canal 76)
+#EXTINF:-1 cuid="75" group-title="ACS" tvg-chno="75" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@25] [ACS] (Elc) (Canal 75)
+http://127.0.0.1:6878/ace/getstream?id=4e6d9cf7d177366045d33cd8311d8b1d7f4bed1f&pid=31
+
+#EXTINF:-1 cuid="76" group-title="ACS" tvg-chno="76" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [KO] [HD@25] [ACS] (NeEr) (Canal 76)
+http://127.0.0.1:6878/ace/getstream?id=19f28f60c908f987b1a03da078e63320d7bf29e8&pid=32
+
+#EXTINF:-1 cuid="77" group-title="ACS" tvg-chno="77" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [KO] [HD@25] [ACS] (NeEr) (Canal 77)
+http://127.0.0.1:6878/ace/getstream?id=d1596a3988b84a4d2711fd380eb8a53256ad74ae&pid=33
+
+#EXTINF:-1 cuid="78" group-title="M3U8" tvg-chno="78" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@50] [M3U8] (ChIp) (Canal 78)
 http://vipipjpapi.top:8080/VIP013591733396006274/58209180da36/97138
 
-#EXTINF:-1 cuid="77" group-title="M3U8" tvg-chno="77" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [M3U8] (EaBl) (Canal 77)
+#EXTINF:-1 cuid="79" group-title="M3U8" tvg-chno="79" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [M3U8] (EaBl) (Canal 79)
 http://iplive8k.xyz:80/play/live.php?mac=00:1A:79:05:FF:2A&stream=276565&extension=ts&play_token=ncG02coqnj
 
-#EXTINF:-1 cuid="78" group-title="M3U8" tvg-chno="78" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [M3U8] (EaBl) (Canal 78)
+#EXTINF:-1 cuid="80" group-title="M3U8" tvg-chno="80" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [M3U8] (EaBl) (Canal 80)
 http://iplive8k.xyz:80/play/live.php?mac=00:1A:79:05:FF:2A&stream=276548&extension=ts&play_token=ncG02coqnj
 
-#EXTINF:-1 cuid="79" group-title="M3U8" tvg-chno="79" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [M3U8] (EaBl) (Canal 79)
+#EXTINF:-1 cuid="81" group-title="M3U8" tvg-chno="81" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [M3U8] (EaBl) (Canal 81)
 http://iplive8k.xyz:80/play/live.php?mac=00:1A:79:05:FF:2A&stream=252724&extension=ts&play_token=ncG02coqnj
 
-#EXTINF:-1 cuid="80" group-title="M3U8" tvg-chno="80" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [M3U8] (EaBl) (Canal 80)
+#EXTINF:-1 cuid="82" group-title="M3U8" tvg-chno="82" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [M3U8] (EaBl) (Canal 82)
 http://iplive8k.xyz:80/play/live.php?mac=00:1A:79:05:FF:2A&stream=670&extension=ts&play_token=ncG02coqnj
 
-#EXTINF:-1 cuid="81" group-title="M3U8" tvg-chno="81" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [M3U8] (EaBl) (Canal 81)
+#EXTINF:-1 cuid="83" group-title="M3U8" tvg-chno="83" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [M3U8] (EaBl) (Canal 83)
 http://iplive8k.xyz:80/play/live.php?mac=00:1A:79:05:FF:2A&stream=568204&extension=ts&play_token=ncG02coqnj
 
-#EXTINF:-1 cuid="82" group-title="M3U8" tvg-chno="82" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [M3U8] (EaBl) (Canal 82)
+#EXTINF:-1 cuid="84" group-title="M3U8" tvg-chno="84" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [M3U8] (EaBl) (Canal 84)
 http://iplive8k.xyz:80/play/live.php?mac=00:1A:79:05:FF:2A&stream=1345737&extension=ts&play_token=ncG02coqnj
 
-#EXTINF:-1 cuid="83" group-title="M3U8" tvg-chno="83" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [M3U8] (EaBl) (Canal 83)
+#EXTINF:-1 cuid="85" group-title="M3U8" tvg-chno="85" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [M3U8] (EaBl) (Canal 85)
 http://iplive8k.xyz:80/play/live.php?mac=00:1A:79:05:FF:2A&stream=252723&extension=ts&play_token=ncG02coqnj
 
-#EXTINF:-1 cuid="84" group-title="M3U8" tvg-chno="84" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@25] [M3U8] (ChIp) (Canal 84)
+#EXTINF:-1 cuid="86" group-title="M3U8" tvg-chno="86" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@25] [M3U8] (ChIp) (Canal 86)
 http://vipipjpapi.top:8080/VIP013591733396006274/58209180da36/97193
 
-#EXTINF:-1 cuid="85" group-title="M3U8" tvg-chno="85" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@50] [M3U8] (ChIp) (Canal 85)
+#EXTINF:-1 cuid="87" group-title="M3U8" tvg-chno="87" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@50] [M3U8] (ChIp) (Canal 87)
 http://vipipjpapi.top:8080/VIP013591733396006274/58209180da36/243
 
-#EXTINF:-1 cuid="86" group-title="M3U8" tvg-chno="86" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@50] [M3U8] (ChIp) (Canal 86)
+#EXTINF:-1 cuid="88" group-title="M3U8" tvg-chno="88" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@50] [M3U8] (ChIp) (Canal 88)
 http://vipipjpapi.top:8080/VIP013591733396006274/58209180da36/244
 
-#EXTINF:-1 cuid="87" group-title="M3U8" tvg-chno="87" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@50] [M3U8] (ChIp) (Canal 87)
+#EXTINF:-1 cuid="89" group-title="M3U8" tvg-chno="89" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@50] [M3U8] (ChIp) (Canal 89)
 http://vipipjpapi.top:8080/VIP013591733396006274/58209180da36/132297
 
-#EXTINF:-1 cuid="88" group-title="M3U8" tvg-chno="88" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@50] [M3U8] (BiSp) (Canal 88)
+#EXTINF:-1 cuid="90" group-title="M3U8" tvg-chno="90" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@50] [M3U8] (BiSp) (Canal 90)
 http://fastream.xyz:8080/juan18/83e45w87w/12363
 
-#EXTINF:-1 cuid="89" group-title="M3U8" tvg-chno="89" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [M3U8] (DrVi4) (Canal 89)
+#EXTINF:-1 cuid="91" group-title="M3U8" tvg-chno="91" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [M3U8] (DrVi4) (Canal 91)
 http://vipketseyket.top:8080/VIP01834172639516298/40c119f5f5cb/97138
 
-#EXTINF:-1 cuid="90" group-title="M3U8" tvg-chno="90" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@50] [M3U8] (DrVi4) (Canal 90)
+#EXTINF:-1 cuid="92" group-title="M3U8" tvg-chno="92" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@50] [M3U8] (DrVi4) (Canal 92)
 http://vipketseyket.top:8080/VIP01834172639516298/40c119f5f5cb/244
 
-#EXTINF:-1 cuid="91" group-title="M3U8" tvg-chno="91" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@25] [M3U8] (La2) (Canal 91)
+#EXTINF:-1 cuid="93" group-title="M3U8" tvg-chno="93" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@25] [M3U8] (La2) (Canal 93)
 http://1play.cool:25461/streaming/clients_live.php?username=2132580232&password=27be478b47&stream=147097&extension=ts
 
-#EXTINF:-1 cuid="92" group-title="M3U8" tvg-chno="92" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@25] [M3U8] (VoV2) (Canal 92)
+#EXTINF:-1 cuid="94" group-title="M3U8" tvg-chno="94" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@25] [M3U8] (VoV2) (Canal 94)
 http://tv.diablotv.net:8080/CanalesIprotvPro/U3XdSbjMVb/156156
 
-#EXTINF:-1 cuid="93" group-title="M3U8" tvg-chno="93" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@25] [M3U8] (LaPr) (Canal 93)
+#EXTINF:-1 cuid="95" group-title="M3U8" tvg-chno="95" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@25] [M3U8] (LaPr) (Canal 95)
 http://live.detodotvplay.com:8080/Risario8/Pineda13/58695
 
-#EXTINF:-1 cuid="94" group-title="M3U8" tvg-chno="94" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@50] [M3U8] (DrVi4) (Canal 94)
+#EXTINF:-1 cuid="96" group-title="M3U8" tvg-chno="96" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@50] [M3U8] (DrVi4) (Canal 96)
 http://vipketseyket.top:8080/VIP01834172639516298/40c119f5f5cb/243
 
-#EXTINF:-1 cuid="95" group-title="M3U8" tvg-chno="95" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@25] [M3U8] (LGCT) (Canal 95)
+#EXTINF:-1 cuid="97" group-title="M3U8" tvg-chno="97" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@25] [M3U8] (LGCT) (Canal 97)
 http://57.129.77.7:8082/DAZN_LaLiga_dda5d.high.m3u8
 
-#EXTINF:-1 cuid="96" group-title="M3U8" tvg-chno="96" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@25] [M3U8] (DrVi4) (Canal 96)
+#EXTINF:-1 cuid="98" group-title="M3U8" tvg-chno="98" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@25] [M3U8] (DrVi4) (Canal 98)
 http://vipketseyket.top:8080/VIP01834172639516298/40c119f5f5cb/243
 
-#EXTINF:-1 cuid="97" group-title="M3U8" tvg-chno="97" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [M3U8] (BiZo) (Canal 97)
+#EXTINF:-1 cuid="99" group-title="M3U8" tvg-chno="99" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [M3U8] (BiZo) (Canal 99)
 https://zonamovie.pro:443/play/aICicWKARzaIYzzAPXwR1mU7NZv5erlROEiUnUbNd1GNjS8ibqsjMDaScWabptC9/ts
 
-#EXTINF:-1 cuid="98" group-title="M3U8" tvg-chno="98" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@25] [M3U8] (BiZo) (Canal 98)
+#EXTINF:-1 cuid="100" group-title="M3U8" tvg-chno="100" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@25] [M3U8] (BiZo) (Canal 100)
 https://zonamovie.pro:443/play/aICicWKARzaIYzzAPXwR1mU7NZv5erlROEiUnUbNd1Gtl7biJA9BfnGJdbmeRvzA/ts
 
-#EXTINF:-1 cuid="99" group-title="M3U8" tvg-chno="99" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@25] [M3U8] (La2) (Canal 99)
+#EXTINF:-1 cuid="101" group-title="M3U8" tvg-chno="101" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@25] [M3U8] (La2) (Canal 101)
 https://tiger-hub.vercel.app/DAZN-LaLiga/tracks-v1a1/mono.m3u8
 
-#EXTINF:-1 cuid="100" group-title="M3U8" tvg-chno="100" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [SD@25] [M3U8] (BiZo) (Canal 100)
+#EXTINF:-1 cuid="102" group-title="M3U8" tvg-chno="102" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [SD@25] [M3U8] (BiZo) (Canal 102)
 https://zonamovie.pro:443/play/aICicWKARzaIYzzAPXwR1mU7NZv5erlROEiUnUbNd1HaSLD29LoR3IYT3dcba9bz/ts
 
-#EXTINF:-1 cuid="101" group-title="M3U8" tvg-chno="101" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [SD@25] [M3U8] (BiSp) (Canal 101)
+#EXTINF:-1 cuid="103" group-title="M3U8" tvg-chno="103" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [SD@25] [M3U8] (BiSp) (Canal 103)
 http://fastream.xyz:8080/juan18/83e45w87w/493
 
-#EXTINF:-1 cuid="102" group-title="ACS" tvg-chno="102" tvg-id="DAZN LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-2-es.png" tvg-name="DAZN LaLiga 2 HD",DAZN LaLiga 2 [FHD@25] [ACS] (NeEr6) (Canal 102)
-http://127.0.0.1:6878/ace/getstream?id=5091ea94b75ba4b50b078b4102a3d0e158ef59c3&pid=32
+#EXTINF:-1 cuid="104" group-title="ACS" tvg-chno="104" tvg-id="DAZN LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-2-es.png" tvg-name="DAZN LaLiga 2 HD",DAZN LaLiga 2 [FHD@50] [ACS] (NeEr6) (Canal 104)
+http://127.0.0.1:6878/ace/getstream?id=5091ea94b75ba4b50b078b4102a3d0e158ef59c3&pid=34
 
-#EXTINF:-1 cuid="103" group-title="ACS" tvg-chno="103" tvg-id="DAZN LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-2-es.png" tvg-name="DAZN LaLiga 2 HD",DAZN LaLiga 2 [FHD@25] [ACS] (NeLo) (Canal 103)
-http://127.0.0.1:6878/ace/getstream?id=bf95bbb0de43953a783163201f236f59fcfb1529&pid=33
+#EXTINF:-1 cuid="105" group-title="ACS" tvg-chno="105" tvg-id="DAZN LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-2-es.png" tvg-name="DAZN LaLiga 2 HD",DAZN LaLiga 2 [FHD@25] [ACS] (Elc) (Canal 105)
+http://127.0.0.1:6878/ace/getstream?id=c976c7b37964322752db562b4ad65515509c8d36&pid=35
 
-#EXTINF:-1 cuid="104" group-title="ACS" tvg-chno="104" tvg-id="DAZN LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-2-es.png" tvg-name="DAZN LaLiga 2 HD",DAZN LaLiga 2 [HD@25] [ACS] (Elc) (Canal 104)
-http://127.0.0.1:6878/ace/getstream?id=c976c7b37964322752db562b4ad65515509c8d36&pid=34
-
-#EXTINF:-1 cuid="105" group-title="ACS" tvg-chno="105" tvg-id="DAZN LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-2-es.png" tvg-name="DAZN LaLiga 2 HD",DAZN LaLiga 2 [HD@25] [ACS] (Elc) (Canal 105)
-http://127.0.0.1:6878/ace/getstream?id=4e6d9cf7d177366045d33cd8311d8b1d7f4bed1f&pid=35
-
-#EXTINF:-1 cuid="106" group-title="ACS" tvg-chno="106" tvg-id="DAZN LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-2-es.png" tvg-name="DAZN LaLiga 2 HD",DAZN LaLiga 2 [HD@25] [ACS] (Elc) (Canal 106)
+#EXTINF:-1 cuid="106" group-title="ACS" tvg-chno="106" tvg-id="DAZN LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-2-es.png" tvg-name="DAZN LaLiga 2 HD",DAZN LaLiga 2 [FHD@25] [ACS] (Elc) (Canal 106)
 http://127.0.0.1:6878/ace/getstream?id=a231b2fa1f7754433efeb8bb8d69d7b9096dcba8&pid=36
 
 #EXTINF:-1 cuid="107" group-title="M3U8" tvg-chno="107" tvg-id="DAZN LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-2-es.png" tvg-name="DAZN LaLiga 2 HD",DAZN LaLiga 2 [FHD@25] [M3U8] (ChIp) (Canal 107)
