@@ -571,6 +571,8 @@ def actualizar_tv():
                 return True
             else:
                 xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error al iniciar IPTV Simple.,5000,)")
+                dialog = xbmcgui.Dialog()
+                dialog.ok(f"{remodtv_addon_name}", "Error. Parece que hay algún problema con la Fuente elegida.")
         else:
             xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error al activar IPTV Simple.,5000,)")
     else:
@@ -870,141 +872,165 @@ else:
     elif action == "lis_dir":
         carp = '1'
         archivos_config()
-        actualizar_tv()
-        fue_sel = '1 Direct'
-        guardar_fuente(fue_sel)
-        fue_act = leer_fuente()
-        dialog = xbmcgui.Dialog()
-        dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
+        res = actualizar_tv()
+        if res:
+            fue_sel = '1 Direct'
+            guardar_fuente(fue_sel)
+            fue_act = leer_fuente()
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
+        else:
+            xbmc.executebuiltin(f"Notification({remodtv_addon_name},Probando con la Fuente 1 de Repuesto 2.,3000,)")
+            xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=lis_dir_rep2)')
     ### menú selección fuente 11
     elif action == "lis_dir_rep":
         carp = '11'
         archivos_config()
-        actualizar_tv()
-        fue_sel = '1 Direct Repuesto'
-        guardar_fuente(fue_sel)
-        fue_act = leer_fuente()
-        dialog = xbmcgui.Dialog()
-        dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
+        res = actualizar_tv()
+        if res:
+            fue_sel = '1 Direct Repuesto'
+            guardar_fuente(fue_sel)
+            fue_act = leer_fuente()
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
     ### menú selección fuente 21
     elif action == "lis_dir_rep2":
         carp = '21'
         archivos_config()
-        actualizar_tv()
-        fue_sel = '1 Direct Repuesto 2'
-        guardar_fuente(fue_sel)
-        fue_act = leer_fuente()
-        dialog = xbmcgui.Dialog()
-        dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
+        res = actualizar_tv()
+        if res:
+            fue_sel = '1 Direct Repuesto 2'
+            guardar_fuente(fue_sel)
+            fue_act = leer_fuente()
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
     ### menú selección fuente 2
     elif action == "lis_ace":
         carp = '2'
         archivos_config()
-        actualizar_tv()
-        fue_sel = '2 ACE'
-        guardar_fuente(fue_sel)
-        fue_act = leer_fuente()
-        dialog = xbmcgui.Dialog()
-        dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
+        res = actualizar_tv()
+        if res:
+            fue_sel = '2 ACE'
+            guardar_fuente(fue_sel)
+            fue_act = leer_fuente()
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
+        else:
+            xbmc.executebuiltin(f"Notification({remodtv_addon_name},Probando con la Fuente 2 de Repuesto 2.,3000,)")
+            xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=lis_ace_rep2)')
+            
     ### menú selección fuente 12
     elif action == "lis_ace_rep":
         carp = '12'
         archivos_config()
-        actualizar_tv()
-        fue_sel = '2 ACE Repuesto'
-        guardar_fuente(fue_sel)
-        fue_act = leer_fuente()
-        dialog = xbmcgui.Dialog()
-        dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
+        res = actualizar_tv()
+        if res:
+            fue_sel = '2 ACE Repuesto'
+            guardar_fuente(fue_sel)
+            fue_act = leer_fuente()
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
     ### menú selección fuente 22
     elif action == "lis_ace_rep2":
         carp = '22'
         archivos_config()
-        actualizar_tv()
-        fue_sel = '2 ACE Repuesto 2'
-        guardar_fuente(fue_sel)
-        fue_act = leer_fuente()
-        dialog = xbmcgui.Dialog()
-        dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
+        res = actualizar_tv()
+        if res:
+            fue_sel = '2 ACE Repuesto 2'
+            guardar_fuente(fue_sel)
+            fue_act = leer_fuente()
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
     ### menú selección fuente 3
     elif action == "lis_hor":
         carp = '3'
         archivos_config()
-        actualizar_tv()
-        fue_sel = '3 Horus'
-        guardar_fuente(fue_sel)
-        fue_act = leer_fuente()
-        dialog = xbmcgui.Dialog()
-        dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
+        res = actualizar_tv()
+        if res:
+            fue_sel = '3 Horus'
+            guardar_fuente(fue_sel)
+            fue_act = leer_fuente()
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
+        else:
+            xbmc.executebuiltin(f"Notification({remodtv_addon_name},Probando con la Fuente 3 de Repuesto 2.,3000,)")
+            xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=lis_hor_rep2)')
     ### menú selección fuente 13
     elif action == "lis_hor_rep":
         carp = '13'
         archivos_config()
-        actualizar_tv()
-        fue_sel = '3 Horus Repuesto'
-        guardar_fuente(fue_sel)
-        fue_act = leer_fuente()
-        dialog = xbmcgui.Dialog()
-        dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
+        res = actualizar_tv()
+        if res:
+            fue_sel = '3 Horus Repuesto'
+            guardar_fuente(fue_sel)
+            fue_act = leer_fuente()
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
     ### menú selección fuente 23
     elif action == "lis_hor_rep2":
         carp = '23'
         archivos_config()
-        actualizar_tv()
-        fue_sel = '3 Horus Repuesto 2'
-        guardar_fuente(fue_sel)
-        fue_act = leer_fuente()
-        dialog = xbmcgui.Dialog()
-        dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
+        res = actualizar_tv()
+        if res:
+            fue_sel = '3 Horus Repuesto 2'
+            guardar_fuente(fue_sel)
+            fue_act = leer_fuente()
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
     ### menú selección fuente 4
     elif action == "lis_rm":
         carp = '4'
         archivos_config()
-        actualizar_tv()
-        fue_sel = '4 ReModTV'
-        guardar_fuente(fue_sel)
-        fue_act = leer_fuente()
-        dialog = xbmcgui.Dialog()
-        dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
+        res = actualizar_tv()
+        if res:
+            fue_sel = '4 ReModTV'
+            guardar_fuente(fue_sel)
+            fue_act = leer_fuente()
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
     ### menú selección fuente 5
     elif action == "lis_tvp":
         carp = '5'
         archivos_config()
-        actualizar_tv()
-        fue_sel = '5 TVpass'
-        guardar_fuente(fue_sel)
-        fue_act = leer_fuente()
-        dialog = xbmcgui.Dialog()
-        dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
+        res = actualizar_tv()
+        if res:
+            fue_sel = '5 TVpass'
+            guardar_fuente(fue_sel)
+            fue_act = leer_fuente()
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
     ### menú selección fuente 6
     elif action == "lis_af1":
         carp = '6'
         archivos_config()
-        actualizar_tv()
-        fue_sel = '6 AF1CIONADOS'
-        guardar_fuente(fue_sel)
-        fue_act = leer_fuente()
-        dialog = xbmcgui.Dialog()
-        dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
+        res = actualizar_tv()
+        if res:
+            fue_sel = '6 AF1CIONADOS'
+            guardar_fuente(fue_sel)
+            fue_act = leer_fuente()
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
     ### menú selección fuente 7
     elif action == "lis_eve":
         carp = '7'
         archivos_config()
-        actualizar_tv()
-        fue_sel = '7 Agenda Deportiva'
-        guardar_fuente(fue_sel)
-        fue_act = leer_fuente()
-        dialog = xbmcgui.Dialog()
-        dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
+        res = actualizar_tv()
+        if res:
+            fue_sel = '7 Agenda Deportiva'
+            guardar_fuente(fue_sel)
+            fue_act = leer_fuente()
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
     elif action == "lis_chu":
         carp = '8'
         archivos_config()
-        actualizar_tv()
-        fue_sel = '8 Chucky'
-        guardar_fuente(fue_sel)
-        fue_act = leer_fuente()
-        dialog = xbmcgui.Dialog()
-        dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
+        res = actualizar_tv()
+        if res:
+            fue_sel = '8 Chucky'
+            guardar_fuente(fue_sel)
+            fue_act = leer_fuente()
+            dialog = xbmcgui.Dialog()
+            dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
     ### menu selección de reprodcutor externo 0
     elif action == "pcf0":
         rep_sel = '0'
@@ -1261,3 +1287,5 @@ else:
     else:
         # Acción desconocida → volver al menú principal
         lista_menu_principal()
+    
+    
