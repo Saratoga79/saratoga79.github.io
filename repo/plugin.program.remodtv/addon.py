@@ -491,12 +491,15 @@ def inst_tv():
                 if res:
                     xbmc.log(f"REMOD TV IPTV Simple activado.", level=xbmc.LOGINFO)
                     xbmc.executebuiltin(f"Notification({remodtv_addon_name},Sección de TV recargada.,3000,)")
+                    return True
                 else:
                     xbmc.log(f"REMOD TV Error1 iniciando IPTV Simple.", level=xbmc.LOGINFO)
                     xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error iniciando IPTV Simple.,3000,)")
+                    return False
             else:
                 xbmc.log(f"REMOD TV Error activando IPTV Simple.", level=xbmc.LOGINFO)
                 xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error activando IPTV Simple.,3000,)")
+                return False
         else:
             res = addon_borrar_datos(addon_id)
             if res:
@@ -521,12 +524,11 @@ def inst_tv():
 def pvr_parada_mon():
     xbmc.executebuiltin(f"Notification({remodtv_addon_name},Parando Sección de TV.,1000,)")
     xbmc.log(f"REMOD TV Esperando parada de PVR", level=xbmc.LOGINFO)
-    max_attempts = 20  # Número máximo de intentos
+    max_attempts = 5  # Número máximo de intentos = 5s
     attempts = 0
     while attempts < max_attempts:
         pvr_estado = xbmc.getInfoLabel(f"PVR.BackendHost")
         # xbmc.log(f"REMOD TV Estado PVR: {pvr_estado}", level=xbmc.LOGINFO)
-        # Verificar si el diálogo de confirmación está visible
         if pvr_estado == '':
             xbmc.log(f"REMOD TV PVR parado", level=xbmc.LOGINFO)
             return True
@@ -535,50 +537,57 @@ def pvr_parada_mon():
             attempts += 1
     return False
 
-
 ### pvr iniciado = connected / parado = vacio
 def pvr_inicio_mon():
     xbmc.executebuiltin(f"Notification({remodtv_addon_name},Iniciando Sección de TV.,1000,)")
     xbmc.log(f"REMOD TV Esperando inicio de PVR", level=xbmc.LOGINFO)
-    max_attempts = 30  # Número máximo de intentos
+    max_attempts = 90  # Número máximo de intentos = 90s
     attempts = 0
     while attempts < max_attempts:
         pvr_estado = xbmc.getInfoLabel(f"PVR.BackendHost")
         # xbmc.log(f"REMOD TV Estado PVR: {pvr_estado}", level=xbmc.LOGINFO)
-        # Verificar si el diálogo de confirmación está visible
         if pvr_estado == 'connected':
             xbmc.log(f"REMOD TV PVR iniciado", level=xbmc.LOGINFO)
             return True
         else:
-            xbmc.sleep(3000)
+            xbmc.sleep(1000)
             attempts += 1
     return False
-
 
 def actualizar_tv():
     xbmc.executebuiltin(f"Notification({remodtv_addon_name},Reiniciando IPTV Simple.,1000,)")
     addons = ["pvr.iptvsimple"]
     addon_id = 'pvr.iptvsimple'
+    ### desactivamos iptvsimple
     res = lista_addons(addons, False)
-    res = pvr_parada_mon()
     if res:
-        res = lista_addons(addons, True)
+        ### mon parada pvr
+        res = pvr_parada_mon()
         if res:
-            res = pvr_inicio_mon()
+            ### activamos iptvsimple
+            res = lista_addons(addons, True)
             if res:
-                xbmc.executebuiltin(f"Notification({remodtv_addon_name},Sección de TV recargada.,3000,)")
-                xbmc.log(f"REMOD TV Sección de TV recargada.", level=xbmc.LOGINFO)
-                return True
+                ### mon inicio pvr
+                res = pvr_inicio_mon()
+                if res:
+                    xbmc.executebuiltin(f"Notification({remodtv_addon_name},Sección de TV recargada.,3000,)")
+                    xbmc.log(f"REMOD TV Sección de TV recargada.", level=xbmc.LOGINFO)
+                    return True
+                else:
+                    xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error al iniciar sección de TV.,5000,)")
+                    xbmc.log(f"REMOD TV Error al iniciar sección de TV.", level=xbmc.LOGINFO)
+                    dialog = xbmcgui.Dialog()
+                    dialog.ok(f"{remodtv_addon_name}", "Error. Parece que hay algún problema con la Fuente elegida.")
             else:
-                xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error al iniciar IPTV Simple.,5000,)")
-                dialog = xbmcgui.Dialog()
-                dialog.ok(f"{remodtv_addon_name}", "Error. Parece que hay algún problema con la Fuente elegida.")
+                xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error al activar IPTV Simple.,5000,)")
+                xbmc.log(f"REMOD TV Error al activar IPTV Simple.", level=xbmc.LOGINFO)
         else:
-            xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error al activar IPTV Simple.,5000,)")
+            xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error al parar sección de TV.,5000,)")
+            xbmc.log(f"REMOD TV Error al parar sección de TV.", level=xbmc.LOGINFO)
     else:
         xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error al desactivar IPTV Simple.,5000,)")
-       
-        
+        xbmc.log(f"REMOD TV Error al desactivar IPTV Simple.", level=xbmc.LOGINFO)
+
 def buscar_actualizacion():
     xbmc.log(f"REMOD TV Actualizando Addon Repos.", level=xbmc.LOGINFO)
     xbmc.executebuiltin(f"Notification({remodtv_addon_name},Actualizando Repos...,3000,)")
@@ -588,8 +597,7 @@ def buscar_actualizacion():
     xbmc.executebuiltin(f"Notification({remodtv_addon_name},Actualizando Addons...,3000,)")
     xbmc.executebuiltin(f"UpdateLocalAddons()", True)
     xbmc.sleep(3000)
-    
-
+ 
 def addon_borrar_datos(addon_id):
     addons = ["pvr.iptvsimple"]
     lista_addons(addons, False)
@@ -609,7 +617,6 @@ def addon_borrar_datos(addon_id):
                     xbmcgui.NOTIFICATION_ERROR,
                     4000
                 )
-
 
 ### configuración del reproductor externo para ACS en Android
 def ele_rep(rep_sel):
@@ -841,12 +848,19 @@ else:
     # lista_menu_principal()
     if action == "tv":
         carp = '1'
-        inst_tv()
-        # activar seección TV en menú principal
-        ajuste_id = "homemenunotvbutton"
-        act_ajuste(ajuste_id)
-        fue_sel = '1 Direct'
-        guardar_fuente(fue_sel)
+        res = inst_tv()
+        if res:
+            # activar seección TV en menú principal
+            ajuste_id = "homemenunotvbutton"
+            act_ajuste(ajuste_id)
+            fue_sel = '1 Direct'
+            guardar_fuente(fue_sel)
+        else:
+            dialog = xbmcgui.Dialog()
+            ret = dialog.yesno(f"{remodtv_addon_name}", f"¿Quieres probar con la Fuente de Repuesto?")
+            if ret:
+                xbmc.executebuiltin(f"Notification({remodtv_addon_name},Probando con la Fuente de Repuesto,3000,)")
+                xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=lis_dir_rep)')
     ### menú principal selección fuente
     elif action == "fuente":
         xbmc.executebuiltin(f"Notification({remodtv_addon_name},Comprobando fuentes...,3000,)")
@@ -855,9 +869,16 @@ else:
         lista_menu_fuente()
     ### menú principal iactualizar tv
     elif action == "actualizar":
-        actualizar_tv()
-        ajuste_id = "homemenunotvbutton"
-        act_ajuste(ajuste_id)
+        res = actualizar_tv()
+        if res:
+            ajuste_id = "homemenunotvbutton"
+            act_ajuste(ajuste_id)
+        else:
+            dialog = xbmcgui.Dialog()
+            ret = dialog.yesno(f"{remodtv_addon_name}", f"¿Quieres probar con la Fuente de Repuesto?")
+            if ret:
+                xbmc.executebuiltin(f"Notification({remodtv_addon_name},Probando con la Fuente de Repuesto,3000,)")
+                xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=lis_dir_rep)')
     ### menú principal buscar actuazliación
     elif action == "info":
         res = buscar_actualizacion()
@@ -880,8 +901,11 @@ else:
             dialog = xbmcgui.Dialog()
             dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
         else:
-            xbmc.executebuiltin(f"Notification({remodtv_addon_name},Probando con la Fuente 1 de Repuesto 2.,3000,)")
-            xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=lis_dir_rep2)')
+            dialog = xbmcgui.Dialog()
+            ret = dialog.yesno(f"{remodtv_addon_name}", f"¿Quieres probar con la Fuente de Repuesto?")
+            if ret:
+                xbmc.executebuiltin(f"Notification({remodtv_addon_name},Probando con la Fuente de Repuesto,3000,)")
+                xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=lis_dir_rep)')
     ### menú selección fuente 11
     elif action == "lis_dir_rep":
         carp = '11'
@@ -893,6 +917,12 @@ else:
             fue_act = leer_fuente()
             dialog = xbmcgui.Dialog()
             dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
+        else:
+            dialog = xbmcgui.Dialog()
+            ret = dialog.yesno(f"{remodtv_addon_name}", f"¿Quieres probar con la Fuente de Repuesto 2?")
+            if ret:
+                xbmc.executebuiltin(f"Notification({remodtv_addon_name},Probando con la Fuente de Repuesto 2,3000,)")
+                xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=lis_dir_rep2)')
     ### menú selección fuente 21
     elif action == "lis_dir_rep2":
         carp = '21'
@@ -916,9 +946,11 @@ else:
             dialog = xbmcgui.Dialog()
             dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
         else:
-            xbmc.executebuiltin(f"Notification({remodtv_addon_name},Probando con la Fuente 2 de Repuesto 2.,3000,)")
-            xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=lis_ace_rep2)')
-            
+            dialog = xbmcgui.Dialog()
+            ret = dialog.yesno(f"{remodtv_addon_name}", f"¿Quieres probar con la Fuente de Repuesto?")
+            if ret:
+                xbmc.executebuiltin(f"Notification({remodtv_addon_name},Probando con la Fuente de Repuesto,3000,)")
+                xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=lis_ace_rep)')            
     ### menú selección fuente 12
     elif action == "lis_ace_rep":
         carp = '12'
@@ -930,6 +962,12 @@ else:
             fue_act = leer_fuente()
             dialog = xbmcgui.Dialog()
             dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
+        else:
+            dialog = xbmcgui.Dialog()
+            ret = dialog.yesno(f"{remodtv_addon_name}", f"¿Quieres probar con la Fuente de Repuesto 2?")
+            if ret:
+                xbmc.executebuiltin(f"Notification({remodtv_addon_name},Probando con la Fuente de Repuesto 2,3000,)")
+                xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=lis_ace_rep2)')
     ### menú selección fuente 22
     elif action == "lis_ace_rep2":
         carp = '22'
@@ -953,8 +991,11 @@ else:
             dialog = xbmcgui.Dialog()
             dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
         else:
-            xbmc.executebuiltin(f"Notification({remodtv_addon_name},Probando con la Fuente 3 de Repuesto 2.,3000,)")
-            xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=lis_hor_rep2)')
+            dialog = xbmcgui.Dialog()
+            ret = dialog.yesno(f"{remodtv_addon_name}", f"¿Quieres probar con la Fuente de Repuesto?")
+            if ret:
+                xbmc.executebuiltin(f"Notification({remodtv_addon_name},Probando con la Fuente de Repuesto,3000,)")
+                xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=lis_hor_rep)')
     ### menú selección fuente 13
     elif action == "lis_hor_rep":
         carp = '13'
@@ -966,6 +1007,12 @@ else:
             fue_act = leer_fuente()
             dialog = xbmcgui.Dialog()
             dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
+        else:
+            dialog = xbmcgui.Dialog()
+            ret = dialog.yesno(f"{remodtv_addon_name}", f"¿Quieres probar con la Fuente de Repuesto 2?")
+            if ret:
+                xbmc.executebuiltin(f"Notification({remodtv_addon_name},Probando con la Fuente de Repuesto 2,3000,)")
+                xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=lis_hor_rep2)')
     ### menú selección fuente 23
     elif action == "lis_hor_rep2":
         carp = '23'
