@@ -4,7 +4,7 @@
 
 1. Descargar e instalar la app
 
-	- Recomendado, desactivar la optimización de batería de la app, permitir uso en segundo plano,...
+	1.1 Desactivar la optimización de batería de la app, permitir uso en segundo plano,...  (Recomendado)
 
 2. Abrir la app y conceder los permisos necesarios
 
@@ -19,10 +19,20 @@
 
 7. Las fuentes preinstaladas estarán disponibles a partir del segundo inicio de Kodi.
 
-### Ace Stream Instrucciones:
+### Ace Stream ReMod Instrucciones:
 
 11. Descarga la app Ace Stream Pro ReMod o Ace Stream Media de McK | org.acestream.media e instálala
 
-12. Abre la app, da los permisos pedidos, y elige la opción "Ace Player" en Ajustes > Ajustes del jugador > Jugador seleccionado
+12. Abre la app y da los permisos pedidos. Si sale un código QR y pide hacerte premium o similar, ignoralo.
 
-	12.1 Fuerze el cierre de la app (Recomendado)
+	Configura "Ace Player" como "Jugador".
+	
+	Android:
+		Ajustes > Ajustes del jugador > Jugador seleccionado
+		
+	ATV:
+		Ajustes > Configuraciones > Ajustes del jugador > Jugador seleccionado
+
+	12.1 Desactivar la optimización de batería de la app, permitir uso en segundo plano,...  (Recomendado)
+
+	12.2 Fuerze el cierre de la app (Recomendado)
