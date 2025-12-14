@@ -1,7 +1,7 @@
 <addon 
 	id="plugin.program.remodtv"
 	name="ReMod TV"
-	version="25.12.05.0"
+	version="25.12.14.0"
 	provider-name="Saratoga">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1"/> <!-- Mín Kodi 20+ -->
@@ -16,6 +16,10 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
+> Versión = 25.12.14.0
+> Cambios respecto a la versión anterior
+	- Corrección de errores en Reproductores Externos
+	
 > Versión = 25.12.05.0
 > Cambios respecto a la versión anterior
 	- Mejoras en la gestión de los errores de las fuentes. Cuando se detecta que alguna de las 3 primeras fuentes principales tienen algún problema, se configura automáticamente la fuente correspondiente de Repuesto 2. 
