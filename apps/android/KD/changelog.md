@@ -1,5 +1,15 @@
 # Kodi ReMod by Saratoga
 
+## Versión: 251215.0
+
+### Cambios respecto a la versión anterior:
+
+Actualizado Kodi a la versión 21.3
+	- Consejo: Si usas el addon KodiSpainTv, utiliza la sección (ACE) en vez de la sección (DIRECT) para eventos Ace Stream.
+
+Fuente quitada: Greenball
+
+
 ## Versión: 251026.0
 
 ### Cambios respecto a la versión anterior:
