@@ -180,10 +180,10 @@ def lista_menu_herramientas():
     menu_herramientas = [
         ("Herramientas y Utilidades:", "", "herr.png", False),
         ("> Visita Repo ReMod para obtener más información", "nav", "nav.png", True),
-        ("Kodi ReMod v251026.0 | org.xbmc.kodi | Actualizado el 26/10/2025:", "", "tool.png", False),
+        ("Kodi ReMod v251215.0 | org.xbmc.kodi | Actualizado el 15/12/2025:", "", "tool.png", False),
         ("> Descargar Kodi ReMod armeabi-v7a | 32 bits | Android | ATV", "kd32", "download.png", True),
         ("> Descargar Kodi ReMod arm64-v8a | 64 bits | Android | ATV", "kd64", "download.png", True),
-        ("Ace Stream Pro ReMod v251115.0 | org.acestream.media | Actualizado el 16/11/2025:", "", "tool.png", False),
+        ("Ace Stream Pro ReMod v251216.0 | org.acestream.media | Actualizado el 16/12/2025:", "", "tool.png", False),
         ("> Descargar Ace Stream Pro ReMod armeabi-v7a | 32 bits | Android | ATV", "acs32", "download.png", True),
         ("> Descargar Ace Stream Pro ReMod arm64-v8a | 64 bits | Android | ATV", "acs64", "download.png", True),
         ("Ace Serve v1.5.5 | org.free.aceserve | Actualizado el 28/11/2025:", "", "tool.png", False),
@@ -1196,9 +1196,9 @@ else:
     elif action == "kd32":
         if xbmc.getCondVisibility('system.platform.android'):
             url_descarga = (
-                "https://www.dropbox.com/scl/fi/o5aqzragrsy0qllj758wh/"
-                "kodi-21.2-Omega-armeabi-v7a-ReMod-v251026.0.apk?"
-                "rlkey=vxznh4zu8ekpc0z5tohho7rje&st=m5dqwkm5&dl=1"
+                "https://www.dropbox.com/scl/fi/j5tyjlwg9qf8s273r16wk/"
+                "kodi-21.3-Omega-armeabi-v7a-ReMod-v251215.0.apk?"
+                "rlkey=uf1gp0e0jx8w4iaqa84sqstzf&st=u59jxckr&dl=1"
             )
 
             try:
@@ -1216,9 +1216,9 @@ else:
     elif action == "kd64":
         if xbmc.getCondVisibility('system.platform.android'):
             url_descarga = (
-                "https://www.dropbox.com/scl/fi/cp67xnaobrb4nwzi4d2cc/"
-                "kodi-21.2-Omega-arm64-v8a-ReMod-v251026.0.apk?"
-                "rlkey=fv7rsmfsm0z3ys3lauin0wj40&st=sqibau4o&dl=1"
+                "https://www.dropbox.com/scl/fi/tv25gdfivbnpo9luy1fdi/"
+                "kodi-21.3-Omega-arm64-v8a-ReMod-v251215.0.apk"
+                "rlkey=72nlc73l1sjt24n1pytrl4ckv&st=9a1iowld&dl=1"
             )
 
             try:
@@ -1236,9 +1236,9 @@ else:
     elif action == "acs32":
         if xbmc.getCondVisibility('system.platform.android'):
             url_descarga = (
-                "https://www.dropbox.com/scl/fi/q6tw8up1g9tz25aexsgzp/"
-                "Ace-Stream-Pro-3.2.14.5-ReMod-armeabi-v7a-251115.0.apk?"
-                "rlkey=uo3v69u460szln0yrfj9wcnl9&st=xixazm12&dl=1"
+                "https://www.dropbox.com/scl/fi/y13hcp0vc2j13aanhhx6m/"
+                "Ace-Stream-Pro-3.2.14.5-ReMod-251216.0-armeabi-v7a.apk?"
+                "rlkey=bnbzzhf2f9soc0ktvt401f6zy&st=mqgagjkh&dl=1"
             )
 
             try:
@@ -1256,9 +1256,9 @@ else:
     elif action == "acs64":
         if xbmc.getCondVisibility('system.platform.android'):
             url_descarga = (
-                "https://www.dropbox.com/scl/fi/uqubndkwexygoycgosnii/"
-                "Ace-Stream-Pro-3.2.14.5-ReMod-arm64-v8a-251115.0.apk?"
-                "rlkey=6ychgclsj6lwcb0hs8yagox3q&st=rjixm84m&dl=1"
+                "https://www.dropbox.com/scl/fi/1iujzli1pg2iizzvh1a36/"
+                "Ace-Stream-Pro-3.2.14.5-ReMod-251216.0-arm64-v8a.apk?"
+                "rlkey=4dca432egrhu65g8jp0k0eaaw&st=p44zonoz&dl=1"
             )
 
             try:

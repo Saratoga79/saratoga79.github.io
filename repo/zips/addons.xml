@@ -65,7 +65,7 @@
 			<fanart>recursos/imagenes/poster.png</fanart>
 		</assets>
 	</extension>
-</addon><addon id="plugin.program.remodtv" name="ReMod TV" version="25.12.14.0" provider-name="Saratoga">
+</addon><addon id="plugin.program.remodtv" name="ReMod TV" version="25.12.16.0" provider-name="Saratoga">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1" /> 
 	</requires>
@@ -79,6 +79,12 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
+&gt; Versión = 25.12.16.0
+&gt; Cambios respecto a la versión anterior
+	- Actualizado en la sección de Herramientas y Utilidades así como en el Repo:
+		- Ace Stream Pro ReMod v251216.0
+		- Kodi ReMod v251215.0 basado en la nueva versión de Kodi 21.3
+	
 &gt; Versión = 25.12.14.0
 &gt; Cambios respecto a la versión anterior
 	- Corrección de errores en Reproductores Externos
