@@ -5,7 +5,8 @@
 ### Cambios respecto a la versión anterior:
 
 Actualizado Kodi a la versión 21.3
-	- Consejo: Si usas el addon KodiSpainTv, utiliza la sección (ACE) en vez de la sección (DIRECT) para eventos Ace Stream.
+
+Reomendable instalar la última versión Ace Stream Pro 3.2.14.5 ReMod 251216.0 para evitar problemas de Primas en la sección Direct del addon KodiSopainTv en Kodi 21.
 
 Fuente quitada: Greenball
 
