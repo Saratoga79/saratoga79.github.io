@@ -1217,7 +1217,7 @@ else:
         if xbmc.getCondVisibility('system.platform.android'):
             url_descarga = (
                 "https://www.dropbox.com/scl/fi/tv25gdfivbnpo9luy1fdi/"
-                "kodi-21.3-Omega-arm64-v8a-ReMod-v251215.0.apk"
+                "kodi-21.3-Omega-arm64-v8a-ReMod-v251215.0.apk?"
                 "rlkey=72nlc73l1sjt24n1pytrl4ckv&st=9a1iowld&dl=1"
             )
 

@@ -1,5 +1,5 @@
 > ReMod TV
-> Versión = 25.12.16.0
+> Versión = 25.12.16.1
 > Cambios respecto a la versión anterior
 	- Actualizado en la sección de Herramientas y Utilidades así como en el Repo:
 		- Ace Stream Pro ReMod v251216.0
