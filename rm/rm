@@ -2249,7 +2249,7 @@ https://ztnr.rtve.es/ztnr/1688885.m3u8
 #EXTINF:-1 cuid="749" group-title="ACS" tvg-chno="749" tvg-id="Teledeporte" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/36/Tve_teledeporte.png" tvg-name="Teledeporte",Teledeporte [FHD@50] [ACS] (NeEr) (Canal 749)
 http://127.0.0.1:6878/ace/getstream?id=2d997da301573c5aba78f969d0d37eb6107941b2&pid=308
 
-#EXTINF:-1 cuid="750" group-title="ACS" tvg-chno="750" tvg-id="Teledeporte" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/36/Tve_teledeporte.png" tvg-name="Teledeporte",Teledeporte [FHD@50] [ACS] (NeEr) (Canal 750)
+#EXTINF:-1 cuid="750" group-title="ACS" tvg-chno="750" tvg-id="Teledeporte" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/36/Tve_teledeporte.png" tvg-name="Teledeporte",Teledeporte [FHD@25] [ACS] (NeEr) (Canal 750)
 http://127.0.0.1:6878/ace/getstream?id=7d910d9480e023608d1fe77eaf47c2ed34592155&pid=309
 
 #EXTINF:-1 cuid="751" group-title="ACS" tvg-chno="751" tvg-id="Teledeporte" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/36/Tve_teledeporte.png" tvg-name="Teledeporte",Teledeporte [HD@25] [ACS] (Api) (Canal 751)
