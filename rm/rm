@@ -837,10 +837,10 @@ http://vipipjpapi.top:8080/VIP013591733396006274/58209180da36/268
 http://fastream.xyz:8080/juan18/83e45w87w/60296
 
 #EXTINF:-1 cuid="279" group-title="M3U8" tvg-chno="279" tvg-id="M+ Liga de Campeones 4" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/liga-de-campeones-3-por-movistar-plus-es.png" tvg-name="M+ Liga de Campeones 4",M+ Liga de Campeones 4 [FHD@25] [M3U8] (BeSp) (Canal 279)
-http://delta8k.xyz:80/play/live.php?mac=00:1A:79:00:0B:4F&stream=1302264&extension=ts
+http://delta8k.xyz:80/play/live.php?mac=00:1A:79:00:08:74&stream=1302264&extension=ts
 
 #EXTINF:-1 cuid="280" group-title="M3U8" tvg-chno="280" tvg-id="M+ Liga de Campeones 4" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/liga-de-campeones-3-por-movistar-plus-es.png" tvg-name="M+ Liga de Campeones 4",M+ Liga de Campeones 4 [FHD@25] [M3U8] (BeSp) (Canal 280)
-http://delta8k.xyz:80/play/live.php?mac=00:1A:79:00:0B:4F&stream=1302876&extension=ts
+http://delta8k.xyz:80/play/live.php?mac=00:1A:79:00:08:74&stream=1302876&extension=ts
 
 #EXTINF:-1 cuid="281" group-title="M3U8" tvg-chno="281" tvg-id="M+ Liga de Campeones 4" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/liga-de-campeones-3-por-movistar-plus-es.png" tvg-name="M+ Liga de Campeones 4",M+ Liga de Campeones 4 [HD@25] [M3U8] (BiSp) (Canal 281)
 http://fastream.xyz:8080/juan18/83e45w87w/60293
@@ -861,10 +861,10 @@ http://vipipjpapi.top:8080/VIP013591733396006274/58209180da36/269
 http://tv.zapping.life:8080/mayleenfunez1/135535683598/95777
 
 #EXTINF:-1 cuid="287" group-title="M3U8" tvg-chno="287" tvg-id="M+ Liga de Campeones 5" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/liga-de-campeones-5-por-movistar-plus-es.png" tvg-name="M+ Liga de Campeones 5",M+ Liga de Campeones 5 [FHD@25] [M3U8] (BeSp) (Canal 287)
-http://delta8k.xyz:80/play/live.php?mac=00:1A:79:00:0D:75&stream=1302263&extension=ts
+http://delta8k.xyz:80/play/live.php?mac=00:1A:79:6A:79:25&stream=1302263&extension=ts
 
 #EXTINF:-1 cuid="288" group-title="M3U8" tvg-chno="288" tvg-id="M+ Liga de Campeones 5" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/liga-de-campeones-5-por-movistar-plus-es.png" tvg-name="M+ Liga de Campeones 5",M+ Liga de Campeones 5 [FHD@25] [M3U8] (BeSp) (Canal 288)
-http://delta8k.xyz:80/play/live.php?mac=00:1A:79:00:0B:4F&stream=1302263&extension=ts
+http://delta8k.xyz:80/play/live.php?mac=00:1A:79:00:08:74&stream=1302263&extension=ts
 
 #EXTINF:-1 cuid="289" group-title="ACS" tvg-chno="289" tvg-id="M+ Liga de Campeones 6" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/liga-de-campeones-6-por-movistar-plus-es.png" tvg-name="M+ Liga de Campeones 6",M+ Liga de Campeones 6 [FHD@25] [ACS] (Elc) (Canal 289)
 http://127.0.0.1:6878/ace/getstream?id=fdda1f0dd8c33fbdc5a66ab98e291f570cae67cd&pid=76
@@ -1767,7 +1767,7 @@ http://vipipjpapi.top:8080/VIP013591733396006274/58209180da36/132303
 http://172.93.102.112:8989/278843_.m3u8
 
 #EXTINF:-1 cuid="589" group-title="M3U8" tvg-chno="589" tvg-id="M+ Vamos 2 HD" tvg-logo="https://www.mundoplus.tv/wp-content/uploads/2025/11/movistarplus_vamos2_logo.jpg" tvg-name="M+ Vamos 2 HD",M+ Vamos 2 [FHD@25] [M3U8] (BeSp) (Canal 589)
-http://delta8k.xyz:80/play/live.php?mac=00:1A:79:00:0D:75&stream=1340227&extension=ts
+http://delta8k.xyz:80/play/live.php?mac=00:1A:79:6A:79:25&stream=1340227&extension=ts
 
 #EXTINF:-1 cuid="590" group-title="ACS" tvg-chno="590" tvg-id="M+ Ellas Vamos HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/ellas-vamos-por-movistar-plus-es.png" tvg-name="M+ Ellas Vamos HD",M+ Ellas Vamos [FHD@25] [ACS] (NeEr6) (Canal 590)
 http://127.0.0.1:6878/ace/getstream?id=594b59d435527327c9b6965f247995b907bfc285&pid=233
