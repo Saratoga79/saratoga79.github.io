@@ -1,44 +1,50 @@
 {
   "fue1": {
+	"nombre": "1 Direct",
     "url": "https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/data/listas/lista_iptv.m3u"
   },
   "fue2": {
+	"nombre": "2 ACE",
     "url": "https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/data/listas/lista_fuera_iptv.m3u"
   },
   "fue3": {
+	"nombre": "3 Horus",
     "url": "https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/data/listas/lista_kodi.m3u"
   },
   "fue4": {
+	"nombre": "4 ReMod TV",
     "url": "https://raw.githubusercontent.com/Saratoga79/saratoga79.github.io/refs/heads/master/rm/rm"
   },
   "fue5": {
-    "url": "https://tvpass.org/playlist/m3u"
-  },
-  "fue6": {
-    "url": "https://raw.githubusercontent.com/yIsus-mEx/AF1CIONADOS/refs/heads/main/Acestream.iDs.m3u"
-  },
-  "fue7": {
+	"nombre": "5 Agenda Deportiva",
     "url": "https://raw.githubusercontent.com/ezdakit/zukzeuk_listas/refs/heads/main/zz_eventos/zz_eventos_all_ott.m3u"
   },
-  "fue8": {
+  "fue6": {
+	"nombre": "6 Chucky",
     "url": "https://raw.githubusercontent.com/chukyvaliente/iptv/refs/heads/main/iptv"
   },
   "fue11": {
+	"nombre": "1 Direct Repuesto",
     "url": "https://k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004.ipns.dweb.link/data/listas/lista_iptv.m3u"
   },
   "fue12": {
+	"nombre": "2 ACE Repuesto",
     "url": "https://k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004.ipns.dweb.link/data/listas/lista_fuera_iptv.m3u"
   },
   "fue13": {
+	"nombre": "3 Horus Repuesto",
     "url": "https://k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004.ipns.dweb.link/data/listas/lista_kodi.m3u"
   },
   "fue21": {
+	"nombre": "1 Direct Repuesto 2",
     "url": "https://raw.githubusercontent.com/Saratoga79/saratoga79.github.io/refs/heads/master/downloads/rep/21"
   },
   "fue22": {
+	"nombre": "2 ACE Repuesto 2",
     "url": "https://raw.githubusercontent.com/Saratoga79/saratoga79.github.io/refs/heads/master/downloads/rep/22"
   },
   "fue23": {
+	"nombre": "3 Horus Repuesto 2",
     "url": "https://raw.githubusercontent.com/Saratoga79/saratoga79.github.io/refs/heads/master/downloads/rep/23"
   }
 }

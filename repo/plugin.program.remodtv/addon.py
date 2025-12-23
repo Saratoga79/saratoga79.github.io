@@ -106,11 +106,9 @@ def lista_menu_fuente():
         (f" Direct (Por defecto) | Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue1')}", "lis_dir", "1.png", True),
         (f" ACE | Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue2')}", "lis_ace", "2.png", True),
         (f" Horus | Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue3')}", "lis_hor", "3.png", True),
-        (f" ReModTV | Tipo de eventos: [COLOR blue][ACS][/COLOR] y [COLOR yellow][M3U8][/COLOR] [COLOR yellow](VPN recomendada)[/COLOR] | Estado: {estados.get('fue4')}", "lis_rm", "4.png", True),
-        (f" TVpass | Tipo de eventos: [COLOR yellow][M3U8][/COLOR] [COLOR yellow](VPN recomendada)[/COLOR] | Estado: {estados.get('fue5')}", "lis_tvp", "5.png", True),
-        (f" AF1CIONADOS | Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue6')}", "lis_af1", "6.png", True),
-        (f" Agenda Deportiva | Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue7')}", "lis_eve", "7.png", True),
-        (f" Chucky | Tipo de eventos: [COLOR yellow][M3U8][/COLOR] [COLOR yellow](VPN recomendada)[/COLOR] | Estado: {estados.get('fue8')}", "lis_chu", "8.png", True),
+        (f" ReMod TV | Tipo de eventos: [COLOR blue][ACS][/COLOR] y [COLOR yellow][M3U8][/COLOR] [COLOR yellow](VPN recomendada)[/COLOR] | Estado: {estados.get('fue4')}", "lis_rm", "4.png", True),
+        (f" Agenda Deportiva | Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue5')}", "lis_eve", "5.png", True),
+        (f" Chucky | Tipo de eventos: [COLOR yellow][M3U8][/COLOR] [COLOR yellow](VPN recomendada)[/COLOR] | Estado: {estados.get('fue6')}", "lis_chu", "6.png", True),
         ("Fuentes de Repuesto para la sección de TV:", "", "tv2.png", False),
         (f" Direct | Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue11')}", "lis_dir_rep", "1.png", True),
         (f" ACE | Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue12')}", "lis_ace_rep", "2.png", True),
@@ -495,7 +493,6 @@ def inst_tv():
                 else:
                     xbmc.log(f"REMOD TV Error1 iniciando IPTV Simple.", level=xbmc.LOGINFO)
                     xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error iniciando IPTV Simple.,3000,)")
-                    return False
             else:
                 xbmc.log(f"REMOD TV Error activando IPTV Simple.", level=xbmc.LOGINFO)
                 xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error activando IPTV Simple.,3000,)")
@@ -509,9 +506,12 @@ def inst_tv():
                 if res:
                     xbmc.log(f"REMOD TV IPTV Simple activado.", level=xbmc.LOGINFO)
                     xbmc.executebuiltin(f"Notification({remodtv_addon_name},Sección de TV recargada.,3000,)")
+                    return True
                 else:
+                    ### url de la fuente caida
                     xbmc.log(f"REMOD TV Error2 iniciando IPTV Simple.", level=xbmc.LOGINFO)
                     xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error iniciando IPTV Simple.,3000,)")
+                    return False
             else:
                 xbmc.log(f"REMOD TV Error borrando datos IPTV Simple.", level=xbmc.LOGINFO)
                 xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error borrando datos IPTV Simple.,3000,)")
@@ -1030,50 +1030,29 @@ else:
         archivos_config()
         res = actualizar_tv()
         if res:
-            fue_sel = '4 ReModTV'
+            fue_sel = '4 ReMod TV'
             guardar_fuente(fue_sel)
             fue_act = leer_fuente()
             dialog = xbmcgui.Dialog()
             dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
     ### menú selección fuente 5
-    elif action == "lis_tvp":
+    elif action == "lis_eve":
         carp = '5'
         archivos_config()
         res = actualizar_tv()
         if res:
-            fue_sel = '5 TVpass'
+            fue_sel = '5 Agenda Deportiva'
             guardar_fuente(fue_sel)
             fue_act = leer_fuente()
             dialog = xbmcgui.Dialog()
             dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
     ### menú selección fuente 6
-    elif action == "lis_af1":
+    elif action == "lis_chu":
         carp = '6'
         archivos_config()
         res = actualizar_tv()
         if res:
-            fue_sel = '6 AF1CIONADOS'
-            guardar_fuente(fue_sel)
-            fue_act = leer_fuente()
-            dialog = xbmcgui.Dialog()
-            dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
-    ### menú selección fuente 7
-    elif action == "lis_eve":
-        carp = '7'
-        archivos_config()
-        res = actualizar_tv()
-        if res:
-            fue_sel = '7 Agenda Deportiva'
-            guardar_fuente(fue_sel)
-            fue_act = leer_fuente()
-            dialog = xbmcgui.Dialog()
-            dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
-    elif action == "lis_chu":
-        carp = '8'
-        archivos_config()
-        res = actualizar_tv()
-        if res:
-            fue_sel = '8 Chucky'
+            fue_sel = '6 Chucky'
             guardar_fuente(fue_sel)
             fue_act = leer_fuente()
             dialog = xbmcgui.Dialog()

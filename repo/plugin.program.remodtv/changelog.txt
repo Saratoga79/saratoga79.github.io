@@ -1,4 +1,9 @@
 > ReMod TV
+> Versión = 25.12.23.0
+> Cambios respecto a la versión anterior
+	- Corrección de errores
+	- Fuentes de TV obsolestas quitadas
+	
 > Versión = 25.12.16.1
 > Cambios respecto a la versión anterior
 	- Actualizado en la sección de Herramientas y Utilidades así como en el Repo:

@@ -1,7 +1,7 @@
 <addon 
 	id="plugin.program.remodtv"
 	name="ReMod TV"
-	version="25.12.16.1"
+	version="25.12.23.0"
 	provider-name="Saratoga">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1"/> <!-- Mín Kodi 20+ -->
@@ -16,6 +16,11 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
+> Versión = 25.12.23.0
+> Cambios respecto a la versión anterior
+	- Corrección de errores
+	- Fuentes de TV obsolestas quitadas
+	
 > Versión = 25.12.16.1
 > Cambios respecto a la versión anterior
 	- Actualizado en la sección de Herramientas y Utilidades así como en el Repo:
