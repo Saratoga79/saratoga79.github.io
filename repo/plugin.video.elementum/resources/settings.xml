@@ -4,8 +4,7 @@
         <!-- Startup -->
         <setting label="30603" type="lsep" />
         <setting id="greeting_enabled" label="30587" type="bool" default="true" />
-        <!-- <setting id="skip_burst_search" label="30559" type="bool" default="false" /> -->
-        <setting id="skip_burst_search" label="30559" type="bool" default="true" />
+        <setting id="skip_burst_search" label="30559" type="bool" default="false" />
         <setting id="skip_repository_search" label="30688" type="bool" default="false" />
         <setting id="startup_delay" label="30669" type="slider" option="int" range="0,1,180" default="0" />
         <setting id="preload_timeout" label="30602" type="slider" option="int" range="1,1,120" default="1" />
