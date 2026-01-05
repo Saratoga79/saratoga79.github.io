@@ -1,4 +1,18 @@
 > ReMod Instalador
+> Versión = 26.01.05.0
+> Cambios respecto a la versión anterior
+	- Addon en desarrollo para hacerlo independiente de Kodi ReMod y poder usarlo en cualquier Kodi 20 o superior
+	- Addon reestructurado en secciones:
+		- Sección Deportes
+		- Sección Cine & TV
+	- Borrados addons que no funcionan: GreenBall
+	- Añadidos nuevos addons:
+		- Deportes:
+			- StreamedEZ
+		- Cine & TV:
+			- Jacktook ReMod para cine, series (elementum) y TV (Ace Stream)
+			- EspaDaily		
+	
 > Versión = 25.11.18.0
 > Cambios respecto a la versión anterior
 	- Pequeñas mejoras

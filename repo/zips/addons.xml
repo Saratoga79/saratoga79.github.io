@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addons><addon id="plugin.instalador.remod" name="ReMod Instalador" version="25.11.18.0" provider-name="Saratoga">
+<addons><addon id="plugin.instalador.remod" name="ReMod Instalador" version="26.01.05.0" provider-name="Saratoga">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1" /> 
 	</requires>
@@ -13,6 +13,20 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
+&gt; Versión = 26.01.05.0
+&gt; Cambios respecto a la versión anterior
+	- Addon en desarrollo para hacerlo independiente de Kodi ReMod y poder usarlo en cualquier Kodi 20 o superior
+	- Addon reestructurado en secciones:
+		- Sección Deportes
+		- Sección Cine y TV
+	- Borrados addons que no funcionan: GreenBall
+	- Añadidos nuevos addons:
+		- Deportes:
+			- StreamedEZ
+		- Cine y TV:
+			- Jacktook ReMod para cine, series (elementum) y TV (Ace Stream)
+			- EspaDaily		
+	
 &gt; Versión = 25.11.18.0
 &gt; Cambios respecto a la versión anterior
 	- Pequeñas mejoras
