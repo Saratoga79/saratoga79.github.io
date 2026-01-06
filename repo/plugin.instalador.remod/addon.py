@@ -108,7 +108,7 @@ def lista_menu_cine():
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
         (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} [COLOR blue](En desarrollo)[/COLOR] | Buscar actualizaciones", "info", "info.png"),
-        ("> Instalar Jacktook ReMod | Películas & Series Stremio | TV en vivo Ace Stream\n[COLOR yellow]      · VPN recomendada en días de bloqueos[/COLOR]", "jacktook", "jacktook.png"),
+        ("> Instalar Jacktook ReMod | Películas & Series Stremio | TV en vivo Ace Stream", "jacktook", "jacktook.png"),
         ("> Instalar [COLOR red]TACONES[/COLOR]", "tacones", "tacones.png"),
         ("> Instalar Balandro [COLOR blue](En desarrollo)[/COLOR]", "balandro", "balandro.png"),
         ("> Instalar Magellan [COLOR blue](En desarrollo)[/COLOR]", "magellan", "magellan.png"),
@@ -405,33 +405,33 @@ def addon_inst_confirm(addon_id):
     max_attempts = 20  # Número máximo de intentos
     attempts = 0
     while attempts < max_attempts:
-        xbmc.log(f"REMOD INSTALADOR Intentando click yes para instalar", level=xbmc.LOGINFO)
+        xbmc.log(f"REMOD INSTALADOR Intentando click yes para instalar {addon_id}", level=xbmc.LOGINFO)
         # Verificar si el diálogo de confirmación está visible
         if xbmc.getCondVisibility(f"Window.IsVisible(10100)"):
-            xbmc.log(f"REMOD INSTALADOR Esperando visibilidad botón yes", level=xbmc.LOGINFO)
+            xbmc.log(f"REMOD INSTALADOR Esperando visibilidad botón yes {addon_id}", level=xbmc.LOGINFO)
             # Simular pulsación del botón Yes
             xbmc.executebuiltin(f"SendClick(11)", True)
             max_attempts2 = 20  # Número máximo de intentos
             attempts2 = 0
             while attempts2 < max_attempts2:
                 if xbmc.getCondVisibility(f"Window.IsVisible(10101)"):
-                    xbmc.log(f"REMOD INSTALADOR Se está instalando", level=xbmc.LOGINFO)
+                    xbmc.log(f"REMOD INSTALADOR Se está instalando {addon_id}", level=xbmc.LOGINFO)
                     max_attempts3 = 200  # Número máximo de intentos
                     attempts3 = 0
                     while attempts3 < max_attempts3:
                         if not xbmc.getCondVisibility(f"Window.IsVisible(10101)"):
-                            xbmc.log(f"REMOD INSTALADOR instalado", level=xbmc.LOGINFO)
+                            xbmc.log(f"REMOD INSTALADOR instalado {addon_id}", level=xbmc.LOGINFO)
                             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalado,1000,)")
                             return True
                         else:
-                            xbmc.log(f"REMOD INSTALADOR Se está terminado de instalar", level=xbmc.LOGINFO)
+                            xbmc.log(f"REMOD INSTALADOR Se está terminado de instalar {addon_id}", level=xbmc.LOGINFO)
                             xbmc.sleep(100)
                             attempts3 += 1
                 else:
                     xbmc.sleep(500)  # Pequeña pausa entre intentos
                     attempts2 += 1
             xbmc.log(f"Tiempo max superado {addon_id}", level=xbmc.LOGINFO)
-            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Tiempo superado,1000,)")
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Tiempo superado {addon_id},1000,)")
             return False    
         xbmc.sleep(500)  # Pequeña pausa entre intentos
         attempts += 1
@@ -458,35 +458,31 @@ def buscar_actualizacion():
     buscar_actualizacion_addons()
 
 ### instalar dependencias
-def instalar_lista_addons(lista_ids):
-    for addon_id in lista_ids:
-        if not addon_instalado_y_activado_comp(addon_id):
-        # if addon_instalado_y_activado_comp(addon_id):
-        # if xbmc.getCondVisibility(f'System.HasAddon({addon_id})'):
-            # xbmc.log(f"REMOD INSTALADOR El addon {addon_id} está ya instalado. Comprobando activación", level=xbmc.LOGINFO)
-            # return True
-            # continue
-        # else:
-            xbmc.log(f"REMOD INSTALADOR El addon {addon_id} no está instalado", level=xbmc.LOGINFO)
-            # Construye el comando de instalación
-            instalar = f"InstallAddon({addon_id}, True)"
-            xbmc.log(f"REMOD INSTALADOR Instalando addon {addon_id}...", xbmc.LOGINFO)
-            # Ejecuta el comando
-            xbmc.executebuiltin(instalar)
-            xbmc.log(f"REMOD INSTALADOR Addon {addon_id} instalado", level=xbmc.LOGINFO)
-            res = addon_inst_confirm(addon_id)
-            if res:
-                xbmc.log(f"REMOD INSTALADOR Addon {addon_id} instalado", level=xbmc.LOGINFO)
-                return True
-                # xbmc.sleep(1000)
-        else:
-            return True
-    # xbmc.sleep(1000)
+def instalar_lista_addons(lista_deps):
+    for addon_id in lista_deps:
+        # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Comprobando {addon_id} antes de instalar ,1000,)")
+        # if not addon_instalado_y_activado_comp(addon_id):
+        if addon_instalado_y_activado_comp(addon_id):
+            continue
+
+        xbmc.log(f"REMOD INSTALADOR El addon {addon_id} no está instalado", level=xbmc.LOGINFO)
+        # Construye el comando de instalación
+        instalar = f"InstallAddon({addon_id}, True)"
+        xbmc.log(f"REMOD INSTALADOR Instalando addon {addon_id}...", xbmc.LOGINFO)
+        # Ejecuta el comando
+        xbmc.executebuiltin(instalar)
+        xbmc.log(f"REMOD INSTALADOR Addon {addon_id} instalado", level=xbmc.LOGINFO)
+        addon_inst_confirm(addon_id)
+        # if res:
+        xbmc.log(f"REMOD INSTALADOR Addon {addon_id} instalado", level=xbmc.LOGINFO)
+        xbmc.sleep(500)
+    return True
   
 ### instala lista de repos zip desde fuentes
 def descargar_lista_repos_zip(repo_ids,base_urls_ids,lista_patterns):
     xbmc.log(f"REMOD INSTALADOR Descargando lista repos zip desde url", level=xbmc.LOGINFO)
     for addon_id, base_url, pattern in zip(repo_ids, base_urls_ids, lista_patterns):
+        # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Comprobando {addon_id} antes de descargar ,1000,)")
         if not addon_instalado_y_activado_comp(addon_id):
             xbmc.log(f"REMOD INSTALADOR Descargando {addon_id}", level=xbmc.LOGINFO)
             ### config func
@@ -514,6 +510,7 @@ def descargar_lista_repos_zip(repo_ids,base_urls_ids,lista_patterns):
                 
     # xbmc.sleep(1000)
     xbmc.log(f"REMOD INSTALADOR Fin descargando lista repos zip desde url", level=xbmc.LOGINFO)
+    return True
  
  
 ### activar lista de repos descargada desde url como zip
@@ -533,7 +530,7 @@ def activar_lista_repos_zip(repo_ids):
                  ### Si está desactivado, lo activamos
                     ### confirma activación
                     addon_activado_check(addon_id)
-                    continue
+                    # continue
                 if not res:
                     res = addon_inst_confirm(addon_id)
                     if res:
@@ -755,6 +752,7 @@ else:
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación,3000,)")
 
     elif action == "acs_channels":
+        buscar_actualizacion()
         ### descarga addons zip desde url
         lista_repos = [
             "repository.acestream-channels",
@@ -780,18 +778,21 @@ else:
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin activando addons descargaos,1000,)")
         ### actualizar lista de repos descargados
         buscar_actualizacion()
+        
         ### instalación de addons desde repo ya instalado
         lista_deps = [
             "plugin.video.acestream_channels",
+            "script.module.six",
             "script.module.horus"
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Acestream Channels,1000,)")
         instalar_lista_addons(lista_deps)
-        xbmc.sleep(1000)
+        
         if xbmc.getCondVisibility('system.platform.android'):
             xbmc.log(f"REMOD INSTALADOR Activando Reproductor Externo en Horus en Android", level=xbmc.LOGINFO)
             addon_set = xbmcaddon.Addon('script.module.horus')
             addon_set.setSettingBool('reproductor_externo', 'true')
+            
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación,3000,)")
     elif action == "balandro":
         addon_id = 'plugin.video.balandro'
@@ -919,7 +920,7 @@ else:
         ### añadir complementos custom stremnio
         xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=add_ext_custom_stremio_addon)')
         ### añadir proveedpores torrentio
-        xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=torrentio_selection)')
+        # xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=torrentio_selection)')
         ### añadir proveedpores torrentio
         # xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=torrentio_toggle_providers)')
         ### abrir ajustes proveedores torrentio

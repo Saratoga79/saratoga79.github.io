@@ -27,14 +27,11 @@ TORRENTIO_PROVIDERS_KEY = "torrentio.providers"
 
 lista_url = [
     "https://stremio.jopsis-addons.mywire.org/manifest.json",
-    ### "stremio://torrentio.strem.fun/providers=mejortorrent,wolfmax4k,cinecalidad|language=spanish|qualityfilter=threed,scr,cam/manifest.json",
     "https://torrentio.strem.fun/providers=mejortorrent,wolfmax4k,cinecalidad|language=spanish|qualityfilter=threed,scr,cam/manifest.json",
     "https://top-streaming.stream/username=saratoga&contentLanguage=es-ES&platforms=netflix%3Aspain%3Atrue%3Atrue%2Camazon-prime%3Aspain%3Atrue%3Atrue%2Cdisney%3Aspain%3Atrue%3Atrue%2Capple-tv%3Aspain%3Atrue%3Atrue%2Cskyshowtime%3Aspain%3Atrue%3Atrue%2Chbo-max%3Aspain%3Atrue%3Atrue%2Crakuten-tv%3Aspain%3Atrue%3Atrue/manifest.json",
-    # "https://cine-espanol-addon.recurso.workers.dev/manifest.json",
     "https://watchhub-v2.strem.io/manifest.json",
     "https://addon.peerflix.mov/language=es%7Cqualityfilter=threed,540p,480p,sd,vhs,screener%7Csort=language-desc/manifest.json",
     "https://stremify.hayd.uk/YnVpbHQtaW4sY2luZWhkcGx1cyx2ZXJoZGxpbms=/manifest.json",
-    "https://formulio.hayd.uk/manifest.json?v=p2p",
     "https://latinmovies.vercel.app/manifest.json",
     "https://tmdb.elfhosted.com/N4IgTgDgJgRgsgUygSwIYBUCeEEGcQBcoEA9rgC4JiHlgCuCANCADYkDmJhAZqi7kxAxUAYwDWUMCQg8+AgL7MWqAHbs6qdgkIg8AWgCiAZRDMKYBKgC2yNYQDaAXWYjU5Ph3wF7oZFB3kVrAAdOTSpiDk2NoEIFYkAG7I2swq1jEgAArSdMrUZgAWJADuAJIqABIkVjG0DIq+-rGBIWEyzFE4OgJgyfip6TrZELmo+SC4RWWV1bX0CA0gfgFBMMGYluOdGfFJKSBpNToAmpsRkyXlVUcEdQuMjSshG2MR291UfRGHGaevhZcZjc7otls1VsFlGoNFo3tEdLtkt9BrEADKqdSafYXabXOb1B5LJqRCFQzGwjrw2I9L4DG4gdHQrHnKZXWY0eag4ktNa0BAqFB2SldWKI-Y-HToCwC2zsFmAvEcgmPcGtaWCuXCjI0vDI+lS-ka+W49m3TnOECuCgAYRIdBU5EIAFYAcUAIJaABKbll5QA4vyLF5IvMIvzUDAWAgPQhveRZTpePxsVMY3HZQB1ZDkAqlVbpuyxJMCEDyIA/manifest.json",
     ]
@@ -456,13 +453,13 @@ def add_custom_stremio_addon(params):
         dialog.ok("Custom Addon", f"Failed to add custom addon: {e}")
 
 def add_ext_custom_stremio_addon(params=None):
-    xbmc.executebuiltin(f"Notification((REMOD INSTALADOR\nAñadiendo addon Stremio,1000,)")
-    xbmc.log(f"(REMOD INSTALADOR,Manifest missing 'id' or 'name'", level=xbmc.LOGERROR)
+    xbmc.executebuiltin(f"Notification((ReMod Instalador,Añadiendo addon Stremio,1000,)")
+    xbmc.log(f"(ReMod Instalador,Manifest missing 'id' or 'name'", level=xbmc.LOGERROR)
     ### añadimos los addons    
     for url in lista_url:   
         if not url:
-            xbmc.executebuiltin(f"Notification((REMOD INSTALADOR,No URL provided,1000,)")
-            xbmc.log(f"(REMOD INSTALADOR,No URL provided", level=xbmc.LOGERROR)
+            xbmc.executebuiltin(f"Notification((ReMod Instalador,No URL provided,1000,)")
+            xbmc.log(f"(ReMod Instalador,No URL provided", level=xbmc.LOGERROR)
             return
 
         if url.startswith("stremio://"):
@@ -474,8 +471,8 @@ def add_ext_custom_stremio_addon(params=None):
             response.raise_for_status()
             manifest = response.json()
         except Exception as e:
-            xbmc.executebuiltin(f"Notification((REMOD INSTALADOR,Failed to fetch custom addon manifest,1000,)")
-            xbmc.log(f"(REMOD INSTALADOR,Failed to fetch custom addon manifest", level=xbmc.LOGERROR)
+            xbmc.executebuiltin(f"Notification((ReMod Instalador,Failed to fetch custom addon manifest,1000,)")
+            xbmc.log(f"(ReMod Instalador,Failed to fetch custom addon manifest", level=xbmc.LOGERROR)
             # kodilog(f"Failed to fetch custom addon manifest: {e}")
             # dialog.ok("Custom Addon", f"Failed to fetch manifest: {e}")
             return
@@ -484,8 +481,8 @@ def add_ext_custom_stremio_addon(params=None):
             addon_key = manifest.get("id") or manifest.get("name")
             if not addon_key:
                 # dialog.ok("Custom Addon", "Manifest missing 'id' or 'name'.")
-                xbmc.executebuiltin(f"Notification((REMOD INSTALADOR,Manifest missing 'id' or 'name',1000,)")
-                xbmc.log(f"(REMOD INSTALADOR,Manifest missing 'id' or 'name'", level=xbmc.LOGERROR)
+                xbmc.executebuiltin(f"Notification((ReMod Instalador,Manifest missing 'id' or 'name',1000,)")
+                xbmc.log(f"(ReMod Instalador,Manifest missing 'id' or 'name'", level=xbmc.LOGERROR)
                 return
 
             resources = manifest.get("resources", [])
@@ -555,23 +552,23 @@ def add_ext_custom_stremio_addon(params=None):
                 cache.set(STREMIO_USER_ADDONS, user_addons, timedelta(days=365 * 20))
 
                 if is_stream or is_catalog:
-                    xbmc.executebuiltin(f"Notification((REMOD INSTALADOR,Custom Stremio addon added successfully,1000,)")
-                    xbmc.log(f"(REMOD INSTALADOR,Custom Stremio addon added successfully!", level=xbmc.LOGERROR)
+                    xbmc.executebuiltin(f"Notification((ReMod Instalador,Custom Stremio addon added successfully,1000,)")
+                    xbmc.log(f"(ReMod Instalador,Custom Stremio addon added successfully!", level=xbmc.LOGERROR)
                     # dialog.ok("Custom Addon", "Custom Stremio addon added successfully!")
                 else:
-                    xbmc.executebuiltin(f"Notification((REMOD INSTALADOR,Addon does not provide 'stream' or 'catalog' resources,1000,)")
-                    xbmc.log(f"(REMOD INSTALADOR,Addon does not provide 'stream' or 'catalog' resources", level=xbmc.LOGERROR)
+                    xbmc.executebuiltin(f"Notification((ReMod Instalador,Addon does not provide 'stream' or 'catalog' resources,1000,)")
+                    xbmc.log(f"(ReMod Instalador,Addon does not provide 'stream' or 'catalog' resources", level=xbmc.LOGERROR)
                     # dialog.ok(
                         # "Custom Addon",
                         # "Addon does not provide 'stream' or 'catalog' resources.",
                     # )
             else:
-                xbmc.executebuiltin(f"Notification(REMOD INSTALADOR,This addon is already added to your list,1000,)")
-                xbmc.log(f"(REMOD INSTALADOR,This addon is already added to your list", level=xbmc.LOGERROR)
+                xbmc.executebuiltin(f"Notification(ReMod Instalador,This addon is already added to your list,1000,)")
+                xbmc.log(f"(ReMod Instalador,This addon is already added to your list", level=xbmc.LOGERROR)
                 # dialog.ok("Custom Addon", "This addon is already added to your list.")
         except Exception as e:
-            xbmc.executebuiltin(f"Notification((REMOD INSTALADOR,Failed to add custom addon: {e},1000,)")
-            xbmc.log(f"(REMOD INSTALADOR,Failed to add custom addon: {e}", level=xbmc.LOGERROR)
+            xbmc.executebuiltin(f"Notification((ReMod Instalador,Failed to add custom addon: {e},1000,)")
+            xbmc.log(f"(ReMod Instalador,Failed to add custom addon: {e}", level=xbmc.LOGERROR)
             # dialog.ok("Custom Addon", f"Failed to add custom addon: {e}")
 
 
