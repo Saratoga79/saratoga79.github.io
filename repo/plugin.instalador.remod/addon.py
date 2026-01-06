@@ -791,7 +791,7 @@ else:
         if xbmc.getCondVisibility('system.platform.android'):
             xbmc.log(f"REMOD INSTALADOR Activando Reproductor Externo en Horus en Android", level=xbmc.LOGINFO)
             addon_set = xbmcaddon.Addon('script.module.horus')
-            addon_set.setSettingBool('reproductor_externo', 'true')
+            addon_set.setSettingBool('reproductor_externo', True)
             
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación,3000,)")
     elif action == "balandro":
