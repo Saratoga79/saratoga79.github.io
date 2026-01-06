@@ -627,7 +627,7 @@ else:
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Espera a que se recargue la sección de TV,1000,)")
         ### instalación seccion de tv
         xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=tv)')
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación,3000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación ReMod TV,3000,)")
             
     elif action == "kodispaintv":
         lista_repos = ["repository.gujal"]
@@ -682,7 +682,7 @@ else:
         activar_lista_repos_zip(lista_repos)
         xbmc.sleep(1000)
         buscar_actualizacion()
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación,3000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación KodispainTv,3000,)")
         
     elif action == "tacones":
         lista_repos = ["repository.elementumorg"]
@@ -749,7 +749,7 @@ else:
         ### <setting id="local_only_client">true</setting>
         # addon_set = xbmcaddon.Addon('plugin.video.elementum')
         # addon_set.setSetting('local_only_client', 'true')
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación,3000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación Tacones,3000,)")
 
     elif action == "acs_channels":
         buscar_actualizacion()
@@ -793,7 +793,7 @@ else:
             addon_set = xbmcaddon.Addon('script.module.horus')
             addon_set.setSettingBool('reproductor_externo', True)
             
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación,3000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación AceStream Channels,3000,)")
     elif action == "balandro":
         addon_id = 'plugin.video.balandro'
         res = inst_addon(addon_id)
@@ -845,7 +845,7 @@ else:
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando EspaDaily,1000,)")
         instalar_lista_addons(lista_deps)
         xbmc.sleep(1000)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación,3000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación EspaDaily,3000,)")
             
     elif action == "jacktook":
         lista_repos = ["repository.remod"]
@@ -922,11 +922,11 @@ else:
         ### añadir proveedpores torrentio
         # xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=torrentio_selection)')
         ### añadir proveedpores torrentio
-        # xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=torrentio_toggle_providers)')
+        xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=torrentio_toggle_providers)')
         ### abrir ajustes proveedores torrentio
         # xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=torrentio_toggle_providers)')
         
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación,3000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación Jacktook,3000,)")
         
     elif action == "streamedez":
         ### descarga addons zip desde url
