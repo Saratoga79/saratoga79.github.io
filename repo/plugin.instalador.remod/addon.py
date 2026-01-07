@@ -59,7 +59,8 @@ def lista_menu_principal():
         (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} [COLOR blue](En desarrollo)[/COLOR] | Buscar actualizaciones", "info", "info.png"),
         ("> Sección Deportes", "deportes", "stadium.png"),
         ("> Sección Cine & TV", "cine", "cinema.png"),
-        ("> Test", "test", "")
+        ("> Sección Herramientas", "herramientas", "herramientas.png")
+        # ("> Test", "test", "")
     ]
 
     for label, action, icon_file in menu_items:
@@ -115,6 +116,30 @@ def lista_menu_cine():
         ("> Instalar Alfa [COLOR blue](En desarrollo)[/COLOR]", "alfa", "alfa.png"),
         ("> Instalar EspaDaily", "espadaily", "espadaily.png"),
         ("> Instalar Moe´s TV | Duff You & Moe´s TV | [COLOR orange]Sin soporte[/COLOR]", "moes", "moes.jpg")
+    ]
+
+    for label, action, icon_file in menu_items:
+        url = build_url({"action": action})
+        ### Creamos el ListItem
+        li = xbmcgui.ListItem(label=label)
+        ### Ruta absoluta al icono
+        icon_path = xbmcvfs.translatePath(os.path.join(remod_instalador_addon_path, 'recursos', 'imagenes', icon_file))
+        ###  Asignamos el icono
+        li.setArt({'icon': icon_path, 'thumb': icon_path})
+        ### Indicamos que es una carpeta (un sub‑menú o acción que abre algo)
+        xbmcplugin.addDirectoryItem(handle=HANDLE,
+                                    url=url,
+                                    listitem=li,
+                                    isFolder=True)
+    xbmcplugin.endOfDirectory(HANDLE)
+
+
+### lista del menu herramientas
+def lista_menu_herramientas():
+    ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
+    menu_items = [
+        (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} [COLOR blue](En desarrollo)[/COLOR] | Buscar actualizaciones", "info", "info.png"),
+        ("> Instalar EZMaintenance+", "ezmaintenanceplus", "ezmaintenance.png")
     ]
 
     for label, action, icon_file in menu_items:
@@ -640,6 +665,8 @@ else:
         lista_menu_deportes()
     elif action == "cine":
         lista_menu_cine()
+    elif action == "herramientas":
+        lista_menu_herramientas()
     elif action == "remodtv":
         ### descarga addons zip desde url
         lista_repos = ["repository.remod"]
@@ -995,6 +1022,29 @@ else:
         instalar_lista_addons(lista_deps)
         xbmc.sleep(1000)
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación StreamedEZ,3000,)")
+        
+    elif action == "ezmaintenanceplus":
+        ### descarga addons zip desde url
+        lista_repos = ["repository.remod"]
+        lista_base_urls = ["https://saratoga79.github.io/"]
+        lista_patterns = ["repository\.remod-\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addons desde fuente,1000,)")
+        descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
+        # xbmc.sleep(1000)
+        ### actualizar lista de addons para refrersacar addons descargados
+        buscar_actualizacion()
+        ### activar addons descargados
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addons descargados,1000,)")
+        activar_lista_repos_zip(lista_repos)
+        # xbmc.sleep(1000)
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin activando addons descargaos,1000,)")
+        ### actualizar lista de repos descargados
+        buscar_actualizacion()
+        ### instalación de addons desde repo ya instalado
+        lista_deps = ["script.ezmaintenanceplus"]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando EZMaintenance+,1000,)")
+        instalar_lista_addons(lista_deps)
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación EZMaintenance+,3000,)")
         
     elif action == "test":
         xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=torrentio_selection)')
