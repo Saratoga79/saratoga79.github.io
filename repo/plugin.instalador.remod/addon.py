@@ -680,7 +680,7 @@ else:
         ### activar addons descargados
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addons descargados,1000,)")
         activar_lista_repos_zip(lista_repos)
-        # xbmc.sleep(1000)
+        xbmc.sleep(1000)
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin activando addons descargaos,1000,)")
         ### actualizar lista de repos descargados
         buscar_actualizacion()
@@ -706,7 +706,7 @@ else:
         ### activar addons descargados
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addons descargados,1000,)")
         activar_lista_repos_zip(lista_repos)
-        # xbmc.sleep(1000)
+        xbmc.sleep(1000)
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin activando addons descargaos,1000,)")
         ### actualizar lista de repos descargados
         buscar_actualizacion()
@@ -808,7 +808,7 @@ else:
         lista_deps = ["plugin.video.elementum"]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementum,1000,)")
         instalar_lista_addons(lista_deps)
-        # xbmc.sleep(1000)
+        xbmc.sleep(1000)
         # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Desactivando Elementum Burst,1000,)")
         ### desactivar burst
         ### <setting id="local_only_client">true</setting>
@@ -852,6 +852,7 @@ else:
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Acestream Channels,1000,)")
         instalar_lista_addons(lista_deps)
+        xbmc.sleep(1000)
         
         if xbmc.getCondVisibility('system.platform.android'):
             xbmc.log(f"REMOD INSTALADOR Activando Reproductor Externo en Horus en Android", level=xbmc.LOGINFO)
@@ -919,11 +920,11 @@ else:
             ]
         lista_base_urls = [
             "https://saratoga79.github.io/",
-            "https://sam-max.github.io/repository.jacktook/",
+            "https://sam-max.github.io/repository.jacktook/"
             ]
         lista_patterns = [
             "repository\.remod-\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip",
-            "repository\.jacktook-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip",
+            "repository\.jacktook-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addons desde fuente,1000,)")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
@@ -936,18 +937,15 @@ else:
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin activando addons descargaos,1000,)")
         ### instalación elementum
         lista_deps = [
-            "plugin.video.jacktook",
-            "plugin.video.elementum"
+            "plugin.video.elementum",
+            "plugin.video.jacktook"
             ]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementum,1000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando,1000,)")
         instalar_lista_addons(lista_deps)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Elementum instalado,1000,)")
-        
-        ### desactivar burst
-        ### <setting id="local_only_client">true</setting>
-        addon_set = xbmcaddon.Addon('plugin.video.elementum')
-        addon_set.setSetting('local_only_client', 'true')
+        xbmc.sleep(1000)
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalado,1000,)")
         ### configurando ajustes
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Configurando JackTook,3000,)")
         addon_set = xbmcaddon.Addon('plugin.video.jacktook')
         addon_set.setSettingBool('torrentio_enabled', True)
         addon_set.setSettingBool('auto_audio', True)
@@ -985,7 +983,7 @@ else:
         xbmc.sleep(1000)
         ### añadir complementos custom stremnio
         xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=add_ext_custom_stremio_addon)')      
-        xbmc.sleep(5000)
+        xbmc.sleep(1000)
         ### añadir proveedpores torrentio
         xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=torrentio_selection)')
         addon_id = ("plugin.video.jacktook")
@@ -1006,13 +1004,12 @@ else:
         lista_patterns = ["repository\.streamedez-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando repo StreamedEZ desde fuente,1000,)")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
-        # xbmc.sleep(1000)
         ### actualizar lista de addons para refrersacar addons descargados
         buscar_actualizacion()
         ### activar addons descargados
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando repo repo StreamedEZ,1000,)")
         activar_lista_repos_zip(lista_repos)
-        # xbmc.sleep(1000)
+        xbmc.sleep(1000)
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Repo StreamedEZ activado,1000,)")
         ### actualizar lista de repos descargados
         buscar_actualizacion()
@@ -1030,13 +1027,12 @@ else:
         lista_patterns = ["repository\.remod-\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addons desde fuente,1000,)")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
-        # xbmc.sleep(1000)
         ### actualizar lista de addons para refrersacar addons descargados
         buscar_actualizacion()
         ### activar addons descargados
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addons descargados,1000,)")
         activar_lista_repos_zip(lista_repos)
-        # xbmc.sleep(1000)
+        xbmc.sleep(1000)
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin activando addons descargaos,1000,)")
         ### actualizar lista de repos descargados
         buscar_actualizacion()
@@ -1044,6 +1040,7 @@ else:
         lista_deps = ["script.ezmaintenanceplus"]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando EZMaintenance+,1000,)")
         instalar_lista_addons(lista_deps)
+        xbmc.sleep(1000)
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación EZMaintenance+,3000,)")
         
     elif action == "test":
