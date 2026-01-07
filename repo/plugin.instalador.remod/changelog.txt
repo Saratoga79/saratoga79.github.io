@@ -1,5 +1,5 @@
 > ReMod Instalador
-> Versión = 26.01.07.0
+> Versión = 26.01.07.1
 > Cambios respecto a la versión anterior
 	- Addon en desarrollo para hacerlo independiente de Kodi ReMod y poder usarlo en cualquier Kodi 20 o superior
 	- Addon reestructurado en secciones:
