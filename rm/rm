@@ -2818,122 +2818,119 @@ http://127.0.0.1:6878/ace/getstream?id=108aebe20efc826e56f3a1cb01117a124a6b89ad&
 #EXTINF:-1 cuid="939" group-title="ACS" tvg-chno="939" tvg-id="UFC Fight Pass" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/ufc-fight-pass-us.png" tvg-name="UFC Fight Pass",UFC Fight Pass [FHD@30] [ACS] (NeEr) (Canal 939)
 http://127.0.0.1:6878/ace/getstream?id=96537527b2d5e858b2e6c863a00dec304254091d&pid=464
 
-#EXTINF:-1 cuid="940" group-title="M3U8" tvg-chno="940" tvg-id="UFC" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/ufc-us.png" tvg-name="UFC",UFC [HD@30] [ACS] (M3U8) (BiLa) (Canal 940)
-http://playtv44.com:8080/976515597/123456/369622
-
-#EXTINF:-1 cuid="941" group-title="ACS" tvg-chno="941" tvg-id="UDAR" tvg-logo="https://taplink.st/a/3/c/e/0/adf13a.png" tvg-name="UDAR",RU | UDAR [FHD@25] [ACS] (Canal 941)
+#EXTINF:-1 cuid="940" group-title="ACS" tvg-chno="940" tvg-id="UDAR" tvg-logo="https://taplink.st/a/3/c/e/0/adf13a.png" tvg-name="UDAR",RU | UDAR [FHD@25] [ACS] (Canal 940)
 http://127.0.0.1:6878/ace/getstream?id=d2374e2375a4275738e0dbed2f47d0114ad1cb64&pid=465
 
-#EXTINF:-1 cuid="942" group-title="ACS" tvg-chno="942" tvg-id="FOX SPORTS 2 LatinoAmerica HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Fox_Sports_2mx.png/1024px-Fox_Sports_2mx.png" tvg-name="FOX SPORTS 2 LatinoAmerica HD",FOX SPORTS 2 [FHD@30] [ACS] (Canal 942)
+#EXTINF:-1 cuid="941" group-title="ACS" tvg-chno="941" tvg-id="FOX SPORTS 2 LatinoAmerica HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Fox_Sports_2mx.png/1024px-Fox_Sports_2mx.png" tvg-name="FOX SPORTS 2 LatinoAmerica HD",FOX SPORTS 2 [FHD@30] [ACS] (Canal 941)
 http://127.0.0.1:6878/ace/getstream?id=162942adc047d0f78eac056effbe5bbec54a5e51&pid=466
 
-#EXTINF:-1 cuid="943" group-title="ACS" tvg-chno="943" tvg-id="FightBox" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/international/fightbox-hd-int.png" tvg-name="FightBox",RU | FightBox [FHD@25] [ACS] (SpTv) (Canal 943)
+#EXTINF:-1 cuid="942" group-title="ACS" tvg-chno="942" tvg-id="FightBox" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/international/fightbox-hd-int.png" tvg-name="FightBox",RU | FightBox [FHD@25] [ACS] (SpTv) (Canal 942)
 http://127.0.0.1:6878/ace/getstream?id=49b734a5a3365674480089264be00ae28fabb640&pid=467
 
-#EXTINF:-1 cuid="944" group-title="ACS" tvg-chno="944" tvg-id="MMA TV" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/misc/vod/mma-tv-vod.png" tvg-name="MMA TV",RU | MMA TV [FHD@25] [ACS] (SpTv) (Canal 944)
+#EXTINF:-1 cuid="943" group-title="ACS" tvg-chno="943" tvg-id="MMA TV" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/misc/vod/mma-tv-vod.png" tvg-name="MMA TV",RU | MMA TV [FHD@25] [ACS] (SpTv) (Canal 943)
 http://127.0.0.1:6878/ace/getstream?id=a7e4499c869037073c97deb47a50d1e7090b1c04&pid=468
 
-#EXTINF:-1 cuid="945" group-title="M3U8" tvg-chno="945" tvg-id="MMA TV" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/misc/vod/mma-tv-vod.png" tvg-name="MMA TV",RU | MMA TV [FHD@25] [M3U8] (HeLu) (Canal 945)
+#EXTINF:-1 cuid="944" group-title="M3U8" tvg-chno="944" tvg-id="MMA TV" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/misc/vod/mma-tv-vod.png" tvg-name="MMA TV",RU | MMA TV [FHD@25] [M3U8] (HeLu) (Canal 944)
 https://streams2.sofast.tv/ptnr-sportstrible/title-MMA_Sportstrible/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/f6b049e4-885e-4551-85ac-8eef0b33d3a2/playlist.m3u8
 
-#EXTINF:-1 cuid="946" group-title="ACS" tvg-chno="946" tvg-id="Hard Knocks" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/misc/vod/hard-knocks-vod.png" tvg-name="Hard Knocks",US | Hard Knocks [FHD@30] [ACS] (Canal 946)
+#EXTINF:-1 cuid="945" group-title="ACS" tvg-chno="945" tvg-id="Hard Knocks" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/misc/vod/hard-knocks-vod.png" tvg-name="Hard Knocks",US | Hard Knocks [FHD@30] [ACS] (Canal 945)
 http://127.0.0.1:6878/ace/getstream?id=08a3b71f9e5c7bca6383d39b372f8cb80a78fcd5&pid=469
 
-#EXTINF:-1 cuid="947" group-title="ACS" tvg-chno="947" tvg-id="Hard Knocks" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/misc/vod/hard-knocks-vod.png" tvg-name="Hard Knocks",US | Hard Knocks [SD@30] [ACS] (Canal 947)
+#EXTINF:-1 cuid="946" group-title="ACS" tvg-chno="946" tvg-id="Hard Knocks" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/misc/vod/hard-knocks-vod.png" tvg-name="Hard Knocks",US | Hard Knocks [SD@30] [ACS] (Canal 946)
 http://127.0.0.1:6878/ace/getstream?id=626fc7cf70680d1d77b4b5293be94f63c910ee92&pid=470
 
-#EXTINF:-1 cuid="948" group-title="ACS" tvg-chno="948" tvg-id="TNA Wrestling" tvg-logo="http://images.wikia.com/prowrestling/images/c/c3/TNA_Wrestling_Logo.png" tvg-name="TNA Wrestling",US | TNA Wrestling [FHD@30] [ACS] (Canal 948)
+#EXTINF:-1 cuid="947" group-title="ACS" tvg-chno="947" tvg-id="TNA Wrestling" tvg-logo="http://images.wikia.com/prowrestling/images/c/c3/TNA_Wrestling_Logo.png" tvg-name="TNA Wrestling",US | TNA Wrestling [FHD@30] [ACS] (Canal 947)
 http://127.0.0.1:6878/ace/getstream?id=f4d0d947ba895ef4b923d89641e3cbb1be9437e1&pid=471
 
-#EXTINF:-1 cuid="949" group-title="ACS" tvg-chno="949" tvg-id="TNA iMPACT" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/misc/vod/impact-wrestling-vod-us.png" tvg-name="TNA iMPACT",US | TNA iMPACT [FHD@30] [ACS] (Canal 949)
+#EXTINF:-1 cuid="948" group-title="ACS" tvg-chno="948" tvg-id="TNA iMPACT" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/misc/vod/impact-wrestling-vod-us.png" tvg-name="TNA iMPACT",US | TNA iMPACT [FHD@30] [ACS] (Canal 948)
 http://127.0.0.1:6878/ace/getstream?id=4f98a49711e705feb7e550e4223fcbe7f94a8c5f&pid=472
 
-#EXTINF:-1 cuid="950" group-title="M3U8" tvg-chno="950" tvg-id="Professional Fighters League" tvg-logo="https://newera.sportspro.com/wp-content/uploads/2022/10/pfl-logo-color-2x1-1-2048x1024.png" tvg-name="Professional Fighters League",US | Professional Fighters League [FHD@30] [M3U8] (Canal 950)
+#EXTINF:-1 cuid="949" group-title="M3U8" tvg-chno="949" tvg-id="Professional Fighters League" tvg-logo="https://newera.sportspro.com/wp-content/uploads/2022/10/pfl-logo-color-2x1-1-2048x1024.png" tvg-name="Professional Fighters League",US | Professional Fighters League [FHD@30] [M3U8] (Canal 949)
 https://d856dff4.wurl.com/U3BvcnRzVHJpYmFsLWdiX1BGTE1NQV9ITFM/playlist.m3u8
 
-#EXTINF:-1 cuid="951" group-title="M3U8" tvg-chno="951" tvg-id="United Fight Alliance" tvg-logo="https://unitedfightalliance.com/wp-content/uploads/2024/01/cropped-Screenshot_2024-01-16_174700-removebg-preview-1.png" tvg-name="United Fight Alliance",US | United Fight Alliance [FHD@30] [M3U8] (Canal 951)
+#EXTINF:-1 cuid="950" group-title="M3U8" tvg-chno="950" tvg-id="United Fight Alliance" tvg-logo="https://unitedfightalliance.com/wp-content/uploads/2024/01/cropped-Screenshot_2024-01-16_174700-removebg-preview-1.png" tvg-name="United Fight Alliance",US | United Fight Alliance [FHD@30] [M3U8] (Canal 950)
 https://9ab4bcc639c845d2b682105f4e9Afbf8.mediatailor.us-east-1.amazonaws.com/v1/master/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/SportsTribal-eu_UnitedFightAlliance/playlist.m3u8
 
-#EXTINF:-1 cuid="952" group-title="ACS" tvg-chno="952" tvg-id="TNT Sports PREMIUM" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/world-latin-america/tnt-sports-premium-lam.png" tvg-name="AR | TNT Sports PREMIUM",AR | TNT Sports PREMIUM [FHD@30] [ACS] (NeEr) (Canal 952)
+#EXTINF:-1 cuid="951" group-title="ACS" tvg-chno="951" tvg-id="TNT Sports PREMIUM" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/world-latin-america/tnt-sports-premium-lam.png" tvg-name="AR | TNT Sports PREMIUM",AR | TNT Sports PREMIUM [FHD@30] [ACS] (NeEr) (Canal 951)
 http://127.0.0.1:6878/ace/getstream?id=7128f677f2f1cdfcb3f5241852cd06a677640c76&pid=473
 
-#EXTINF:-1 cuid="953" group-title="ACS" tvg-chno="953" tvg-id="TNT Sports PREMIUM" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/world-latin-america/tnt-sports-premium-lam.png" tvg-name="AR | TNT Sports PREMIUM",AR | TNT Sports PREMIUM [FHD@30] [ACS] (NeEr) (Canal 953)
+#EXTINF:-1 cuid="952" group-title="ACS" tvg-chno="952" tvg-id="TNT Sports PREMIUM" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/world-latin-america/tnt-sports-premium-lam.png" tvg-name="AR | TNT Sports PREMIUM",AR | TNT Sports PREMIUM [FHD@30] [ACS] (NeEr) (Canal 952)
 http://127.0.0.1:6878/ace/getstream?id=5ccaf1da1ab3972502f2b35e581d7ab2f9b4965e&pid=474
 
-#EXTINF:-1 cuid="954" group-title="ACS" tvg-chno="954" tvg-id="UK | TNT Sports 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-1-uk.png" tvg-name="UK | TNT Sports 1",UK | TNT Sports 1 [FHD@50] [ACS] (NeEr) (Canal 954)
+#EXTINF:-1 cuid="953" group-title="ACS" tvg-chno="953" tvg-id="UK | TNT Sports 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-1-uk.png" tvg-name="UK | TNT Sports 1",UK | TNT Sports 1 [FHD@50] [ACS] (NeEr) (Canal 953)
 http://127.0.0.1:6878/ace/getstream?id=363f1d119b1971237318c0d953ab6eea5eb7c592&pid=475
 
-#EXTINF:-1 cuid="955" group-title="ACS" tvg-chno="955" tvg-id="UK | TNT Sports 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-1-uk.png" tvg-name="UK | TNT Sports 1",UK | TNT Sports 1 [FHD@25] [ACS] (SpTv) (Canal 955)
+#EXTINF:-1 cuid="954" group-title="ACS" tvg-chno="954" tvg-id="UK | TNT Sports 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-1-uk.png" tvg-name="UK | TNT Sports 1",UK | TNT Sports 1 [FHD@25] [ACS] (SpTv) (Canal 954)
 http://127.0.0.1:6878/ace/getstream?id=efc60cfe5e3a349baa02bcc49f6647c21a9c3c5b&pid=476
 
-#EXTINF:-1 cuid="956" group-title="M3U8" tvg-chno="956" tvg-id="UK | TNT Sports 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-1-uk.png" tvg-name="UK | TNT Sports 1",UK | TNT Sports 1 [FHD@50] [M3U8] (A1x) (Canal 956)
+#EXTINF:-1 cuid="955" group-title="M3U8" tvg-chno="955" tvg-id="UK | TNT Sports 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-1-uk.png" tvg-name="UK | TNT Sports 1",UK | TNT Sports 1 [FHD@50] [M3U8] (A1x) (Canal 955)
 https://A1xs.vip/2000021
 
-#EXTINF:-1 cuid="957" group-title="M3U8" tvg-chno="957" tvg-id="UK | TNT Sports 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-1-uk.png" tvg-name="UK | TNT Sports 1",UK | TNT Sports 1 [FHD@25] [M3U8] (La2) (Canal 957)
+#EXTINF:-1 cuid="956" group-title="M3U8" tvg-chno="956" tvg-id="UK | TNT Sports 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-1-uk.png" tvg-name="UK | TNT Sports 1",UK | TNT Sports 1 [FHD@25] [M3U8] (La2) (Canal 956)
 http://178.33.239.54:8080/509/index.m3u8
 
-#EXTINF:-1 cuid="958" group-title="ACS" tvg-chno="958" tvg-id="UK | TNT Sports 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-2-uk.png" tvg-name="UK | TNT Sports 2",UK | TNT Sports 2 [FHD@25] [ACS] (SpTv) (Canal 958)
+#EXTINF:-1 cuid="957" group-title="ACS" tvg-chno="957" tvg-id="UK | TNT Sports 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-2-uk.png" tvg-name="UK | TNT Sports 2",UK | TNT Sports 2 [FHD@25] [ACS] (SpTv) (Canal 957)
 http://127.0.0.1:6878/ace/getstream?id=d63d8a57cf471394bfa9f619bbd68b01ae27a801&pid=477
 
-#EXTINF:-1 cuid="959" group-title="M3U8" tvg-chno="959" tvg-id="UK | TNT Sports 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-2-uk.png" tvg-name="UK | TNT Sports 2",UK | TNT Sports 2 [FHD@25] [M3U8] (La2) (Canal 959)
+#EXTINF:-1 cuid="958" group-title="M3U8" tvg-chno="958" tvg-id="UK | TNT Sports 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-2-uk.png" tvg-name="UK | TNT Sports 2",UK | TNT Sports 2 [FHD@25] [M3U8] (La2) (Canal 958)
 http://178.33.239.54:8080/510/index.m3u8
 
-#EXTINF:-1 cuid="960" group-title="M3U8" tvg-chno="960" tvg-id="UK | TNT Sports 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-2-uk.png" tvg-name="UK | TNT Sports 2",UK | TNT Sports 2 [FHD@25] [M3U8] (Canal 960)
+#EXTINF:-1 cuid="959" group-title="M3U8" tvg-chno="959" tvg-id="UK | TNT Sports 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-2-uk.png" tvg-name="UK | TNT Sports 2",UK | TNT Sports 2 [FHD@25] [M3U8] (Canal 959)
 https://7pal.short.gy/tntspts2
 
-#EXTINF:-1 cuid="961" group-title="M3U8" tvg-chno="961" tvg-id="UK | TNT Sports 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-2-uk.png" tvg-name="UK | TNT Sports 2",UK | TNT Sports 2 [FHD@50] [M3U8] (A1x) (Canal 961)
+#EXTINF:-1 cuid="960" group-title="M3U8" tvg-chno="960" tvg-id="UK | TNT Sports 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-2-uk.png" tvg-name="UK | TNT Sports 2",UK | TNT Sports 2 [FHD@50] [M3U8] (A1x) (Canal 960)
 https://A1xs.vip/2000022
 
-#EXTINF:-1 cuid="962" group-title="ACS" tvg-chno="962" tvg-id="UK | TNT Sports 3" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-3-uk.png" tvg-name="UK | TNT Sports 3",UK | TNT Sports 3 [FHD@25] [ACS] (SpTv) (Canal 962)
+#EXTINF:-1 cuid="961" group-title="ACS" tvg-chno="961" tvg-id="UK | TNT Sports 3" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-3-uk.png" tvg-name="UK | TNT Sports 3",UK | TNT Sports 3 [FHD@25] [ACS] (SpTv) (Canal 961)
 http://127.0.0.1:6878/ace/getstream?id=5f966c123759de46dff29c379266b7a403452033&pid=478
 
-#EXTINF:-1 cuid="963" group-title="M3U8" tvg-chno="963" tvg-id="UK | TNT Sports 3" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-3-uk.png" tvg-name="UK | TNT Sports 3",UK | TNT Sports 3 [FHD@50] [M3U8] (A1x) (Canal 963)
+#EXTINF:-1 cuid="962" group-title="M3U8" tvg-chno="962" tvg-id="UK | TNT Sports 3" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-3-uk.png" tvg-name="UK | TNT Sports 3",UK | TNT Sports 3 [FHD@50] [M3U8] (A1x) (Canal 962)
 https://A1xs.vip/2000023
 
-#EXTINF:-1 cuid="964" group-title="M3U8" tvg-chno="964" tvg-id="UK | TNT Sports 3" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-3-uk.png" tvg-name="UK | TNT Sports 3",UK | TNT Sports 3 [FHD@25] [M3U8] (La2) (Canal 964)
+#EXTINF:-1 cuid="963" group-title="M3U8" tvg-chno="963" tvg-id="UK | TNT Sports 3" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-3-uk.png" tvg-name="UK | TNT Sports 3",UK | TNT Sports 3 [FHD@25] [M3U8] (La2) (Canal 963)
 http://178.33.239.54:8080/511/index.m3u8
 
-#EXTINF:-1 cuid="965" group-title="ACS" tvg-chno="965" tvg-id="UK | TNT Sports 4" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-4-uk.png" tvg-name="UK | TNT Sports 4",UK | TNT Sports 4 [FHD@25] [ACS] (SpTv) (Canal 965)
+#EXTINF:-1 cuid="964" group-title="ACS" tvg-chno="964" tvg-id="UK | TNT Sports 4" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-4-uk.png" tvg-name="UK | TNT Sports 4",UK | TNT Sports 4 [FHD@25] [ACS] (SpTv) (Canal 964)
 http://127.0.0.1:6878/ace/getstream?id=fc5089d8e1519872fdf951779ccbca913acc9bce&pid=479
 
-#EXTINF:-1 cuid="966" group-title="M3U8" tvg-chno="966" tvg-id="UK | TNT Sports 4" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-4-uk.png" tvg-name="UK | TNT Sports 4",UK | TNT Sports 4 [FHD@50] [M3U8] (A1x) (Canal 966)
+#EXTINF:-1 cuid="965" group-title="M3U8" tvg-chno="965" tvg-id="UK | TNT Sports 4" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-4-uk.png" tvg-name="UK | TNT Sports 4",UK | TNT Sports 4 [FHD@50] [M3U8] (A1x) (Canal 965)
 https://A1xs.vip/2000024
 
-#EXTINF:-1 cuid="967" group-title="ACS" tvg-chno="967" tvg-id="NBA.TV.USA.us" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nba-tv-us.png" tvg-name="NBA TV",US | NBA TV [FHD@30] [ACS] (NeEr) (Canal 967)
+#EXTINF:-1 cuid="966" group-title="ACS" tvg-chno="966" tvg-id="NBA.TV.USA.us" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nba-tv-us.png" tvg-name="NBA TV",US | NBA TV [FHD@30] [ACS] (NeEr) (Canal 966)
 http://127.0.0.1:6878/ace/getstream?id=b0f64a40f333ef5cc02c2b6d4a8c3f4b73dd8073&pid=480
 
-#EXTINF:-1 cuid="968" group-title="ACS" tvg-chno="968" tvg-id="NBA.TV.USA.us" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nba-tv-us.png" tvg-name="NBA TV",US | NBA TV [FHD@30] [ACS] (SpTv) (Canal 968)
+#EXTINF:-1 cuid="967" group-title="ACS" tvg-chno="967" tvg-id="NBA.TV.USA.us" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nba-tv-us.png" tvg-name="NBA TV",US | NBA TV [FHD@30] [ACS] (SpTv) (Canal 967)
 http://127.0.0.1:6878/ace/getstream?id=e72d03fb9694164317260f684470be9ab781ed95&pid=481
 
-#EXTINF:-1 cuid="969" group-title="M3U8" tvg-chno="969" tvg-id="NBA.TV.USA.us" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nba-tv-us.png" tvg-name="NBA Network",US | NBA Network [HD@60] [M3U8] (Canal 969)
+#EXTINF:-1 cuid="968" group-title="M3U8" tvg-chno="968" tvg-id="NBA.TV.USA.us" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nba-tv-us.png" tvg-name="NBA Network",US | NBA Network [HD@60] [M3U8] (Canal 968)
 https://A1xs.vip/40000031
 
-#EXTINF:-1 cuid="970" group-title="ACS" tvg-chno="970" tvg-id="CBS.Sports.Network.USA.us" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/cbs-sports-network-us.png" tvg-name="CBS Sports Network USA",US | CBS SPORTS NETWORK [HD@60] [ACS] (Canal 970)
+#EXTINF:-1 cuid="969" group-title="ACS" tvg-chno="969" tvg-id="CBS.Sports.Network.USA.us" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/cbs-sports-network-us.png" tvg-name="CBS Sports Network USA",US | CBS SPORTS NETWORK [HD@60] [ACS] (Canal 969)
 http://127.0.0.1:6878/ace/getstream?id=bfc49b39eed44f5e3a5f4ad060d463901a049dd1&pid=482
 
-#EXTINF:-1 cuid="971" group-title="M3U8" tvg-chno="971" tvg-id="CBS.Sports.Network.USA.us" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/cbs-sports-network-us.png" tvg-name="CBS Sports Network USA",US | CBS SPORTS NETWORK [HD@60] [M3U8] (La2) (Canal 971)
+#EXTINF:-1 cuid="970" group-title="M3U8" tvg-chno="970" tvg-id="CBS.Sports.Network.USA.us" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/cbs-sports-network-us.png" tvg-name="CBS Sports Network USA",US | CBS SPORTS NETWORK [HD@60] [M3U8] (La2) (Canal 970)
 http://212.102.60.231:80/CBS_SPORTS_NETWORK/index.m3u8
 
-#EXTINF:-1 cuid="972" group-title="M3U8" tvg-chno="972" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 1",Live Event 1 [FHD@25] [M3U8] (A1x) (Canal 972)
+#EXTINF:-1 cuid="971" group-title="M3U8" tvg-chno="971" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 1",Live Event 1 [FHD@25] [M3U8] (A1x) (Canal 971)
 https://a1xs.vip/ppv1
 
-#EXTINF:-1 cuid="973" group-title="M3U8" tvg-chno="973" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 2",Live Event 2 [FHD@25] [M3U8] (A1x) (Canal 973)
+#EXTINF:-1 cuid="972" group-title="M3U8" tvg-chno="972" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 2",Live Event 2 [FHD@25] [M3U8] (A1x) (Canal 972)
 https://a1xs.vip/ppv2
 
-#EXTINF:-1 cuid="974" group-title="M3U8" tvg-chno="974" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 3",Live Event 3 [FHD@25] [M3U8] (A1x) (Canal 974)
+#EXTINF:-1 cuid="973" group-title="M3U8" tvg-chno="973" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 3",Live Event 3 [FHD@25] [M3U8] (A1x) (Canal 973)
 https://a1xs.vip/ppv3
 
-#EXTINF:-1 cuid="975" group-title="M3U8" tvg-chno="975" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 4",Live Event 4 [FHD@25] [M3U8] (A1x) (Canal 975)
+#EXTINF:-1 cuid="974" group-title="M3U8" tvg-chno="974" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 4",Live Event 4 [FHD@25] [M3U8] (A1x) (Canal 974)
 https://a1xs.vip/ppv4
 
-#EXTINF:-1 cuid="976" group-title="M3U8" tvg-chno="976" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 5",Live Event 5 [FHD@25] [M3U8] (A1x) (Canal 976)
+#EXTINF:-1 cuid="975" group-title="M3U8" tvg-chno="975" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 5",Live Event 5 [FHD@25] [M3U8] (A1x) (Canal 975)
 https://a1xs.vip/ppv5
 
-#EXTINF:-1 cuid="977" group-title="M3U8" tvg-chno="977" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 6",Live Event 6 [FHD@25] [M3U8] (A1x) (Canal 977)
+#EXTINF:-1 cuid="976" group-title="M3U8" tvg-chno="976" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 6",Live Event 6 [FHD@25] [M3U8] (A1x) (Canal 976)
 https://a1xs.vip/ppv6
 
-#EXTINF:-1 cuid="978" group-title="M3U8" tvg-chno="978" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 7",Live Event 7 [FHD@25] [M3U8] (A1x) (Canal 978)
+#EXTINF:-1 cuid="977" group-title="M3U8" tvg-chno="977" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 7",Live Event 7 [FHD@25] [M3U8] (A1x) (Canal 977)
 https://a1xs.vip/ppv7
 
-#EXTINF:-1 cuid="979" group-title="M3U8" tvg-chno="979" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 8",Live Event 8 [FHD@25] [M3U8] (A1x) (Canal 979)
+#EXTINF:-1 cuid="978" group-title="M3U8" tvg-chno="978" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 8",Live Event 8 [FHD@25] [M3U8] (A1x) (Canal 978)
 https://a1xs.vip/ppv8
