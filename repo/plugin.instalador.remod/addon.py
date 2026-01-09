@@ -817,7 +817,7 @@ else:
             ]
         lista_patterns = [
             "repository\.acestream-channels\.zip",
-            "repository.dregs-\d{1,3}\.\d{1,3}\.zip"          
+            "repository\.dregs-\d{1,3}\.\d{1,3}\.zip"          
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addons desde fuente,1000,)")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
