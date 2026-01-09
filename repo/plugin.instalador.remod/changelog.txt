@@ -1,5 +1,5 @@
 > ReMod Instalador
-> Versión = 26.01.09.3
+> Versión = 26.01.09.4
 > Cambios respecto a la versión anterior
 	- Addon independizado de Kodi ReMod para poder usarlo en cualquier Kodi 20 o superior
 	- Addon reestructurado en secciones:

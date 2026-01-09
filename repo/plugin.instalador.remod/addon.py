@@ -60,7 +60,7 @@ def lista_menu_principal():
         ("> Sección Deportes", "deportes", "stadium.png"),
         ("> Sección Cine & TV", "cine", "cinema.png"),
         ("> Sección Herramientas", "herramientas", "herramientas.png")
-        # ("> Test", "test", ""),
+        # ("> Test", "test", "")
     ]
 
     for label, action, icon_file in menu_items:
@@ -799,8 +799,8 @@ else:
         buscar_actualizacion()
         ### instalación elementum
         lista_deps = [
-            "plugin.video.elementum",
             "script.elementum.burst",
+            "plugin.video.elementum",
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementum y Burst,1000,)")
         instalar_lista_addons(lista_deps)
@@ -1076,12 +1076,12 @@ else:
         xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=torrentio_toggle_providers)')
         addon_id = ("plugin.video.jacktook")
         multiselect_aceptar_confirm(addon_id)      
-        xbmc.sleep(1000)
+        xbmc.sleep(3000)
         
         ### instalamos elementum
         lista_deps = [
-            "plugin.video.elementum",
             "script.elementum.burst",
+            "plugin.video.elementum",
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementum y Burst,1000,)")
         instalar_lista_addons(lista_deps)
@@ -1136,21 +1136,12 @@ else:
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación EZMaintenance+,3000,)")
         
     elif action == "test":
-        addon_id = "script.ezmaintenanceplus"
-        # Construye el comando de instalación
-        instalar = f"InstallAddon({addon_id}, True)"
-        xbmc.log(f"REMOD INSTALADOR Lanzamos instalación {addon_id}", xbmc.LOGINFO)
-        # Ejecuta el comando
-        xbmc.executebuiltin(instalar)
-        xbmc.log(f"REMOD INSTALADOR Confirmamos instalación botón yes instalación {addon_id}", level=xbmc.LOGINFO)
-        if addon_inst_confirm(addon_id):
-            xbmc.log(f"REMOD INSTALADOR {addon_id} Fin instalación OK", level=xbmc.LOGINFO)
-            xbmc.sleep(500)
-            # return True
-        else:
-            xbmc.log(f"REMOD INSTALADOR Error al confirmar instalación {addon_id}", level=xbmc.LOGERROR)
-            xbmc.sleep(500)
-            # return False
+        lista_deps = [
+            "script.elementum.burst",
+            "plugin.video.elementum",
+            ]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementum y Burst,1000,)")
+        instalar_lista_addons(lista_deps)
         
         pass
 
