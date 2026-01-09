@@ -59,8 +59,8 @@ def lista_menu_principal():
         (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} [COLOR blue](En desarrollo)[/COLOR] | Buscar actualizaciones", "info", "info.png"),
         ("> Sección Deportes", "deportes", "stadium.png"),
         ("> Sección Cine & TV", "cine", "cinema.png"),
-        ("> Sección Herramientas", "herramientas", "herramientas.png"),
-        ("> Test", "test", ""),
+        ("> Sección Herramientas", "herramientas", "herramientas.png")
+        # ("> Test", "test", ""),
     ]
 
     for label, action, icon_file in menu_items:
@@ -438,34 +438,6 @@ def download_zip_from_url(url):
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error al extraer archivo,3000,)")
         return False
 
-### instala acestream channels
-def inst_acs_channels():
-    xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando AceStream Channels,1500,)")
-    xbmc.log(f"REMOD INSTALADOR Iniciando instalación AceStream Channels", level=xbmc.LOGINFO)
-    ### config func
-    base_url = 'https://github.com/gtkingbuild/Repo-GTKing/raw/refs/heads/master/omega/zips/plugin.video.acestream_channels/'
-    download_path = os.path.join(addons_home, 'packages')
-    pattern = r'plugin\.video\.acestream_channels-\d{1,2}\.\d{1,2}\.\d{1,2}\.zip'
-    # Realizar la solicitud GET
-    xbmc.log(f"REMOD INSTALADOR Buscando archivo zip", level=xbmc.LOGINFO)
-    with urllib.request.urlopen(base_url) as response:
-        html = response.read().decode()
-    # Buscar el patrón del archivo zip
-    match = re.search(pattern, html)
-    if match:
-        xbmc.log(f"REMOD INSTALADOR Archivo zip encontrado", level=xbmc.LOGINFO)
-        download_url = f"{base_url}{match.group(0)}"
-        download_zip_from_url(download_url)
-        # xbmc.sleep(1000)
-        # xbmc.log(f"REMOD INSTALADOR Actualizando Addon Repos", level=xbmc.LOGINFO)
-        # xbmc.executebuiltin(f"UpdateAddonRepos()", True)
-        # xbmc.sleep(1000)
-        # xbmc.log(f"REMOD INSTALADOR Actualizando Local Addon", level=xbmc.LOGINFO)
-        # xbmc.executebuiltin(f"UpdateLocalAddons()", True)
-        # xbmc.sleep(1000)
-        xbmc.log(f"REMOD INSTALADOR Fin instalación AceStream Channels", level=xbmc.LOGINFO)
-     
-
 def inst_addon(addon_id):
     ### verificamos que no esté instalado ya
     if xbmc.getCondVisibility(f'System.HasAddon({addon_id})'):
@@ -480,7 +452,6 @@ def inst_addon(addon_id):
         xbmc.executebuiltin(instalar)
         xbmc.sleep(500)
         return True
-    
 
 def addon_inst_confirm(addon_id):
     max_attempts = 20  # Número máximo de intentos
@@ -559,11 +530,12 @@ def instalar_lista_addons(lista_deps):
         xbmc.log(f"REMOD INSTALADOR Confirmamos instalación botón yes instalación {addon_id}", level=xbmc.LOGINFO)
         if addon_inst_confirm(addon_id):
             xbmc.log(f"REMOD INSTALADOR {addon_id} Fin instalación OK", level=xbmc.LOGINFO)
-            xbmc.sleep(500)
-            return True
+            xbmc.sleep(1000)
+            # return True
         else:
             xbmc.log(f"REMOD INSTALADOR Error al confirmar instalación {addon_id}", level=xbmc.LOGERROR)
-            return False
+            xbmc.sleep(1000)
+            # return False
     xbmc.log(f"REMOD INSTALADOR Error instalando lista addons dependencias", level=xbmc.LOGERROR)
     return False
   
@@ -738,23 +710,22 @@ else:
         buscar_actualizacion()
         ### instalación de addons desde repo ya instalado
         lista_deps = [
-            "repository.resolveurl",
+            "script.module.six",
+            "script.module.kodi-six",
+            "script.module.requests",
+            "script.module.dateutil",
+            "script.module.websocket",
             "script.module.addon.signals",
             "script.module.beautifulsoup4",
             "script.module.certifi",
             "script.module.chardet",
             "script.module.idna",
             "script.module.urllib3",
-            "script.module.dateutil",
             "script.module.html5lib",
-            "script.module.six",
-            "script.module.kodi-six",
             "script.module.pyxbmct",
             "script.module.soupsieve",
             "script.module.webencodings",
-            "script.module.websocket",
-            "script.module.requests",
-            "script.module.resolveurl",
+            "script.module.resolveurl"
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando dependencias,1000,)")
         ### instalar addon zip desde url fuente
@@ -792,24 +763,22 @@ else:
         buscar_actualizacion()
         ### instalación de addons desde repo ya instalado
         lista_deps = [
+            "script.module.six",
+            "script.module.kodi-six",
+            "script.module.requests",
+            "script.module.dateutil",
+            "script.module.websocket",
             "script.module.addon.signals",
             "script.module.beautifulsoup4",
             "script.module.certifi",
             "script.module.chardet",
             "script.module.idna",
             "script.module.urllib3",
-            "script.module.dateutil",
             "script.module.html5lib",
-            "script.module.six",
-            "script.module.kodi-six",
-            "script.module.pysocks",
             "script.module.pyxbmct",
-            "script.module.simplecache",
             "script.module.soupsieve",
             "script.module.webencodings",
-            "script.module.websocket",
-            "script.module.resolveurl",
-            "script.module.requests"
+            "script.module.resolveurl"
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando dependencias,1000,)")
         instalar_lista_addons(lista_deps)
@@ -840,11 +809,11 @@ else:
         ### descarga addons zip desde url
         lista_repos = [
             "repository.acestream-channels",
-            "repository.dregs",
+            "repository.dregs"
             ]
         lista_base_urls = [
             "https://gunter257.github.io/repoachannels/",
-            "https://dregs1.github.io/",
+            "https://dregs1.github.io/"
             ]
         lista_patterns = [
             "repository\.acestream-channels\.zip",
@@ -866,8 +835,7 @@ else:
         ### instalación de addons desde repo ya instalado
         lista_deps = [
             "plugin.video.acestream_channels",
-            "script.module.six",
-            "script.module.horus",
+            "script.module.horus"
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Acestream Channels,1000,)")
         instalar_lista_addons(lista_deps)
@@ -877,7 +845,6 @@ else:
             xbmc.log(f"REMOD INSTALADOR Activando Reproductor Externo en Horus en Android", level=xbmc.LOGINFO)
             addon_set = xbmcaddon.Addon('script.module.horus')
             addon_set.setSettingBool('reproductor_externo', True)
-            
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación AceStream Channels,3000,)")
         
     elif action == "balandro":
@@ -921,25 +888,24 @@ else:
         buscar_actualizacion()
         ### instalación de addons desde repo ya instalado
         lista_deps = [
-            "repository.resolveurl",
+            "script.module.six",
+            "script.module.kodi-six",
+            "script.module.requests",
+            "script.module.dateutil",
+            "script.module.websocket",
             "script.module.addon.signals",
             "script.module.beautifulsoup4",
             "script.module.certifi",
             "script.module.chardet",
             "script.module.idna",
             "script.module.urllib3",
-            "script.module.dateutil",
             "script.module.html5lib",
-            "script.module.six",
-            "script.module.kodi-six",
             "script.module.pyxbmct",
             "script.module.soupsieve",
             "script.module.webencodings",
-            "script.module.websocket",
-            "script.module.requests",
-            "script.module.resolveurl",
+            "script.module.resolveurl"
             "plugin.video.Magellan_Matrix",
-            "plugin.video.f4mTester",
+            "plugin.video.f4mTester"
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Magellan,1000,)")
         instalar_lista_addons(lista_deps)
@@ -986,7 +952,7 @@ else:
         ### instalación elementum y jacktook
         lista_deps = [
             "plugin.video.duffyou",
-            "plugin.video.moestv",
+            "plugin.video.moestv"
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Moe's TV,1000,)")
         instalar_lista_addons(lista_deps)
@@ -1019,15 +985,15 @@ else:
     elif action == "jacktook":
         lista_repos = [
             "repository.remod",
-            "repository.jacktook",
+            "repository.jacktook"
             ]
         lista_base_urls = [
             "https://saratoga79.github.io/",
-            "https://sam-max.github.io/repository.jacktook/",
+            "https://sam-max.github.io/repository.jacktook/"
             ]
         lista_patterns = [
             "repository\.remod-\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip",
-            "repository\.jacktook-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip",
+            "repository\.jacktook-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addons desde fuente,1000,)")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
@@ -1063,7 +1029,7 @@ else:
         ### desactivamos el addon para copiar
         addons = [
             "script.module.routing",
-            "plugin.video.jacktook",
+            "plugin.video.jacktook"
             ]
         lista_addons(addons, False)
         xbmc.log(f"REMOD INSTALADOR Copiando archivos...", level=xbmc.LOGINFO)
@@ -1082,7 +1048,7 @@ else:
         ### reactivamos el addon tras copiar
         addons = [
             "script.module.routing",
-            "plugin.video.jacktook",
+            "plugin.video.jacktook"
             ]
         lista_addons(addons, True)        
         xbmc.sleep(1000)
@@ -1142,10 +1108,7 @@ else:
         ### actualizar lista de repos descargados
         buscar_actualizacion()
         ### instalación de addons desde repo ya instalado
-        lista_deps = [
-            "script.module.requests",
-            "script.ezmaintenanceplus",
-            ]
+        lista_deps = ["script.ezmaintenanceplus"]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando EZMaintenance+,1000,)")
         instalar_lista_addons(lista_deps)
         xbmc.sleep(1000)
