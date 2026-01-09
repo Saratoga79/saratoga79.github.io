@@ -665,6 +665,7 @@ else:
         lista_menu_cine()
     elif action == "herramientas":
         lista_menu_herramientas()
+        
     elif action == "remodtv":
         ### descarga addons zip desde url
         lista_repos = ["repository.remod"]
@@ -672,7 +673,6 @@ else:
         lista_patterns = ["repository\.remod-\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addons desde fuente,1000,)")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
-        # xbmc.sleep(1000)
         ### actualizar lista de addons para refrersacar addons descargados
         buscar_actualizacion()
         ### activar addons descargados
@@ -745,13 +745,12 @@ else:
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación KodispainTv,3000,)")
         
     elif action == "tacones":
-        lista_repos = ["repository.elementumorg"]
-        ### descarga directa de zip
-        url = "https://github.com/ElementumOrg/repository.elementumorg/releases/download/v0.0.7/repository.elementumorg-0.0.7.zip"
-        download_direct_zip_from_url(url)
+        ### descarga addons zip desde url
+        lista_repos = ["repository.remod"]
+        lista_base_urls = ["https://saratoga79.github.io/"]
+        lista_patterns = ["repository\.remod-\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addons desde fuente,1000,)")
-        # descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
-        xbmc.sleep(1000)
+        descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
         ### actualizar lista de addons para refrersacar addons descargados
         buscar_actualizacion()
         ### activar addons descargados
@@ -761,7 +760,24 @@ else:
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin activando addons descargaos,1000,)")
         ### actualizar lista de repos descargados
         buscar_actualizacion()
+    
+        # lista_repos = ["repository.elementumorg"]
+        ## descarga directa de zip
+        # url = "https://github.com/ElementumOrg/repository.elementumorg/releases/download/v0.0.7/repository.elementumorg-0.0.7.zip"
+        # download_direct_zip_from_url(url)
+        # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addons desde fuente,1000,)")
+        # xbmc.sleep(1000)
+        ## actualizar lista de addons para refrersacar addons descargados
+        # buscar_actualizacion()
+        ## activar addons descargados
+        # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addons descargados,1000,)")
+        # activar_lista_repos_zip(lista_repos)
+        # xbmc.sleep(1000)
+        # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin activando addons descargaos,1000,)")
+        ## actualizar lista de repos descargados
+        # buscar_actualizacion()
         ### instalación de addons desde repo ya instalado
+        
         lista_deps = [
             "script.module.six",
             "script.module.kodi-six",
