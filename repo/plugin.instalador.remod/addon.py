@@ -56,7 +56,7 @@ def build_url(query):
 def lista_menu_principal():
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
-        (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} [COLOR blue](En desarrollo)[/COLOR] | Buscar actualizaciones", "info", "info.png"),
+        (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} | Buscar actualizaciones", "info", "info.png"),
         ("> Sección Deportes", "deportes", "stadium.png"),
         ("> Sección Cine & TV", "cine", "cinema.png"),
         ("> Sección Herramientas", "herramientas", "herramientas.png")
@@ -82,11 +82,11 @@ def lista_menu_principal():
 def lista_menu_deportes():
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
-        (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} [COLOR blue](En desarrollo)[/COLOR] | Buscar actualizaciones", "info", "info.png"),
+        (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} | Buscar actualizaciones", "info", "info.png"),
         ("> Instalar ReMod TV", "remodtv", "remodtv.png"),
         ("> Instalar [COLOR red]Kodi[/COLOR][COLOR yellow]Spain[/COLOR][COLOR red]Tv[/COLOR]", "kodispaintv", "kodispaintv.png"),
         ("> Instalar AceStream Channels", "acs_channels", "acs_channels.png"),
-        ("> Instalar StreamedEZ | [COLOR yellow](VPN recomendada)[/COLOR]", "streamedez", "streamedez.png")
+        ("> Instalar StreamedEZ", "streamedez", "streamedez.png")
     ]
 
     for label, action, icon_file in menu_items:
@@ -108,12 +108,12 @@ def lista_menu_deportes():
 def lista_menu_cine():
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
-        (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} [COLOR blue](En desarrollo)[/COLOR] | Buscar actualizaciones", "info", "info.png"),
+        (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} | Buscar actualizaciones", "info", "info.png"),
         ("> Instalar Jacktook ReMod | Películas & Series Stremio | TV en vivo Ace Stream", "jacktook", "jacktook.png"),
         ("> Instalar [COLOR red]TACONES[/COLOR]", "tacones", "tacones.png"),
         ("> Instalar Balandro", "balandro", "balandro.png"),
-        ("> Instalar Magellan [COLOR blue](En desarrollo)[/COLOR]", "magellan", "magellan.png"),
-        ("> Instalar Alfa [COLOR blue](En desarrollo)[/COLOR]", "alfa", "alfa.png"),
+        ("> Instalar Magellan", "magellan", "magellan.png"),
+        ("> Instalar Alfa", "alfa", "alfa.png"),
         ("> Instalar EspaDaily", "espadaily", "espadaily.png"),
         ("> Instalar Moe´s TV | Duff You & Moe´s TV | [COLOR orange]Sin soporte[/COLOR]", "moes", "moes.jpg")
     ]
@@ -138,7 +138,7 @@ def lista_menu_cine():
 def lista_menu_herramientas():
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
-        (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} [COLOR blue](En desarrollo)[/COLOR] | Buscar actualizaciones", "info", "info.png"),
+        (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} | Buscar actualizaciones", "info", "info.png"),
         ("> Instalar EZMaintenance+", "ezmaintenanceplus", "ezmaintenance.png")
     ]
 
@@ -725,7 +725,7 @@ else:
             "script.module.pyxbmct",
             "script.module.soupsieve",
             "script.module.webencodings",
-            "script.module.resolveurl"
+            "script.module.resolveurl",
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando dependencias,1000,)")
         ### instalar addon zip desde url fuente
@@ -778,7 +778,7 @@ else:
             "script.module.pyxbmct",
             "script.module.soupsieve",
             "script.module.webencodings",
-            "script.module.resolveurl"
+            "script.module.resolveurl",
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando dependencias,1000,)")
         instalar_lista_addons(lista_deps)
@@ -798,10 +798,14 @@ else:
         ### actualizar lista de repos descargados
         buscar_actualizacion()
         ### instalación elementum
-        lista_deps = ["plugin.video.elementum"]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementum,1000,)")
+        lista_deps = [
+            "plugin.video.elementum",
+            "script.elementum.burst",
+            ]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementum y Burst,1000,)")
         instalar_lista_addons(lista_deps)
         xbmc.sleep(1000)
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Elementum y Burst Instaladoa,1000,)")
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación Tacones,3000,)")
 
     elif action == "acs_channels":
@@ -809,15 +813,15 @@ else:
         ### descarga addons zip desde url
         lista_repos = [
             "repository.acestream-channels",
-            "repository.dregs"
+            "repository.dregs",
             ]
         lista_base_urls = [
             "https://gunter257.github.io/repoachannels/",
-            "https://dregs1.github.io/"
+            "https://dregs1.github.io/",
             ]
         lista_patterns = [
             "repository\.acestream-channels\.zip",
-            "repository\.dregs-\d{1,3}\.\d{1,3}\.zip"          
+            "repository\.dregs-\d{1,3}\.\d{1,3}\.zip",        
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addons desde fuente,1000,)")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
@@ -835,7 +839,7 @@ else:
         ### instalación de addons desde repo ya instalado
         lista_deps = [
             "plugin.video.acestream_channels",
-            "script.module.horus"
+            "script.module.horus",
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Acestream Channels,1000,)")
         instalar_lista_addons(lista_deps)
@@ -864,6 +868,7 @@ else:
         ### actualizar lista de repos descargados
         buscar_actualizacion()
         ### instalación de addons desde repo ya instalado
+        
         lista_deps = ["plugin.video.balandro"]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Balandro,1000,)")
         instalar_lista_addons(lista_deps)
@@ -872,9 +877,18 @@ else:
         
     elif action == "magellan":
         ### descarga addons zip desde url
-        lista_repos = ["repository.magellan"]
-        lista_base_urls = ["https://euro2000.github.io/magellan.github.io/"]
-        lista_patterns = ["repository\.magellan\.zip"]
+        lista_repos = [
+            "repository.magellan",
+            "repository.dregs",
+            ]
+        lista_base_urls = [
+            "https://euro2000.github.io/magellan.github.io/",
+            "https://dregs1.github.io/",
+            ]
+        lista_patterns = [
+            "repository\.magellan\.zip",
+            "repository\.dregs-\d{1,3}\.\d{1,3}\.zip",
+            ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addons desde fuente,1000,)")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
         xbmc.sleep(1000)
@@ -903,9 +917,9 @@ else:
             "script.module.pyxbmct",
             "script.module.soupsieve",
             "script.module.webencodings",
-            "script.module.resolveurl"
+            "script.module.resolveurl",
             "plugin.video.Magellan_Matrix",
-            "plugin.video.f4mTester"
+            "plugin.video.f4mTester",
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Magellan,1000,)")
         instalar_lista_addons(lista_deps)
@@ -948,11 +962,10 @@ else:
         activar_lista_repos_zip(lista_repos)      
         xbmc.sleep(1000)
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin activando addons descargaos,1000,)")
-        
-        ### instalación elementum y jacktook
+        ### instalación duffyou y moes
         lista_deps = [
             "plugin.video.duffyou",
-            "plugin.video.moestv"
+            "plugin.video.moestv",
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Moe's TV,1000,)")
         instalar_lista_addons(lista_deps)
@@ -985,15 +998,15 @@ else:
     elif action == "jacktook":
         lista_repos = [
             "repository.remod",
-            "repository.jacktook"
+            "repository.jacktook",
             ]
         lista_base_urls = [
             "https://saratoga79.github.io/",
-            "https://sam-max.github.io/repository.jacktook/"
+            "https://sam-max.github.io/repository.jacktook/",
             ]
         lista_patterns = [
             "repository\.remod-\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip",
-            "repository\.jacktook-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"
+            "repository\.jacktook-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip",
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addons desde fuente,1000,)")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
@@ -1007,7 +1020,6 @@ else:
         
         ### instalación elementum y jacktook
         lista_deps = [
-            "plugin.video.elementum",
             "plugin.video.jacktook",
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Jacktook,1000,)")
@@ -1029,7 +1041,7 @@ else:
         ### desactivamos el addon para copiar
         addons = [
             "script.module.routing",
-            "plugin.video.jacktook"
+            "plugin.video.jacktook",
             ]
         lista_addons(addons, False)
         xbmc.log(f"REMOD INSTALADOR Copiando archivos...", level=xbmc.LOGINFO)
@@ -1048,7 +1060,7 @@ else:
         ### reactivamos el addon tras copiar
         addons = [
             "script.module.routing",
-            "plugin.video.jacktook"
+            "plugin.video.jacktook",
             ]
         lista_addons(addons, True)        
         xbmc.sleep(1000)
@@ -1066,6 +1078,15 @@ else:
         multiselect_aceptar_confirm(addon_id)      
         xbmc.sleep(1000)
         
+        ### instalamos elementum
+        lista_deps = [
+            "plugin.video.elementum",
+            "script.elementum.burst",
+            ]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementum y Burst,1000,)")
+        instalar_lista_addons(lista_deps)
+        xbmc.sleep(1000)
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Elementum y Burst Instaladoa,1000,)")
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación Jacktook,3000,)")
         
     elif action == "streamedez":

@@ -1,7 +1,7 @@
 <addon
 	id="plugin.instalador.remod"
 	name="ReMod Instalador"
-	version="26.01.09.2"
+	version="26.01.09.3"
 	provider-name="Saratoga">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1"/> <!-- Mín Kodi 20+ -->
@@ -16,9 +16,9 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
-> Versión = 26.01.09.2
+> Versión = 26.01.09.3
 > Cambios respecto a la versión anterior
-	- Addon en desarrollo para hacerlo independiente de Kodi ReMod y poder usarlo en cualquier Kodi 20 o superior
+	- Addon independizado de Kodi ReMod para poder usarlo en cualquier Kodi 20 o superior
 	- Addon reestructurado en secciones:
 		- Sección Deportes
 		- Sección Cine y TV
