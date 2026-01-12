@@ -1,10 +1,11 @@
 <addon 
 	id="plugin.program.remodtv"
 	name="ReMod TV"
-	version="25.12.23.0"
+	version="26.01.12.0"
 	provider-name="Saratoga">
 	<requires>
-		<import addon="xbmc.python" version="3.0.1"/> <!-- Mín Kodi 20+ -->
+		<!-- Mín Kodi 20+ -->
+		<import addon="xbmc.python" version="3.0.1"/>
 	</requires>
 	<extension point="xbmc.python.pluginsource" library="addon.py">
 		<provides>executable</provides>
@@ -16,64 +17,68 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
+> Versión = 26.01.12.0
+> Cambios respecto a la versión anterior:
+	- Actualizado Ace Serve a la v1.5.6 en la sección de Herramientas y Utilidades
+	
 > Versión = 25.12.23.0
-> Cambios respecto a la versión anterior
+> Cambios respecto a la versión anterior:
 	- Corrección de errores
 	- Fuentes de TV obsolestas quitadas
 	
 > Versión = 25.12.16.1
-> Cambios respecto a la versión anterior
+> Cambios respecto a la versión anterior:
 	- Actualizado en la sección de Herramientas y Utilidades así como en el Repo:
 		- Ace Stream Pro ReMod v251216.0
 		- Kodi ReMod v251215.0 basado en la nueva versión de Kodi 21.3
 	
 > Versión = 25.12.14.0
-> Cambios respecto a la versión anterior
+> Cambios respecto a la versión anterior:
 	- Corrección de errores en Reproductores Externos
 	
 > Versión = 25.12.05.0
-> Cambios respecto a la versión anterior
+> Cambios respecto a la versión anterior:
 	- Mejoras en la gestión de los errores de las fuentes. Cuando se detecta que alguna de las 3 primeras fuentes principales tienen algún problema, se configura automáticamente la fuente correspondiente de Repuesto 2. 
 	
 > Versión = 25.12.01.0
-> Cambios respecto a la versión anterior
+> Cambios respecto a la versión anterior:
 	- Añadida Fuente de Repuesto 2 para las fuentes:
 	  - 1 Direct
 	  - 2 ACE
 	  - 3 Horus
 	
 > Versión = 25.11.29.1
-> Cambios respecto a la versión anterior
+> Cambios respecto a la versión anterior:
 	- Actualizado Ace Serve a la v1.5.5 en la sección de Herramientas y Utilidades
 	
 > Versión = 25.11.27.1
-> Cambios respecto a la versión anterior
+> Cambios respecto a la versión anterior:
 	- Añadida nueva fuente: 8 Chucky
 	- Pequeñas mejoras
 	
 > Versión = 25.11.27.0
-> Cambios respecto a la versión anterior
+> Cambios respecto a la versión anterior:
 	- Pequeñas mejoras
 	
 > Versión = 25.11.25.0
-> Cambios respecto a la versión anterior
+> Cambios respecto a la versión anterior:
 	- Mejoras varias
 	
 > Versión = 25.11.24.0
-> Cambios respecto a la versión anterior
+> Cambios respecto a la versión anterior:
 	- Actualizado Ace Serve a la v1.5.3 en la sección de Herramientas y Utilidades
 	- Pequeñas mejoras en los menús
 	
 > Versión = 25.11.23.0
-> Cambios respecto a la versión anterior
+> Cambios respecto a la versión anterior:
 	- Añadida comprobación de estado de fuentes
 	
 > Versión = 25.11.20.2
-> Cambios respecto a la versión anterior
+> Cambios respecto a la versión anterior:
 	- Actualizados nombres de Reproductores Externos
 	
 > Versión = 25.11.20.1
-> Cambios respecto a la versión anterior
+> Cambios respecto a la versión anterior:
 	- Actualizado Ace Serve a la v1.5.0 en la sección de Herramientas y Utilidades
 	
 > Versión = 25.11.18.3
