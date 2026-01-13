@@ -167,17 +167,17 @@ http://fastream.xyz:8080/juan18/83e45w87w/60242
 #EXTINF:-1 cuid="55" group-title="M3U8" tvg-chno="55" tvg-id="M+ LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-por-movistar-plus-es.png" tvg-name="M+ LaLiga",M+ LaLiga TV [SD@25] [M3U8] (La2) (Canal 55)
 https://broadcasthub.click/hls/4eLyr2RZq7v/index.m3u8
 
-#EXTINF:-1 cuid="56" group-title="ACS" tvg-chno="56" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [ACS] (Elc) (Canal 56)
-http://127.0.0.1:6878/ace/getstream?id=51b363b1c4d42724e05240ad068ad219df8042ec&pid=10
+#EXTINF:-1 cuid="56" group-title="ACS" tvg-chno="56" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@50] [ACS] (Elc) (Canal 56)
+http://127.0.0.1:6878/ace/getstream?id=ad42faa399df66dcd62a1cbc9d1c99ed4512d3b8&pid=10
 
-#EXTINF:-1 cuid="57" group-title="ACS" tvg-chno="57" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [ACS] (NeEr6) (Canal 57)
-http://127.0.0.1:6878/ace/getstream?id=911ad127726234b97658498a8b790fdd7516541d&pid=11
+#EXTINF:-1 cuid="57" group-title="ACS" tvg-chno="57" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [ACS] (Elc) (Canal 57)
+http://127.0.0.1:6878/ace/getstream?id=51b363b1c4d42724e05240ad068ad219df8042ec&pid=11
 
 #EXTINF:-1 cuid="58" group-title="ACS" tvg-chno="58" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [ACS] (SpTv) (Canal 58)
 http://127.0.0.1:6878/ace/getstream?id=b8eb9c9868d487402569bba2d97a8af113d033fe&pid=12
 
-#EXTINF:-1 cuid="59" group-title="ACS" tvg-chno="59" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [ACS] (Elc) (Canal 59)
-http://127.0.0.1:6878/ace/getstream?id=ad42faa399df66dcd62a1cbc9d1c99ed4512d3b8&pid=13
+#EXTINF:-1 cuid="59" group-title="ACS" tvg-chno="59" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [ACS] (NeEr6) (Canal 59)
+http://127.0.0.1:6878/ace/getstream?id=911ad127726234b97658498a8b790fdd7516541d&pid=13
 
 #EXTINF:-1 cuid="60" group-title="M3U8" tvg-chno="60" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [M3U8] (Be2Sp) (Canal 60)
 http://germanytv.net:8080/play/live.php?mac=00:1A:79:A3:B7:95&stream=29643&extension=ts
