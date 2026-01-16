@@ -1,7 +1,7 @@
 <addon
 	id="plugin.instalador.remod"
 	name="ReMod Instalador"
-	version="26.01.09.5"
+	version="26.01.16.0"
 	provider-name="Saratoga">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1"/> <!-- Mín Kodi 20+ -->
@@ -15,9 +15,20 @@
 		<license></license>
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
-		<news>
+		<news>> ReMod Instalador
+> Versión = 26.01.16.0
+> Cambios respecto a la versión anterior:
+	- Pequeñas mejoras
+	- Añadidos nuevos addons:
+		- Deportes:
+			- Daddylive (by @tommhe14)
+	
+> Versión = 26.01.11.0
+> Cambios respecto a la versión anterior:
+	- Pequeñas mejoras
+	
 > Versión = 26.01.09.5
-> Cambios respecto a la versión anterior
+> Cambios respecto a la versión anterior:
 	- Addon independizado de Kodi ReMod para poder usarlo en cualquier Kodi 20 o superior
 	- Addon reestructurado en secciones:
 		- Sección Deportes
@@ -26,31 +37,31 @@
 	- Borrados addons que no funcionan: GreenBall
 	- Añadidos nuevos addons:
 		- Deportes:
-			- StreamedEZ
+			- StreamedEZ (by @blazeymcblaze)
 		- Cine y TV:
-			- Jacktook ReMod para cine, series (elementum) y TV (Ace Stream)
-			- EspaDaily	
+			- Jacktook (by @Sam-Max): Películas y series Stremio mediante Elementum, TV en vivo mediante Ace Stream preconfigurado para contenido en Español
+			- EspaDaily (by @fullstackcurso)
 		- Herramientas:
-			- EZMaintenance+
+			- EZMaintenance+ (by @peno64)
 	
 > Versión = 25.11.18.0
-> Cambios respecto a la versión anterior
+> Cambios respecto a la versión anterior:
 	- Pequeñas mejoras
 
 > Versión = 25.11.14.1
-> Cambios respecto a la versión anterior
+> Cambios respecto a la versión anterior:
 	- En Android al isntalar Horus se activa el ajuste de Reproductor Externo
 	
 > Versión = 25.11.14.0
-> Cambios respecto a la versión anterior
+> Cambios respecto a la versión anterior:
 	- Añadida nueva fuente de inStalación para Ace Channels desde repo GTKing
 	
 > Versión = 25.11.07.0
-> Cambios respecto a la versión anterior
+> Cambios respecto a la versión anterior:
 	- Añadida información de funcionamiento de addons
 	
 > Versión = 25.09.26.2
-> Cambios respecto a la versión anterior
+> Cambios respecto a la versión anterior:
 	- Mejoras y correcciones
 	
 > Versión = 25.09.25.2

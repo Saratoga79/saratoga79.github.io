@@ -86,7 +86,8 @@ def lista_menu_deportes():
         ("> Instalar ReMod TV", "remodtv", "remodtv.png"),
         ("> Instalar [COLOR red]Kodi[/COLOR][COLOR yellow]Spain[/COLOR][COLOR red]Tv[/COLOR]", "kodispaintv", "kodispaintv.png"),
         ("> Instalar AceStream Channels", "acs_channels", "acs_channels.png"),
-        ("> Instalar StreamedEZ", "streamedez", "streamedez.png")
+        ("> Instalar StreamedEZ", "streamedez", "streamedez.png"),
+        ("> Instalar Daddylive | [COLOR yellow]VPN recomendada[/COLOR]", "daddylive", "daddylive.png")
     ]
 
     for label, action, icon_file in menu_items:
@@ -109,7 +110,7 @@ def lista_menu_cine():
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
         (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} | Buscar actualizaciones", "info", "info.png"),
-        ("> Instalar Jacktook ReMod | Películas & Series Stremio | TV en vivo Ace Stream", "jacktook", "jacktook.png"),
+        ("> Instalar Jacktook | Películas & Series Stremio | TV en vivo Ace Stream", "jacktook", "jacktook.png"),
         ("> Instalar [COLOR red]TACONES[/COLOR]", "tacones", "tacones.png"),
         ("> Instalar Balandro", "balandro", "balandro.png"),
         ("> Instalar Magellan", "magellan", "magellan.png"),
@@ -139,7 +140,8 @@ def lista_menu_herramientas():
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
         (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} | Buscar actualizaciones", "info", "info.png"),
-        ("> Instalar EZMaintenance+", "ezmaintenanceplus", "ezmaintenance.png")
+        ("> Instalar EZMaintenance+", "ezmaintenanceplus", "ezmaintenance.png"),
+        ("> Instalar Log Viewer", "log_viewer", "log_viewer.png")
     ]
 
     for label, action, icon_file in menu_items:
@@ -274,7 +276,7 @@ def addon_activacion_confirm(addon_id):
             xbmc.log(f"REMOD INSTALADOR Espereando visibilidad botón yes para activar addon zip", level=xbmc.LOGINFO)
             xbmc.executebuiltin(f"SendClick(11)", True)
             xbmc.sleep(1000)
-            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Addon activado,1000,)")
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Addon activado,1000)")
             xbmc.log(f"REMOD INSTALADOR Intentando click yes para activar addon zip", level=xbmc.LOGINFO)
             return True
          else:   
@@ -287,45 +289,46 @@ def multiselect_aceptar_confirm(addon_id):
     max_attempts = 20  # Número máximo de intentos
     attempts = 0
     while attempts < max_attempts:
-         xbmc.log(f"REMOD INSTALADOR Intentando click yes para activar addon zip", level=xbmc.LOGINFO)
+         xbmc.log(f"REMOD INSTALADOR Espereando visibilidad ventana multiselect", level=xbmc.LOGINFO)
          # Verificar si el diálogo de confirmación está visible
          if xbmc.getCondVisibility(f"Window.IsVisible(12000)"):
-            xbmc.log(f"REMOD INSTALADOR Espereando visibilidad botón yes para activar addon zip", level=xbmc.LOGINFO)
+            xbmc.sleep(100)
+            xbmc.log(f"REMOD INSTALADOR Intentando click en botón Acptar para activar multiselect", level=xbmc.LOGINFO)
             xbmc.executebuiltin(f"Action(Right)", True)
             xbmc.sleep(100)
             xbmc.executebuiltin(f"Action(Right)", True)
             xbmc.sleep(100)
             xbmc.executebuiltin(f"Action(Select)", True)
-            xbmc.sleep(100)
-            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Addon activado,1000,)")
-            xbmc.log(f"REMOD INSTALADOR Intentando click yes para activar addon zip", level=xbmc.LOGINFO)
+            xbmc.sleep(1000)
+            xbmc.log(f"REMOD INSTALADOR Reintentando click en botón Acptar para activar multiselect", level=xbmc.LOGINFO)
             return True
          else:   
             xbmc.sleep(500)
             attempts += 1
+    xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error activando configuración multiselect,3000)")
     return False
     
 # hacer click en yes en diálogo de confirmación
 def dialog_aceptar_confirm(addon_id):
-    max_attempts = 5  # Número máximo de intentos
+    max_attempts = 10  # Número máximo de intentos
     attempts = 0
     while attempts < max_attempts:
-        xbmc.log(f"REMOD INSTALADOR Esperando visibilidad para Aceptar", level=xbmc.LOGINFO)
+        xbmc.log(f"REMOD INSTALADOR Esperando visibilidad para Aceptar diálogo", level=xbmc.LOGINFO)
         # Verificar si el diálogo de confirmación está visible
         if xbmc.getCondVisibility(f"Window.IsVisible(12002)"):
-            xbmc.log(f"REMOD INSTALADOR Intentando hacer click en Aceptar", level=xbmc.LOGINFO)
+            xbmc.log(f"REMOD INSTALADOR Intentando hacer click en Aceptar diálogo", level=xbmc.LOGINFO)
             xbmc.executebuiltin(f"Action(Left)", True)
             xbmc.sleep(100)
             xbmc.executebuiltin(f"SendClick(11)", True)
             xbmc.sleep(1000)
             return True
         else:
-            xbmc.log(f"REMOD INSTALADOR No se detecta visibilidad para Aceptar", level=xbmc.LOGINFO)
+            xbmc.log(f"REMOD INSTALADOR No se detecta visibilidad para Aceptar diálogo", level=xbmc.LOGINFO)
             xbmc.sleep(500)
             attempts += 1
         # si ya están añadidos de antes, la pantalla cambia
         if xbmc.getCondVisibility(f"Window.IsVisible(10100)"):
-            xbmc.log(f"REMOD INSTALADOR Intentando hacer click en Aceptar", level=xbmc.LOGINFO)
+            xbmc.log(f"REMOD INSTALADOR Intentando hacer click en Aceptar diálogo 2", level=xbmc.LOGINFO)
             xbmc.executebuiltin(f"Action(Left)", True)
             xbmc.sleep(100)
             xbmc.executebuiltin(f"SendClick(11)", True)
@@ -334,9 +337,10 @@ def dialog_aceptar_confirm(addon_id):
             xbmc.sleep(1000)
             return True
         else:
-            xbmc.log(f"REMOD INSTALADOR No se detecta visibilidad para Aceptar", level=xbmc.LOGINFO)
+            xbmc.log(f"REMOD INSTALADOR No se detecta visibilidad para Aceptar 2", level=xbmc.LOGINFO)
             xbmc.sleep(500)
             attempts += 1
+    xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error aceptando configuración diálogo,3000)")
     return False
 
 # comprobar addon activado ya
@@ -368,7 +372,7 @@ rename_to_bak('repository.balandro', 'service.py')
 
 ### descarga de zip
 def download_direct_zip_from_url(url):
-    xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addon,1000,)")
+    xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addon,1000)")
     xbmc.log(f"REMOD INSTALADOR Iniciando download_zip_from_url", level=xbmc.LOGINFO)
     try:
         response = urllib.request.urlopen(url)
@@ -399,12 +403,12 @@ def download_direct_zip_from_url(url):
         return True
     except Exception as e:
         xbmc.log(f"REMOD INSTALADOR Error al extraer archivo", level=xbmc.LOGINFO)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error al extraer archivo,3000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error al extraer archivo,3000)")
         return False
 
 ### descarga de zip
 def download_zip_from_url(url):
-    xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addon,1000,)")
+    xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addon,1000)")
     xbmc.log(f"REMOD INSTALADOR Iniciando download_zip_from_url", level=xbmc.LOGINFO)
     try:
         # Realizar la solicitud HTTP GET
@@ -435,18 +439,18 @@ def download_zip_from_url(url):
         return True
     except Exception as e:
         xbmc.log(f"REMOD INSTALADOR Error al extraer archivo", level=xbmc.LOGINFO)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error al extraer archivo,3000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error al extraer archivo,3000)")
         return False
 
 def inst_addon(addon_id):
     ### verificamos que no esté instalado ya
     if xbmc.getCondVisibility(f'System.HasAddon({addon_id})'):
         xbmc.log(f"REMOD INSTALADOR El addon {addon_id} está ya instalado. Omitiendo instalación", level=xbmc.LOGINFO)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},{addon_id} ya instalado,1000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},{addon_id} ya instalado,1000)")
         return False
     else:
         xbmc.log(f"REMOD INSTALADOR El addon {addon_id} no está instalado", level=xbmc.LOGINFO)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando {addon_id},1000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando {addon_id},1000)")
         xbmc.log(f"REMOD INSTALADOR Instalando addon", level=xbmc.LOGINFO)
         instalar = f"InstallAddon({addon_id}, True)"
         xbmc.executebuiltin(instalar)
@@ -473,21 +477,20 @@ def addon_inst_confirm(addon_id):
                     while attempts3 < max_attempts3:
                         if not xbmc.getCondVisibility(f"Window.IsVisible(10101)"):
                             xbmc.log(f"REMOD INSTALADOR instalado {addon_id}", level=xbmc.LOGINFO)
-                            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalado,1000,)")
+                            # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalado,1000)")
                             return True
                         else:
                             xbmc.log(f"REMOD INSTALADOR Se está terminando de instalar {addon_id}", level=xbmc.LOGINFO)
                             xbmc.sleep(100)
                             attempts3 += 1
                     xbmc.log(f"Tiempo max2 superado {addon_id}", level=xbmc.LOGERROR)
-                    xbmc.executebuiltin(f"Notification({remod_instalador_addon_name} {addon_id},Tiempo máximo2 superado,1000,)")
-                    # dialog.notification("Recordatorio", "Revisa la configuración del addon.", "info", 0)
+                    # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name} {addon_id},Tiempo máximo2 superado,1000)")
                     return False
                 else:
                     xbmc.sleep(500)  # Pequeña pausa entre intentos
                     attempts2 += 1
             xbmc.log(f"Tiempo max superado {addon_id}", level=xbmc.LOGERROR)
-            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Tiempo máximo superado {addon_id},1000,)")
+            # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Tiempo máximo superado {addon_id},1000)")
             return False    
         xbmc.sleep(500)  # Pequeña pausa entre intentos
         attempts += 1
@@ -496,14 +499,14 @@ def addon_inst_confirm(addon_id):
 
 def buscar_actualizacion_addons():
     xbmc.log(f"REMOD INSTALADOR Actualizando Addons locales", level=xbmc.LOGINFO)
-    # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Actualizando Addons...,3000,)")
+    # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Actualizando Addons...,3000)")
     xbmc.executebuiltin(f"UpdateLocalAddons()", True)
     # xbmc.sleep(3000)
     return True
 
 def buscar_actualizacion_repos():
     xbmc.log(f"REMOD INSTALADOR Actualizando Addon Repos", level=xbmc.LOGINFO)
-    # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Actualizando Repos...,3000,)")
+    # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Actualizando Repos...,3000)")
     xbmc.executebuiltin(f"UpdateAddonRepos()", True)
     # xbmc.sleep(3000)
     return True
@@ -519,6 +522,7 @@ def instalar_lista_addons(lista_deps):
         ### si está instalado y activado
         if addon_instalado_y_activado_comp(addon_id):
             xbmc.log(f"REMOD INSTALADOR {addon_id} instalado y activado", level=xbmc.LOGINFO)
+            return True
             continue
         ### si no lo está, se instala
         xbmc.log(f"REMOD INSTALADOR El addon {addon_id} no está instalado", level=xbmc.LOGINFO)
@@ -531,11 +535,16 @@ def instalar_lista_addons(lista_deps):
         if addon_inst_confirm(addon_id):
             xbmc.log(f"REMOD INSTALADOR {addon_id} Fin instalación OK", level=xbmc.LOGINFO)
             xbmc.sleep(1000)
-            # return True
+            if addon_instalado_y_activado_comp(addon_id):
+                return True
+            else:
+                xbmc.log(f"REMOD INSTALADOR Error al confirmar instalación {addon_id}", level=xbmc.LOGERROR)
+                xbmc.sleep(1000)
+                return False
         else:
             xbmc.log(f"REMOD INSTALADOR Error al confirmar instalación {addon_id}", level=xbmc.LOGERROR)
             xbmc.sleep(1000)
-            # return False
+            return False
     xbmc.log(f"REMOD INSTALADOR Error instalando lista addons dependencias", level=xbmc.LOGERROR)
     return False
   
@@ -543,8 +552,6 @@ def instalar_lista_addons(lista_deps):
 def descargar_lista_repos_zip(repo_ids,base_urls_ids,lista_patterns):
     # xbmc.log(f"REMOD INSTALADOR Descargando lista repos zip desde url", level=xbmc.LOGINFO)
     for addon_id, base_url, pattern in zip(repo_ids, base_urls_ids, lista_patterns):
-        # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Comprobando {addon_id} antes de descargar ,1000,)")
-        # if not addon_instalado_y_activado_comp(addon_id):
         if addon_instalado_y_activado_comp(addon_id):
             continue
             
@@ -666,46 +673,40 @@ else:
     elif action == "herramientas":
         lista_menu_herramientas()
         
-    elif action == "remodtv":
+    elif action == "remodtv":        
         ### descarga addons zip desde url
         lista_repos = ["repository.remod"]
         lista_base_urls = ["https://saratoga79.github.io/"]
         lista_patterns = ["repository\.remod-\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addons desde fuente,1000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000)")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
         ### actualizar lista de addons para refrersacar addons descargados
         buscar_actualizacion()
         ### activar addons descargados
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addons descargados,1000,)")
         activar_lista_repos_zip(lista_repos)
-        xbmc.sleep(1000)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin activando addons descargaos,1000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin activando addons descargados,1000)")
         ### actualizar lista de repos descargados
         buscar_actualizacion()
+        
         ### instalación de addons desde repo ya instalado
         lista_deps = ["plugin.program.remodtv"]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando ReMod TV,1000,)")
-        instalar_lista_addons(lista_deps)
-        xbmc.sleep(1000)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Espera a que se recargue la sección de TV,1000,)")
-        ### instalación seccion de tv
-        xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=tv)')
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación ReMod TV,3000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando ReMod TV,1000)")
+        if instalar_lista_addons(lista_deps):
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación ReMod TV,3000)")
+        else:
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación ReMod TV,3000)")
             
     elif action == "kodispaintv":
         lista_repos = ["repository.gujal"]
         lista_base_urls = ["https://gujal00.github.io/"]
         lista_patterns = ["repository\.gujal-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addons desde fuente,1000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000)")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
-        # xbmc.sleep(1000)
         ### actualizar lista de addons para refrersacar addons descargados
         buscar_actualizacion()
         ### activar addons descargados
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addons descargados,1000,)")
         activar_lista_repos_zip(lista_repos)
-        xbmc.sleep(1000)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin activando addons descargaos,1000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin activando addons descargados,1000)")
         ### actualizar lista de repos descargados
         buscar_actualizacion()
         ### instalación de addons desde repo ya instalado
@@ -713,116 +714,96 @@ else:
             "script.module.six",
             "script.module.kodi-six",
             "script.module.requests",
-            "script.module.dateutil",
-            "script.module.websocket",
-            "script.module.addon.signals",
-            "script.module.beautifulsoup4",
             "script.module.certifi",
             "script.module.chardet",
             "script.module.idna",
             "script.module.urllib3",
-            "script.module.html5lib",
-            "script.module.pyxbmct",
+            "script.module.beautifulsoup4",
             "script.module.soupsieve",
+            "script.module.html5lib",
             "script.module.webencodings",
+            "script.module.dateutil",
+            "script.module.websocket",
+            "script.module.addon.signals",
+            "script.module.pyxbmct",
             "script.module.resolveurl",
             ]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando dependencias,1000,)")
+            
         ### instalar addon zip desde url fuente
-        instalar_lista_addons(lista_deps)
-        xbmc.sleep(1000)
-        lista_repos = ['plugin.video.kodispaintv']
-        lista_base_urls = ["https://konectas.github.io/Addons%20Video/"]
-        lista_patterns = ["plugin\.video\.kodispaintv-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando KodispainTv,1000,)")
-        descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
-        xbmc.sleep(1000)
-        buscar_actualizacion()
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando KodispainTv,1000,)")
-        activar_lista_repos_zip(lista_repos)
-        xbmc.sleep(1000)
-        buscar_actualizacion()
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación KodispainTv,3000,)")
-        
+        if instalar_lista_addons(lista_deps):
+            lista_repos = ['plugin.video.kodispaintv']
+            lista_base_urls = ["https://konectas.github.io/Addons%20Video/"]
+            lista_patterns = ["plugin\.video\.kodispaintv-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando KodispainTv,1000)")
+            descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
+            buscar_actualizacion()
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando KodispainTv,1000)")
+            activar_lista_repos_zip(lista_repos)
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación KodispainTv,3000)")
+        else:
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación KodispainTv,3000)")
+            
     elif action == "tacones":
         ### descarga addons zip desde url
         lista_repos = ["repository.remod"]
         lista_base_urls = ["https://saratoga79.github.io/"]
         lista_patterns = ["repository\.remod-\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addons desde fuente,1000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000)")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
         ### actualizar lista de addons para refrersacar addons descargados
         buscar_actualizacion()
         ### activar addons descargados
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addons descargados,1000,)")
         activar_lista_repos_zip(lista_repos)
-        xbmc.sleep(1000)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin activando addons descargaos,1000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin activando addons descargados,1000)")
         ### actualizar lista de repos descargados
         buscar_actualizacion()
-    
-        # lista_repos = ["repository.elementumorg"]
-        ## descarga directa de zip
-        # url = "https://github.com/ElementumOrg/repository.elementumorg/releases/download/v0.0.7/repository.elementumorg-0.0.7.zip"
-        # download_direct_zip_from_url(url)
-        # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addons desde fuente,1000,)")
-        # xbmc.sleep(1000)
-        ## actualizar lista de addons para refrersacar addons descargados
-        # buscar_actualizacion()
-        ## activar addons descargados
-        # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addons descargados,1000,)")
-        # activar_lista_repos_zip(lista_repos)
-        # xbmc.sleep(1000)
-        # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin activando addons descargaos,1000,)")
-        ## actualizar lista de repos descargados
-        # buscar_actualizacion()
-        ### instalación de addons desde repo ya instalado
         
+        ### instalación de addons desde repo ya instalado
         lista_deps = [
             "script.module.six",
             "script.module.kodi-six",
             "script.module.requests",
-            "script.module.dateutil",
-            "script.module.websocket",
-            "script.module.addon.signals",
-            "script.module.beautifulsoup4",
             "script.module.certifi",
             "script.module.chardet",
             "script.module.idna",
             "script.module.urllib3",
-            "script.module.html5lib",
-            "script.module.pyxbmct",
+            "script.module.beautifulsoup4",
             "script.module.soupsieve",
+            "script.module.html5lib",
             "script.module.webencodings",
+            "script.module.dateutil",
+            "script.module.websocket",
+            "script.module.addon.signals",
+            "script.module.pyxbmct",
             "script.module.resolveurl",
             ]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando dependencias,1000,)")
-        instalar_lista_addons(lista_deps)
-        xbmc.sleep(1000)
-        lista_repos = ["plugin.video.tacones"]
-        lista_base_urls = ["https://konectas.github.io/Addons%20Video/"]
-        lista_patterns = ["plugin\.video\.tacones-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando Tacones,1000,)")
-        descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
-        xbmc.sleep(1000)
-        ### actualizar lista de addons para refrersacar addons descargados
-        buscar_actualizacion()
-        ### activar addons descargados
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando Tacones,1000,)")
-        activar_lista_repos_zip(lista_repos)
-        xbmc.sleep(1000)
-        ### actualizar lista de repos descargados
-        buscar_actualizacion()
-        ### instalación elementum
-        lista_deps = [
-            "script.elementum.burst",
-            "plugin.video.elementum",
-            ]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementum y Burst,1000,)")
-        instalar_lista_addons(lista_deps)
-        xbmc.sleep(1000)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Elementum y Burst Instaladoa,1000,)")
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación Tacones,3000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando dependencias,1000)")
+        if instalar_lista_addons(lista_deps):
+            lista_repos = ["plugin.video.tacones"]
+            lista_base_urls = ["https://konectas.github.io/Addons%20Video/"]
+            lista_patterns = ["plugin\.video\.tacones-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando Tacones,1000)")
+            descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
+            ### actualizar lista de addons para refrersacar addons descargados
+            buscar_actualizacion()
+            ### activar addons descargados
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando Tacones,1000)")
+            activar_lista_repos_zip(lista_repos)
+            ### actualizar lista de repos descargados
+            buscar_actualizacion()
+        
+            ### instalación elementum
+            lista_deps = ["plugin.video.elementum"]
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementum,1000)")
+            if instalar_lista_addons(lista_deps):
+                ### desactivando burst
+                addon_set = xbmcaddon.Addon('plugin.video.elementum')
+                addon_set.setSettingBool('skip_burst_search', True)
+                xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin instalación Tacones,1000)")
+            else:
+                xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Elementum,3000)")
+        else:
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Tacones,3000)")
 
     elif action == "acs_channels":
         buscar_actualizacion()
@@ -839,16 +820,13 @@ else:
             "repository\.acestream-channels\.zip",
             "repository\.dregs-\d{1,3}\.\d{1,3}\.zip",        
             ]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addons desde fuente,1000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000)")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
-        xbmc.sleep(1000)
         ### actualizar lista de addons para refrersacar addons descargados
         buscar_actualizacion()
         ### activar addons descargados
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addons descargados,1000,)")
         activar_lista_repos_zip(lista_repos)
-        xbmc.sleep(1000)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin activando addons descargaos,1000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin activando addons descargados,1000)")
         ### actualizar lista de repos descargados
         buscar_actualizacion()
         
@@ -857,39 +835,37 @@ else:
             "plugin.video.acestream_channels",
             "script.module.horus",
             ]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Acestream Channels,1000,)")
-        instalar_lista_addons(lista_deps)
-        xbmc.sleep(1000)
-        
-        if xbmc.getCondVisibility('system.platform.android'):
-            xbmc.log(f"REMOD INSTALADOR Activando Reproductor Externo en Horus en Android", level=xbmc.LOGINFO)
-            addon_set = xbmcaddon.Addon('script.module.horus')
-            addon_set.setSettingBool('reproductor_externo', True)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación AceStream Channels,3000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Acestream Channels,1000)")
+        if instalar_lista_addons(lista_deps):
+            if xbmc.getCondVisibility('system.platform.android'):
+                xbmc.log(f"REMOD INSTALADOR Activando Reproductor Externo en Horus en Android", level=xbmc.LOGINFO)
+                addon_set = xbmcaddon.Addon('script.module.horus')
+                addon_set.setSettingBool('reproductor_externo', True)
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación AceStream Channel,3000)")
+        else:
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Acestream Channels,3000)")
         
     elif action == "balandro":
         ### descarga addons zip desde url
         lista_repos = ["repository.balandro"]
         lista_base_urls = ["https://repobal.github.io/base/"]
         lista_patterns = ["repository\.balandro-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addons desde fuente,1000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000)")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
-        xbmc.sleep(1000)
         ### actualizar lista de addons para refrersacar addons descargados
         buscar_actualizacion()
         ### activar addons descargados
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addons descargados,1000,)")
         activar_lista_repos_zip(lista_repos)
-        xbmc.sleep(1000)
         ### actualizar lista de repos descargados
         buscar_actualizacion()
-        ### instalación de addons desde repo ya instalado
         
+        ### instalación de addons desde repo ya instalado
         lista_deps = ["plugin.video.balandro"]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Balandro,1000,)")
-        instalar_lista_addons(lista_deps)
-        xbmc.sleep(1000)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación Balandro,3000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Balandro,1000)")
+        if instalar_lista_addons(lista_deps):
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación Balandro,3000)")
+        else:
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Balandro,3000)")
         
     elif action == "magellan":
         ### descarga addons zip desde url
@@ -905,15 +881,13 @@ else:
             "repository\.magellan\.zip",
             "repository\.dregs-\d{1,3}\.\d{1,3}\.zip",
             ]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addons desde fuente,1000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000)")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
-        xbmc.sleep(1000)
         ### actualizar lista de addons para refrersacar addons descargados
         buscar_actualizacion()
         ### activar addons descargados
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addons descargados,1000,)")
+        # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addons descargados,1000)")
         activar_lista_repos_zip(lista_repos)
-        xbmc.sleep(1000)
         ### actualizar lista de repos descargados
         buscar_actualizacion()
         ### instalación de addons desde repo ya instalado
@@ -937,79 +911,75 @@ else:
             "plugin.video.Magellan_Matrix",
             "plugin.video.f4mTester",
             ]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Magellan,1000,)")
-        instalar_lista_addons(lista_deps)
-        xbmc.sleep(1000)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación Magellan,3000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Magellan,1000)")
+        if instalar_lista_addons(lista_deps):
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación Magellan,3000)")
+        else:
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Magellan,3000)")
         
     elif action == "alfa":
         ### descarga addons zip desde url
         lista_repos = ["repository.alfa-addon"]
         lista_base_urls = ["https://alfa-addon.com/alfa/"]
         lista_patterns = ["repository\.alfa-addon\.zip"]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addons desde fuente,1000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000)")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
-        xbmc.sleep(1000)
         ### actualizar lista de addons para refrersacar addons descargados
         buscar_actualizacion()
         ### activar addons descargados
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addons descargados,1000,)")
         activar_lista_repos_zip(lista_repos)
-        xbmc.sleep(1000)
         ### actualizar lista de repos descargados
         buscar_actualizacion()
         ### instalación de addons desde repo ya instalado
         lista_deps = ["plugin.video.alfa"]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Alfa,1000,)")
-        instalar_lista_addons(lista_deps)
-        xbmc.sleep(1000)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación Alfa,3000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Alfa,1000)")
+        if instalar_lista_addons(lista_deps):
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación Alfa,3000)")
+        else:
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Alfa,3000)")
         
     elif action == "moes":
         lista_repos = ["repository.remod"]
         lista_base_urls = ["https://saratoga79.github.io/"]
         lista_patterns = ["repository\.remod-\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addons desde fuente,1000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000)")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
         ### actualizar lista de addons para refrersacar addons descargados
         buscar_actualizacion()
         ### activar addons descargados
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addons descargados,1000,)")
-        activar_lista_repos_zip(lista_repos)      
-        xbmc.sleep(1000)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin activando addons descargaos,1000,)")
+        activar_lista_repos_zip(lista_repos)    
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin activando addons descargados,1000)")
         ### instalación duffyou y moes
         lista_deps = [
             "plugin.video.duffyou",
             "plugin.video.moestv",
             ]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Moe's TV,1000,)")
-        instalar_lista_addons(lista_deps)
-        xbmc.sleep(1000)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin instalación Moe's TV,1000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Moe's TV,1000)")
+        if instalar_lista_addons(lista_deps):
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación Moe's TV,3000)")
+        else:
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Moe's TV,3000)")
         
     elif action == "espadaily":
         ### descarga addons zip desde url
         lista_repos = ["repository.espadaily"]
         lista_base_urls = ["https://fullstackcurso.github.io/espadaily/"]
         lista_patterns = ["repository\.espadaily-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addons desde fuente,1000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000)")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
-        xbmc.sleep(1000)
         ### actualizar lista de addons para refrersacar addons descargados
         buscar_actualizacion()
         ### activar addons descargados
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addons descargados,1000,)")
         activar_lista_repos_zip(lista_repos)
-        xbmc.sleep(1000)
         ### actualizar lista de repos descargados
         buscar_actualizacion()
         ### instalación de addons desde repo ya instalado
         lista_deps = ["plugin.video.espadaily"]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando EspaDaily,1000,)")
-        instalar_lista_addons(lista_deps)
-        xbmc.sleep(1000)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación EspaDaily,3000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando EspaDaily,1000)")
+        if instalar_lista_addons(lista_deps):
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación EspaDaily,3000)")
+        else:
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación EspaDaily,3000)")
             
     elif action == "jacktook":
         lista_repos = [
@@ -1024,140 +994,174 @@ else:
             "repository\.remod-\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip",
             "repository\.jacktook-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip",
             ]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addons desde fuente,1000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000)")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
         ### actualizar lista de addons para refrersacar addons descargados
         buscar_actualizacion()
         ### activar addons descargados
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addons descargados,1000,)")
-        activar_lista_repos_zip(lista_repos)      
-        xbmc.sleep(1000)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin activando addons descargaos,1000,)")
-        
+        activar_lista_repos_zip(lista_repos)     
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin activando addons descargados,1000)")
+                
         ### instalación elementum y jacktook
-        lista_deps = [
-            "plugin.video.jacktook",
-            ]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Jacktook,1000,)")
-        instalar_lista_addons(lista_deps)
-        xbmc.sleep(1000)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Jacktook Instalado,1000,)")
-        ### configurando ajustes
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Configurando JackTook,3000,)")
-        addon_set = xbmcaddon.Addon('plugin.video.jacktook')
-        addon_set.setSettingBool('torrentio_enabled', True)
-        addon_set.setSettingBool('auto_audio', True)
-        addon_set.setSettingBool('auto_subtitle_selection', True)
-        addon_set.setSetting('auto_audio_language', 'Spanish')
-        addon_set.setSettingInt('language', 20)
-        addon_set.setSetting('subtitle_language', 'Spanish')
-        addon_set.setSetting('torrent_client', 'Elementum')      
-        xbmc.sleep(1000)
-        
-        ### desactivamos el addon para copiar
-        addons = [
-            "script.module.routing",
-            "plugin.video.jacktook",
-            ]
-        lista_addons(addons, False)
-        xbmc.log(f"REMOD INSTALADOR Copiando archivos...", level=xbmc.LOGINFO)
-        orig = xbmcvfs.translatePath(os.path.join(remod_instalador_addon_datos, 'plugin.video.jacktook', 'lib', 'router.py'))
-        dest = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'router.py'))
-        xbmcvfs.delete(dest)
-        xbmcvfs.copy(orig, dest)
-        orig = xbmcvfs.translatePath(os.path.join(remod_instalador_addon_datos, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'ui.py'))
-        dest = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'ui.py'))
-        xbmcvfs.delete(dest)
-        xbmcvfs.copy(orig, dest)
-        orig = xbmcvfs.translatePath(os.path.join(remod_instalador_addon_datos, 'plugin.video.jacktook', 'lib', 'utils', 'torrentio', 'utils.py'))
-        dest = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'utils', 'torrentio', 'utils.py'))
-        xbmcvfs.delete(dest)
-        xbmcvfs.copy(orig, dest)
-        ### reactivamos el addon tras copiar
-        addons = [
-            "script.module.routing",
-            "plugin.video.jacktook",
-            ]
-        lista_addons(addons, True)        
-        xbmc.sleep(1000)
-        ### añadir complementos custom stremnio
-        xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=add_ext_custom_stremio_addon)')      
-        xbmc.sleep(1000)
-        ### añadir proveedpores torrentio
-        xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=torrentio_selection)')
-        addon_id = ("plugin.video.jacktook")
-        dialog_aceptar_confirm(addon_id)
-        xbmc.sleep(1000)
-        ### activar proveedores torrentio en ajustes
-        xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=torrentio_toggle_providers)')
-        addon_id = ("plugin.video.jacktook")
-        multiselect_aceptar_confirm(addon_id)      
-        xbmc.sleep(3000)
-        
-        ### instalamos elementum
-        lista_deps = [
-            "script.elementum.burst",
-            "plugin.video.elementum",
-            ]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementum y Burst,1000,)")
-        instalar_lista_addons(lista_deps)
-        xbmc.sleep(1000)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Elementum y Burst Instaladoa,1000,)")
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación Jacktook,3000,)")
-        
+        lista_deps = ["plugin.video.jacktook"]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Jacktook,1000)")
+        if instalar_lista_addons(lista_deps):
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Jacktook instalado,1000)")
+            ### configurando ajustes
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Configurando JackTook,3000)")
+            addon_set = xbmcaddon.Addon('plugin.video.jacktook')
+            addon_set.setSettingBool('torrentio_enabled', True)
+            addon_set.setSettingBool('auto_audio', True)
+            addon_set.setSettingBool('auto_subtitle_selection', True)
+            addon_set.setSetting('auto_audio_language', 'Spanish')
+            addon_set.setSettingInt('language', 20)
+            addon_set.setSetting('subtitle_language', 'Spanish')
+            addon_set.setSetting('torrent_client', 'Elementum')      
+            xbmc.sleep(1000)
+            
+            ### desactivamos el addon para copiar
+            addons = [
+                "script.module.routing",
+                "plugin.video.jacktook",
+                ]
+            lista_addons(addons, False)
+            xbmc.log(f"REMOD INSTALADOR Copiando archivos...", level=xbmc.LOGINFO)
+            orig = xbmcvfs.translatePath(os.path.join(remod_instalador_addon_datos, 'plugin.video.jacktook', 'lib', 'router.py'))
+            dest = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'router.py'))
+            xbmcvfs.delete(dest)
+            xbmcvfs.copy(orig, dest)
+            orig = xbmcvfs.translatePath(os.path.join(remod_instalador_addon_datos, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'ui.py'))
+            dest = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'ui.py'))
+            xbmcvfs.delete(dest)
+            xbmcvfs.copy(orig, dest)
+            orig = xbmcvfs.translatePath(os.path.join(remod_instalador_addon_datos, 'plugin.video.jacktook', 'lib', 'utils', 'torrentio', 'utils.py'))
+            dest = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'utils', 'torrentio', 'utils.py'))
+            xbmcvfs.delete(dest)
+            xbmcvfs.copy(orig, dest)
+            ### reactivamos el addon tras copiar
+            addons = [
+                "script.module.routing",
+                "plugin.video.jacktook",
+                ]
+            lista_addons(addons, True)        
+            xbmc.sleep(1000)
+            ### añadir complementos custom stremnio
+            xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=add_ext_custom_stremio_addon)')      
+            xbmc.sleep(3000)
+            ### añadir proveedpores torrentio
+            xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=torrentio_selection)')
+            addon_id = ("plugin.video.jacktook")
+            dialog_aceptar_confirm(addon_id)
+            xbmc.sleep(3000)
+            ### activar proveedores torrentio en ajustes
+            xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=torrentio_toggle_providers)')
+            addon_id = ("plugin.video.jacktook")
+            multiselect_aceptar_confirm(addon_id)      
+            xbmc.sleep(5000)
+            
+            ### instalamos elementum
+            lista_deps = ["plugin.video.elementum"]
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementum,1000)")
+            if instalar_lista_addons(lista_deps):
+                ### desactivando burst
+                addon_set = xbmcaddon.Addon('plugin.video.elementum')
+                addon_set.setSettingBool('skip_burst_search', True)
+                xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin instalación Jacktook,3000)")
+            else:
+                xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Elementum,3000)")
+        else:
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Jacktook,3000)")
+                
     elif action == "streamedez":
         ### descarga addons zip desde url
         lista_repos = ["repository.streamedez"]
         lista_base_urls = ["https://blazeymcblaze.github.io/streamedez/"]
         lista_patterns = ["repository\.streamedez-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando repo StreamedEZ desde fuente,1000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando repo StreamedEZ desde fuente,1000)")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
         ### actualizar lista de addons para refrersacar addons descargados
         buscar_actualizacion()
         ### activar addons descargados
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando repo repo StreamedEZ,1000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando repo repo StreamedEZ,1000)")
         activar_lista_repos_zip(lista_repos)
-        xbmc.sleep(1000)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Repo StreamedEZ activado,1000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Repo StreamedEZ activado,1000)")
         ### actualizar lista de repos descargados
         buscar_actualizacion()
         ### instalación de addons desde repo ya instalado
         lista_deps = ["plugin.video.streamedez"]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando StreamedEZ,1000,)")
-        instalar_lista_addons(lista_deps)
-        xbmc.sleep(1000)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación StreamedEZ,3000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando StreamedEZ,1000)")
+        if instalar_lista_addons(lista_deps):
+            ### configuración streamedez
+            addon_set = xbmcaddon.Addon('plugin.video.streamedez')
+            addon_set.setSettingBool('show_all_matches', True)
+            addon_set.setSettingInt('pre_game_window', 60)
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación StreamedEZ,3000)")
+        else:
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación StreamedEZ,3000)")
         
     elif action == "ezmaintenanceplus":
         ### descarga addons zip desde url
-        lista_repos = ["repository.remod"]
+        lista_repos = ["repository.remodGG"]
         lista_base_urls = ["https://saratoga79.github.io/"]
         lista_patterns = ["repository\.remod-\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addons desde fuente,1000,)")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000)")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
         ### actualizar lista de addons para refrersacar addons descargados
         buscar_actualizacion()
         ### activar addons descargados
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando addons descargados,1000,)")
-        activar_lista_repos_zip(lista_repos)
-        xbmc.sleep(1000)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin activando addons descargaos,1000,)")
-        ### actualizar lista de repos descargados
-        buscar_actualizacion()
-        ### instalación de addons desde repo ya instalado
-        lista_deps = ["script.ezmaintenanceplus"]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando EZMaintenance+,1000,)")
-        instalar_lista_addons(lista_deps)
-        xbmc.sleep(1000)
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación EZMaintenance+,3000,)")
+        if activar_lista_repos_zip(lista_repos):
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Activando zip descargados,1000)")
+            ### actualizar lista de repos descargados
+            buscar_actualizacion()
+            ### instalación de addons desde repo ya instalado
+            lista_deps = ["script.ezmaintenanceplus"]
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando EZMaintenance+,1000)")
+            if instalar_lista_addons(lista_deps):
+                xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación EZMaintenance+,3000)")
+            else:
+                xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación EZMaintenance+,3000)")
+        else:
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error activando zip descargado,3000)")
         
-    elif action == "test":
+    elif action == "log_viewer":
+        ### instalación de addons desde repo ya instalado
+        lista_deps = ["script.logviewer"]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Log Viewer,1000)")
+        if instalar_lista_addons(lista_deps):
+            ### configuración log viewer
+            addon_set = xbmcaddon.Addon('script.logviewer')
+            addon_set.setSettingBool('custom_window', True)
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación Log Viewer,3000)")
+        else:
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Log Viewer,3000)")   
+            
+    elif action == "daddylive":
+        ### instalación de addons desde repo ya instalado
         lista_deps = [
-            "script.elementum.burst",
-            "plugin.video.elementum",
+            "script.module.requests",
+            "script.module.inputstreamhelper",
+            "inputstream.ffmpegdirect",
+            "script.module.six",
             ]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementum y Burst,1000,)")
-        instalar_lista_addons(lista_deps)
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando dependencias,1000)")
+        if instalar_lista_addons(lista_deps):
+            ### descarga addons zip desde url
+            lista_repos = ["plugin.video.daddylive"]
+            lista_base_urls = ["https://tommhe14.github.io/"]
+            lista_patterns = ["plugin\.video\.daddylive\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000)")
+            descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
+            ### actualizar lista de addons para refrersacar addons descargados
+            buscar_actualizacion()
+            ### activar addons descargados
+            if activar_lista_repos_zip(lista_repos):
+                xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación Daddylive,3000)")
+            else:
+                xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Daddylive,3000)")
+        else:
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalando dependencias Daddylive,3000)")
+
+    elif action == "test":
         
         pass
 
