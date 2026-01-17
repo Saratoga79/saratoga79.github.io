@@ -1,5 +1,5 @@
 > ReMod Instalador
-> Versión = 26.01.17.0
+> Versión = 26.01.17.1
 > Cambios respecto a la versión anterior:
 	- Mejoras y correcciones
 	- Añadidos nuevos addons:

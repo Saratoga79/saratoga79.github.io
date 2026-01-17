@@ -499,13 +499,13 @@ def addon_inst_confirm(addon_id):
 
 def buscar_actualizacion_addons():
     xbmc.log(f"REMOD INSTALADOR Actualizando Addons locales", level=xbmc.LOGINFO)
-    # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Actualizando Addons...,3000)")
     xbmc.executebuiltin(f"UpdateLocalAddons()", True)
+    xbmc.sleep(1000)
 
 def buscar_actualizacion_repos():
     xbmc.log(f"REMOD INSTALADOR Actualizando Addon Repos", level=xbmc.LOGINFO)
-    # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Actualizando Repos...,3000)")
     xbmc.executebuiltin(f"UpdateAddonRepos()", True)
+    xbmc.sleep(1000)
 
 def buscar_actualizacion():
     xbmc.log(f"REMOD INSTALADOR Actualizando Repos y Addons...", level=xbmc.LOGINFO)
