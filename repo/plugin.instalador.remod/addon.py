@@ -687,6 +687,7 @@ else:
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando ReMod TV,1000)")
         if instalar_lista_addons(lista_deps):
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación ReMod TV,3000)")
+            xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=tv)')
         else:
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación ReMod TV,3000)")
             
@@ -1095,7 +1096,7 @@ else:
         
     elif action == "ezmaintenanceplus":
         ### descarga addons zip desde url
-        lista_repos = ["repository.remodGG"]
+        lista_repos = ["repository.remod"]
         lista_base_urls = ["https://saratoga79.github.io/"]
         lista_patterns = ["repository\.remod-\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000)")
