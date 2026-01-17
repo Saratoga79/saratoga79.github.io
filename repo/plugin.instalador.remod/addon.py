@@ -372,7 +372,7 @@ rename_to_bak('repository.balandro', 'service.py')
 
 ### descarga de zip
 def download_direct_zip_from_url(url):
-    xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addon,1000)")
+    # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addon,1000)")
     xbmc.log(f"REMOD INSTALADOR Iniciando download_zip_from_url", level=xbmc.LOGINFO)
     try:
         response = urllib.request.urlopen(url)
@@ -408,7 +408,7 @@ def download_direct_zip_from_url(url):
 
 ### descarga de zip
 def download_zip_from_url(url):
-    xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addon,1000)")
+    # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando addon,1000)")
     xbmc.log(f"REMOD INSTALADOR Iniciando download_zip_from_url", level=xbmc.LOGINFO)
     try:
         # Realizar la solicitud HTTP GET
@@ -501,15 +501,11 @@ def buscar_actualizacion_addons():
     xbmc.log(f"REMOD INSTALADOR Actualizando Addons locales", level=xbmc.LOGINFO)
     # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Actualizando Addons...,3000)")
     xbmc.executebuiltin(f"UpdateLocalAddons()", True)
-    # xbmc.sleep(3000)
-    return True
 
 def buscar_actualizacion_repos():
     xbmc.log(f"REMOD INSTALADOR Actualizando Addon Repos", level=xbmc.LOGINFO)
     # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Actualizando Repos...,3000)")
     xbmc.executebuiltin(f"UpdateAddonRepos()", True)
-    # xbmc.sleep(3000)
-    return True
 
 def buscar_actualizacion():
     xbmc.log(f"REMOD INSTALADOR Actualizando Repos y Addons...", level=xbmc.LOGINFO)
@@ -521,8 +517,7 @@ def instalar_lista_addons(lista_deps):
     for addon_id in lista_deps:
         ### si está instalado y activado
         if addon_instalado_y_activado_comp(addon_id):
-            xbmc.log(f"REMOD INSTALADOR {addon_id} instalado y activado", level=xbmc.LOGINFO)
-            return True
+            xbmc.log(f"REMOD INSTALADOR {addon_id} ya instalado y activado", level=xbmc.LOGINFO)
             continue
         ### si no lo está, se instala
         xbmc.log(f"REMOD INSTALADOR El addon {addon_id} no está instalado", level=xbmc.LOGINFO)
@@ -536,9 +531,9 @@ def instalar_lista_addons(lista_deps):
             xbmc.log(f"REMOD INSTALADOR {addon_id} Fin instalación OK", level=xbmc.LOGINFO)
             xbmc.sleep(1000)
             if addon_instalado_y_activado_comp(addon_id):
-                return True
+                continue
             else:
-                xbmc.log(f"REMOD INSTALADOR Error al confirmar instalación {addon_id}", level=xbmc.LOGERROR)
+                xbmc.log(f"REMOD INSTALADOR Error al confirmar instalación o activación {addon_id}", level=xbmc.LOGERROR)
                 xbmc.sleep(1000)
                 return False
         else:
@@ -546,11 +541,10 @@ def instalar_lista_addons(lista_deps):
             xbmc.sleep(1000)
             return False
     xbmc.log(f"REMOD INSTALADOR Error instalando lista addons dependencias", level=xbmc.LOGERROR)
-    return False
+    return True
   
 ### instala lista de repos zip desde fuentes
 def descargar_lista_repos_zip(repo_ids,base_urls_ids,lista_patterns):
-    # xbmc.log(f"REMOD INSTALADOR Descargando lista repos zip desde url", level=xbmc.LOGINFO)
     for addon_id, base_url, pattern in zip(repo_ids, base_urls_ids, lista_patterns):
         if addon_instalado_y_activado_comp(addon_id):
             continue

@@ -1,4 +1,11 @@
 > ReMod Instalador
+> Versión = 26.01.17.0
+> Cambios respecto a la versión anterior:
+	- Mejoras y correcciones
+	- Añadidos nuevos addons:
+		- Herramientas:
+			- Log Viewer
+	
 > Versión = 26.01.16.0
 > Cambios respecto a la versión anterior:
 	- Pequeñas mejoras
