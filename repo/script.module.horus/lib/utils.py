@@ -341,8 +341,7 @@ def install_acestream():
         ruta = translatePath("special://home")
         ruta_zip = os.path.join(ruta, "userdata", "acestream_win.zip")
         ruta_extract = data_path
-        # url ="https://github.com/Carlesto/Horus/releases/download/ace/acestream_win.zip" # acestream_win
-        url ="https://www.dropbox.com/scl/fi/rkmqe1vp6wtued0ow4v8e/acestream_win.zip?rlkey=fiygky06bs3hmiedh2dkjbg7c&st=emssczbg&dl=1" # acestream_win ReMod
+        url ="https://github.com/Carlesto/Horus/releases/download/ace/acestream_win.zip" # acestream_win
 
     elif arquitectura == "arm" or (arquitectura == "aarch" and root):
         ruta = translatePath("special://home")
