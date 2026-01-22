@@ -184,7 +184,7 @@ def lista_menu_herramientas():
         ("Ace Stream Pro ReMod v251216.0 | org.acestream.media | Actualizado el 16/12/2025:", "", "tool.png", False),
         ("> Descargar Ace Stream Pro ReMod armeabi-v7a | 32 bits | Android | ATV", "acs32", "download.png", True),
         ("> Descargar Ace Stream Pro ReMod arm64-v8a | 64 bits | Android | ATV", "acs64", "download.png", True),
-        ("Ace Serve v1.5.6 | org.free.aceserve | Actualizado el 12/01/2026:", "", "tool.png", False),
+        ("Ace Serve v1.5.7 | org.free.aceserve | Actualizado el 22/01/2026:", "", "tool.png", False),
         ("> Descargar Ace Serve armeabi-v7a | 32 bits | Android | ATV", "as32", "download.png", True),
         ("> Descargar Ace Serve arm64-v8a | 64 bits | Android | ATV", "as64", "download.png", True),
         ("WARP | com.cloudflare.onedotonedotonedotone | Actualizado el 17/11/2025:", "", "tool.png", False),
@@ -1257,7 +1257,7 @@ else:
             
             url_descarga = (
                 "https://saratoga79.github.io/apps/android/AS/"
-                "org.free.aceserve-1.5.6-arm.apk"
+                "org.free.aceserve-1.5.7-arm.apk"
             )
 
             try:
@@ -1276,7 +1276,7 @@ else:
         if xbmc.getCondVisibility('system.platform.android'):
             url_descarga = (
                 "https://saratoga79.github.io/apps/android/AS/"
-                "org.free.aceserve-1.5.6-arm64.apk"
+                "org.free.aceserve-1.5.7-arm64.apk"
             )
 
             try:

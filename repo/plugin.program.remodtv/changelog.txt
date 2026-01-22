@@ -1,4 +1,9 @@
 > ReMod TV
+> Versión = 26.01.22.0
+> Cambios respecto a la versión anterior:
+	- Nueva fuente 5 Agenda Deportiva
+	- Actualizado Ace Serve a la v1.5.7 en la sección de Herramientas y Utilidades
+	
 > Versión = 26.01.12.0
 > Cambios respecto a la versión anterior:
 	- Actualizado Ace Serve a la v1.5.6 en la sección de Herramientas y Utilidades
