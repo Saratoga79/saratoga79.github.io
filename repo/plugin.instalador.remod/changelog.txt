@@ -1,4 +1,8 @@
 > ReMod Instalador
+> Versión = 26.01.22.1
+> Cambios respecto a la versión anterior:
+	- Horus añadido al repo ReMod
+	
 > Versión = 26.01.22.0
 > Cambios respecto a la versión anterior:
 	- Mejoras y correcciones

@@ -805,15 +805,15 @@ else:
         ### descarga addons zip desde url
         lista_repos = [
             "repository.acestream-channels",
-            "repository.dregs",
+            "repository.remod",
             ]
         lista_base_urls = [
             "https://gunter257.github.io/repoachannels/",
-            "https://dregs1.github.io/",
+            "https://saratoga79.github.io/",
             ]
         lista_patterns = [
             "repository\.acestream-channels\.zip",
-            "repository\.dregs-\d{1,3}\.\d{1,3}\.zip",        
+            "repository\.remod-\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip",        
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000)")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
@@ -866,15 +866,15 @@ else:
         ### descarga addons zip desde url
         lista_repos = [
             "repository.magellan",
-            "repository.dregs",
+            "repository.remod",
             ]
         lista_base_urls = [
             "https://euro2000.github.io/magellan.github.io/",
-            "https://dregs1.github.io/",
+            "https://saratoga79.github.io/",
             ]
         lista_patterns = [
             "repository\.magellan\.zip",
-            "repository\.dregs-\d{1,3}\.\d{1,3}\.zip",
+            "repository\.remod-\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip",
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000)")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
