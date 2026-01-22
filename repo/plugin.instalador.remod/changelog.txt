@@ -1,4 +1,9 @@
 > ReMod Instalador
+> Versión = 26.01.22.0
+> Cambios respecto a la versión anterior:
+	- Mejoras y correcciones
+	- Proceso de instalación de Jacktook mejorado para adaptarlo a la nueva versión
+	
 > Versión = 26.01.17.2
 > Cambios respecto a la versión anterior:
 	- Mejoras y correcciones

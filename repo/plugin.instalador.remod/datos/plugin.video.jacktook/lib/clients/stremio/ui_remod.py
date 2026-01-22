@@ -453,12 +453,12 @@ def add_custom_stremio_addon(params):
         dialog.ok("Custom Addon", f"Failed to add custom addon: {e}")
 
 def add_ext_custom_stremio_addon(params=None):
-    xbmc.executebuiltin(f"Notification((ReMod Instalador,AÃ±adiendo addon Stremio,1000,)")
+    # xbmc.executebuiltin(f"Notification((ReMod Instalador,Añadiendo addon Stremio,1000,)")
     xbmc.log(f"(ReMod Instalador,Manifest missing 'id' or 'name'", level=xbmc.LOGERROR)
-    ### aÃ±adimos los addons    
+    ### añadimos los addons    
     for url in lista_url:   
         if not url:
-            xbmc.executebuiltin(f"Notification((ReMod Instalador,No URL provided,1000,)")
+            # xbmc.executebuiltin(f"Notification((ReMod Instalador,No URL provided,1000,)")
             xbmc.log(f"(ReMod Instalador,No URL provided", level=xbmc.LOGERROR)
             return
 
@@ -471,7 +471,7 @@ def add_ext_custom_stremio_addon(params=None):
             response.raise_for_status()
             manifest = response.json()
         except Exception as e:
-            xbmc.executebuiltin(f"Notification((ReMod Instalador,Failed to fetch custom addon manifest,1000,)")
+            # xbmc.executebuiltin(f"Notification((ReMod Instalador,Failed to fetch custom addon manifest,1000,)")
             xbmc.log(f"(ReMod Instalador,Failed to fetch custom addon manifest", level=xbmc.LOGERROR)
             # kodilog(f"Failed to fetch custom addon manifest: {e}")
             # dialog.ok("Custom Addon", f"Failed to fetch manifest: {e}")
@@ -481,7 +481,7 @@ def add_ext_custom_stremio_addon(params=None):
             addon_key = manifest.get("id") or manifest.get("name")
             if not addon_key:
                 # dialog.ok("Custom Addon", "Manifest missing 'id' or 'name'.")
-                xbmc.executebuiltin(f"Notification((ReMod Instalador,Manifest missing 'id' or 'name',1000,)")
+                # xbmc.executebuiltin(f"Notification((ReMod Instalador,Manifest missing 'id' or 'name',1000,)")
                 xbmc.log(f"(ReMod Instalador,Manifest missing 'id' or 'name'", level=xbmc.LOGERROR)
                 return
 
@@ -552,22 +552,22 @@ def add_ext_custom_stremio_addon(params=None):
                 cache.set(STREMIO_USER_ADDONS, user_addons, timedelta(days=365 * 20))
 
                 if is_stream or is_catalog:
-                    xbmc.executebuiltin(f"Notification((ReMod Instalador,Custom Stremio addon added successfully,1000,)")
+                    # xbmc.executebuiltin(f"Notification((ReMod Instalador,Custom Stremio addon added successfully,1000,)")
                     xbmc.log(f"(ReMod Instalador,Custom Stremio addon added successfully!", level=xbmc.LOGERROR)
                     # dialog.ok("Custom Addon", "Custom Stremio addon added successfully!")
                 else:
-                    xbmc.executebuiltin(f"Notification((ReMod Instalador,Addon does not provide 'stream' or 'catalog' resources,1000,)")
+                    # xbmc.executebuiltin(f"Notification((ReMod Instalador,Addon does not provide 'stream' or 'catalog' resources,1000,)")
                     xbmc.log(f"(ReMod Instalador,Addon does not provide 'stream' or 'catalog' resources", level=xbmc.LOGERROR)
                     # dialog.ok(
                         # "Custom Addon",
                         # "Addon does not provide 'stream' or 'catalog' resources.",
                     # )
             else:
-                xbmc.executebuiltin(f"Notification(ReMod Instalador,This addon is already added to your list,1000,)")
+                # xbmc.executebuiltin(f"Notification(ReMod Instalador,This addon is already added to your list,1000,)")
                 xbmc.log(f"(ReMod Instalador,This addon is already added to your list", level=xbmc.LOGERROR)
                 # dialog.ok("Custom Addon", "This addon is already added to your list.")
         except Exception as e:
-            xbmc.executebuiltin(f"Notification((ReMod Instalador,Failed to add custom addon: {e},1000,)")
+            # xbmc.executebuiltin(f"Notification((ReMod Instalador,Failed to add custom addon: {e},1000,)")
             xbmc.log(f"(ReMod Instalador,Failed to add custom addon: {e}", level=xbmc.LOGERROR)
             # dialog.ok("Custom Addon", f"Failed to add custom addon: {e}")
 
