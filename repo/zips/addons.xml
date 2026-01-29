@@ -110,7 +110,7 @@
 			<fanart>recursos/imagenes/poster.png</fanart>
 		</assets>
 	</extension>
-</addon><addon id="plugin.program.remodtv" name="ReMod TV" version="26.01.22.0" provider-name="Saratoga">
+</addon><addon id="plugin.program.remodtv" name="ReMod TV" version="26.01.29.0" provider-name="Saratoga">
 	<requires>
 		
 		<import addon="xbmc.python" version="3.0.1" />
@@ -125,6 +125,10 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
+&gt; Versión = 26.01.29.0
+&gt; Cambios respecto a la versión anterior:
+	- Añadida la fuente de repuesto 2 al proceso de instalación inicial de la sección de TV para cuando fallen la principal y la de repuesto
+	
 &gt; Versión = 26.01.22.0
 &gt; Cambios respecto a la versión anterior:
 	- Nueva fuente 5 Agenda Deportiva

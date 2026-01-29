@@ -1,7 +1,7 @@
 <addon 
 	id="plugin.program.remodtv"
 	name="ReMod TV"
-	version="26.01.22.0"
+	version="26.01.29.0"
 	provider-name="Saratoga">
 	<requires>
 		<!-- Mín Kodi 20+ -->
@@ -17,6 +17,10 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
+> Versión = 26.01.29.0
+> Cambios respecto a la versión anterior:
+	- Añadida la fuente de repuesto 2 al proceso de instalación inicial de la sección de TV para cuando fallen la principal y la de repuesto
+	
 > Versión = 26.01.22.0
 > Cambios respecto a la versión anterior:
 	- Nueva fuente 5 Agenda Deportiva

@@ -838,29 +838,58 @@ def obtener_estado(url, timeout=5):
 
 ### test        
     
-# ----------------------------------------------------------------------
-#  ENTRADA PRINCIPAL DEL ADDON
-# ----------------------------------------------------------------------
+###  ENTRADA PRINCIPAL DEL ADDON
 if not ARGS:
     lista_menu_principal()
 else:
     action = ARGS.get('action', [None])[0]
-    # lista_menu_principal()
     if action == "tv":
-        carp = '1'
+        carp = '1' # ok
         res = inst_tv()
         if res:
-            # activar seección TV en menú principal
+            ### activar seección TV en menú principal fuente 1
             ajuste_id = "homemenunotvbutton"
             act_ajuste(ajuste_id)
             fue_sel = '1 Direct'
             guardar_fuente(fue_sel)
         else:
             dialog = xbmcgui.Dialog()
-            ret = dialog.yesno(f"{remodtv_addon_name}", f"¿Quieres probar con la Fuente de Repuesto?")
+            ret = dialog.yesno(f"{remodtv_addon_name}", f"Error con la Fuente Principal.\n¿Quieres probar con la Fuente de Repuesto?")
             if ret:
                 xbmc.executebuiltin(f"Notification({remodtv_addon_name},Probando con la Fuente de Repuesto,3000,)")
-                xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=lis_dir_rep)')
+                carp = '11' # ok 
+                res = inst_tv()
+                if res:
+                    ## activar seección TV en menú principal fuente 1 repuesto
+                    ajuste_id = "homemenunotvbutton"
+                    act_ajuste(ajuste_id)
+                    fue_sel = '1 Direct Repuesto'
+                    guardar_fuente(fue_sel)
+                else:
+                    dialog = xbmcgui.Dialog()
+                    ret = dialog.yesno(f"{remodtv_addon_name}", f"Error con la Fuente de Repuesto.\n¿Quieres probar con la Fuente de Repuesto 2?")
+                    if ret:
+                        xbmc.executebuiltin(f"Notification({remodtv_addon_name},Probando con la Fuente de Repuesto 2,3000,)")
+                        carp = '21' # ok 
+                        res = inst_tv()
+                        if res:
+                            ## activar seección TV en menú principal fuente 21 repuesto 2
+                            ajuste_id = "homemenunotvbutton"
+                            act_ajuste(ajuste_id)
+                            fue_sel = '1 Direct Repuesto 2'
+                            guardar_fuente(fue_sel)
+                        else:
+                            dialog = xbmcgui.Dialog()
+                            ret = dialog.ok(f"{remodtv_addon_name}", f"Error con la Fuente de Repuesto 2.\nPrueba desde el menú de Elegir fuente y elige una con estado Disponible")
+                            fue_sel = 'Ninguna'
+                            guardar_fuente(fue_sel)
+                    else:
+                        fue_sel = 'Ninguna'
+                        guardar_fuente(fue_sel)
+            else:
+                fue_sel = 'Ninguna'
+                guardar_fuente(fue_sel)
+                
     ### menú principal selección fuente
     elif action == "fuente":
         xbmc.executebuiltin(f"Notification({remodtv_addon_name},Comprobando fuentes...,3000,)")
