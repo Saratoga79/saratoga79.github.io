@@ -2301,37 +2301,37 @@ https://daiconnect.com/live/hls/tvup/rk-mypadeltv/.m3u8?ads_amznbrmid=&ads_amznr
 http://127.0.0.1:6878/ace/getstream?id=0db68ab752b50e6bb257eef22d102c1d29cd92ea&pid=360
 
 #EXTINF:-1 cuid="767" group-title="ACS" tvg-chno="767" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/eurosport-1-es.png" tvg-name="EuroSport 1",EuroSport 1 [FHD@50] [ACS] (NeEr) (Canal 767)
-http://127.0.0.1:6878/ace/getstream?id=714e14e6d6e27660fd25a75b57b0ac5580fe705d&pid=361
+http://127.0.0.1:6878/ace/getstream?id=bae98f69fbf867550b4f73b4eb176dae84d7f909&pid=361
 
-#EXTINF:-1 cuid="768" group-title="ACS" tvg-chno="768" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/eurosport-1-es.png" tvg-name="EuroSport 1",EuroSport 1 [FHD@50] [ACS] (NeEr) (Canal 768)
-http://127.0.0.1:6878/ace/getstream?id=bae98f69fbf867550b4f73b4eb176dae84d7f909&pid=362
+#EXTINF:-1 cuid="768" group-title="ACS" tvg-chno="768" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/eurosport-1-es.png" tvg-name="EuroSport 1",EuroSport 1 [FHD@25] [ACS] (Elc) (Canal 768)
+http://127.0.0.1:6878/ace/getstream?id=16ffa1713f42aa27317ee039a2bd0cdbc89a1580&pid=362
 
-#EXTINF:-1 cuid="769" group-title="ACS" tvg-chno="769" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/eurosport-1-es.png" tvg-name="EuroSport 1",EuroSport 1 [FHD@25] [ACS] (Elc) (Canal 769)
-http://127.0.0.1:6878/ace/getstream?id=16ffa1713f42aa27317ee039a2bd0cdbc89a1580&pid=363
+#EXTINF:-1 cuid="769" group-title="ACS" tvg-chno="769" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/eurosport-1-es.png" tvg-name="EuroSport 1",EuroSport 1 [HD@50] [ACS] (Elc) (Canal 769)
+http://127.0.0.1:6878/ace/getstream?id=c3da6c4f91d9d10ade00318a869435e19f204d0e&pid=363
 
 #EXTINF:-1 cuid="770" group-title="ACS" tvg-chno="770" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/eurosport-1-es.png" tvg-name="EuroSport 1",EuroSport 1 [HD@50] [ACS] (Elc) (Canal 770)
-http://127.0.0.1:6878/ace/getstream?id=c3da6c4f91d9d10ade00318a869435e19f204d0e&pid=364
+http://127.0.0.1:6878/ace/getstream?id=d830c1dc3b74e74f79cbb823804cf2037857e78a&pid=364
 
-#EXTINF:-1 cuid="771" group-title="ACS" tvg-chno="771" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/eurosport-1-es.png" tvg-name="EuroSport 1",EuroSport 1 [HD@50] [ACS] (Elc) (Canal 771)
-http://127.0.0.1:6878/ace/getstream?id=d830c1dc3b74e74f79cbb823804cf2037857e78a&pid=365
+#EXTINF:-1 cuid="771" group-title="ACS" tvg-chno="771" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/eurosport-1-es.png" tvg-name="EuroSport 1",EuroSport 1 [HD@25] [ACS] (Elc) (Canal 771)
+http://127.0.0.1:6878/ace/getstream?id=a7b42f9d65636d1b1d9316d3e91ebe12b192658c&pid=365
 
-#EXTINF:-1 cuid="772" group-title="ACS" tvg-chno="772" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/eurosport-1-es.png" tvg-name="EuroSport 1",EuroSport 1 [HD@25] [ACS] (Elc) (Canal 772)
-http://127.0.0.1:6878/ace/getstream?id=a7b42f9d65636d1b1d9316d3e91ebe12b192658c&pid=366
+#EXTINF:-1 cuid="772" group-title="ACS" tvg-chno="772" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/eurosport-1-es.png" tvg-name="EuroSport 1",EuroSport 1 [SD@50] [ACS] (NeEr6) (Canal 772)
+http://127.0.0.1:6878/ace/getstream?id=ef2abf419586d9876370be127ad592dbb41b126a&pid=366
 
-#EXTINF:-1 cuid="773" group-title="ACS" tvg-chno="773" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/eurosport-1-es.png" tvg-name="EuroSport 1",EuroSport 1 [SD@50] [ACS] (NeEr6) (Canal 773)
-http://127.0.0.1:6878/ace/getstream?id=ef2abf419586d9876370be127ad592dbb41b126a&pid=367
-
-#EXTINF:-1 cuid="774" group-title="M3U8" tvg-chno="774" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/eurosport-1-es.png" tvg-name="EuroSport 1",EuroSport 1 [FHD@25] [M3U8] (Pig) (Canal 774)
+#EXTINF:-1 cuid="773" group-title="M3U8" tvg-chno="773" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/eurosport-1-es.png" tvg-name="EuroSport 1",EuroSport 1 [FHD@25] [M3U8] (Pig) (Canal 773)
 https://cd.shinzillaaaaa.workers.dev/cd/p/on7x6623vgglwwsymojwg2vgk6uuws2nlvpgngkrt6ujtjtmpf4xa536xj5vuudcqvuzdfcwmbtjhh3imzfy6s3clzpkmtdcvctx273qp23l5mlok5fvnlkumwnvwus6vkpu4s2psnovstc4njrfdkkvysyxw53mpheicvk7/index.m3u8
 
-#EXTINF:-1 cuid="775" group-title="M3U8" tvg-chno="775" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/eurosport-1-es.png" tvg-name="EuroSport 1",EuroSport 1 [HD@25] [M3U8] (Ins) (Canal 775)
+#EXTINF:-1 cuid="774" group-title="M3U8" tvg-chno="774" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/eurosport-1-es.png" tvg-name="EuroSport 1",EuroSport 1 [HD@25] [M3U8] (Ins) (Canal 774)
 http://92.118.251.84:8080/Eurosport1/index.m3u8
 
-#EXTINF:-1 cuid="776" group-title="ACS" tvg-chno="776" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/eurosport-1-es.png" tvg-name="EuroSport 1",UK | EuroSport 1 [FHD@25] [ACS] (SpTv) (Canal 776)
-http://127.0.0.1:6878/ace/getstream?id=1b0bc4d4dcd609d3c092712e721392b199f50a62&pid=368
+#EXTINF:-1 cuid="775" group-title="ACS" tvg-chno="775" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/eurosport-1-es.png" tvg-name="EuroSport 1",UK | EuroSport 1 [FHD@25] [ACS] (SpTv) (Canal 775)
+http://127.0.0.1:6878/ace/getstream?id=1b0bc4d4dcd609d3c092712e721392b199f50a62&pid=367
 
-#EXTINF:-1 cuid="777" group-title="ACS" tvg-chno="777" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/eurosport-1-es.png" tvg-name="EuroSport 1",RU | EuroSport 1 [FHD@25] [ACS] (NeLo) (Canal 777)
-http://127.0.0.1:6878/ace/getstream?id=cfa75ade53810dac64411b22d56c3d4582a221d3&pid=369
+#EXTINF:-1 cuid="776" group-title="ACS" tvg-chno="776" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/eurosport-1-es.png" tvg-name="EuroSport 1",RU | EuroSport 1 [FHD@25] [ACS] (NeLo) (Canal 776)
+http://127.0.0.1:6878/ace/getstream?id=cfa75ade53810dac64411b22d56c3d4582a221d3&pid=368
+
+#EXTINF:-1 cuid="777" group-title="ACS" tvg-chno="777" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/eurosport-1-es.png" tvg-name="EuroSport 1",DE | EuroSport 1 [FHD@50] [ACS] (NeEr) (Canal 777)
+http://127.0.0.1:6878/ace/getstream?id=714e14e6d6e27660fd25a75b57b0ac5580fe705d&pid=369
 
 #EXTINF:-1 cuid="778" group-title="M3U8" tvg-chno="778" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/eurosport-4k-uk.png" tvg-name="EuroSport 1",RO | EuroSport 1 4K [UHD@50] [ACS] (NoSp) (Canal 778)
 https://7pal.short.gy/eusport4k
