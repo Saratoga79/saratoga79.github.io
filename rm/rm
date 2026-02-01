@@ -2372,7 +2372,7 @@ http://127.0.0.1:6878/ace/getstream?id=714e14e6d6e27660fd25a75b57b0ac5580fe705d&
 #EXTINF:-1 cuid="790" group-title="ACS" tvg-chno="790" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/eurosport-1-es.png" tvg-name="EuroSport 1",DE | EuroSport 1 [FHD@25] [ACS] (SpTv) (Canal 790)
 http://127.0.0.1:6878/ace/getstream?id=b8cad4710b1c3b2b84a82c1ece40c08517b8f766&pid=372
 
-#EXTINF:-1 cuid="791" group-title="M3U8" tvg-chno="791" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/eurosport-4k-uk.png" tvg-name="EuroSport 1",RO | EuroSport 1 4K [UHD@50] [ACS] (NoSp) (Canal 791)
+#EXTINF:-1 cuid="791" group-title="M3U8" tvg-chno="791" tvg-id="EuroSport 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/eurosport-4k-uk.png" tvg-name="EuroSport 1",RO | EuroSport 1 4K [UHD@50] [M3U8] (NoSp) (Canal 791)
 https://7pal.short.gy/eusport4k
 
 #EXTINF:-1 cuid="792" group-title="ACS" tvg-chno="792" tvg-id="EuroSport 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/eurosport-2-es.png" tvg-name="EuroSport 2",EuroSport 2 [FHD@50] [ACS] (Elc) (Canal 792)
