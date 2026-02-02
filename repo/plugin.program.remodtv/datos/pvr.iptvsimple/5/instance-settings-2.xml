@@ -3,7 +3,7 @@
     <setting id="kodi_addon_instance_enabled" default="true">true</setting>
     <setting id="m3uPathType" default="true">1</setting>
     <setting id="m3uPath" default="true" />
-    <setting id="m3uUrl">https://raw.githubusercontent.com/ezdakit/zukzeuk_listas/refs/heads/main/zz_eventos/zz_eventos_all_ott.m3u</setting>
+    <setting id="m3uUrl">https://raw.githubusercontent.com/ezdakit/zukzeuk_listas/refs/heads/main/ezdakit_eventos.m3u</setting>
     <setting id="m3uCache" default="true">true</setting>
     <setting id="startNum" default="true">1</setting>
     <setting id="numberByOrder" default="true">false</setting>

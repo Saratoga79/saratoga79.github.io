@@ -20,6 +20,7 @@ from typing import Optional
 import subprocess
 import xml.etree.ElementTree as ET
 
+
 xbmc.log(f"REMOD TV INICIO", level=xbmc.LOGINFO)
 ### info del addon remodtv incluido en la app (special://xbmc)
 remodtv_addon = xbmcaddon.Addon('plugin.program.remodtv')
@@ -330,7 +331,6 @@ comp_version()
 ### copia los archivos de configuración
 def archivos_config():
     xbmc.log(f"REMOD TV Desactivando addons para copiar archivos de configuración.", level=xbmc.LOGINFO)
-    xbmc.log(f"REMOD TV Copiando archivos de configuración inicial.", level=xbmc.LOGINFO)
     orig = xbmcvfs.translatePath(os.path.join(remodtv_addon_datos, 'pvr.iptvsimple', carp, 'instance-settings-2.xml'))
     dest = xbmcvfs.translatePath(os.path.join(addons_addon_data, 'pvr.iptvsimple', 'instance-settings-1.xml'))
     xbmcvfs.delete(dest)
@@ -339,6 +339,7 @@ def archivos_config():
     xbmcvfs.delete(dest)
     xbmc.executebuiltin(f"Notification({remodtv_addon_name},Archivos de configuración copiados,3000,)")
     xbmc.log(f"{remodtv_addon_name} Archivos de configuración copiados.", level=xbmc.LOGINFO)
+    return True
 
    
 ### des/activación de addons
@@ -424,7 +425,7 @@ def inst_addon(addon_id):
     ### verificamos que no esté instalado ya
     if xbmc.getCondVisibility(f'System.HasAddon({addon_id})'):
         xbmc.executebuiltin(f"Notification({remodtv_addon_name},{addon_id} ya instalado.,1000,)")
-        xbmc.log(f"El addon {addon_id} está ya instalado. Desinstalando", level=xbmc.LOGINFO)
+        xbmc.log(f"El addon {addon_id} está ya instalado", level=xbmc.LOGINFO)
         return False
     else:
         xbmc.log(f"El addon {addon_id} no está instalado.", level=xbmc.LOGINFO)
@@ -835,6 +836,7 @@ def obtener_estado(url, timeout=5):
         return f"Error inesperado: {e}"
         
 ### test
+
 
 ### test        
     
@@ -1339,6 +1341,11 @@ else:
             ret = dialog.yesno(f"{remodtv_addon_name}", f"Solo para dispositivos Android/ATV.\n\n¿Quieres visitar Repo ReMod como alternativa?")
             if ret:
                 xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=nav)')
+                
+    elif action == "test":
+        
+        pass
+
     else:
         # Acción desconocida → volver al menú principal
         lista_menu_principal()
