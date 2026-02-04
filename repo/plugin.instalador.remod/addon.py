@@ -101,7 +101,8 @@ def lista_menu_deportes():
         ("> Instalar [COLOR red]Kodi[/COLOR][COLOR yellow]Spain[/COLOR][COLOR red]Tv[/COLOR]", "kodispaintv", "kodispaintv.png"),
         ("> Instalar AceStream Channels", "acs_channels", "acs_channels.png"),
         ("> Instalar Naranjito", "naranjito", "naranjito.png"),
-        ("> Instalar The Loop", "loop", "loop.png")
+        ("> Instalar The Loop", "loop", "loop.png"),
+        ("> Instalar SportHD", "sporthd", "sporthd.png"),
     ]
 
     for label, action, icon_file in menu_items:
@@ -1566,17 +1567,40 @@ else:
                     xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación Naranjito,3000,{noti_ok_icon})")
                 else:
                     xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Naranjito,3000,{noti_error_icon})")
-                 
                 
                 xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación Naranjito,3000,{noti_ok_icon})")
-                
-                
-                
                 
             else:
                 xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Naranjito,3000,{noti_error_icon})")
         else:
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalando dependencias Naranjito,3000,{noti_error_icon})")
+        
+    elif action == "sporthd":
+        ### descarga addons zip desde url
+        lista_repos = ["repository.bugatsinho"]
+        lista_base_urls = ["https://bugatsinho.github.io/"]
+        lista_patterns = ["repository\.bugatsinho-\d{1,3}\.\d{1,3}\.zip"]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000,{noti_icon})")
+        descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
+        ### actualizar lista de addons para refrersacar addons descargados
+        buscar_actualizacion()
+        ### activar addons descargados
+        activar_lista_repos_zip(lista_repos)
+        ### actualizar lista de repos descargados
+        buscar_actualizacion()
+        ### instalación de addons desde repo ya instalado
+        lista_deps = [
+            "script.module.dateutil",
+            "script.module.six",
+            "script.module.dateutil",
+            "plugin.video.requests",
+            ]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando SportHD,1000,{noti_icon})")
+        if instalar_lista_addons(lista_deps):
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación SportHD,3000,{noti_ok_icon})")
+        else:
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación SportHD,3000,{noti_error_icon})")
+            
 
     elif action == "test":
             

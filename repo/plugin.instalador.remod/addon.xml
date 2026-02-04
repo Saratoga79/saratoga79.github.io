@@ -1,7 +1,7 @@
 <addon
 	id="plugin.instalador.remod"
 	name="ReMod Instalador"
-	version="26.02.04.0"
+	version="26.02.04.1"
 	provider-name="Saratoga">
 	<requires>
 		<!-- Mín Kodi 20+ -->
@@ -17,6 +17,12 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
+> Versión = 26.02.04.1
+> Cambios respecto a la versión anterior:
+	- Añadidos nuevos addons:
+		- Deportes:
+			- SportHD
+	
 > Versión = 26.02.04.0
 > Cambios respecto a la versión anterior:
 	- Mejoras y correcciones
