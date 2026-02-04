@@ -1,4 +1,15 @@
 > ReMod Instalador
+> Versión = 26.02.04.0
+> Cambios respecto a la versión anterior:
+	- Mejoras y correcciones
+	- Borrados addons que no funcionan
+	- Añadidos nuevos addons:
+		- Deportes:
+			- Naranjito
+			- The Loop
+		- Herramientas:
+			- Kodi Backup
+	
 > Versión = 26.01.22.1
 > Cambios respecto a la versión anterior:
 	- Horus añadido al repo ReMod

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addons><addon id="plugin.instalador.remod" name="ReMod Instalador" version="26.01.22.1" provider-name="Saratoga">
+<addons><addon id="plugin.instalador.remod" name="ReMod Instalador" version="26.02.04.0" provider-name="Saratoga">
 	<requires>
 		
 		<import addon="xbmc.python" version="3.0.1" />
@@ -14,6 +14,17 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
+&gt; Versión = 26.02.04.0
+&gt; Cambios respecto a la versión anterior:
+	- Mejoras y correcciones
+	- Borrados addons que no funcionan
+	- Añadidos nuevos addons:
+		- Deportes:
+			- Naranjito
+			- The Loop
+		- Herramientas:
+			- Kodi Backup
+	
 &gt; Versión = 26.01.22.1
 &gt; Cambios respecto a la versión anterior:
 	- Horus añadido al repo ReMod
