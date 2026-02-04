@@ -1592,8 +1592,8 @@ else:
         lista_deps = [
             "script.module.dateutil",
             "script.module.six",
-            "script.module.dateutil",
-            "plugin.video.requests",
+            "script.module.requests",
+            "plugin.video.sporthdme",
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando SportHD,1000,{noti_icon})")
         if instalar_lista_addons(lista_deps):

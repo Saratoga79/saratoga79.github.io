@@ -1,4 +1,8 @@
 > ReMod Instalador
+> Versión = 26.02.04.2
+> Cambios respecto a la versión anterior:
+	- Corrección en instalación de dependencias SportHD
+	
 > Versión = 26.02.04.1
 > Cambios respecto a la versión anterior:
 	- Añadidos nuevos addons:
