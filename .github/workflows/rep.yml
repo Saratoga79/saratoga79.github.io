@@ -10,7 +10,7 @@ jobs:
     steps:
 
       # -------------------------------------------------
-      # 0️⃣ Instalar jq (y cualquier otra herramienta)
+      # 0️⃣ Instalar herramientas necesarias
       # -------------------------------------------------
       - name: Instalar jq
         run: |
@@ -26,31 +26,36 @@ jobs:
           fetch-depth: 1
 
       # -------------------------------------------------
-      # 2️⃣ **Estrategia combinada (reintentos + proxy)**
+      # 2️⃣ Estrategia combinada (reintentos + proxy)
       # -------------------------------------------------
       - name: Descargar según JSON (seguro)
-        # Si deseas usar un proxy HTTP (tinyproxy, squid, etc.) descomenta las dos líneas siguientes:
+        # -----------------------------------------------------------------
+        # Si quieres usar un proxy HTTP (tinyproxy, squid, etc.) descomenta:
         # env:
         #   http_proxy:  http://127.0.0.1:8888
         #   https_proxy: http://127.0.0.1:8888
+        # -----------------------------------------------------------------
         env:
           DOWNLOADS_JSON: ${{ vars.DOWNLOADS_JSON }}
           DEBUG_MODE: ${{ github.event.inputs.debug }}
         run: |
-          set -u -o pipefail
+          # ----------------------------------------------
+          # Preparación general
+          # ----------------------------------------------
+          set -u -o pipefail               # falla en pipelines, pero no en comandos individuales
+          if [ "$DEBUG_MODE" = "true" ]; then set -x; fi
 
-          # Activar modo debug si el usuario lo solicita
-          if [ "$DEBUG_MODE" = "true" ]; then
-            set -x
-          fi
+          # ----------------------------------------------
+          # Desactivar errexit mientras iteramos
+          # ----------------------------------------------
+          set +e                           # <-- evita que cualquier comando con rc≠0 aborta el script
 
-          # Recorrer cada objeto del JSON
           echo "$DOWNLOADS_JSON" | jq -c '.[]' | while read -r item; do
             url=$(echo "$item" | jq -r '.url')
             dest=$(echo "$item" | jq -r '.dest')
             tmp="${dest}.tmp.$RANDOM"
 
-            # Asegurar que el directorio destino exista
+            # Asegurar que exista el directorio destino
             mkdir -p "$(dirname "$dest")"
 
             echo "::group::Descargando $url → $tmp"
@@ -58,37 +63,55 @@ jobs:
             #   --retry 5      → hasta 5 intentos
             #   --retry-delay 10 → 10 s entre intentos
             curl -fSL --max-time 300 --retry 5 --retry-delay 10 "$url" -o "$tmp"
-            rc=$?
+            rc=$?                         # captura código de salida de curl
             echo "::endgroup::"
 
-            # Si curl falla, registrar y continuar con el siguiente ítem
+            # -------------------------------------------------
+            # Manejo de errores (504, 502, 5xx, etc.)
+            # -------------------------------------------------
             if [ $rc -ne 0 ]; then
-              echo "❌  ERROR al descargar $url (código $rc). Se omite."
+              echo "❌  ERROR al descargar $url (código $rc). Se omite y se continúa."
               rm -f "$tmp"
-              continue
+              continue                    # pasa a la siguiente URL
             fi
 
-            # Verificar que el archivo temporal no esté vacío
+            # -------------------------------------------------
+            # Archivo temporal vacío → descartamos
+            # -------------------------------------------------
             if [ ! -s "$tmp" ]; then
               echo "⚠️  Archivo temporal vacío; no sustituyo $dest."
               rm -f "$tmp"
               continue
             fi
 
-            # ----------- Opcional: checksum SHA‑256 -----------
-            expected=$(echo "$item" | jq -r '.sha256 // empty')
-            if [ -n "$expected" ]; then
-              echo "$expected  $tmp" | sha256sum -c - >/dev/null || {
-                echo "❌  Checksum falló para $url → $tmp. Archivo descartado."
-                rm -f "$tmp"
-                continue
-              }
-            fi
             # -------------------------------------------------
+            # (Opcional) checksum SHA‑256
+            # -------------------------------------------------
+            # expected=$(echo "$item" | jq -r '.sha256 // empty')
+            # if [ -n "$expected" ]; then
+              # echo "$expected  $tmp" | sha256sum -c - >/dev/null || {
+                # echo "❌  Checksum falló para $url → $tmp. Archivo descartado."
+                # rm -f "$tmp"
+                # continue
+              # }
+            # fi
 
+            # -------------------------------------------------
+            # Todo correcto → mover al destino definitivo
+            # -------------------------------------------------
             echo "✅  Descarga completada. Reemplazando $dest."
             mv -f "$tmp" "$dest"
           done
+
+          # ----------------------------------------------
+          # Reactivar errexit para el resto del job
+          # ----------------------------------------------
+          set -e
+
+          # (opcional) resumen final
+          echo "=== LISTADO FINAL DE downloads/ ==="
+          find downloads/ -type f -print
+          echo "===================================="
 
       # -------------------------------------------------
       # 3️⃣ Listar contenido final (para depuración)
