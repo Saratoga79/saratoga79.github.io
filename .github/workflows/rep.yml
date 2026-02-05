@@ -17,9 +17,9 @@ jobs:
           sudo apt-get update -y
           sudo apt-get install -y jq
           # tinyproxy es opcional; descoméntalo si quieres usar proxy HTTP
-          sudo apt-get install -y tinyproxy
-          sudo sed -i 's/^#Port 8888/Port 8888/' /etc/tinyproxy/tinyproxy.conf
-          sudo systemctl restart tinyproxy
+          # sudo apt-get install -y tinyproxy
+          # sudo sed -i 's/^#Port 8888/Port 8888/' /etc/tinyproxy/tinyproxy.conf
+          # sudo systemctl restart tinyproxy
 
       # -------------------------------------------------
       # 1️⃣ Checkout del repositorio (sin persistir credenciales)
@@ -38,11 +38,11 @@ jobs:
         # Si deseas usar el proxy HTTP de tinyproxy (escucha en 127.0.0.1:8888),
         # descomenta las tres líneas siguientes.
         # -----------------------------------------------------------------
-        env:
-          http_proxy:  http://127.0.0.1:8888
-          https_proxy: http://127.0.0.1:8888
-        # -----------------------------------------------------------------
         # env:
+          # http_proxy:  http://127.0.0.1:8888
+          # https_proxy: http://127.0.0.1:8888
+        # -----------------------------------------------------------------
+        env:
           DOWNLOADS_JSON: ${{ vars.DOWNLOADS_JSON }}
           DEBUG_MODE: ${{ github.event.inputs.debug }}
         run: |
