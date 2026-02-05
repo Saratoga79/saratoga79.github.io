@@ -10,45 +10,52 @@ jobs:
     steps:
 
       # -------------------------------------------------
-      # 0️⃣ Instalar herramientas necesarias
+      # 0️⃣ Instalar herramientas (jq + tinyproxy opcional)
       # -------------------------------------------------
-      - name: Instalar jq
+      - name: Instalar jq y tinyproxy
         run: |
           sudo apt-get update -y
           sudo apt-get install -y jq
+          # tinyproxy es opcional; descoméntalo si quieres usar proxy HTTP
+          sudo apt-get install -y tinyproxy
+          sudo sed -i 's/^#Port 8888/Port 8888/' /etc/tinyproxy/tinyproxy.conf
+          sudo systemctl restart tinyproxy
 
       # -------------------------------------------------
-      # 1️⃣ Checkout del repositorio (necesario para commit/push)
+      # 1️⃣ Checkout del repositorio (sin persistir credenciales)
       # -------------------------------------------------
       - name: Checkout del repositorio
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
+          persist-credentials: false   # evita usar GITHUB_TOKEN para push
 
       # -------------------------------------------------
       # 2️⃣ Estrategia combinada (reintentos + proxy)
       # -------------------------------------------------
       - name: Descargar según JSON (seguro)
         # -----------------------------------------------------------------
-        # Si quieres usar un proxy HTTP (tinyproxy, squid, etc.) descomenta:
-        # env:
-        #   http_proxy:  http://127.0.0.1:8888
-        #   https_proxy: http://127.0.0.1:8888
+        # Si deseas usar el proxy HTTP de tinyproxy (escucha en 127.0.0.1:8888),
+        # descomenta las tres líneas siguientes.
+        # -----------------------------------------------------------------
+        env:
+          http_proxy:  http://127.0.0.1:8888
+          https_proxy: http://127.0.0.1:8888
         # -----------------------------------------------------------------
         env:
           DOWNLOADS_JSON: ${{ vars.DOWNLOADS_JSON }}
           DEBUG_MODE: ${{ github.event.inputs.debug }}
         run: |
-          # ----------------------------------------------
+          # -------------------------------------------------
           # Preparación general
-          # ----------------------------------------------
+          # -------------------------------------------------
           set -u -o pipefail               # falla en pipelines, pero no en comandos individuales
           if [ "$DEBUG_MODE" = "true" ]; then set -x; fi
 
-          # ----------------------------------------------
+          # -------------------------------------------------
           # Desactivar errexit mientras iteramos
-          # ----------------------------------------------
-          set +e                           # <-- evita que cualquier comando con rc≠0 aborta el script
+          # -------------------------------------------------
+          set +e                           # evita que cualquier comando con rc≠0 aborta el script
 
           echo "$DOWNLOADS_JSON" | jq -c '.[]' | while read -r item; do
             url=$(echo "$item" | jq -r '.url')
@@ -87,14 +94,14 @@ jobs:
             # -------------------------------------------------
             # (Opcional) checksum SHA‑256
             # -------------------------------------------------
-            # expected=$(echo "$item" | jq -r '.sha256 // empty')
-            # if [ -n "$expected" ]; then
-              # echo "$expected  $tmp" | sha256sum -c - >/dev/null || {
-                # echo "❌  Checksum falló para $url → $tmp. Archivo descartado."
-                # rm -f "$tmp"
-                # continue
-              # }
-            # fi
+            expected=$(echo "$item" | jq -r '.sha256 // empty')
+            if [ -n "$expected" ]; then
+              echo "$expected  $tmp" | sha256sum -c - >/dev/null || {
+                echo "❌  Checksum falló para $url → $tmp. Archivo descartado."
+                rm -f "$tmp"
+                continue
+              }
+            fi
 
             # -------------------------------------------------
             # Todo correcto → mover al destino definitivo
@@ -103,9 +110,9 @@ jobs:
             mv -f "$tmp" "$dest"
           done
 
-          # ----------------------------------------------
+          # -------------------------------------------------
           # Reactivar errexit para el resto del job
-          # ----------------------------------------------
+          # -------------------------------------------------
           set -e
 
           # (opcional) resumen final
@@ -137,17 +144,35 @@ jobs:
           path: documentos-multiples.tar.gz
 
       # -------------------------------------------------
-      # 5️⃣ Commit y push (solo si hay cambios)
+      # 5️⃣ Commit y push (usa PAT almacenado en secret PAT_PUSH)
       # -------------------------------------------------
       - name: Commit y push de los archivos descargados
         if: success()
+        env:
+          GIT_TOKEN: ${{ secrets.PAT_PUSH }}   # <-- PAT con scope `repo` (o `public_repo`)
         run: |
+          # Configurar usuario de commit
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Añadir cambios (solo los archivos bajo downloads/)
           git add -A downloads/
-          if ! git diff-index --quiet HEAD; then
-            git commit -m "📥 Descarga automática $(date +'%Y-%m-%d %H:%M')"
-            git push
-          else
+
+          # Si no hay cambios, salir sin crear commit
+          if git diff-index --quiet HEAD; then
             echo "🔎  No se detectaron cambios en los archivos; no se crea commit."
+            exit 0
           fi
+
+          # Crear el commit
+          git commit -m "📥 Descarga automática $(date +'%Y-%m-%d %H:%M')"
+
+          # Push usando el PAT (se construye la URL con el token)
+          remote_url="https://${GIT_TOKEN}@github.com/${{ github.repository }}.git"
+          git remote set-url origin "$remote_url"
+
+          # Push a la rama que disparó el workflow
+          git push origin HEAD:${{ github.ref_name }}
+
+          # Restaurar remote a la URL pública (buena práctica)
+          git remote set-url origin "https://github.com/${{ github.repository }}.git"
