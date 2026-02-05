@@ -1,80 +1,130 @@
-# -------------------------------------------------
-# 3️⃣ Estrategia combinada (reintentos + proxy)
-# -------------------------------------------------
-- name: Descargar según JSON (seguro)
-  # Si utilizas un proxy HTTP, define aquí sus variables.
-  # Puedes comentar estas líneas si no quieres usar proxy.
-  env:
-    DOWNLOADS_JSON: ${{ vars.DOWNLOADS_JSON }}
-    DEBUG_MODE: ${{ github.event.inputs.debug }}
-    # Ejemplo con proxy HTTP local (tinyproxy en 127.0.0.1:8888)
-    http_proxy:  http://127.0.0.1:8888
-    https_proxy: http://127.0.0.1:8888
-    # Si usas SOCKS5, comenta las dos líneas anteriores y descomenta:
-    # ALL_PROXY: socks5h://127.0.0.1:1080
-  run: |
-    # ------------------------------------------------------------------
-    # Preparación básica
-    # ------------------------------------------------------------------
-    set -u               # error si usamos variable sin definir
-    set -o pipefail      # propagación de errores en pipelines
+name: Descargar múltiple con reintentos + proxy
+on:
+  schedule:
+    - cron: '0 * * * *'          # cada hora
+  workflow_dispatch:
 
-    # Activar modo debug si el input lo solicita
-    if [ "${DEBUG_MODE}" = "true" ]; then
-      set -x
-    fi
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
 
-    # ------------------------------------------------------------------
-    # Procesar cada elemento del JSON
-    # ------------------------------------------------------------------
-    echo "$DOWNLOADS_JSON" | jq -c '.[]' | while read -r item; do
-      url=$(echo "$item" | jq -r '.url')
-      dest=$(echo "$item" | jq -r '.dest')
-      tmp="${dest}.tmp.$RANDOM"
+      # -------------------------------------------------
+      # 0️⃣ Instalar jq (y cualquier otra herramienta)
+      # -------------------------------------------------
+      - name: Instalar jq
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y jq
 
-      # Garantizar que el directorio destino exista
-      mkdir -p "$(dirname "$dest")"
+      # -------------------------------------------------
+      # 1️⃣ Checkout del repositorio (necesario para commit/push)
+      # -------------------------------------------------
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
-      # ----------------------- LOGS AGRUPADOS -----------------------
-      echo "::group::Descargando $url → $tmp"
-      #   • --max-time 300  → timeout ampliado (5 min)
-      #   • --retry 5      → hasta 5 intentos
-      #   • --retry-delay 10 → espera 10 s entre reintentos
-      #   • proxy se toma de $http_proxy / $https_proxy / $ALL_PROXY
-      curl -fSL \
-           --max-time 300 \
-           --retry 5 --retry-delay 10 \
-           "$url" -o "$tmp"
-      rc=$?
-      echo "::endgroup::"
-      # ----------------------------------------------------------------
+      # -------------------------------------------------
+      # 2️⃣ **Estrategia combinada (reintentos + proxy)**
+      # -------------------------------------------------
+      - name: Descargar según JSON (seguro)
+        # Si deseas usar un proxy HTTP (tinyproxy, squid, etc.) descomenta las dos líneas siguientes:
+        # env:
+        #   http_proxy:  http://127.0.0.1:8888
+        #   https_proxy: http://127.0.0.1:8888
+        env:
+          DOWNLOADS_JSON: ${{ vars.DOWNLOADS_JSON }}
+          DEBUG_MODE: ${{ github.event.inputs.debug }}
+        run: |
+          set -u -o pipefail
 
-      # Si curl falla, registrar y pasar al siguiente ítem
-      if [ $rc -ne 0 ]; then
-        echo "❌  ERROR al descargar $url (código $rc). Se omite."
-        rm -f "$tmp"
-        continue
-      fi
+          # Activar modo debug si el usuario lo solicita
+          if [ "$DEBUG_MODE" = "true" ]; then
+            set -x
+          fi
 
-      # Comprobar que el archivo temporal no esté vacío
-      if [ ! -s "$tmp" ]; then
-        echo "⚠️  Archivo temporal vacío; no sustituyo $dest."
-        rm -f "$tmp"
-        continue
-      fi
+          # Recorrer cada objeto del JSON
+          echo "$DOWNLOADS_JSON" | jq -c '.[]' | while read -r item; do
+            url=$(echo "$item" | jq -r '.url')
+            dest=$(echo "$item" | jq -r '.dest')
+            tmp="${dest}.tmp.$RANDOM"
 
-      # ------------------- Opcional: checksum SHA‑256 -------------------
-      expected=$(echo "$item" | jq -r '.sha256 // empty')
-      if [ -n "$expected" ]; then
-        echo "$expected  $tmp" | sha256sum -c - >/dev/null
-        if [ $? -ne 0 ]; then
-          echo "❌  Checksum falló para $url → $tmp. Archivo descartado."
-          rm -f "$tmp"
-          continue
-        fi
-      fi
-      # ------------------------------------------------------------------
+            # Asegurar que el directorio destino exista
+            mkdir -p "$(dirname "$dest")"
 
-      echo "✅  Descarga completada. Reemplazando $dest."
-      mv -f "$tmp" "$dest"
-    done
+            echo "::group::Descargando $url → $tmp"
+            #   --max-time 300  → timeout de 5 min
+            #   --retry 5      → hasta 5 intentos
+            #   --retry-delay 10 → 10 s entre intentos
+            curl -fSL --max-time 300 --retry 5 --retry-delay 10 "$url" -o "$tmp"
+            rc=$?
+            echo "::endgroup::"
+
+            # Si curl falla, registrar y continuar con el siguiente ítem
+            if [ $rc -ne 0 ]; then
+              echo "❌  ERROR al descargar $url (código $rc). Se omite."
+              rm -f "$tmp"
+              continue
+            fi
+
+            # Verificar que el archivo temporal no esté vacío
+            if [ ! -s "$tmp" ]; then
+              echo "⚠️  Archivo temporal vacío; no sustituyo $dest."
+              rm -f "$tmp"
+              continue
+            fi
+
+            # ----------- Opcional: checksum SHA‑256 -----------
+            expected=$(echo "$item" | jq -r '.sha256 // empty')
+            if [ -n "$expected" ]; then
+              echo "$expected  $tmp" | sha256sum -c - >/dev/null || {
+                echo "❌  Checksum falló para $url → $tmp. Archivo descartado."
+                rm -f "$tmp"
+                continue
+              }
+            fi
+            # -------------------------------------------------
+
+            echo "✅  Descarga completada. Reemplazando $dest."
+            mv -f "$tmp" "$dest"
+          done
+
+      # -------------------------------------------------
+      # 3️⃣ Listar contenido final (para depuración)
+      # -------------------------------------------------
+      - name: Listar contenido de downloads/
+        if: always()
+        run: |
+          echo "=== LISTADO FINAL DE downloads/ ==="
+          find downloads/ -type f -print
+          echo "===================================="
+
+      # -------------------------------------------------
+      # 4️⃣ Empaquetar y subir artefactos
+      # -------------------------------------------------
+      - name: Empaquetar artefactos
+        run: tar -czf documentos-multiples.tar.gz downloads/
+
+      - name: Subir artefactos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: documentos-multiples
+          path: documentos-multiples.tar.gz
+
+      # -------------------------------------------------
+      # 5️⃣ Commit y push (solo si hay cambios)
+      # -------------------------------------------------
+      - name: Commit y push de los archivos descargados
+        if: success()
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A downloads/
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "📥 Descarga automática $(date +'%Y-%m-%d %H:%M')"
+            git push
+          else
+            echo "🔎  No se detectaron cambios en los archivos; no se crea commit."
+          fi
