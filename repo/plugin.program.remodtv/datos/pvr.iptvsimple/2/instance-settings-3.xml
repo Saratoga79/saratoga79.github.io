@@ -1,9 +1,9 @@
 <settings version="2">
-    <setting id="kodi_addon_instance_name">Elc</setting>
+    <setting id="kodi_addon_instance_name">ReModTv</setting>
     <setting id="kodi_addon_instance_enabled" default="true">true</setting>
     <setting id="m3uPathType" default="true">1</setting>
     <setting id="m3uPath" default="true" />
-    <setting id="m3uUrl">https://ipfs.io/ipns/k51qzi5uqu5dh5qej4b9wlcr5i6vhc7rcfkekhrxqek5c9lk6gdaiik820fecs/hashes_acestream.m3u</setting>
+    <setting id="m3uUrl">https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/data/listas/lista_fuera_iptv.m3u</setting>
     <setting id="m3uCache" default="true">true</setting>
     <setting id="startNum" default="true">1</setting>
     <setting id="numberByOrder" default="true">false</setting>

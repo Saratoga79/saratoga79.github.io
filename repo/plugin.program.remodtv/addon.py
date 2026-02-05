@@ -1023,6 +1023,7 @@ else:
         archivos_config()
         res = actualizar_tv()
         if res:
+            borrar_archivos_config_bak()
             fue_sel = '1 Direct'
             guardar_fuente(fue_sel)
             fue_act = leer_fuente()
@@ -1040,6 +1041,7 @@ else:
         archivos_config()
         res = actualizar_tv()
         if res:
+            borrar_archivos_config_bak()
             fue_sel = '1 Direct Repuesto'
             guardar_fuente(fue_sel)
             fue_act = leer_fuente()
@@ -1069,6 +1071,7 @@ else:
         archivos_config()
         res = actualizar_tv()
         if res:
+            borrar_archivos_config_bak()
             fue_sel = '2 ACE'
             guardar_fuente(fue_sel)
             fue_act = leer_fuente()
@@ -1086,6 +1089,7 @@ else:
         archivos_config()
         res = actualizar_tv()
         if res:
+            borrar_archivos_config_bak()
             fue_sel = '2 ACE Repuesto'
             guardar_fuente(fue_sel)
             fue_act = leer_fuente()
@@ -1103,6 +1107,7 @@ else:
         archivos_config()
         res = actualizar_tv()
         if res:
+            borrar_archivos_config_bak()
             fue_sel = '2 ACE Repuesto 2'
             guardar_fuente(fue_sel)
             fue_act = leer_fuente()
@@ -1114,6 +1119,7 @@ else:
         archivos_config()
         res = actualizar_tv()
         if res:
+            borrar_archivos_config_bak()
             fue_sel = '3 Horus'
             guardar_fuente(fue_sel)
             fue_act = leer_fuente()
@@ -1131,6 +1137,7 @@ else:
         archivos_config()
         res = actualizar_tv()
         if res:
+            borrar_archivos_config_bak()
             fue_sel = '3 Horus Repuesto'
             guardar_fuente(fue_sel)
             fue_act = leer_fuente()
@@ -1148,6 +1155,7 @@ else:
         archivos_config()
         res = actualizar_tv()
         if res:
+            borrar_archivos_config_bak()
             fue_sel = '3 Horus Repuesto 2'
             guardar_fuente(fue_sel)
             fue_act = leer_fuente()
@@ -1159,6 +1167,7 @@ else:
         archivos_config()
         res = actualizar_tv()
         if res:
+            borrar_archivos_config_bak()
             fue_sel = '4 ReMod TV'
             guardar_fuente(fue_sel)
             fue_act = leer_fuente()
@@ -1170,6 +1179,7 @@ else:
         archivos_config()
         res = actualizar_tv()
         if res:
+            borrar_archivos_config_bak()
             fue_sel = '5 Agenda Deportiva'
             guardar_fuente(fue_sel)
             fue_act = leer_fuente()
@@ -1181,6 +1191,7 @@ else:
         archivos_config()
         res = actualizar_tv()
         if res:
+            borrar_archivos_config_bak()
             fue_sel = '6 Chucky'
             guardar_fuente(fue_sel)
             fue_act = leer_fuente()
