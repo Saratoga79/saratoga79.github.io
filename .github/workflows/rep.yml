@@ -10,9 +10,9 @@ permissions:
 # 2️⃣  Triggers
 # -------------------------------------------------
 on:
-  # Cada hora entre 09:00 y 21:00 UTC (puedes ajustar el cron)
+  # Run Cada hora
   schedule:
-    - cron: '0 9-21 * * *'
+    - cron: '0 0 * * *'
 
   # Permite lanzar el workflow manualmente para pruebas / depuración
   workflow_dispatch:
