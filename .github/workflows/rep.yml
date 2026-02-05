@@ -39,10 +39,12 @@ jobs:
           fetch-depth: 1   # solo el último commit, ahorra ancho de banda
 
       # -------------------------------------------------
-      # 3.2️⃣ Instalar jq (versión ligera)
+      # 3.2️⃣ Instalar jq (versión directa con apt)
       # -------------------------------------------------
       - name: Instalar jq
-        uses: jqlang/jq-action@v1
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y jq
 
       # -------------------------------------------------
       # 3.3️⃣ Mostrar el JSON (diagnóstico)
@@ -132,8 +134,7 @@ jobs:
       # 3.6️⃣ Empaquetar y subir artefactos (más compacto)
       # -------------------------------------------------
       - name: Empaquetar artefactos
-        run: |
-          tar -czf documentos-multiples.tar.gz downloads/
+        run: tar -czf documentos-multiples.tar.gz downloads/
       - name: Subir artefactos
         if: always()
         uses: actions/upload-artifact@v4
@@ -155,8 +156,6 @@ jobs:
           git add -A downloads/
 
           # ¿Hay diferencias respecto al último commit?
-          # `git diff-index --quiet HEAD` devuelve 0 si NO hay cambios,
-          # 1 si hay cambios.
           if ! git diff-index --quiet HEAD; then
             git commit -m "📥 Descarga automática $(date +'%Y-%m-%d %H:%M')"
             git push
