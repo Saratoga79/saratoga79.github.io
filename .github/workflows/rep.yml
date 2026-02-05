@@ -10,11 +10,11 @@ permissions:
 # 2️⃣  Triggers
 # -------------------------------------------------
 on:
-  # Run Cada hora
+  # Ejecutar cada hora (cambia a '0 0 * * *' si prefieres una vez al día)
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 * * * *'
 
-  # Permite lanzar el workflow manualmente para pruebas / depuración
+  # Lanzamiento manual (útil para pruebas y modo debug)
   workflow_dispatch:
     inputs:
       debug:
@@ -35,12 +35,14 @@ jobs:
       # -------------------------------------------------
       - name: Checkout del repositorio
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1   # solo el último commit, ahorra ancho de banda
 
       # -------------------------------------------------
-      # 3.2️⃣ Instalar jq (para leer el JSON)
+      # 3.2️⃣ Instalar jq (versión ligera)
       # -------------------------------------------------
       - name: Instalar jq
-        run: sudo apt-get update && sudo apt-get install -y jq
+        uses: jqlang/jq-action@v1
 
       # -------------------------------------------------
       # 3.3️⃣ Mostrar el JSON (diagnóstico)
@@ -49,9 +51,10 @@ jobs:
         env:
           DOWNLOADS_JSON: ${{ vars.DOWNLOADS_JSON }}
         run: |
-          echo "===== CONTENIDO DE DOWNLOADS_JSON ====="
-          printf '%s\n' "$DOWNLOADS_JSON"
-          echo "=========================================="
+          echo "===== CONTENIDO DE DOWNLOADS_JSON (primeros 5 000 bytes) ====="
+          printf '%s\n' "$DOWNLOADS_JSON" | head -c 5000
+          echo "... (truncado)"
+          echo "=============================================================="
 
       # -------------------------------------------------
       # 3.4️⃣ Descargar cada archivo a un **temporal** y mover solo si OK
@@ -61,6 +64,8 @@ jobs:
           DOWNLOADS_JSON: ${{ vars.DOWNLOADS_JSON }}
           DEBUG_MODE: ${{ github.event.inputs.debug }}
         run: |
+          set -euo pipefail
+
           # Activar modo debug si el usuario lo pidió
           if [ "$DEBUG_MODE" = "true" ]; then set -x; fi
 
@@ -68,17 +73,21 @@ jobs:
           echo "$DOWNLOADS_JSON" | jq -c '.[]' | while read -r item; do
             url=$(echo "$item" | jq -r '.url')
             dest=$(echo "$item" | jq -r '.dest')
-            # Archivo temporal único (evita colisiones)
             tmp="${dest}.tmp.$RANDOM"
 
             # Aseguramos que exista el directorio destino
             mkdir -p "$(dirname "$dest")"
 
-            echo "▶️  Descargando $url → $tmp (temporal)"
+            # -------------------- LOGS AGRUPADOS --------------------
+            echo "::group::Descargando $url → $tmp"
             # -f: falla con códigos HTTP >=400
             # -L: sigue redirecciones
-            curl -fSL "$url" -o "$tmp"
+            # --max-time 120: timeout de 2 min
+            # --retry 3 --retry-delay 5: reintentos en caso de fallos transitorios
+            curl -fSL --max-time 120 --retry 3 --retry-delay 5 "$url" -o "$tmp"
             rc=$?
+            echo "::endgroup::"
+            # ---------------------------------------------------------
 
             if [ $rc -ne 0 ]; then
               echo "❌  ERROR al descargar $url (código $rc). Mantengo $dest sin cambios."
@@ -93,7 +102,18 @@ jobs:
               continue
             fi
 
-            # Todo OK → reemplazar el archivo definitivo
+            # ---------- OPCIONAL: checksum (sha256) ----------
+            expected=$(echo "$item" | jq -r '.sha256 // empty')
+            if [ -n "$expected" ]; then
+              echo "$expected  $tmp" | sha256sum -c - >/dev/null
+              if [ $? -ne 0 ]; then
+                echo "❌  Checksum falló para $url → $tmp"
+                rm -f "$tmp"
+                continue
+              fi
+            fi
+            # ------------------------------------------------
+
             echo "✅  Descarga completada. Reemplazando $dest."
             mv -f "$tmp" "$dest"
           done
@@ -105,24 +125,26 @@ jobs:
         if: always()
         run: |
           echo "=== LISTADO FINAL DE downloads/ ==="
-          ls -R downloads/ || echo "Carpeta downloads/ no encontrada"
+          find downloads/ -type f -print
           echo "===================================="
 
       # -------------------------------------------------
-      # 3.6️⃣ Subir artefactos (siempre disponible para descarga)
+      # 3.6️⃣ Empaquetar y subir artefactos (más compacto)
       # -------------------------------------------------
+      - name: Empaquetar artefactos
+        run: |
+          tar -czf documentos-multiples.tar.gz downloads/
       - name: Subir artefactos
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: documentos-multiples
-          path: downloads/**
+          path: documentos-multiples.tar.gz
 
       # -------------------------------------------------
       # 3.7️⃣ Commit y push **solo si hubo cambios reales**
       # -------------------------------------------------
       - name: Commit y push de los archivos descargados
-        # Sólo se ejecuta si el job terminó sin errores
         if: success()
         run: |
           # Configuración del usuario de GitHub Actions
@@ -130,11 +152,11 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           # Añadir los cambios (solo los archivos bajo downloads/)
-          git add downloads/**
+          git add -A downloads/
 
           # ¿Hay diferencias respecto al último commit?
           # `git diff-index --quiet HEAD` devuelve 0 si NO hay cambios,
-          # 1 si hay cambios. Usamos la lógica OR para crear el commit solo cuando sea necesario.
+          # 1 si hay cambios.
           if ! git diff-index --quiet HEAD; then
             git commit -m "📥 Descarga automática $(date +'%Y-%m-%d %H:%M')"
             git push
