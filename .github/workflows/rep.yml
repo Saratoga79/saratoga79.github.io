@@ -66,7 +66,9 @@ jobs:
           DOWNLOADS_JSON: ${{ vars.DOWNLOADS_JSON }}
           DEBUG_MODE: ${{ github.event.inputs.debug }}
         run: |
-          set -euo pipefail
+          # NO usamos `set -e` porque queremos seguir con el bucle aun si una descarga falla
+          set -u   # solo falla si usamos una variable sin definir
+          set -o pipefail   # preserva el código de error de pipelines
 
           # Activar modo debug si el usuario lo pidió
           if [ "$DEBUG_MODE" = "true" ]; then set -x; fi
@@ -91,8 +93,9 @@ jobs:
             echo "::endgroup::"
             # ---------------------------------------------------------
 
+            # Si curl devolvió error (por ejemplo 504), lo anotamos y seguimos con el siguiente item
             if [ $rc -ne 0 ]; then
-              echo "❌  ERROR al descargar $url (código $rc). Mantengo $dest sin cambios."
+              echo "❌  ERROR al descargar $url (código $rc). Se omite y se continúa con el resto."
               rm -f "$tmp"
               continue
             fi
@@ -109,7 +112,7 @@ jobs:
             if [ -n "$expected" ]; then
               echo "$expected  $tmp" | sha256sum -c - >/dev/null
               if [ $? -ne 0 ]; then
-                echo "❌  Checksum falló para $url → $tmp"
+                echo "❌  Checksum falló para $url → $tmp. Archivo descartado."
                 rm -f "$tmp"
                 continue
               fi
@@ -148,14 +151,11 @@ jobs:
       - name: Commit y push de los archivos descargados
         if: success()
         run: |
-          # Configuración del usuario de GitHub Actions
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # Añadir los cambios (solo los archivos bajo downloads/)
           git add -A downloads/
 
-          # ¿Hay diferencias respecto al último commit?
           if ! git diff-index --quiet HEAD; then
             git commit -m "📥 Descarga automática $(date +'%Y-%m-%d %H:%M')"
             git push
