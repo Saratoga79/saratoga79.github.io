@@ -42,7 +42,7 @@ jobs:
           http_proxy:  http://127.0.0.1:8888
           https_proxy: http://127.0.0.1:8888
         # -----------------------------------------------------------------
-        env:
+        # env:
           DOWNLOADS_JSON: ${{ vars.DOWNLOADS_JSON }}
           DEBUG_MODE: ${{ github.event.inputs.debug }}
         run: |
