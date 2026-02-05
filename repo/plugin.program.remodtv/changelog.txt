@@ -1,4 +1,8 @@
 > ReMod TV
+> Versión = 26.02.05.0
+> Cambios respecto a la versión anterior:
+	- Añadidas las 2 nuevas fuentes principales u oficialaes a la fuente 1 (Direct) de Repuesto 2. 
+	
 > Versión = 26.02.02.0
 > Cambios respecto a la versión anterior:
 	- Nueva fuente 5 Agenda Deportiva
