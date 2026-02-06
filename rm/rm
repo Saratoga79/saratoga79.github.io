@@ -866,32 +866,32 @@ http://127.0.0.1:6878/ace/getstream?id=8156912ae14f6174a19c8a4efcf36a06e847f632&
 #EXTINF:-1 cuid="288" group-title="ACS" tvg-chno="288" tvg-id="M+ Liga de Campeones 2 HD" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-name="M+ Liga de Campeones 2",M+ Liga de Campeones 2 [FHD@25] [ACS] (Elc) (Canal 288)
 http://127.0.0.1:6878/ace/getstream?id=bb26037a253866d341778181eff5c8637240d615&pid=70
 
-#EXTINF:-1 cuid="289" group-title="ACS" tvg-chno="289" tvg-id="M+ Liga de Campeones 2 HD" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-name="M+ Liga de Campeones 2",M+ Liga de Campeones 2 [FHD@25] [ACS] (Elc) (Canal 289)
-http://127.0.0.1:6878/ace/getstream?id=74ab4e4ec7e2da001f473ca40893b7307b8029c5&pid=71
+#EXTINF:-1 cuid="289" group-title="ACS" tvg-chno="289" tvg-id="M+ Liga de Campeones 2 HD" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-name="M+ Liga de Campeones 2",M+ Liga de Campeones 2 [FHD@25] [ACS] (SpTv) (Canal 289)
+http://127.0.0.1:6878/ace/getstream?id=338b5de78b0b40a6f9ca3cc0cf9be93341b9ceea&pid=71
 
-#EXTINF:-1 cuid="290" group-title="ACS" tvg-chno="290" tvg-id="M+ Liga de Campeones 2 HD" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-name="M+ Liga de Campeones 2",M+ Liga de Campeones 2 [FHD@25] [ACS] (SpTv) (Canal 290)
-http://127.0.0.1:6878/ace/getstream?id=338b5de78b0b40a6f9ca3cc0cf9be93341b9ceea&pid=72
+#EXTINF:-1 cuid="290" group-title="ACS" tvg-chno="290" tvg-id="M+ Liga de Campeones 2 HD" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-name="M+ Liga de Campeones 2",M+ Liga de Campeones 2 [FHD@25] [ACS] (NeEr) (Canal 290)
+http://127.0.0.1:6878/ace/getstream?id=4fc6d0331830ad8743abab2fe2473b63bdfbc49f&pid=72
 
 #EXTINF:-1 cuid="291" group-title="ACS" tvg-chno="291" tvg-id="M+ Liga de Campeones 2 HD" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-name="M+ Liga de Campeones 2",M+ Liga de Campeones 2 [FHD@25] [ACS] (NeEr) (Canal 291)
-http://127.0.0.1:6878/ace/getstream?id=4fc6d0331830ad8743abab2fe2473b63bdfbc49f&pid=73
+http://127.0.0.1:6878/ace/getstream?id=c6a3673f6a37b1bd3cf31fdd6404dd33d48cfccb&pid=73
 
 #EXTINF:-1 cuid="292" group-title="ACS" tvg-chno="292" tvg-id="M+ Liga de Campeones 2 HD" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-name="M+ Liga de Campeones 2",M+ Liga de Campeones 2 [FHD@25] [ACS] (NeEr) (Canal 292)
-http://127.0.0.1:6878/ace/getstream?id=c6a3673f6a37b1bd3cf31fdd6404dd33d48cfccb&pid=74
+http://127.0.0.1:6878/ace/getstream?id=498c56bd00f535e440c392de5af992421a31355c&pid=74
 
-#EXTINF:-1 cuid="293" group-title="ACS" tvg-chno="293" tvg-id="M+ Liga de Campeones 2 HD" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-name="M+ Liga de Campeones 2",M+ Liga de Campeones 2 [FHD@25] [ACS] (NeEr) (Canal 293)
-http://127.0.0.1:6878/ace/getstream?id=498c56bd00f535e440c392de5af992421a31355c&pid=75
+#EXTINF:-1 cuid="293" group-title="ACS" tvg-chno="293" tvg-id="M+ Liga de Campeones 2 HD" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-name="M+ Liga de Campeones 2",M+ Liga de Campeones 2 [FHD@25] [ACS] (NeEr2) (Canal 293)
+http://127.0.0.1:6878/ace/getstream?id=ea03cc51980996ba6f2da49e30eee1de8a66ae54&pid=75
 
-#EXTINF:-1 cuid="294" group-title="ACS" tvg-chno="294" tvg-id="M+ Liga de Campeones 2 HD" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-name="M+ Liga de Campeones 2",M+ Liga de Campeones 2 [FHD@25] [ACS] (NeEr2) (Canal 294)
-http://127.0.0.1:6878/ace/getstream?id=ea03cc51980996ba6f2da49e30eee1de8a66ae54&pid=76
+#EXTINF:-1 cuid="294" group-title="ACS" tvg-chno="294" tvg-id="M+ Liga de Campeones 2 HD" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-name="M+ Liga de Campeones 2",M+ Liga de Campeones 2 [FHD@25] [ACS] (NeEr6) (Canal 294)
+http://127.0.0.1:6878/ace/getstream?id=e7d8cae7f693fe46e89bbf74820caac9ffb32a30&pid=76
 
-#EXTINF:-1 cuid="295" group-title="ACS" tvg-chno="295" tvg-id="M+ Liga de Campeones 2 HD" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-name="M+ Liga de Campeones 2",M+ Liga de Campeones 2 [FHD@25] [ACS] (NeEr6) (Canal 295)
-http://127.0.0.1:6878/ace/getstream?id=e7d8cae7f693fe46e89bbf74820caac9ffb32a30&pid=77
+#EXTINF:-1 cuid="295" group-title="ACS" tvg-chno="295" tvg-id="M+ Liga de Campeones 2 HD" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-name="M+ Liga de Campeones 2",M+ Liga de Campeones 2 [FHD@25] [ACS] (Elc) (Canal 295)
+http://127.0.0.1:6878/ace/getstream?id=38f7b2044e549df2039ff26cefa6f9a60c854d5e&pid=77
 
-#EXTINF:-1 cuid="296" group-title="ACS" tvg-chno="296" tvg-id="M+ Liga de Campeones 2 HD" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-name="M+ Liga de Campeones 2",M+ Liga de Campeones 2 [FHD@25] [ACS] (Elc) (Canal 296)
-http://127.0.0.1:6878/ace/getstream?id=38f7b2044e549df2039ff26cefa6f9a60c854d5e&pid=78
+#EXTINF:-1 cuid="296" group-title="ACS" tvg-chno="296" tvg-id="M+ Liga de Campeones 2 HD" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-name="M+ Liga de Campeones 2",M+ Liga de Campeones 2 [FHD@25] [ACS] (NeEr2) (Canal 296)
+http://127.0.0.1:6878/ace/getstream?id=4b18a3b32df5960ed950fa907f8d509b1ad2a188&pid=78
 
-#EXTINF:-1 cuid="297" group-title="ACS" tvg-chno="297" tvg-id="M+ Liga de Campeones 2 HD" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-name="M+ Liga de Campeones 2",M+ Liga de Campeones 2 [FHD@25] [ACS] (NeEr2) (Canal 297)
-http://127.0.0.1:6878/ace/getstream?id=4b18a3b32df5960ed950fa907f8d509b1ad2a188&pid=79
+#EXTINF:-1 cuid="297" group-title="ACS" tvg-chno="297" tvg-id="M+ Liga de Campeones 2 HD" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-name="M+ Liga de Campeones 2",M+ Liga de Campeones 2 [HD@25] [ACS] (Elc) (Canal 297)
+http://127.0.0.1:6878/ace/getstream?id=74ab4e4ec7e2da001f473ca40893b7307b8029c5&pid=79
 
 #EXTINF:-1 cuid="298" group-title="M3U8" tvg-chno="298" tvg-id="M+ Liga de Campeones 2 HD" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%202.png" tvg-name="M+ Liga de Campeones 2",M+ Liga de Campeones 2 [SD@25] [M3U8] (SaSa1) (Canal 298)
 http://sansat.cc:88/02017058294145/1444626519/391727
