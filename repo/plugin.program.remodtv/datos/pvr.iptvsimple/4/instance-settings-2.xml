@@ -76,7 +76,7 @@
     <setting id="udpxyPort" default="true">4022</setting>
     <setting id="useFFmpegReconnect" default="true">true</setting>
     <setting id="useInputstreamAdaptiveforHls" default="true">false</setting>
-    <setting id="defaultUserAgent">VLC/3.0.21 LibVLC/3.0.21</setting>
+    <setting id="defaultUserAgent" default="true" />
     <setting id="defaultInputstream" default="true" />
     <setting id="defaultMimeType" default="true" />
 </settings>

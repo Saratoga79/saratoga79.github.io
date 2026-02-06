@@ -74,7 +74,7 @@ def lista_menu_principal():
     rep_act = leer_rep_ext()
     xbmcplugin.setPluginCategory(HANDLE, "Menú Principal")
     menu_principal = [
-        (f"{remodtv_addon_name} versión: {remodtv_addon_version} | Buscar actualizaciones", "info", "info.png", True),
+        (f"{remodtv_addon_name} versión: {remodtv_addon_version} ([COLOR yellow]En desarrollo[/COLOR]) | Buscar actualizaciones", "info", "wip.png", True),
         (f"Fuente Actual: {fue_act} | Reproductor Externo: {rep_act}", "", "list.png", False),
         ("> Instalar y configurar sección TV de Kodi | Reinstalar fuente por defecto", "tv", "tv.png", True),
         ("> Elegir fuente para sección TV de Kodi | Comprobar estado de las fuentes", "fuente", "tv2.png", True),
@@ -347,31 +347,18 @@ comp_version()
 def archivos_config():
     """
     Copia los archivos de configuración de PVR IPTV Simple desde la carpeta
-    'orig' a la carpeta 'dest'.  Para cada archivo instance‑settings‑X.xml
+    'orig' a la carpeta 'dest'. Para cada archivo instance‑settings‑X.xml
     presente en 'dest' se renombra a *.bak antes de ser reemplazado.
     """
+    xbmc.log(f"{remodtv_addon_name} Desactivando addons para copiar archivos de configuración.",level=xbmc.LOGINFO,)
+    ### Definir rutas base de origen y destino
+    ### Carpeta donde están los archivos originales (puede contener varios
+    ### instance‑settings‑X.xml)
+    orig_base = xbmcvfs.translatePath(os.path.join(remodtv_addon_datos, "pvr.iptvsimple", carp))
+    ### Carpeta destino dentro del perfil del addon
+    dest_base = xbmcvfs.translatePath(os.path.join(addons_addon_data, "pvr.iptvsimple"))
 
-    xbmc.log(
-        f"{remodtv_addon_name} Desactivando addons para copiar archivos de configuración.",
-        level=xbmc.LOGINFO,
-    )
-
-    # ----------------------------------------------------------------------
-    # 1️⃣  Definir rutas base de origen y destino
-    # ----------------------------------------------------------------------
-    # Carpeta donde están los archivos originales (puede contener varios
-    # instance‑settings‑X.xml)
-    orig_base = xbmcvfs.translatePath(
-        os.path.join(remodtv_addon_datos, "pvr.iptvsimple", carp)
-    )
-    # Carpeta destino dentro del perfil del addon
-    dest_base = xbmcvfs.translatePath(
-        os.path.join(addons_addon_data, "pvr.iptvsimple")
-    )
-
-    # ----------------------------------------------------------------------
-    # 2️⃣  Renombrar a .bak cualquier instance‑settings‑X.xml ya existente
-    # ----------------------------------------------------------------------
+    ### Renombrar a .bak cualquier instance‑settings‑X.xml ya existente
     for fname in xbmcvfs.listdir(dest_base)[1]:  # [1] = lista de archivos
         if fname.startswith("instance-settings-") and fname.endswith(".xml"):
             src_file = xbmcvfs.translatePath(os.path.join(dest_base, fname))
@@ -382,58 +369,34 @@ def archivos_config():
             xbmc.log(f"Renombrando {src_file} → {bak_file}", level=xbmc.LOGINFO)
             xbmcvfs.rename(src_file, bak_file)
 
-    # ----------------------------------------------------------------------
-    # 3️⃣  Copiar todos los instance‑settings‑X.xml desde orig a dest
-    # ----------------------------------------------------------------------
+    ### Copiar todos los instance‑settings‑X.xml desde orig a dest
     for fname in xbmcvfs.listdir(orig_base)[1]:
         if fname.startswith("instance-settings-") and fname.endswith(".xml"):
             orig_file = xbmcvfs.translatePath(os.path.join(orig_base, fname))
             dest_file = xbmcvfs.translatePath(os.path.join(dest_base, fname))
 
-            # Eliminamos el archivo destino si ya existía (aunque debería haber sido
-            # renombrado a .bak en el paso anterior)
+            ### Eliminamos el archivo destino si ya existía (aunque debería haber sido
+            ### renombrado a .bak en el paso anterior)
             if xbmcvfs.exists(dest_file):
                 xbmcvfs.delete(dest_file)
 
             xbmc.log(f"Copiando {orig_file} → {dest_file}", level=xbmc.LOGINFO)
             xbmcvfs.copy(orig_file, dest_file)
 
-    # ----------------------------------------------------------------------
-    # 4️⃣  Copiar settings.xml (manteniendo el comportamiento original)
-    # ----------------------------------------------------------------------
-    orig_settings = xbmcvfs.translatePath(
-        os.path.join(remodtv_addon_datos, "pvr.iptvsimple", "settings.xml")
-    )
-    dest_settings = xbmcvfs.translatePath(
-        os.path.join(addons_addon_data, "pvr.iptvsimple", "settings.xml")
-    )
-    if xbmcvfs.exists(dest_settings):
-        xbmcvfs.delete(dest_settings)
-
-    xbmc.log(f"Copiando {orig_settings} → {dest_settings}", level=xbmc.LOGINFO)
-    xbmcvfs.copy(orig_settings, dest_settings)
-
-    # ----------------------------------------------------------------------
-    # 5️⃣  Notificar al usuario y terminar
-    # ----------------------------------------------------------------------
-    xbmc.executebuiltin(
-        f"Notification({remodtv_addon_name},Archivos de configuración copiados,3000,)"
-    )
-    xbmc.log(
-        f"{remodtv_addon_name} Archivos de configuración copiados.", level=xbmc.LOGINFO
-    )
+    ### Notificar al usuario y terminar
+    xbmc.executebuiltin(f"Notification({remodtv_addon_name},Archivos de configuración copiados,3000,)")
+    xbmc.log(f"{remodtv_addon_name} Archivos de configuración copiados.", level=xbmc.LOGINFO)
     return True
     
+### borrar archihvos de config anteriores tras iniciar sección TV con los nuevos    
 def borrar_archivos_config_bak():
-    # Carpeta destino dentro del perfil del addon
-    dest_base = xbmcvfs.translatePath(
-        os.path.join(addons_addon_data, "pvr.iptvsimple")
-    )
+    ### Carpeta destino dentro del perfil del addon
+    dest_base = xbmcvfs.translatePath(os.path.join(addons_addon_data, "pvr.iptvsimple"))
     for fname in xbmcvfs.listdir(dest_base)[1]:  # [1] = lista de archivos
-        if fname.startswith("instance-settings-") and fname.endswith(".xml"):
+        if fname.startswith("instance-settings-") and fname.endswith(".bak"):
             src_file = xbmcvfs.translatePath(os.path.join(dest_base, fname))
             bak_file = src_file[:-4] + ".bak"          # cambia .xml → .bak
-            # Si ya existe un .bak previo lo eliminamos primero
+            ### Si ya existe un .bak previo lo eliminamos primero
             if xbmcvfs.exists(bak_file):
                 xbmcvfs.delete(bak_file)
             xbmc.log(f"Borrados {bak_file}", level=xbmc.LOGINFO)
@@ -1452,6 +1415,7 @@ else:
                 xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=nav)')
                 
     elif action == "test":
+        borrar_archivos_config_bak()
         
         pass
 

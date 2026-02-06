@@ -131,7 +131,7 @@
 			<fanart>recursos/imagenes/poster.png</fanart>
 		</assets>
 	</extension>
-</addon><addon id="plugin.program.remodtv" name="ReMod TV" version="26.02.05.1" provider-name="Saratoga">
+</addon><addon id="plugin.program.remodtv" name="ReMod TV" version="26.02.06.0" provider-name="Saratoga">
 	<requires>
 		
 		<import addon="xbmc.python" version="3.0.1" />
@@ -146,6 +146,12 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
+&gt; Versión = 26.02.06.0
+&gt; Cambios respecto a la versión anterior:
+	- Mejoras y correcciones
+	- User-Agent quitado en Fuente 4 ReMod TV por problemas de reproducción 
+	- Addon en desarrollo
+	
 &gt; Versión = 26.02.05.1
 &gt; Cambios respecto a la versión anterior:
 	- Añadidas las 2 nuevas fuentes principales u oficialaes a las Fuentes Principales 1 (Direct). 2 (ACE) y 3 (Horus). 
