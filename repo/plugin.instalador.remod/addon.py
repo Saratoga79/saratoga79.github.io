@@ -73,8 +73,8 @@ def lista_menu_principal():
         (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} | Buscar actualizaciones", "info", "icono.png"),
         ("> Sección Deportes", "deportes", "stadium.png"),
         ("> Sección Cine & TV", "cine", "cinema.png"),
-        ("> Sección Herramientas", "herramientas", "herramientas.png")
-        # ("> Test", "test", "")
+        ("> Sección Herramientas", "herramientas", "herramientas.png"),
+        ("> Test", "test", "")
     ]
 
     for label, action, icon_file in menu_items:
@@ -1340,9 +1340,9 @@ else:
                 if xbmcvfs.exists(dest):                
                     xbmcvfs.delete(orig)
                     
-            xbmc.log(f"REMOD INSTALADOR Haciendo copia de ui.py", level=xbmc.LOGINFO)
-            orig = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'ui.py'))
-            dest = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'ui.py.bak'))
+            xbmc.log(f"REMOD INSTALADOR Haciendo copia de addon_selection_remod.py", level=xbmc.LOGINFO)
+            orig = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'addon_selection.py'))
+            dest = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'addon_selection.py.bak'))
             if xbmcvfs.exists(orig):                
                 xbmcvfs.copy(orig, dest)
                 if xbmcvfs.exists(dest):                
@@ -1362,9 +1362,9 @@ else:
             dest = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'router.py'))
             xbmcvfs.delete(dest)
             xbmcvfs.copy(orig, dest)
-            xbmc.log(f"REMOD INSTALADOR Copiando ui_remod.py", level=xbmc.LOGINFO)
-            orig = xbmcvfs.translatePath(os.path.join(remod_instalador_addon_datos, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'ui_remod.py'))
-            dest = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'ui.py'))
+            xbmc.log(f"REMOD INSTALADOR Copiando addon_selection_remod.py", level=xbmc.LOGINFO)
+            orig = xbmcvfs.translatePath(os.path.join(remod_instalador_addon_datos, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'addon_selection_remod.py'))
+            dest = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'addon_selection.py'))
             xbmcvfs.delete(dest)
             xbmcvfs.copy(orig, dest)
             xbmc.log(f"REMOD INSTALADOR Copiando utils_remod.py", level=xbmc.LOGINFO)
@@ -1378,12 +1378,12 @@ else:
                 "script.module.routing",
                 "plugin.video.jacktook",
                 ]
-            lista_addons(addons, True)        
+            lista_addons(addons, True)
             xbmc.sleep(1000)
             ### añadir complementos custom stremnio
             xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=add_ext_custom_stremio_addon)')      
             xbmc.sleep(3000)
-            ### añadir proveedpores torrentio
+            ### añadir proveedores torrentio
             xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=torrentio_selection)')
             addon_id = ("plugin.video.jacktook")
             dialog_aceptar_confirm(addon_id)
@@ -1418,9 +1418,9 @@ else:
                     if xbmcvfs.exists(dest):                
                         xbmcvfs.delete(orig)
                         
-                xbmc.log(f"REMOD INSTALADOR Restaurando ui.py", level=xbmc.LOGINFO)
-                orig = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'ui.py.bak'))
-                dest = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'ui.py'))
+                xbmc.log(f"REMOD INSTALADOR Restaurando addon_selection_remod.py", level=xbmc.LOGINFO)
+                orig = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'addon_selection.py.bak'))
+                dest = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'addon_selection.py'))
                 if xbmcvfs.exists(orig):                
                     xbmcvfs.copy(orig, dest)
                     if xbmcvfs.exists(dest):                
@@ -1603,6 +1603,19 @@ else:
             
 
     elif action == "test":
+        ### añadir complementos custom stremnio
+        # xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=add_ext_custom_stremio_addon)')      
+        xbmc.sleep(3000)
+        ### añadir proveedores torrentio
+        # xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=torrentio_selection)')
+        addon_id = ("plugin.video.jacktook")
+        dialog_aceptar_confirm(addon_id)
+        xbmc.sleep(3000)
+        ### activar proveedores torrentio en ajustes
+        xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=torrentio_toggle_providers)')
+        addon_id = ("plugin.video.jacktook")
+        multiselect_aceptar_confirm(addon_id)      
+        xbmc.sleep(5000)
             
     
         pass

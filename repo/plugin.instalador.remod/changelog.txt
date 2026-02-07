@@ -1,5 +1,8 @@
 > ReMod Instalador
-> Versión = 26.02.04.2
+> Versión = 26.02.07.0
+> Cambios respecto a la versión anterior:
+	- Instalador Jacktook adaptado a la última versión
+	
 > Cambios respecto a la versión anterior:
 	- Corrección en instalación de dependencias SportHD
 	

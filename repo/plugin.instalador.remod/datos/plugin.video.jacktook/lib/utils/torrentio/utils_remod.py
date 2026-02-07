@@ -45,6 +45,7 @@ def open_providers_selection(identifier="torrentio_providers"):
 
 
 def providers_selection(identifier="torrentio_providers"):
+	### ReMod
     # selected = xbmcgui.Dialog().multiselect("Select Providers", items)
     selected = [17,18,19]
     if selected:

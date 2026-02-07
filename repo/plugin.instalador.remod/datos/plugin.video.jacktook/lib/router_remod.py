@@ -41,6 +41,12 @@ from lib.navigation import (
     anime_menu,
     anime_search,
     clear_all_cached,
+    clear_trakt_cache,
+    clear_tmdb_cache,
+    clear_stremio_cache,
+    clear_debrid_cache,
+    clear_mdblist_cache,
+    clear_database_cache,
     clear_history,
     cloud,
     cloud_details,
@@ -65,6 +71,8 @@ from lib.navigation import (
     search_tmdb_genres,
     search_tmdb_year,
     show_changelog,
+    tb_auth,
+    tb_remove_auth,
     telegram_menu,
     test_download_dialog,
     test_resume_dialog,
@@ -72,8 +80,9 @@ from lib.navigation import (
     test_source_select,
     titles_calendar,
     titles_history,
+    torbox_info,
     torrentio_selection,
-    play_torrent,
+    play_media,
     rd_auth,
     rd_remove_auth,
     root_menu,
@@ -88,9 +97,10 @@ from lib.navigation import (
     tv_menu,
     tv_shows_items,
 )
-from lib.clients.stremio.catalogs import (
+from lib.clients.stremio.catalog_menus import (
     list_catalog,
     list_stremio_episodes,
+    list_stremio_movie,
     list_stremio_seasons,
     list_stremio_tv,
     list_stremio_tv_streams,
@@ -103,17 +113,21 @@ from lib.utils.torrent.torrserver_utils import (
     torrent_action,
     torrent_files,
 )
-from lib.clients.stremio.ui import (
+from lib.clients.stremio.authentication import (
+    stremio_login,
+    stremio_logout,
+    stremio_update,
+)
+from lib.clients.stremio.addon_selection import (
     add_custom_stremio_addon,
     add_ext_custom_stremio_addon,
+    stremio_filtered_selection,
     remove_custom_stremio_addon,
-    stremio_login,
     stremio_toggle_addons,
-    stremio_logout,
     stremio_toggle_catalogs,
-    stremio_update,
-    torrentio_toggle_providers,
+    stremio_toggle_tv_addons,
 )
+from lib.clients.stremio.torrentio import torrentio_toggle_providers
 
 from lib.utils.views.last_titles import delete_last_title_entry
 from lib.utils.views.shows import show_episodes_details, show_seasons_details
@@ -132,7 +146,6 @@ def addon_router():
         "anime_item": anime_item,
         "anime_search": anime_search,
         "search": search,
-        "search_with_sources": stremio_toggle_addons,
         "handle_tmdb_search": TmdbClient.handle_tmdb_search,
         "handle_tmdb_query": TmdbClient.handle_tmdb_query,
         "search_tmdb_lang": TmdbClient.show_lang_items,
@@ -159,7 +172,7 @@ def addon_router():
         "resolve_for_subtitles": resolve_for_subtitles,
         "search_item": search_item,
         "next_page_anime": next_page_anime,
-        "play_torrent": play_torrent,
+        "play_media": play_media,
         "play_from_pack": play_from_pack,
         "play_url": play_url,
         "trakt_list_content": trakt_list_content,
@@ -175,6 +188,12 @@ def addon_router():
         "handle_delete_file": handle_delete_file,
         "handle_cancel_download": handle_cancel_download,
         "clear_all_cached": clear_all_cached,
+        "clear_trakt_cache": clear_trakt_cache,
+        "clear_tmdb_cache": clear_tmdb_cache,
+        "clear_stremio_cache": clear_stremio_cache,
+        "clear_debrid_cache": clear_debrid_cache,
+        "clear_mdblist_cache": clear_mdblist_cache,
+        "clear_database_cache": clear_database_cache,
         "clear_history": clear_history,
         "addon_update": addon_update,
         "open_burst_config": open_burst_config,
@@ -188,12 +207,17 @@ def addon_router():
         "debrider_remove_auth": debrider_remove_auth,
         "debrider_info": debrider_info,
         "get_rd_downloads": get_rd_downloads,
+        "tb_auth": tb_auth,
+        "tb_remove_auth": tb_remove_auth,
+        "torbox_info": torbox_info,
         "trakt_auth": trakt_auth,
         "trakt_auth_revoke": trakt_auth_revoke,
         "trakt_add_to_watchlist": TraktClient.trakt_add_to_watchlist,
         "trakt_remove_from_watchlist": TraktClient.trakt_remove_from_watchlist,
         "trakt_mark_as_watched": TraktClient.trakt_mark_as_watched,
         "trakt_mark_as_unwatched": TraktClient.trakt_mark_as_unwatched,
+        "add_to_collection": TraktClient.trakt_add_to_collection,
+        "remove_from_collection": TraktClient.trakt_remove_from_collection,
         "pm_auth": pm_auth,
         "torrents": torrents,
         "torrent_action": torrent_action,
@@ -214,10 +238,12 @@ def addon_router():
         "animation_item": animation_item,
         "stremio_toggle_addons": stremio_toggle_addons,
         "stremio_toggle_catalogs": stremio_toggle_catalogs,
+        "stremio_toggle_tv_addons": stremio_toggle_tv_addons,
         "torrentio_toggle_providers": torrentio_toggle_providers,
         "list_catalog": list_catalog,
         "list_stremio_seasons": list_stremio_seasons,
         "list_stremio_episodes": list_stremio_episodes,
+        "list_stremio_movie": list_stremio_movie,
         "list_stremio_tv_streams": list_stremio_tv_streams,
         "list_stremio_tv": list_stremio_tv,
         "search_catalog": search_catalog,
@@ -232,6 +258,7 @@ def addon_router():
         "show_changelog": show_changelog,
         "add_custom_stremio_addon": add_custom_stremio_addon,
         "add_ext_custom_stremio_addon": add_ext_custom_stremio_addon,
+        "stremio_filtered_selection": stremio_filtered_selection,
         "remove_custom_stremio_addon": remove_custom_stremio_addon,
         "delete_last_title_entry": delete_last_title_entry,
         "kodi_logs": kodi_logs,
@@ -248,4 +275,3 @@ def addon_router():
             return
 
     root_menu()
-
