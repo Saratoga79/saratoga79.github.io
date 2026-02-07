@@ -216,9 +216,9 @@ plugin://script.module.horus?action=play&id=af458073c3096293a4dea9f369d4f308e712
 #EXTINF:-1 tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" tvg-id="M+ LaLiga HD" group-title="LA LIGA", M+ LALIGA FHD --> NEW ERA II
 plugin://script.module.horus?action=play&id=d4ff041287a43e3114d411d671c4b4e92e21f33y
 #EXTINF:-1 tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" tvg-id="M+ LaLiga HD" group-title="LA LIGA", M+ LALIGA --> ELCANO
-plugin://script.module.horus?action=play&id=3ace1463a7cad979c3a4002b245487e9982e9f1a
-#EXTINF:-1 tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" tvg-id="M+ LaLiga HD" group-title="LA LIGA", M+ LALIGA --> ELCANO
 plugin://script.module.horus?action=play&id=f863873de9f7b2996dde19a0657dd89835af3007
+#EXTINF:-1 tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" tvg-id="M+ LaLiga HD" group-title="LA LIGA", M+ LALIGA --> ELCANO
+plugin://script.module.horus?action=play&id=3ace1463a7cad979c3a4002b245487e9982e9f1a
 #EXTINF:-1 tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" tvg-id="M+ LaLiga HD" group-title="LA LIGA", M+ LALIGA --> ELCANO
 plugin://script.module.horus?action=play&id=0febfb5cac3384f487d55c559bbfc877db2d0357
 #EXTINF:-1 tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" tvg-id="M+ LaLiga HD" group-title="LA LIGA", M+ LALIGA --> SPORT TV
