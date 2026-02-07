@@ -73,8 +73,8 @@ def lista_menu_principal():
         (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} | Buscar actualizaciones", "info", "icono.png"),
         ("> Sección Deportes", "deportes", "stadium.png"),
         ("> Sección Cine & TV", "cine", "cinema.png"),
-        ("> Sección Herramientas", "herramientas", "herramientas.png"),
-        ("> Test", "test", "")
+        ("> Sección Herramientas", "herramientas", "herramientas.png")
+        # ("> Test", "test", "")
     ]
 
     for label, action, icon_file in menu_items:

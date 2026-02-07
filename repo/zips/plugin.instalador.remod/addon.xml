@@ -1,7 +1,7 @@
 <addon
 	id="plugin.instalador.remod"
 	name="ReMod Instalador"
-	version="26.02.04.2"
+	version="26.02.07.1"
 	provider-name="Saratoga">
 	<requires>
 		<!-- Mín Kodi 20+ -->
@@ -17,6 +17,10 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
+> Versión = 26.02.07.0
+> Cambios respecto a la versión anterior:
+	- Instalador Jacktook adaptado a la última versión
+	
 > Versión = 26.02.04.2
 > Cambios respecto a la versión anterior:
 	- Corrección en instalación de dependencias SportHD

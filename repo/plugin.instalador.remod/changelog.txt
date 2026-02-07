@@ -1,5 +1,5 @@
 > ReMod Instalador
-> Versión = 26.02.07.0
+> Versión = 26.02.07.1
 > Cambios respecto a la versión anterior:
 	- Instalador Jacktook adaptado a la última versión
 	
