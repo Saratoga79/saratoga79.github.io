@@ -135,7 +135,7 @@
 			<fanart>recursos/imagenes/poster.png</fanart>
 		</assets>
 	</extension>
-</addon><addon id="plugin.program.remodtv" name="ReMod TV" version="26.02.06.0" provider-name="Saratoga">
+</addon><addon id="plugin.program.remodtv" name="ReMod TV" version="26.02.09.0" provider-name="Saratoga">
 	<requires>
 		
 		<import addon="xbmc.python" version="3.0.1" />
@@ -150,6 +150,12 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
+&gt; Versión = 26.02.09.0
+&gt; Cambios respecto a la versión anterior:
+	- Vuelta a la Fuente principal 1 Direct de siempre al incluir ya el contendio de las otras nuevas fuentes:
+		- Evita que haya canales triplicados
+	- Addon en desarrollo
+	
 &gt; Versión = 26.02.06.0
 &gt; Cambios respecto a la versión anterior:
 	- Mejoras y correcciones

@@ -47,6 +47,10 @@ fue_est_file = os.path.join(addons_addon_data, remodtv_addon_id, 'estado_fuentes
 rep_sel = '0'
 rep_act = 'Por defecto'
 fue_act = 'Por defecto'
+
+### reconfigurar el addon
+reconfig = 'True'
+
 ### carpeta descargas en android
 android_carpeta_descargas = Path("/storage/emulated/0/Download")
 ### parametros lista de menús
@@ -82,6 +86,8 @@ def lista_menu_principal():
         ("> Actualizar TV", "actualizar", "refresh.png", True),
         ("", "", "", False),
         ("> Herramientas y Utilidades", "herr", "herr.png", True)
+        # ("", "", "", False),
+        # ("> TEST", "test", "", True)
     ]
     for label, action, icon_file, is_folder in menu_principal:
         if not label.strip():
@@ -315,6 +321,12 @@ def comp_version():
     if version_actual != version_anterior:
         xbmc.log("REMOD TV El addon se ha actualizado", xbmc.LOGINFO)
         ### Modificaciones
+        
+        ### si se necesita volver a configurar las fuentes
+        if reconfig:
+            xbmc.executebuiltin(f"Notification({remodtv_addon_name},Reconfigurando Sección TV,3000)")
+            xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=tv)')
+                
         mostrar_changelog()
         xbmcgui.Dialog().notification(f"{remodtv_addon_name}","Actualizado de v%s->[COLOR blue]v%s[/COLOR]" % (version_anterior, version_actual),xbmcgui.NOTIFICATION_INFO,5000)
         ### Finalmente, actualizamos el registro
@@ -1415,7 +1427,6 @@ else:
                 xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=nav)')
                 
     elif action == "test":
-        borrar_archivos_config_bak()
         
         pass
 
