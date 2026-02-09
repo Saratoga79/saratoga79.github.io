@@ -1,7 +1,7 @@
 <addon 
 	id="plugin.program.remodtv"
 	name="ReMod TV"
-	version="26.02.09.0"
+	version="26.02.09.1"
 	provider-name="Saratoga">
 	<requires>
 		<!-- Mín Kodi 20+ -->
@@ -17,11 +17,10 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
-> Versión = 26.02.09.0
+> Versión = 26.02.09.1
 > Cambios respecto a la versión anterior:
 	- Vuelta a la Fuente principal 1 Direct de siempre al incluir ya el contendio de las otras nuevas fuentes:
-		- Evita que haya canales triplicados
-	- Addon en desarrollo
+		- Se reinstalará la fuente 1 Direct para evitar que haya canales triplicados. Si usabas otra fuente, tendrás que volver a elegirla.
 	
 > Versión = 26.02.06.0
 > Cambios respecto a la versión anterior:

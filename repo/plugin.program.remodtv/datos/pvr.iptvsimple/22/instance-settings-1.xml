@@ -1,9 +1,9 @@
 <settings version="2">
-    <setting id="kodi_addon_instance_name">Elc</setting>
+    <setting id="kodi_addon_instance_name">Elc2</setting>
     <setting id="kodi_addon_instance_enabled" default="true">true</setting>
     <setting id="m3uPathType" default="true">1</setting>
     <setting id="m3uPath" default="true" />
-    <setting id="m3uUrl">https://raw.githubusercontent.com/Saratoga79/saratoga79.github.io/refs/heads/master/downloads/rep/32</setting>
+    <setting id="m3uUrl">https://raw.githubusercontent.com/Saratoga79/saratoga79.github.io/refs/heads/master/downloads/rep/42</setting>
     <setting id="m3uCache" default="true">true</setting>
     <setting id="startNum" default="true">1</setting>
     <setting id="numberByOrder" default="true">false</setting>

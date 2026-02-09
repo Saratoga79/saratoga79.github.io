@@ -48,8 +48,8 @@ rep_sel = '0'
 rep_act = 'Por defecto'
 fue_act = 'Por defecto'
 
-### reconfigurar el addon
-reconfig = 'True'
+### RECONFIGurar el addon
+RECONFIG = 'True'
 
 ### carpeta descargas en android
 android_carpeta_descargas = Path("/storage/emulated/0/Download")
@@ -78,7 +78,7 @@ def lista_menu_principal():
     rep_act = leer_rep_ext()
     xbmcplugin.setPluginCategory(HANDLE, "Menú Principal")
     menu_principal = [
-        (f"{remodtv_addon_name} versión: {remodtv_addon_version} ([COLOR yellow]En desarrollo[/COLOR]) | Buscar actualizaciones", "info", "wip.png", True),
+        (f"{remodtv_addon_name} versión: {remodtv_addon_version} | Buscar actualizaciones", "info", "info.png", True),
         (f"Fuente Actual: {fue_act} | Reproductor Externo: {rep_act}", "", "list.png", False),
         ("> Instalar y configurar sección TV de Kodi | Reinstalar fuente por defecto", "tv", "tv.png", True),
         ("> Elegir fuente para sección TV de Kodi | Comprobar estado de las fuentes", "fuente", "tv2.png", True),
@@ -323,7 +323,7 @@ def comp_version():
         ### Modificaciones
         
         ### si se necesita volver a configurar las fuentes
-        if reconfig:
+        if RECONFIG:
             xbmc.executebuiltin(f"Notification({remodtv_addon_name},Reconfigurando Sección TV,3000)")
             xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=tv)')
                 

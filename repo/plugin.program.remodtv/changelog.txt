@@ -1,8 +1,8 @@
 > ReMod TV
-> Versión = 26.02.09.0
+> Versión = 26.02.09.1
 > Cambios respecto a la versión anterior:
 	- Vuelta a la Fuente principal 1 Direct de siempre al incluir ya el contendio de las otras nuevas fuentes:
-		- Evita que haya canales triplicados
+		- Se reinstalará la fuente 1 Direct para evitar que haya canales triplicados. Si usabas otra fuente, tendrás que volver a elegirla.
 	- Addon en desarrollo
 	
 > Versión = 26.02.06.0
