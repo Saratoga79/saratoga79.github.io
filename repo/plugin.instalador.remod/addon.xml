@@ -1,7 +1,7 @@
 <addon
 	id="plugin.instalador.remod"
 	name="ReMod Instalador"
-	version="26.02.07.1"
+	version="26.02.10.0"
 	provider-name="Saratoga">
 	<requires>
 		<!-- Mín Kodi 20+ -->
@@ -17,7 +17,12 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
-> Versión = 26.02.07.0
+> Versión = 26.02.10.0
+> Cambios respecto a la versión anterior:
+	- Añadida nueva sección Servidor Multimedia:
+		- PlexKodiConnect (Instalar solo si tienes acceso a un servidor Plex)
+	
+> Versión = 26.02.07.1
 > Cambios respecto a la versión anterior:
 	- Instalador Jacktook adaptado a la última versión
 	

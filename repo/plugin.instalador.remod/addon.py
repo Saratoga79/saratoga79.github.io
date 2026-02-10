@@ -73,7 +73,8 @@ def lista_menu_principal():
         (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} | Buscar actualizaciones", "info", "icono.png"),
         ("> Sección Deportes", "deportes", "stadium.png"),
         ("> Sección Cine & TV", "cine", "cinema.png"),
-        ("> Sección Herramientas", "herramientas", "herramientas.png")
+        ("> Sección Herramientas", "herramientas", "herramientas.png"),
+        ("> Sección Servidor Multimedia", "serv_multi", "serv_multi.png")
         # ("> Test", "test", "")
     ]
 
@@ -158,6 +159,30 @@ def lista_menu_herramientas():
         ("> Instalar EZMaintenance+", "ezmaintenanceplus", "ezmaintenance.png"),
         ("> Instalar Log Viewer", "log_viewer", "log_viewer.png"),
         ("> Instalar Kodi Backup", "backup", "backup.png"),
+    ]
+
+    for label, action, icon_file in menu_items:
+        url = build_url({"action": action})
+        ### Creamos el ListItem
+        li = xbmcgui.ListItem(label=label)
+        ### Ruta absoluta al icono
+        icon_path = xbmcvfs.translatePath(os.path.join(remod_instalador_addon_path, 'recursos', 'imagenes', icon_file))
+        ###  Asignamos el icono
+        li.setArt({'icon': icon_path, 'thumb': icon_path})
+        ### Indicamos que es una carpeta (un sub‑menú o acción que abre algo)
+        xbmcplugin.addDirectoryItem(handle=HANDLE,
+                                    url=url,
+                                    listitem=li,
+                                    isFolder=True)
+    xbmcplugin.endOfDirectory(HANDLE)
+
+
+### lista del menu herramientas
+def lista_menu_serv_multi():
+    ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
+    menu_items = [
+        (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} | Buscar actualizaciones", "info", "icono.png"),
+        ("> Instalar Plex Kodi Connect\n        NOTA: Solo si tienes acceso a un servidor Plex", "pkc", "pkc.png")
     ]
 
     for label, action, icon_file in menu_items:
@@ -881,11 +906,6 @@ def descargar_lista_repos_zip(
     xbmc.log("REMOD INSTALADOR – Fin de descarga de lista de repos ZIP.", xbmc.LOGINFO)
     return all_ok
 
-##########
-
-
-
- 
 ### activar lista de repos descargada desde url como zip
 def activar_lista_repos_zip(lista_repos):
     for addon_id in lista_repos:
@@ -895,10 +915,9 @@ def activar_lista_repos_zip(lista_repos):
         ### verificamos si esta instalado
         xbmc.log(f"REMOD INSTALADOR 0. {addon_id} Comprobando instalación", level=xbmc.LOGINFO)
         if xbmc.getCondVisibility(f'System.HasAddon({addon_id})'):
-        # if res:
             xbmc.log(f"REMOD INSTALADOR 1. {addon_id} está ya instalado. Comprobando activación", level=xbmc.LOGINFO)
             addon_act_des(addon_id, True)
-         ### Si está desactivado, lo activamos
+            ### Si está desactivado, lo activamos
             ### confirma activación
             addon_activado_check(addon_id)
         else:
@@ -907,7 +926,7 @@ def activar_lista_repos_zip(lista_repos):
                 return True
             else:
                 xbmc.log(f"REMOD INSTALADOR 3. Error Activando Lista de repos zip, usando otro método", level=xbmc.LOGERROR)
-            ### activamos el addon con otro método
+                ### activamos el addon con otro método
                 if lista_addons(addon_id, True):
                     xbmc.sleep(1000)
                     if addon_activado_check(addon_id):
@@ -917,7 +936,7 @@ def activar_lista_repos_zip(lista_repos):
                         xbmc.log(f"REMOD INSTALADOR 5. Error definitivo activando Lista de repos zip Fin", level=xbmc.LOGERROR)
                         return False
                 else:
-                    xbmc.log(f"REMOD INSTALADOR 5. Error Activada Lista de repos zip Fin", level=xbmc.LOGERROR)
+                    xbmc.log(f"REMOD INSTALADOR 6. Error Activada Lista de repos zip Fin", level=xbmc.LOGERROR)
                     return False
     return True
     
@@ -968,6 +987,40 @@ def addon_instalado_y_activado_comp(addon_id):
         xbmc.log(f"REMOD INSTALADOR El addon {addon_id} no instalado", level=xbmc.LOGERROR)
         return False
 
+
+
+### test
+
+def obtener_version_kodi():
+    """
+    Detecta la versión principal de Kodi y su nombre de código.
+    Devuelve una tupla: (numero_version_str, codename_str)
+
+    Ejemplos de retorno:
+        ("20", "Nexus")
+        ("21", "Omega")
+        ("19", "")          # versión sin nombre de código conocido
+    """
+    # Obtén la cadena completa de la versión del núcleo
+    build = xbmc.getInfoLabel('System.BuildVersion')
+    if not build:
+        # Fuera de Kodi o error al leer la etiqueta
+        return None, None
+
+    # La parte antes del primer punto es el número mayor (20, 21, …)
+    numero_version = build.split('.')[0]
+
+    # Mapeo de números a nombres de código conocidos
+    nombres = {
+        "20": "Nexus",
+        "21": "Omega"
+    }
+    codename = nombres.get(numero_version, "")
+
+    return numero_version, codename
+
+### test finally
+
 ### acciones del menu principal
 if not ARGS:
     # No hay parámetros → menú principal
@@ -982,6 +1035,9 @@ else:
         lista_menu_cine()
     elif action == "herramientas":
         lista_menu_herramientas()
+        
+    elif action == "serv_multi":
+        lista_menu_serv_multi()
         
     elif action == "remodtv":        
         ### descarga addons zip desde url
@@ -1601,21 +1657,39 @@ else:
         else:
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación SportHD,3000,{noti_error_icon})")
             
+        
+    elif action == "pkc":
+        version_num,version_nom = obtener_version_kodi()
+        ### descarga addons zip desde url
+        lista_repos = ["repository.plexkodiconnect"]
+        lista_base_urls = ["https://croneter.github.io/pkc-source/"]
+        lista_patterns = [f"repository\.plexkodiconnect\.Kodi-{version_nom}\.STABLE\.zip"]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando repo zip desde fuente,1000,{noti_icon})")
+        descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
+        ### actualizar lista de addons para refrersacar addons descargados
+        buscar_actualizacion()
+        ### activar addons descargados
+        activar_lista_repos_zip(lista_repos)
+        ### instalación de addons desde repo ya instalado
+        lista_deps = ["plugin.video.plexkodiconnect"]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando PlexKodiConnect,1000,{noti_icon})")
+        if instalar_lista_addons(lista_deps):
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación PlexKodiConnect,3000,{noti_ok_icon})")
+        else:
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación PlexKodiConnect,3000,{noti_error_icon})")
+            
 
     elif action == "test":
-        ### añadir complementos custom stremnio
-        # xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=add_ext_custom_stremio_addon)')      
-        xbmc.sleep(3000)
-        ### añadir proveedores torrentio
-        # xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=torrentio_selection)')
-        addon_id = ("plugin.video.jacktook")
-        dialog_aceptar_confirm(addon_id)
-        xbmc.sleep(3000)
-        ### activar proveedores torrentio en ajustes
-        xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=torrentio_toggle_providers)')
-        addon_id = ("plugin.video.jacktook")
-        multiselect_aceptar_confirm(addon_id)      
-        xbmc.sleep(5000)
+        # ----------------------------------------------------------------------
+        # Uso típico dentro del addon:
+        version = obtener_version_kodi()
+        if version:
+            xbmc.log(f"[Addon] Versión detectada de Kodi: {version}", xbmc.LOGINFO)
+            # Ahora `version` contiene algo como "20 – Nexus" o "21 – Omega"
+            # Puedes asignarla a cualquier variable que necesites:
+            kodi_version = version
+        else:
+            xbmc.log("[Addon] No se pudo determinar la versión de Kodi.", xbmc.LOGERROR)
             
     
         pass
