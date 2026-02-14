@@ -3079,3 +3079,9 @@ https://7pal.short.gy/event3
 
 #EXTINF:-1 cuid="1026" group-title="M3U8" tvg-chno="1026" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 12",Live Event 12 [FHD@25] [M3U8] (NoSp) (Canal 1026)
 https://7pal.short.gy/event4
+
+#EXTINF:-1 cuid="1027" group-title="M3U8" tvg-chno="1027" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 11",Live Event 11 [FHD@25] [ACS] (TySP) (Canal 1027)
+http://127.0.0.1:6878/ace/getstream?id=9a982c25d1947a57097839f78ed4d9d7a79b0b97&pid=526
+
+#EXTINF:-1 cuid="1028" group-title="M3U8" tvg-chno="1028" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 12",Live Event 12 [FHD@25] [ACS] (TySP) (Canal 1028)
+http://127.0.0.1:6878/ace/getstream?id=8cdb6d53f66d73bc8cba8ef850ab7895bcfa91a8&pid=527
