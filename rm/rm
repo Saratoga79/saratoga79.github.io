@@ -3036,7 +3036,10 @@ https://7pal.short.gy/event3
 https://7pal.short.gy/event4
 
 #EXTINF:-1 cuid="1012" group-title="M3U8" tvg-chno="1012" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Calcio Eventos 1",Calcio Eventos 1 [HD@25] [ACS] (TySP) (Canal 1012)
-http://127.0.0.1:6878/ace/getstream?id=9a982c25d1947a57097839f78ed4d9d7a79b0b97&pid=525
+http://127.0.0.1:6878/ace/getstream?id=b21f7ffc73b3ad224698c08c790c84581fc65615&pid=525
 
-#EXTINF:-1 cuid="1013" group-title="M3U8" tvg-chno="1013" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Calcio Eventos 2",Calcio Eventos 2 [HD@25] [ACS] (TySP) (Canal 1013)
-http://127.0.0.1:6878/ace/getstream?id=8cdb6d53f66d73bc8cba8ef850ab7895bcfa91a8&pid=526
+#EXTINF:-1 cuid="1013" group-title="M3U8" tvg-chno="1013" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Calcio Eventos 2",Calcio Eventos 1 [HD@25] [ACS] (TySP) (Canal 1013)
+http://127.0.0.1:6878/ace/getstream?id=9a982c25d1947a57097839f78ed4d9d7a79b0b97&pid=526
+
+#EXTINF:-1 cuid="1014" group-title="M3U8" tvg-chno="1014" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Calcio Eventos 3",Calcio Eventos 2 [HD@25] [ACS] (TySP) (Canal 1014)
+http://127.0.0.1:6878/ace/getstream?id=8cdb6d53f66d73bc8cba8ef850ab7895bcfa91a8&pid=527
