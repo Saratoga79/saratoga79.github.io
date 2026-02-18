@@ -44,7 +44,7 @@ noti_error_icon = os.path.join(remod_instalador_addon_path, 'recursos', 'imagene
 noti_ok_icon = os.path.join(remod_instalador_addon_path, 'recursos', 'imagenes', 'ok.png')
 noti_icon = os.path.join(remod_instalador_addon_path, 'recursos', 'imagenes', 'info.png')
 ### reintento proveedores torrentio Jacktook
-rein_mul_ace_sel = 'False'
+rein_mul_ace_sel = '0'
 
 ### changelog
 changelog = os.path.join(remod_instalador_addon_path, 'changelog.txt')
@@ -335,20 +335,20 @@ def multiselect_aceptar_confirm(addon_id):
         xbmc.log(f"REMOD INSTALADOR Espereando visibilidad ventana multiselect", level=xbmc.LOGINFO)
         ### Verificar si el diálogo de confirmación está visible
         if xbmc.getCondVisibility(f"Window.IsVisible(12000)"):
-            xbmc.sleep(100)
-            xbmc.log(f"REMOD INSTALADOR Intentando click en botón Acptar para activar multiselect", level=xbmc.LOGINFO)
+            xbmc.sleep(1000)
+            xbmc.log(f"REMOD INSTALADOR Intentando click en botón Aceptar para activar multiselect", level=xbmc.LOGINFO)
             xbmc.executebuiltin(f"Action(Right)", True)
             xbmc.sleep(100)
             xbmc.executebuiltin(f"Action(Right)", True)
             xbmc.sleep(100)
             ### reintento para pulsar en aceptar
-            if rein_mul_ace_sel:
-                xbmc.log(f"REMOD INSTALADOR Reintentando click en botón Acptar para activar multiselect", level=xbmc.LOGINFO)
+            if rein_mul_ace_sel == '1':
+                xbmc.log(f"REMOD INSTALADOR Reintentando click en botón Aceptar para activar multiselect", level=xbmc.LOGINFO)
                 xbmc.executebuiltin(f"Action(Up)", True)
                 xbmc.sleep(100)
             xbmc.executebuiltin(f"Action(Select)", True)
             xbmc.sleep(1000)
-            xbmc.log(f"REMOD INSTALADOR Reintentando click en botón Acptar para activar multiselect", level=xbmc.LOGINFO)
+            xbmc.log(f"REMOD INSTALADOR Reintentando click en botón Aceptar para activar multiselect", level=xbmc.LOGINFO)
             return True
         else:   
             xbmc.sleep(500)
@@ -1400,7 +1400,7 @@ else:
             ### activar proveedores torrentio en ajustes
             xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=torrentio_toggle_providers)')
             addon_id = ("plugin.video.jacktook")
-            rein_mul_ace_sel = 'False'
+            rein_mul_ace_sel = '0'
             multiselect_aceptar_confirm(addon_id)
             xbmc.sleep(5000)
             ### comprobar si aceptar
@@ -1413,7 +1413,7 @@ else:
                 ### reintento activar proveedores torrentio en ajustes
                 xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=torrentio_toggle_providers)')
                 addon_id = ("plugin.video.jacktook")
-                rein_mul_ace_sel = 'True'
+                rein_mul_ace_sel = '1'
                 multiselect_aceptar_confirm(addon_id)
                 xbmc.sleep(5000)
                 ### comprobar si aceptar

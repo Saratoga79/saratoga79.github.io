@@ -23,7 +23,8 @@ def torrentio_toggle_providers(params):
     selected_ids = selected_ids.split(",") if selected_ids else []
 
     options = []
-    selected_indexes = []
+    # selected_indexes = []
+    selected_indexes = [4,5,6]
     for i, (key, name, logo) in enumerate(all_torrentio_providers):
         item = xbmcgui.ListItem(label=name)
         item.setArt(

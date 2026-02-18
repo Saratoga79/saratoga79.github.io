@@ -1,5 +1,5 @@
 > ReMod Instalador
-> Versión = 26.02.18.0
+> Versión = 26.02.18.1
 > Cambios respecto a la versión anterior:
 	- Mejoras selección de proveedores Torrentio en Jacktook
 	
