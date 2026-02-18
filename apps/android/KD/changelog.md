@@ -1,5 +1,14 @@
 # Kodi ReMod by Saratoga
 
+## Versión: 260217.0
+
+### Cambios respecto a la versión anterior:
+
+Quitados addons y repos que ya no son necesarios ya que se pueden instalar desde el addon ReMod Instalador.
+
+Reomendable instalar la última versión Ace Stream Pro 3.2.14.5 ReMod 251216.0 para evitar problemas de Primas en la sección Direct del addon KodiSopainTv en Kodi 21.
+
+
 ## Versión: 251215.0
 
 ### Cambios respecto a la versión anterior:
