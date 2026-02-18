@@ -49,7 +49,7 @@ rep_act = 'Por defecto'
 fue_act = 'Por defecto'
 
 ### RECONFIGurar el addon
-RECONFIG = 'False'
+RECONFIG = '0'
 
 ### carpeta descargas en android
 android_carpeta_descargas = Path("/storage/emulated/0/Download")
@@ -323,7 +323,7 @@ def comp_version():
         ### Modificaciones
         
         ### si se necesita volver a configurar las fuentes
-        if RECONFIG:
+        if RECONFIG =='1':
             xbmc.executebuiltin(f"Notification({remodtv_addon_name},Reconfigurando Sección TV,3000)")
             xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=tv)')
                 
