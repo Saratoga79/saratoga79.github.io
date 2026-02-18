@@ -3042,40 +3042,46 @@ https://daffodil.xn--1000-ugoxe8a5a7g4h.com/nbc.m3u8
 http://127.0.0.1:6878/ace/getstream?id=bfc49b39eed44f5e3a5f4ad060d463901a049dd1&pid=522
 
 #EXTINF:-1 cuid="1014" group-title="M3U8" tvg-chno="1014" tvg-id="CBS.Sports.Network.USA.us" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/cbs-sports-network-us.png" tvg-name="CBS Sports Network USA",US | CBS SPORTS NETWORK [HD@60] [M3U8] (La2) (Canal 1014)
+https://storage.googleapis.com/unicovertungdf2/mux_video_ts/index-1.m3u8
+
+#EXTINF:-1 cuid="1015" group-title="M3U8" tvg-chno="1015" tvg-id="CBS.Sports.Network.USA.us" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/cbs-sports-network-us.png" tvg-name="CBS Sports Network USA",US | CBS SPORTS NETWORK [HD@60] [M3U8] (La2) (Canal 1015)
+https://paco@storage.googleapis.com/buuncaamw/mux_video_ts/index-1.m3u8
+
+#EXTINF:-1 cuid="1016" group-title="M3U8" tvg-chno="1016" tvg-id="CBS.Sports.Network.USA.us" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/cbs-sports-network-us.png" tvg-name="CBS Sports Network USA",US | CBS SPORTS NETWORK [HD@60] [M3U8] (La2) (Canal 1016)
 http://212.102.60.231:80/CBS_SPORTS_NETWORK/index.m3u8
 
-#EXTINF:-1 cuid="1015" group-title="M3U8" tvg-chno="1015" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 1",Live Event 1 [FHD@25] [M3U8] (A1x) (Canal 1015)
+#EXTINF:-1 cuid="1017" group-title="M3U8" tvg-chno="1017" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 1",Live Event 1 [FHD@25] [M3U8] (A1x) (Canal 1017)
 https://a1xs.vip/ppv1
 
-#EXTINF:-1 cuid="1016" group-title="M3U8" tvg-chno="1016" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 2",Live Event 2 [FHD@25] [M3U8] (A1x) (Canal 1016)
+#EXTINF:-1 cuid="1018" group-title="M3U8" tvg-chno="1018" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 2",Live Event 2 [FHD@25] [M3U8] (A1x) (Canal 1018)
 https://a1xs.vip/ppv2
 
-#EXTINF:-1 cuid="1017" group-title="M3U8" tvg-chno="1017" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 3",Live Event 3 [FHD@25] [M3U8] (A1x) (Canal 1017)
+#EXTINF:-1 cuid="1019" group-title="M3U8" tvg-chno="1019" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 3",Live Event 3 [FHD@25] [M3U8] (A1x) (Canal 1019)
 https://a1xs.vip/ppv3
 
-#EXTINF:-1 cuid="1018" group-title="M3U8" tvg-chno="1018" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 4",Live Event 4 [FHD@25] [M3U8] (A1x) (Canal 1018)
+#EXTINF:-1 cuid="1020" group-title="M3U8" tvg-chno="1020" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 4",Live Event 4 [FHD@25] [M3U8] (A1x) (Canal 1020)
 https://a1xs.vip/ppv4
 
-#EXTINF:-1 cuid="1019" group-title="M3U8" tvg-chno="1019" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 5",Live Event 5 [FHD@25] [M3U8] (A1x) (Canal 1019)
+#EXTINF:-1 cuid="1021" group-title="M3U8" tvg-chno="1021" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 5",Live Event 5 [FHD@25] [M3U8] (A1x) (Canal 1021)
 https://a1xs.vip/ppv5
 
-#EXTINF:-1 cuid="1020" group-title="M3U8" tvg-chno="1020" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 6",Live Event 6 [FHD@25] [M3U8] (A1x) (Canal 1020)
+#EXTINF:-1 cuid="1022" group-title="M3U8" tvg-chno="1022" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 6",Live Event 6 [FHD@25] [M3U8] (A1x) (Canal 1022)
 https://a1xs.vip/ppv6
 
-#EXTINF:-1 cuid="1021" group-title="M3U8" tvg-chno="1021" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 7",Live Event 7 [FHD@25] [M3U8] (A1x) (Canal 1021)
+#EXTINF:-1 cuid="1023" group-title="M3U8" tvg-chno="1023" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 7",Live Event 7 [FHD@25] [M3U8] (A1x) (Canal 1023)
 https://a1xs.vip/ppv7
 
-#EXTINF:-1 cuid="1022" group-title="M3U8" tvg-chno="1022" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 8",Live Event 8 [FHD@25] [M3U8] (A1x) (Canal 1022)
+#EXTINF:-1 cuid="1024" group-title="M3U8" tvg-chno="1024" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 8",Live Event 8 [FHD@25] [M3U8] (A1x) (Canal 1024)
 https://a1xs.vip/ppv8
 
-#EXTINF:-1 cuid="1023" group-title="M3U8" tvg-chno="1023" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 9",Live Event 9 [FHD@25] [M3U8] (NoSp) (Canal 1023)
+#EXTINF:-1 cuid="1025" group-title="M3U8" tvg-chno="1025" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 9",Live Event 9 [FHD@25] [M3U8] (NoSp) (Canal 1025)
 https://7pal.short.gy/event1
 
-#EXTINF:-1 cuid="1024" group-title="M3U8" tvg-chno="1024" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 10",Live Event 10 [FHD@25] [M3U8] (NoSp) (Canal 1024)
+#EXTINF:-1 cuid="1026" group-title="M3U8" tvg-chno="1026" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 10",Live Event 10 [FHD@25] [M3U8] (NoSp) (Canal 1026)
 https://7pal.short.gy/event2
 
-#EXTINF:-1 cuid="1025" group-title="M3U8" tvg-chno="1025" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 11",Live Event 11 [FHD@25] [M3U8] (NoSp) (Canal 1025)
+#EXTINF:-1 cuid="1027" group-title="M3U8" tvg-chno="1027" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 11",Live Event 11 [FHD@25] [M3U8] (NoSp) (Canal 1027)
 https://7pal.short.gy/event3
 
-#EXTINF:-1 cuid="1026" group-title="M3U8" tvg-chno="1026" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 12",Live Event 12 [FHD@25] [M3U8] (NoSp) (Canal 1026)
+#EXTINF:-1 cuid="1028" group-title="M3U8" tvg-chno="1028" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 12",Live Event 12 [FHD@25] [M3U8] (NoSp) (Canal 1028)
 https://7pal.short.gy/event4
