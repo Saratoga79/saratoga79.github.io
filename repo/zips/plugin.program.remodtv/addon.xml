@@ -1,7 +1,7 @@
 <addon 
 	id="plugin.program.remodtv"
 	name="ReMod TV"
-	version="26.02.18.1"
+	version="26.02.18.2"
 	provider-name="Saratoga">
 	<requires>
 		<!-- Mín Kodi 20+ -->
@@ -17,7 +17,7 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
-> Versión = 26.02.18.1
+> Versión = 26.02.18.2
 > Cambios respecto a la versión anterior:
 	- Añadidos enlaces a la nueva versión Kodi ReMod v260217.0 en la sección de Herramientas y Utilidades
 	
