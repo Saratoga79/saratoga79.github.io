@@ -1,4 +1,8 @@
 > ReMod Instalador
+> Versión = 26.02.18.0
+> Cambios respecto a la versión anterior:
+	- Mejoras selección de proveedores Torrentio en Jacktook
+	
 > Versión = 26.02.10.0
 > Cambios respecto a la versión anterior:
 	- Añadida nueva sección Servidor Multimedia:

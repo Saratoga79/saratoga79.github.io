@@ -43,6 +43,8 @@ addons_addon_data = os.path.join(addons_userdata, 'addon_data')
 noti_error_icon = os.path.join(remod_instalador_addon_path, 'recursos', 'imagenes', 'error.png')
 noti_ok_icon = os.path.join(remod_instalador_addon_path, 'recursos', 'imagenes', 'ok.png')
 noti_icon = os.path.join(remod_instalador_addon_path, 'recursos', 'imagenes', 'info.png')
+### reintento proveedores torrentio Jacktook
+rein_mul_ace_sel = 'False'
 
 ### changelog
 changelog = os.path.join(remod_instalador_addon_path, 'changelog.txt')
@@ -330,20 +332,25 @@ def multiselect_aceptar_confirm(addon_id):
     max_attempts = 20  # Número máximo de intentos
     attempts = 0
     while attempts < max_attempts:
-         xbmc.log(f"REMOD INSTALADOR Espereando visibilidad ventana multiselect", level=xbmc.LOGINFO)
-         # Verificar si el diálogo de confirmación está visible
-         if xbmc.getCondVisibility(f"Window.IsVisible(12000)"):
+        xbmc.log(f"REMOD INSTALADOR Espereando visibilidad ventana multiselect", level=xbmc.LOGINFO)
+        ### Verificar si el diálogo de confirmación está visible
+        if xbmc.getCondVisibility(f"Window.IsVisible(12000)"):
             xbmc.sleep(100)
             xbmc.log(f"REMOD INSTALADOR Intentando click en botón Acptar para activar multiselect", level=xbmc.LOGINFO)
             xbmc.executebuiltin(f"Action(Right)", True)
             xbmc.sleep(100)
             xbmc.executebuiltin(f"Action(Right)", True)
             xbmc.sleep(100)
+            ### reintento para pulsar en aceptar
+            if rein_mul_ace_sel:
+                xbmc.log(f"REMOD INSTALADOR Reintentando click en botón Acptar para activar multiselect", level=xbmc.LOGINFO)
+                xbmc.executebuiltin(f"Action(Up)", True)
+                xbmc.sleep(100)
             xbmc.executebuiltin(f"Action(Select)", True)
             xbmc.sleep(1000)
             xbmc.log(f"REMOD INSTALADOR Reintentando click en botón Acptar para activar multiselect", level=xbmc.LOGINFO)
             return True
-         else:   
+        else:   
             xbmc.sleep(500)
             attempts += 1
     xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error activando configuración multiselect,3000,{noti_error_icon})")
@@ -578,48 +585,6 @@ def instalar_lista_addons(lista_deps):
     xbmc.log(f"REMOD INSTALADOR Error instalando lista addons dependencias", level=xbmc.LOGERROR)
     return True
   
-  
-### instala lista de repos zip desde fuentes
-# def descargar_lista_repos_zip(repo_ids,base_urls_ids,lista_patterns):
-    # for addon_id, base_url, pattern in zip(repo_ids, base_urls_ids, lista_patterns):
-        # if addon_instalado_y_activado_comp(addon_id):
-            # continue
-            
-        # xbmc.log(f"REMOD INSTALADOR Descargando {addon_id}", level=xbmc.LOGINFO)
-        ## config func
-        # download_path = os.path.join(addons_home, 'packages')
-        ## Realizar la solicitud GET
-        # xbmc.log(f"REMOD INSTALADOR Buscando {repo_ids} zip", level=xbmc.LOGINFO)
-        # with urllib.request.urlopen(base_url) as response:
-            # html = response.read().decode()
-        ## Buscar el patrón del archivo zip
-        # match = re.search(pattern, html)
-        # if match:
-            # xbmc.log(f"REMOD INSTALADOR Archivo {repo_ids} zip encontrado", level=xbmc.LOGINFO)
-            # download_url = f"{base_url}{match.group(0)}"
-            # res = download_zip_from_url(download_url)
-            # if res:
-                # res = addon_inst_confirm(addon_id)
-                # if res:
-                    # return True
-            # else:
-                # xbmc.log(f"REMOD INSTALADOR Error {repo_ids} zip no encontrado", level=xbmc.LOGERROR)
-                # return False
-        # else:
-            # xbmc.log(f"REMOD INSTALADOR Archivo {repo_ids} zip no encontrado", level=xbmc.LOGERROR)
-            # return False
-    # xbmc.log(f"REMOD INSTALADOR Fin descargando lista repos zip desde url", level=xbmc.LOGINFO)
-    # return True
-
-  
-### instala lista de repos zip desde fuentes
-# -*- coding: utf-8 -*-
-"""
-REMOD INSTALADOR – descarga y extracción de ZIPs de repositorios
-Compatible con Kodi Omega 21 (Python 3.9)
-"""
-
-
 ################# nuevo extract
 
 addons_home = Path(xbmcvfs.translatePath("special://home/addons"))   # raíz de los addons
@@ -661,31 +626,6 @@ def addon_instalado_y_activado_comp(addon_id: str) -> bool:
             xbmc.LOGINFO,
         )
     return enabled
-
-
-# def addon_inst_confirm(addon_id: str) -> bool:
-    # """
-    # Fuerza la recarga del addon recién instalado y verifica que exista.
-    # """
-    # xbmc.log(
-        # f"REMOD INSTALADOR – Actualizando lista de addons tras instalar {addon_id}.",
-        # xbmc.LOGINFO,
-    # )
-    # xbmc.executebuiltin("UpdateLocalAddons")
-    # xbmc.sleep(2000)          # 2 s (equivalente a time.sleep(2))
-
-    # if addon_instalado_y_activado_comp(addon_id):
-        # xbmc.log(
-            # f"REMOD INSTALADOR – Confirmado que {addon_id} está instalado.",
-            # xbmc.LOGINFO,
-        # )
-        # return True
-    # else:
-        # xbmc.log(
-            # f"REMOD INSTALADOR – No se detectó {addon_id} después de la actualización.",
-            # xbmc.LOGERROR,
-        # )
-        # return False
 
 
 # ----------------------------------------------------------------------
@@ -1396,9 +1336,17 @@ else:
                 if xbmcvfs.exists(dest):                
                     xbmcvfs.delete(orig)
                     
-            xbmc.log(f"REMOD INSTALADOR Haciendo copia de addon_selection_remod.py", level=xbmc.LOGINFO)
+            xbmc.log(f"REMOD INSTALADOR Haciendo copia de addon_selection.py", level=xbmc.LOGINFO)
             orig = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'addon_selection.py'))
             dest = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'addon_selection.py.bak'))
+            if xbmcvfs.exists(orig):                
+                xbmcvfs.copy(orig, dest)
+                if xbmcvfs.exists(dest):                
+                    xbmcvfs.delete(orig)
+                    
+            xbmc.log(f"REMOD INSTALADOR Haciendo copia de torrentio.py", level=xbmc.LOGINFO)
+            orig = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'torrentio.py'))
+            dest = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'torrentio.py.bak'))
             if xbmcvfs.exists(orig):                
                 xbmcvfs.copy(orig, dest)
                 if xbmcvfs.exists(dest):                
@@ -1421,6 +1369,11 @@ else:
             xbmc.log(f"REMOD INSTALADOR Copiando addon_selection_remod.py", level=xbmc.LOGINFO)
             orig = xbmcvfs.translatePath(os.path.join(remod_instalador_addon_datos, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'addon_selection_remod.py'))
             dest = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'addon_selection.py'))
+            xbmcvfs.delete(dest)
+            xbmcvfs.copy(orig, dest)
+            xbmc.log(f"REMOD INSTALADOR Copiando torrentio_remod.py", level=xbmc.LOGINFO)
+            orig = xbmcvfs.translatePath(os.path.join(remod_instalador_addon_datos, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'torrentio_remod.py'))
+            dest = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'torrentio.py'))
             xbmcvfs.delete(dest)
             xbmcvfs.copy(orig, dest)
             xbmc.log(f"REMOD INSTALADOR Copiando utils_remod.py", level=xbmc.LOGINFO)
@@ -1447,9 +1400,31 @@ else:
             ### activar proveedores torrentio en ajustes
             xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=torrentio_toggle_providers)')
             addon_id = ("plugin.video.jacktook")
-            multiselect_aceptar_confirm(addon_id)      
+            rein_mul_ace_sel = 'False'
+            multiselect_aceptar_confirm(addon_id)
             xbmc.sleep(5000)
-            
+            ### comprobar si aceptar
+            torr_prov_ok = os.path.join(addons_addon_data, 'plugin.instalador.remod', 'torr_prov_ok.json')
+            if xbmcvfs.exists(torr_prov_ok):
+                xbmc.log(f"REMOD INSTALADOR Proveedores Torrentio seleccionados", level=xbmc.LOGINFO)             
+                xbmcvfs.delete(torr_prov_ok)
+            else:
+                xbmc.log(f"REMOD INSTALADOR Proveedores Torrentio no seleccionados", level=xbmc.LOGERROR)
+                ### reintento activar proveedores torrentio en ajustes
+                xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=torrentio_toggle_providers)')
+                addon_id = ("plugin.video.jacktook")
+                rein_mul_ace_sel = 'True'
+                multiselect_aceptar_confirm(addon_id)
+                xbmc.sleep(5000)
+                ### comprobar si aceptar
+                torr_prov_ok = os.path.join(addons_addon_data, 'plugin.instalador.remod', 'torr_prov_ok.json')
+                if xbmcvfs.exists(torr_prov_ok):
+                    xbmc.log(f"REMOD INSTALADOR Proveedores Torrentio seleccionados", level=xbmc.LOGINFO)         
+                    xbmcvfs.delete(torr_prov_ok)
+                else:
+                    xbmc.log(f"REMOD INSTALADOR Error Proveedores Torrentio no seleccionados", level=xbmc.LOGERROR)
+                    xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error Proveedores Torrentio no seleccionados,3000,{noti_error_icon})")
+
             ### instalamos elementum
             lista_deps = ["plugin.video.elementum"]
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementum,1000,{noti_icon})")
@@ -1474,9 +1449,17 @@ else:
                     if xbmcvfs.exists(dest):                
                         xbmcvfs.delete(orig)
                         
-                xbmc.log(f"REMOD INSTALADOR Restaurando addon_selection_remod.py", level=xbmc.LOGINFO)
+                xbmc.log(f"REMOD INSTALADOR Restaurando addon_selection.py", level=xbmc.LOGINFO)
                 orig = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'addon_selection.py.bak'))
                 dest = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'addon_selection.py'))
+                if xbmcvfs.exists(orig):                
+                    xbmcvfs.copy(orig, dest)
+                    if xbmcvfs.exists(dest):                
+                        xbmcvfs.delete(orig)
+                        
+                xbmc.log(f"REMOD INSTALADOR Restaurando torrentio.py", level=xbmc.LOGINFO)
+                orig = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'torrentio.py.bak'))
+                dest = xbmcvfs.translatePath(os.path.join(addons_home, 'plugin.video.jacktook', 'lib', 'clients', 'stremio', 'torrentio.py'))
                 if xbmcvfs.exists(orig):                
                     xbmcvfs.copy(orig, dest)
                     if xbmcvfs.exists(dest):                
@@ -1680,18 +1663,6 @@ else:
             
 
     elif action == "test":
-        # ----------------------------------------------------------------------
-        # Uso típico dentro del addon:
-        version = obtener_version_kodi()
-        if version:
-            xbmc.log(f"[Addon] Versión detectada de Kodi: {version}", xbmc.LOGINFO)
-            # Ahora `version` contiene algo como "20 – Nexus" o "21 – Omega"
-            # Puedes asignarla a cualquier variable que necesites:
-            kodi_version = version
-        else:
-            xbmc.log("[Addon] No se pudo determinar la versión de Kodi.", xbmc.LOGERROR)
-            
-    
         pass
 
     else:
