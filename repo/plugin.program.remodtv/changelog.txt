@@ -1,9 +1,12 @@
 > ReMod TV
+> Versión = 26.02.18.0
+> Cambios respecto a la versión anterior:
+	- Añadidos enlaces a la nueva versión Kodi ReMod v260217.0 en la sección de Herramientas y Utilidades
+	
 > Versión = 26.02.09.1
 > Cambios respecto a la versión anterior:
 	- Vuelta a la Fuente principal 1 Direct de siempre al incluir ya el contendio de las otras nuevas fuentes:
 		- Se reinstalará la fuente 1 Direct para evitar que haya canales triplicados. Si usabas otra fuente, tendrás que volver a elegirla.
-	- Addon en desarrollo
 	
 > Versión = 26.02.06.0
 > Cambios respecto a la versión anterior:

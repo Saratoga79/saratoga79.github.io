@@ -49,7 +49,7 @@ rep_act = 'Por defecto'
 fue_act = 'Por defecto'
 
 ### RECONFIGurar el addon
-RECONFIG = 'True'
+RECONFIG = 'False'
 
 ### carpeta descargas en android
 android_carpeta_descargas = Path("/storage/emulated/0/Download")
@@ -185,7 +185,7 @@ def lista_menu_herramientas():
     menu_herramientas = [
         ("Herramientas y Utilidades:", "", "herr.png", False),
         ("> Visita Repo ReMod para obtener más información", "nav", "nav.png", True),
-        ("Kodi ReMod v251215.0 | org.xbmc.kodi | Actualizado el 15/12/2025:", "", "tool.png", False),
+        ("Kodi ReMod v260217.0 | org.xbmc.kodi | Actualizado el 17/0/2026:", "", "tool.png", False),
         ("> Descargar Kodi ReMod armeabi-v7a | 32 bits | Android | ATV", "kd32", "download.png", True),
         ("> Descargar Kodi ReMod arm64-v8a | 64 bits | Android | ATV", "kd64", "download.png", True),
         ("Ace Stream Pro ReMod v251216.0 | org.acestream.media | Actualizado el 16/12/2025:", "", "tool.png", False),
@@ -1290,9 +1290,9 @@ else:
     elif action == "kd32":
         if xbmc.getCondVisibility('system.platform.android'):
             url_descarga = (
-                "https://www.dropbox.com/scl/fi/j5tyjlwg9qf8s273r16wk/"
-                "kodi-21.3-Omega-armeabi-v7a-ReMod-v251215.0.apk?"
-                "rlkey=uf1gp0e0jx8w4iaqa84sqstzf&st=u59jxckr&dl=1"
+                "https://www.dropbox.com/scl/fi/umh96ap7q4l7ffkuuxnfa/"
+                "kodi-21.3-Omega-armeabi-v7a-ReMod-v260217.0.apk?"
+                "rlkey=8zkzzsv5d0h64sf618o7clvrm&st=tj7l5viw&dl=1"
             )
 
             try:
@@ -1310,9 +1310,9 @@ else:
     elif action == "kd64":
         if xbmc.getCondVisibility('system.platform.android'):
             url_descarga = (
-                "https://www.dropbox.com/scl/fi/tv25gdfivbnpo9luy1fdi/"
-                "kodi-21.3-Omega-arm64-v8a-ReMod-v251215.0.apk?"
-                "rlkey=72nlc73l1sjt24n1pytrl4ckv&st=9a1iowld&dl=1"
+                "https://www.dropbox.com/scl/fi/bt4wr0jxi2my9j7jwhe53/"
+                "kodi-21.3-Omega-arm64-v8a-ReMod-v260217.0.apk?"
+                "rlkey=xeitodhifpe99bkv6j6fd71rx&st=xrcw959y&dl=1"
             )
 
             try:
