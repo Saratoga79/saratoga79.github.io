@@ -1,5 +1,5 @@
 > ReMod Instalador
-> Versión = 26.02.20.0
+> Versión = 26.02.20.1
 > Cambios respecto a la versión anterior:
 	- Mejoras y correcciones
 	- Nuevo repo de instalación para addon Naranjito

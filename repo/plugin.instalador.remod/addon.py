@@ -334,7 +334,7 @@ def multiselect_aceptar_confirm(addon_id):
         xbmc.log(f"REMOD INSTALADOR Espereando visibilidad ventana multiselect", level=xbmc.LOGINFO)
         ### Verificar si el diálogo de confirmación está visible
         if xbmc.getCondVisibility(f"Window.IsVisible(12000)"):
-            xbmc.sleep(1000)
+            xbmc.sleep(100)
             xbmc.log(f"REMOD INSTALADOR Intentando click en botón Aceptar para activar multiselect", level=xbmc.LOGINFO)
             xbmc.executebuiltin(f"Action(Right)", True)
             xbmc.sleep(100)
@@ -1437,14 +1437,6 @@ else:
                     xbmc.log(f"REMOD INSTALADOR Error Proveedores Torrentio no seleccionados", level=xbmc.LOGERROR)
                     xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error Proveedores Torrentio no seleccionados,3000,{noti_error_icon})")
 
-            ### instalamos elementum
-            lista_deps = ["plugin.video.elementum"]
-            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementum,1000,{noti_icon})")
-            if instalar_lista_addons(lista_deps):
-                ### desactivando burst
-                addon_set = xbmcaddon.Addon('plugin.video.elementum')
-                addon_set.setSettingBool('skip_burst_search', True)
-
                 ### desactivamos el addon para restaurar
                 addons = [
                     "script.module.routing",
@@ -1492,7 +1484,15 @@ else:
                     ]
                 lista_addons(addons, True)        
                 xbmc.sleep(1000)
-            
+                
+            ### instalamos elementum
+            lista_deps = ["plugin.video.elementum"]
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementum,1000,{noti_icon})")
+            if instalar_lista_addons(lista_deps):
+                ### desactivando burst
+                addon_set = xbmcaddon.Addon('plugin.video.elementum')
+                addon_set.setSettingBool('skip_burst_search', True)
+
                 xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin instalación Jacktook,3000,{noti_ok_icon})")
             else:
                 xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Elementum,3000,{noti_error_icon})")
