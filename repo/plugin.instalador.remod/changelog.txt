@@ -1,4 +1,9 @@
 > ReMod Instalador
+> Versión = 26.02.20.0
+> Cambios respecto a la versión anterior:
+	- Mejoras y correcciones
+	- Nuevo repo de instalación para addon Naranjito
+	
 > Versión = 26.02.18.1
 > Cambios respecto a la versión anterior:
 	- Mejoras selección de proveedores Torrentio en Jacktook

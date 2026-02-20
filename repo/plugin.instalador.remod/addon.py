@@ -31,7 +31,6 @@ remod_instalador_addon_version = remod_instalador_addon.getAddonInfo('version')
 remod_instalador_addon_datos = os.path.join(remod_instalador_addon_path, 'datos')
 ### special://home/addons
 # addons_home = xbmcvfs.translatePath(f'special://home/addons')
-addons_home = xbmcvfs.translatePath(f'special://home/addons')
 # addons_home = Path(xbmcvfs.translatePath("special://home/addons"))   # raíz de los addons
 addons_home = Path(xbmcvfs.translatePath("special://home/addons"))   # raíz de los addons
 
@@ -49,15 +48,15 @@ rein_mul_ace_sel = '0'
 ### changelog
 changelog = os.path.join(remod_instalador_addon_path, 'changelog.txt')
 ### info en log
-xbmc.log(f"###  INFO REMOD INSTALADOR ADDON ###", level=xbmc.LOGINFO)
-xbmc.log(f"Path: {remod_instalador_addon_path}", level=xbmc.LOGINFO)
-xbmc.log(f"Name: {remod_instalador_addon_name}", level=xbmc.LOGINFO)
-xbmc.log(f"VerSión: {remod_instalador_addon_version}", level=xbmc.LOGINFO)
-xbmc.log(f"datos: {remod_instalador_addon_datos}", level=xbmc.LOGINFO)
-xbmc.log(f"Addons Path: {addons_home}", level=xbmc.LOGINFO)
-xbmc.log(f"Addons Userdata: {addons_userdata}", level=xbmc.LOGINFO)
-xbmc.log(f"Addons Data: {addons_addon_data}", level=xbmc.LOGINFO)
-xbmc.log(f"### INFO REMOD INSTALADOR ADDON ###", level=xbmc.LOGINFO)
+# xbmc.log(f"###  INFO REMOD INSTALADOR ADDON ###", level=xbmc.LOGINFO)
+# xbmc.log(f"Path: {remod_instalador_addon_path}", level=xbmc.LOGINFO)
+# xbmc.log(f"Name: {remod_instalador_addon_name}", level=xbmc.LOGINFO)
+# xbmc.log(f"VerSión: {remod_instalador_addon_version}", level=xbmc.LOGINFO)
+# xbmc.log(f"datos: {remod_instalador_addon_datos}", level=xbmc.LOGINFO)
+# xbmc.log(f"Addons Path: {addons_home}", level=xbmc.LOGINFO)
+# xbmc.log(f"Addons Userdata: {addons_userdata}", level=xbmc.LOGINFO)
+# xbmc.log(f"Addons Data: {addons_addon_data}", level=xbmc.LOGINFO)
+# xbmc.log(f"### INFO REMOD INSTALADOR ADDON ###", level=xbmc.LOGINFO)
 
 ### parametros
 BASE_URL = sys.argv[0]
@@ -512,12 +511,14 @@ def addon_inst_confirm(addon_id):
             xbmc.log(f"REMOD INSTALADOR Esperando visibilidad botón yes {addon_id}", level=xbmc.LOGINFO)
             # Simular pulsación del botón Yes
             xbmc.executebuiltin(f"SendClick(11)", True)
-            max_attempts2 = 20  # Número máximo de intentos
+            # max_attempts2 = 20  # Número máximo de intentos
+            max_attempts2 = 30  # Número máximo de intentos
             attempts2 = 0
             while attempts2 < max_attempts2:
                 if xbmc.getCondVisibility(f"Window.IsVisible(10101)"):
                     xbmc.log(f"REMOD INSTALADOR Se está instalando {addon_id}", level=xbmc.LOGINFO)
-                    max_attempts3 = 200  # Número máximo de intentos
+                    # max_attempts3 = 200  # Número máximo de intentos
+                    max_attempts3 = 300  # Número máximo de intentos
                     attempts3 = 0
                     while attempts3 < max_attempts3:
                         if not xbmc.getCondVisibility(f"Window.IsVisible(10101)"):
@@ -571,60 +572,80 @@ def instalar_lista_addons(lista_deps):
         xbmc.log(f"REMOD INSTALADOR Confirmamos instalación botón yes instalación {addon_id}", level=xbmc.LOGINFO)
         if addon_inst_confirm(addon_id):
             xbmc.log(f"REMOD INSTALADOR {addon_id} Fin instalación OK", level=xbmc.LOGINFO)
+            ### bypass de comprobación para naranjito por dar problemas
+            if addon_id == 'plugin.video.Naranjitomatrix':
+                xbmc.log(f"REMOD INSTALADOR Bypass comprobación {addon_id} ", level=xbmc.LOGINFO)
+                return True
+                continue
             xbmc.sleep(1000)
             if addon_instalado_y_activado_comp(addon_id):
                 continue
             else:
-                xbmc.log(f"REMOD INSTALADOR Error al confirmar instalación o activación {addon_id}", level=xbmc.LOGERROR)
+                xbmc.log(f"REMOD INSTALADOR Error al confirmar instalación o activación. Usando otro método {addon_id}", level=xbmc.LOGERROR)
+                if addon_instalado_y_activado_comp_2(addon_id):
+                    continue
                 xbmc.sleep(1000)
                 return False
         else:
             xbmc.log(f"REMOD INSTALADOR Error al confirmar instalación {addon_id}", level=xbmc.LOGERROR)
             xbmc.sleep(1000)
             return False
-    xbmc.log(f"REMOD INSTALADOR Error instalando lista addons dependencias", level=xbmc.LOGERROR)
+    xbmc.log(f"REMOD INSTALADOR Fin instalando lista addons dependencias", level=xbmc.LOGINFO)
     return True
   
 ################# nuevo extract
 
-addons_home = Path(xbmcvfs.translatePath("special://home/addons"))   # raíz de los addons
+# addons_home = Path(xbmcvfs.translatePath("special://home/addons"))   # raíz de los addons
 
 # ----------------------------------------------------------------------
 # LOGGING (usa el mismo logger que Kodi)
 # ----------------------------------------------------------------------
-log = logging.getLogger("script.REMOD_INSTALADOR")
-log.setLevel(logging.INFO)
+# log = logging.getLogger("script.REMOD_INSTALADOR")
+# log.setLevel(logging.INFO)
 
 
-# ----------------------------------------------------------------------
-# UTILIDADES DE KODI ---------------------------------------------------
-# ----------------------------------------------------------------------
-def addon_instalado_y_activado_comp(addon_id: str) -> bool:
+
+
+#### comp instalación y activación 2
+def addon_instalado_y_activado_comp_2(addon_id: str) -> bool:
+    xbmc.log(f"REMOD INSTALADOR: Método de comprobación 2 de addon instalado y activado para {addon_id}.", xbmc.LOGINFO)
     """
     Comprueba si un addon está instalado y habilitado.
+    Funciona tanto en Kodi ≥19 (usa xbmc.getAddonInfo) como en versiones
+    anteriores (usa xbmc.getCondVisibility).
     """
+    # --------------------------------------------------------------
+    # 1️⃣  Verificar que la carpeta del addon exista
+    # --------------------------------------------------------------
     addon_path = addons_home / addon_id
-
-    # <-- CORRECCIÓN: .is_dir() en lugar de .isdir() -->
     if not addon_path.is_dir():
-        xbmc.log(
-            f"REMOD INSTALADOR – {addon_id} no está instalado (carpeta falta).",
-            xbmc.LOGINFO,
-        )
+        xbmc.log(f"REMOD INSTALADOR – {addon_id} no está instalado (carpeta falta).",xbmc.LOGINFO,)
         return False
 
-    # Estado de habilitación (KODI >= 19)
-    enabled = xbmc.getAddonInfo(addon_id, "enabled") == "true"
-    if not enabled:
-        xbmc.log(
-            f"REMOD INSTALADOR – {addon_id} está instalado pero deshabilitado.",
-            xbmc.LOGINFO,
-        )
+    # --------------------------------------------------------------
+    # 2️⃣  Determinar si está habilitado
+    # --------------------------------------------------------------
+    try:
+        # Kodi ≥19: xbmc.getAddonInfo está disponible
+        enabled_str = xbmc.getAddonInfo(addon_id, "enabled")
+        enabled = enabled_str == "true"
+    except AttributeError:
+        # En versiones antiguas xbmc.getAddonInfo no existe.
+        # Usamos la condición de visibilidad que solo es true
+        # cuando el addon está instalado **y** habilitado.
+        enabled = xbmc.getCondVisibility(f"System.HasAddon({addon_id})") == 1
+    except Exception as e:
+        # Cualquier otro error inesperado
+        xbmc.log(f"REMOD INSTALADOR – Error al comprobar estado de {addon_id}: {e}",xbmc.LOGERROR,)
+        return False
+
+    # --------------------------------------------------------------
+    # 3️⃣  Logging del resultado
+    # --------------------------------------------------------------
+    if enabled:
+        xbmc.log(f"REMOD INSTALADOR – {addon_id} ya está instalado y habilitado.",xbmc.LOGINFO,)
     else:
-        xbmc.log(
-            f"REMOD INSTALADOR – {addon_id} ya está instalado y habilitado.",
-            xbmc.LOGINFO,
-        )
+        xbmc.log(f"REMOD INSTALADOR – {addon_id} está instalado pero deshabilitado.",xbmc.LOGINFO,)
     return enabled
 
 
@@ -826,10 +847,7 @@ def descargar_lista_repos_zip(
         # 1️⃣  COMPROBAR SI YA ESTÁ INSTALADO/Y ACTIVADO
         # --------------------------------------------------------------
         if addon_instalado_y_activado_comp(addon_id):
-            xbmc.log(
-                f"REMOD INSTALADOR – {addon_id} ya está instalado y activo; se omite.",
-                xbmc.LOGINFO,
-            )
+            xbmc.log(f"REMOD INSTALADOR – {addon_id} ya está instalado y activo; se omite.",xbmc.LOGINFO,)
             # No llamamos a `process_repo`; pasamos al siguiente elemento
             continue
 
@@ -838,10 +856,7 @@ def descargar_lista_repos_zip(
         # --------------------------------------------------------------
         if not process_repo(addon_id, base_url, pattern, packages_dir):
             all_ok = False
-            xbmc.log(
-                f"REMOD INSTALADOR – Problema con {addon_id}; continúo con los demás.",
-                xbmc.LOGWARNING,
-            )
+            xbmc.log(f"REMOD INSTALADOR – Problema con {addon_id}; continúo con los demás.",xbmc.LOGWARNING,)
 
     xbmc.log("REMOD INSTALADOR – Fin de descarga de lista de repos ZIP.", xbmc.LOGINFO)
     return all_ok
@@ -990,9 +1005,6 @@ else:
         buscar_actualizacion()
         ### activar addons descargados
         activar_lista_repos_zip(lista_repos)
-        ### actualizar lista de repos descargados
-        buscar_actualizacion()
-        
         ### instalación de addons desde repo ya instalado
         lista_deps = ["plugin.program.remodtv"]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando ReMod TV,1000,{noti_icon})")
@@ -1578,15 +1590,15 @@ else:
         if instalar_lista_addons(lista_deps):
             ### descarga addons zip desde url
             lista_repos = [
-                "plugin.video.Naranjitomatrix",
+                "repository.GTKing-Phoenix",
                 "repository.remod",
                 ]
             lista_base_urls = [
-                "https://whoisnoze.github.io/KRAE/",
+                "https://gtkingbuild.github.io/repositorios/",
                 "https://saratoga79.github.io/",
                 ]
             lista_patterns = [
-                "plugin\.video\.Naranjitomatrix\.zip",
+                "repository\.GTKing-Phoenix-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip",
                 "repository\.remod-\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip",
                 ]
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000,{noti_icon})")
@@ -1596,21 +1608,26 @@ else:
             ### activar addons descargados
             if activar_lista_repos_zip(lista_repos):
                 ### instalación de addons desde repo ya instalado
-                lista_deps = ["script.module.horus"]
-                xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Horus,1000,{noti_icon})")
+                lista_deps = ["plugin.video.Naranjitomatrix"]
+                xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Naranjito,1000,{noti_icon})")
                 if instalar_lista_addons(lista_deps):
-                    if xbmc.getCondVisibility('system.platform.android'):
-                        xbmc.log(f"REMOD INSTALADOR Activando Reproductor Externo en Horus en Android", level=xbmc.LOGINFO)
-                        addon_set = xbmcaddon.Addon('script.module.horus')
-                        addon_set.setSettingBool('reproductor_externo', True)
+                    ### instalación de addons desde repo ya instalado
+                    lista_deps = ["script.module.horus"]
+                    xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Horus,1000,{noti_icon})")
+                    if instalar_lista_addons(lista_deps):
+                        ### miramos si estamos en android para activar el rep ext en horus
+                        if xbmc.getCondVisibility('system.platform.android'):
+                            xbmc.log(f"REMOD INSTALADOR Activando Reproductor Externo en Horus en Android", level=xbmc.LOGINFO)
+                            addon_set = xbmcaddon.Addon('script.module.horus')
+                            addon_set.setSettingBool('reproductor_externo', True)
+                    else:
+                        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Horus,3000,{noti_error_icon})")
+                        
                     xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación Naranjito,3000,{noti_ok_icon})")
                 else:
                     xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Naranjito,3000,{noti_error_icon})")
-                
-                xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación Naranjito,3000,{noti_ok_icon})")
-                
             else:
-                xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Naranjito,3000,{noti_error_icon})")
+                xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación repo Naranjito,3000,{noti_error_icon})")
         else:
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalando dependencias Naranjito,3000,{noti_error_icon})")
         
