@@ -1310,7 +1310,7 @@ http://127.0.0.1:6878/ace/getstream?id=7eb030d0011e6af6d3d7a7767e0d6504a67bce53&
 #EXTINF:-1 cuid="436" group-title="ACS" tvg-chno="436" tvg-id="DAZN Liga F 5" tvg-logo="https://image.discovery.indazn.com/eu/v4/onboarding-images/none/sn_5k620c7y6dlbmcm88dt3eb7t/fill/center/top/none/100/0/0/png" tvg-name="DAZN Liga F 5",DAZN Liga F 5 [FHD@50] [ACS] (Elc) (Canal 436)
 http://127.0.0.1:6878/ace/getstream?id=98b0507278796a3586c3f3ef5732f10218ca3df8&pid=178
 
-#EXTINF:-1 cuid="437" group-title="ACS" tvg-chno="437" tvg-id="DAZN Baloncesto" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DAZN%20Baloncesto.png" tvg-name="Dazn Baloncesto",Dazn Baloncesto [FHD@25] [ACS] (Canal 437)
+#EXTINF:-1 cuid="437" group-title="ACS" tvg-chno="437" tvg-id="DAZN Baloncesto" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DAZN%20Baloncesto.png" tvg-name="Dazn Baloncesto",Dazn Baloncesto [FHD@25] [ACS] (NeEr) (Canal 437)
 http://127.0.0.1:6878/ace/getstream?id=15fe785e2dc9d16a7b0a1c49a9ad5a7ab88ef2b7&pid=179
 
 #EXTINF:-1 cuid="438" group-title="ACS" tvg-chno="438" tvg-id="DAZN Baloncesto" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DAZN%20Baloncesto.png" tvg-name="DAZN Baloncesto",DAZN Baloncesto [FHD@25] [ACS] (NeEr) (Canal 438)
