@@ -118,6 +118,7 @@ def addon_router():
             "search_catalog",
             "add_custom_stremio_addon",
             "add_ext_custom_stremio_addon",
+            "add_ext_custom_stremio_addon",
             "remove_custom_stremio_addon",
             "torrentio_toggle_providers",
             "stremio_bypass_addons_select",

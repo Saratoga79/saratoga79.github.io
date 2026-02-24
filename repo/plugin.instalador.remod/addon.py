@@ -30,8 +30,6 @@ remod_instalador_addon_version = remod_instalador_addon.getAddonInfo('version')
 ### ruta caprpeta datos
 remod_instalador_addon_datos = os.path.join(remod_instalador_addon_path, 'datos')
 ### special://home/addons
-# addons_home = xbmcvfs.translatePath(f'special://home/addons')
-# addons_home = Path(xbmcvfs.translatePath("special://home/addons"))   # raíz de los addons
 addons_home = Path(xbmcvfs.translatePath("special://home/addons"))   # raíz de los addons
 
 ### special://home/userdata
@@ -1680,6 +1678,11 @@ else:
             
 
     elif action == "test":
+        # xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=add_ext_custom_stremio_addon)')    
+        xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=add_custom_stremio_addon)')    
+        
+        
+        
         pass
 
     else:

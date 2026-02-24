@@ -4,15 +4,20 @@ from collections import Counter
 from lib.db.cached import cache
 from lib.utils.general.utils import USER_AGENT_HEADER
 from lib.utils.kodi.utils import (
-    ADDON,
     kodilog,
+    get_setting,
+    set_setting,
+    ADDON,
 )
+from lib.utils.kodi.settings import get_int_setting
 from lib.clients.stremio.constants import (
     STREMIO_ADDONS_KEY,
     STREMIO_ADDONS_CATALOGS_KEY,
     STREMIO_TV_ADDONS_KEY,
     STREMIO_USER_ADDONS,
     excluded_addons,
+    encode_selected_ids,
+    decode_selected_ids,
 )
 from lib.clients.stremio.helpers import get_addons, ping_addons
 import xbmcgui
@@ -28,6 +33,7 @@ lista_url = [
     "https://stremify.hayd.uk/YnVpbHQtaW4sY2luZWhkcGx1cyx2ZXJoZGxpbms=/manifest.json",
     "https://latinmovies.vercel.app/manifest.json",
     ]
+
 
 def _ping_addons_with_progress(addons):
     """Ping addons and show progress dialog."""
@@ -64,7 +70,7 @@ def _build_addon_options(addons):
     for addon in addons:
         name = addon.manifest.name
         if name_counts[name] > 1:
-            label = f"{name} ({addon.key()})"
+            label = f"{name} ({addon.manifest.id})"
         else:
             label = name
 
@@ -85,8 +91,11 @@ def _show_addon_multiselect(title, addons, selected_ids):
     options = _build_addon_options(addons)
 
     dialog = xbmcgui.Dialog()
+    selected_ids_list = decode_selected_ids(selected_ids)
     selected_addon_ids = [
-        addons.index(addon) for addon in addons if addon.key() in selected_ids
+        addons.index(addon)
+        for addon in addons
+        if addon.key() in selected_ids_list or addon.manifest.id in selected_ids_list
     ]
 
     selected_indexes = dialog.multiselect(
@@ -115,7 +124,7 @@ def _filter_excluded_addons(addons):
     return [
         addon
         for addon in addons
-        if addon.key() not in excluded_addons
+        if addon.manifest.id not in excluded_addons
         and (
             not addon.manifest.isConfigurationRequired()
             or addon.transport_name == "custom"
@@ -160,7 +169,7 @@ def stremio_toggle_addons(params, check_availability=False):
 
     cache.set(
         STREMIO_ADDONS_KEY,
-        ",".join(selected_addon_keys),
+        encode_selected_ids(selected_addon_keys),
         timedelta(days=365 * 20),
     )
 
@@ -203,7 +212,7 @@ def stremio_toggle_catalogs(params, check_availability=False):
 
     cache.set(
         STREMIO_ADDONS_CATALOGS_KEY,
-        ",".join(selected_addon_keys),
+        encode_selected_ids(selected_addon_keys),
         timedelta(days=365 * 20),
     )
 
@@ -248,7 +257,7 @@ def stremio_toggle_tv_addons(params, check_availability=False):
 
     cache.set(
         STREMIO_TV_ADDONS_KEY,
-        ",".join(selected_addon_keys),
+        encode_selected_ids(selected_addon_keys),
         timedelta(days=365 * 20),
     )
 
@@ -267,7 +276,9 @@ def add_custom_stremio_addon(params):
 
     # Try to fetch the manifest from the URL
     try:
-        response = requests.get(url, headers=USER_AGENT_HEADER, timeout=10)
+        response = requests.get(
+            url, headers=USER_AGENT_HEADER, timeout=get_int_setting("stremio_timeout")
+        )
         response.raise_for_status()
         manifest = response.json()
     except Exception as e:
@@ -276,10 +287,11 @@ def add_custom_stremio_addon(params):
         return
 
     try:
-        addon_key = manifest.get("id") or manifest.get("name")
-        if not addon_key:
+        id_ = manifest.get("id") or manifest.get("name")
+        if not id_:
             dialog.ok("Custom Addon", "Manifest missing 'id' or 'name'.")
             return
+        addon_key = f"{id_}|{response.url}"
 
         resources = manifest.get("resources", [])
         # Normalize resources to list of dicts or strings
@@ -318,41 +330,36 @@ def add_custom_stremio_addon(params):
 
         # Add to selected addons if stream
         if is_stream:
-            selected_addons = cache.get(STREMIO_ADDONS_KEY)
-            selected_keys = selected_addons.split(",") if selected_addons else []
+            selected_keys = decode_selected_ids(cache.get(STREMIO_ADDONS_KEY))
             if addon_key not in selected_keys:
                 selected_keys.append(addon_key)
                 cache.set(
                     STREMIO_ADDONS_KEY,
-                    ",".join(selected_keys),
+                    encode_selected_ids(selected_keys),
                     timedelta(days=365 * 20),
                 )
 
         # Add to selected TV stream addons
         if is_tv_stream:
-            selected_tv_addons = cache.get(STREMIO_TV_ADDONS_KEY)
-            selected_tv_keys = (
-                selected_tv_addons.split(",") if selected_tv_addons else []
-            )
+            selected_tv_keys = decode_selected_ids(cache.get(STREMIO_TV_ADDONS_KEY))
             if addon_key not in selected_tv_keys:
                 selected_tv_keys.append(addon_key)
                 cache.set(
                     STREMIO_TV_ADDONS_KEY,
-                    ",".join(selected_tv_keys),
+                    encode_selected_ids(selected_tv_keys),
                     timedelta(days=365 * 20),
                 )
 
         # Add to selected catalogs if catalog
         if is_catalog:
-            selected_catalogs = cache.get(STREMIO_ADDONS_CATALOGS_KEY) or ""
-            selected_catalog_keys = (
-                selected_catalogs.split(",") if selected_catalogs else []
+            selected_catalog_keys = decode_selected_ids(
+                cache.get(STREMIO_ADDONS_CATALOGS_KEY)
             )
             if addon_key not in selected_catalog_keys:
                 selected_catalog_keys.append(addon_key)
                 cache.set(
                     STREMIO_ADDONS_CATALOGS_KEY,
-                    ",".join(selected_catalog_keys),
+                    encode_selected_ids(selected_catalog_keys),
                     timedelta(days=365 * 20),
                 )
 
@@ -365,7 +372,7 @@ def add_custom_stremio_addon(params):
             "transportName": "custom",
         }
         if not any(
-            (a.get("manifest", {}).get("id") or a.get("manifest", {}).get("name"))
+            f"{a.get('manifest', {}).get('id') or a.get('manifest', {}).get('name')}|{a.get('transportUrl')}"
             == addon_key
             for a in user_addons
         ):
@@ -384,16 +391,17 @@ def add_custom_stremio_addon(params):
     except Exception as e:
         dialog.ok("Custom Addon", f"Failed to add custom addon: {e}")
 
+
 ### ReMod
 def add_ext_custom_stremio_addon(params=None):
     import xbmc
-    xbmc.executebuiltin(f"Notification((REMOD INSTALADOR\nAñadiendo addon Stremio,1000,)")
-    xbmc.log(f"(REMOD INSTALADOR,Manifest missing 'id' or 'name'", level=xbmc.LOGERROR)
-    ### añadimos los addons    
+    xbmc.executebuiltin(f"Notification(ReMod Instalador\nAñadiendo addon Stremio,1000,)")
+    xbmc.log(f"ReMod Instalador,Manifest missing 'id' or 'name'", level=xbmc.LOGERROR)
+    ### añadimos la lista de addons    
     for url in lista_url:   
         if not url:
-            xbmc.executebuiltin(f"Notification((ReMod Instalador,No URL provided,1000,)")
-            xbmc.log(f"(ReMod Instalador,No URL provided", level=xbmc.LOGERROR)
+            xbmc.executebuiltin(f"Notification(ReMod Instalador,URL no proporcionada,1000,)")
+            xbmc.log(f"ReMod Instalador,URL no proporcionada", level=xbmc.LOGERROR)
             return
 
         if url.startswith("stremio://"):
@@ -401,23 +409,23 @@ def add_ext_custom_stremio_addon(params=None):
 
         # Try to fetch the manifest from the URL
         try:
-            response = requests.get(url, headers=USER_AGENT_HEADER, timeout=10)
+            response = requests.get(
+                url, headers=USER_AGENT_HEADER, timeout=get_int_setting("stremio_timeout")
+            )
             response.raise_for_status()
             manifest = response.json()
         except Exception as e:
-            xbmc.executebuiltin(f"Notification((REMOD INSTALADOR,Failed to fetch custom addon manifest,1000,)")
-            xbmc.log(f"(REMOD INSTALADOR,Failed to fetch custom addon manifest", level=xbmc.LOGERROR)
-            # kodilog(f"Failed to fetch custom addon manifest: {e}")
-            # dialog.ok("Custom Addon", f"Failed to fetch manifest: {e}")
+            xbmc.executebuiltin(f"Notification(ReMod Instalador,No se encuentra el manifiesto del custom addon,1000,)")
+            xbmc.log(f"ReMod Instalador,No se encuentra el manifiesto del custom addon", level=xbmc.LOGERROR)
             return
 
         try:
-            addon_key = manifest.get("id") or manifest.get("name")
-            if not addon_key:
-                # dialog.ok("Custom Addon", "Manifest missing 'id' or 'name'.")
-                xbmc.executebuiltin(f"Notification((REMOD INSTALADOR,Manifest missing 'id' or 'name',1000,)")
-                xbmc.log(f"(REMOD INSTALADOR,Manifest missing 'id' or 'name'", level=xbmc.LOGERROR)
+            id_ = manifest.get("id") or manifest.get("name")
+            if not id_:
+                xbmc.executebuiltin(f"Notification(ReMod Instalador,Falta 'id' o 'name' del manifiesto,1000,)")
+                xbmc.log(f"ReMod Instalador,Falta 'id' o 'name' del manifiesto", level=xbmc.LOGERROR)
                 return
+            addon_key = f"{id_}|{response.url}"
 
             resources = manifest.get("resources", [])
             # Normalize resources to list of dicts or strings
@@ -456,41 +464,36 @@ def add_ext_custom_stremio_addon(params=None):
 
             # Add to selected addons if stream
             if is_stream:
-                selected_addons = cache.get(STREMIO_ADDONS_KEY)
-                selected_keys = selected_addons.split(",") if selected_addons else []
+                selected_keys = decode_selected_ids(cache.get(STREMIO_ADDONS_KEY))
                 if addon_key not in selected_keys:
                     selected_keys.append(addon_key)
                     cache.set(
                         STREMIO_ADDONS_KEY,
-                        ",".join(selected_keys),
+                        encode_selected_ids(selected_keys),
                         timedelta(days=365 * 20),
                     )
 
             # Add to selected TV stream addons
             if is_tv_stream:
-                selected_tv_addons = cache.get(STREMIO_TV_ADDONS_KEY)
-                selected_tv_keys = (
-                    selected_tv_addons.split(",") if selected_tv_addons else []
-                )
+                selected_tv_keys = decode_selected_ids(cache.get(STREMIO_TV_ADDONS_KEY))
                 if addon_key not in selected_tv_keys:
                     selected_tv_keys.append(addon_key)
                     cache.set(
                         STREMIO_TV_ADDONS_KEY,
-                        ",".join(selected_tv_keys),
+                        encode_selected_ids(selected_tv_keys),
                         timedelta(days=365 * 20),
                     )
 
             # Add to selected catalogs if catalog
             if is_catalog:
-                selected_catalogs = cache.get(STREMIO_ADDONS_CATALOGS_KEY) or ""
-                selected_catalog_keys = (
-                    selected_catalogs.split(",") if selected_catalogs else []
+                selected_catalog_keys = decode_selected_ids(
+                    cache.get(STREMIO_ADDONS_CATALOGS_KEY)
                 )
                 if addon_key not in selected_catalog_keys:
                     selected_catalog_keys.append(addon_key)
                     cache.set(
                         STREMIO_ADDONS_CATALOGS_KEY,
-                        ",".join(selected_catalog_keys),
+                        encode_selected_ids(selected_catalog_keys),
                         timedelta(days=365 * 20),
                     )
 
@@ -503,7 +506,7 @@ def add_ext_custom_stremio_addon(params=None):
                 "transportName": "custom",
             }
             if not any(
-                (a.get("manifest", {}).get("id") or a.get("manifest", {}).get("name"))
+                f"{a.get('manifest', {}).get('id') or a.get('manifest', {}).get('name')}|{a.get('transportUrl')}"
                 == addon_key
                 for a in user_addons
             ):
@@ -511,24 +514,17 @@ def add_ext_custom_stremio_addon(params=None):
                 cache.set(STREMIO_USER_ADDONS, user_addons, timedelta(days=365 * 20))
 
                 if is_stream or is_catalog or is_tv_stream:
-                    xbmc.executebuiltin(f"Notification((REMOD INSTALADOR,Custom Stremio addon added successfully,1000,)")
-                    xbmc.log(f"(REMOD INSTALADOR,Custom Stremio addon added successfully!", level=xbmc.LOGERROR)
-                    # dialog.ok("Custom Addon", "Custom Stremio addon added successfully!")
+                    xbmc.executebuiltin(f"Notification(ReMod Instalador,Addon custom Stremio añadido satisfactoriamente,1000,)")
+                    xbmc.log(f"ReMod Instalador,ReMod Instalador,Addon custom Stremio añadido satisfactoriamente", level=xbmc.LOGERROR)
                 else:
-                    xbmc.executebuiltin(f"Notification((REMOD INSTALADOR,Addon does not provide 'stream' or 'catalog' resources,1000,)")
-                    xbmc.log(f"(REMOD INSTALADOR,Addon does not provide 'stream' or 'catalog' resources", level=xbmc.LOGERROR)
-                    # dialog.ok(
-                        # "Custom Addon",
-                        # "Addon does not provide 'stream' or 'catalog' resources.",
-                    # )
+                    xbmc.executebuiltin(f"Notification(ReMod Instalador,El addon no proporciona contenidos 'stream' o 'catálogo',1000,)")
+                    xbmc.log(f"ReMod Instalador,El addon no proporciona contenidos 'stream' o 'catálogo", level=xbmc.LOGERROR)
             else:
-                xbmc.executebuiltin(f"Notification(REMOD INSTALADOR,This addon is already added to your list,1000,)")
-                xbmc.log(f"(REMOD INSTALADOR,This addon is already added to your list", level=xbmc.LOGERROR)
-                # dialog.ok("Custom Addon", "This addon is already added to your list.")
+                xbmc.executebuiltin(f"Notification(ReMod Instalador,Addon ya añadido en tu lista,1000,)")
+                xbmc.log(f"ReMod Instalador,Addon ya añadido en tu lista", level=xbmc.LOGERROR)
         except Exception as e:
-            xbmc.executebuiltin(f"Notification((REMOD INSTALADOR,Failed to add custom addon: {e},1000,)")
-            xbmc.log(f"(REMOD INSTALADOR,Failed to add custom addon: {e}", level=xbmc.LOGERROR)
-            # dialog.ok("Custom Addon", f"Failed to add custom addon: {e}")
+            xbmc.executebuiltin(f"Notification(ReMod Instalador,Error al añadir addon custom: {e},1000,)")
+            xbmc.log(f"ReMod Instalador,Error al añadir addon custom: {e}", level=xbmc.LOGERROR)
 
 
 def remove_custom_stremio_addon(params=None):
@@ -562,16 +558,18 @@ def remove_custom_stremio_addon(params=None):
     # Remove selected addons
     to_remove_keys = set()
     for idx in selected:
-        manifest = removable_addons[idx].get("manifest", {})
-        key = manifest.get("id") or manifest.get("name")
-        if key:
-            to_remove_keys.add(key)
+        addon = removable_addons[idx]
+        manifest = addon.get("manifest", {})
+        id_ = manifest.get("id") or manifest.get("name")
+        url = addon.get("transportUrl")
+        if id_ and url:
+            to_remove_keys.add(f"{id_}|{url}")
 
     # Remove from user_addons
     new_user_addons = [
         a
         for a in user_addons
-        if (a.get("manifest", {}).get("id") or a.get("manifest", {}).get("name"))
+        if f"{a.get('manifest', {}).get('id') or a.get('manifest', {}).get('name')}|{a.get('transportUrl')}"
         not in to_remove_keys
     ]
     cache.set(STREMIO_USER_ADDONS, new_user_addons, timedelta(days=365 * 20))
@@ -582,10 +580,41 @@ def remove_custom_stremio_addon(params=None):
         STREMIO_ADDONS_CATALOGS_KEY,
         STREMIO_TV_ADDONS_KEY,
     ]:
-        selected = cache.get(cache_key)
-        if selected:
-            selected_keys = selected.split(",")
+        selected_keys = decode_selected_ids(cache.get(cache_key))
+        if selected_keys:
             selected_keys = [k for k in selected_keys if k not in to_remove_keys]
-            cache.set(cache_key, ",".join(selected_keys), timedelta(days=365 * 20))
+            cache.set(
+                cache_key, encode_selected_ids(selected_keys), timedelta(days=365 * 20)
+            )
 
     xbmcgui.Dialog().ok("Remove Addon", "Selected addon(s) removed.")
+
+
+def stremio_bypass_addons_select(params=None):
+    addon_manager = get_addons()
+    addons = addon_manager.get_addons_with_resource("stream")
+    addons = _deduplicate_addons(addons)
+    addons = _filter_excluded_addons(addons)
+    addons = list(reversed(addons))
+
+    selected_list_str = get_setting("stremio_bypass_addon_list").strip()
+    selected_names_old = selected_list_str.split(",") if selected_list_str else []
+
+    selected_ids = [
+        addon.key()
+        for addon in addons
+        if addon.manifest.name.lower() in selected_names_old
+    ]
+
+    title = "Select Bypassed Addons"
+    selected_addon_keys = _show_addon_multiselect(title, addons, selected_ids)
+
+    if selected_addon_keys is None:
+        return
+
+    selected_names = []
+    for addon in addons:
+        if addon.key() in selected_addon_keys:
+            selected_names.append(addon.manifest.name.lower())
+
+    set_setting("stremio_bypass_addon_list", ",".join(selected_names))
