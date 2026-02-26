@@ -1,4 +1,9 @@
 > ReMod Instalador
+> Versión = 26.02.26.0
+> Cambios respecto a la versión anterior:
+	- Nuevo addon de catálogo de Películas añadido a Jacktook:
+		- CinemaCove (CC-Wolfmax2026)
+	
 > Versión = 26.02.24.0
 > Cambios respecto a la versión anterior:
 	- Instalador Jacktook adaptado a la última versión

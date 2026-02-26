@@ -24,7 +24,7 @@ import xbmcgui
 
 ### ReMod
 lista_url = [
-    "https://tmdb.elfhosted.com/N4IgTgDgJgRgsgUygSwIYBUCeEEGcQBcoEA9rgC4JiHlgCuCANCADYkDmJhAZqi7kxAxUAYwDWUMCQg8+AgL7MWqAHbs6qdgkIg8AWgCiAZRDMKYBKgC2yNYQDaAXWYjU5Ph3wF7oZFB3kVrAAdOTSpiDk2NoEIFYkAG7I2swq1jEgAArSdMrUZgAWJADuAJIqABIkVjG0DIq+-rGBIWEyzFE4OgJgyfip6TrZELmo+SC4RWWV1bX0CA0gfgFBMMGYluOdGfFJKSBpNToAmpsRkyXlVUcEdQuMjSshG2MR291UfRGHGaevhZcZjc7otls1VsFlGoNFo3tEdLtkt9BrEADKqdSafYXabXOb1B5LJqRCFQzGwjrw2I9L4DG4gdHQrHnKZXWY0eag4ktNa0BAqFB2SldWKI-Y-HToCwC2zsFmAvEcgmPcGtaWCuXCjI0vDI+lS-ka+W49m3TnOECuCgAYRIdBU5EIAFYAcUAIJaABKbll5QA4vyLF5IvMIvzUDAWAgPQhveRZTpePxsVMY3HZQB1ZDkAqlVbpuyxJMCEDyIA/manifest.json",
+    "https://tmdb.elfhosted.com/N4IgTgDgJgRgsgUygSwIYBUCeEEGcQBcoEA9rgC4JiHlgCuCANCADYkDmJhAZqi7kxAxUAYwDWUMCQg8+AgL7NyAW1gBBCMgDSCTIRBQRCAJyoAjAHYADNwsIrAFgCsUVFYBMUAGxn7r1MYw7sFWIMwsqAB27HSo7Aj6eAC0AKIAymEgFGAIqMrI0YQA2gC6zCKo5Hwc+ARFoMhQ+iqwAHQRlBSZ5NgJBCDKJABuyAnMkXl9IAAylXjkAAQASggsuQL4zLgAFiQA7gCSkQASJMp9tAyKDU39LTDtc11KvfoCYKObIBPn+rOdixWa1QG0yO32R1OvwIlwQ1xAjWaqgetAQkRQhReOH0gxGY2+k306By6IK7DBu0OJzOF3ocMYNyRbVRpMxIB62P670+mR+U2JaIx5K2lMhNJodPhiLuyNa5Gk3Ve-Vxo15hP6AAVpHQItQRRDqdDYVLbuzZfKZFipty8GroSAtRAdag9VlRYbaVcGQjTfdWphcq6OVMVfi+foAJqBikGqGe+mMmVtAMuxWcrJUHnjdUgKOp-VUuMSr2Js1tCLRWLxNMh4aq7P22aVuL48GF8UwyXe6Vlh4VmItmtvTO2htTJsD6sFsVGyVlEAVCgAYRIdEi5EITgLaniS0qZKOAHE0Tlauy6Zk0agYGsdwg9+QyfpePxW5S7w+yQB1ZDkbYHZFP0KfoXwEMFaGQERyBWdhkBISIADFkBYShqBAuR8RQWCqhYIF1gQJCUKoWRX3kIA/manifest.json",
     "https://stremio.jopsis-addons.mywire.org/manifest.json",
     "https://torrentio.strem.fun/providers=mejortorrent,wolfmax4k,cinecalidad|language=spanish|qualityfilter=threed,scr,cam/manifest.json",
     "https://top-streaming.stream/username=saratoga&contentLanguage=es-ES&platforms=netflix%3Aspain%3Atrue%3Atrue%2Camazon-prime%3Aspain%3Atrue%3Atrue%2Cdisney%3Aspain%3Atrue%3Atrue%2Capple-tv%3Aspain%3Atrue%3Atrue%2Cskyshowtime%3Aspain%3Atrue%3Atrue%2Chbo-max%3Aspain%3Atrue%3Atrue%2Crakuten-tv%3Aspain%3Atrue%3Atrue/manifest.json",
@@ -32,6 +32,7 @@ lista_url = [
     "https://addon.peerflix.mov/language=es%7Cqualityfilter=threed,540p,480p,sd,vhs,screener%7Csort=language-desc/manifest.json",
     "https://stremify.hayd.uk/YnVpbHQtaW4sY2luZWhkcGx1cyx2ZXJoZGxpbms=/manifest.json",
     "https://latinmovies.vercel.app/manifest.json",
+    "https://cinema-cove-api.onrender.com/api/6998bf790dd4f007b19c9eaa/manifest.json",
     ]
 
 
@@ -395,8 +396,8 @@ def add_custom_stremio_addon(params):
 ### ReMod
 def add_ext_custom_stremio_addon(params=None):
     import xbmc
-    xbmc.executebuiltin(f"Notification(ReMod Instalador\nAñadiendo addon Stremio,1000,)")
-    xbmc.log(f"ReMod Instalador,Manifest missing 'id' or 'name'", level=xbmc.LOGERROR)
+    xbmc.executebuiltin(f"Notification(ReMod Instalador\nAñadiendo addon Stremio)")
+    xbmc.log(f"ReMod Instalador,Añadiendo addon Stremio", level=xbmc.LOGERROR)
     ### añadimos la lista de addons    
     for url in lista_url:   
         if not url:
@@ -415,8 +416,8 @@ def add_ext_custom_stremio_addon(params=None):
             response.raise_for_status()
             manifest = response.json()
         except Exception as e:
-            xbmc.executebuiltin(f"Notification(ReMod Instalador,No se encuentra el manifiesto del custom addon,1000,)")
-            xbmc.log(f"ReMod Instalador,No se encuentra el manifiesto del custom addon", level=xbmc.LOGERROR)
+            xbmc.executebuiltin(f"Notification(ReMod Instalador,No se encuentra el manifiesto del addon,1000,)")
+            xbmc.log(f"ReMod Instalador,No se encuentra el manifiesto del addon", level=xbmc.LOGERROR)
             return
 
         try:
@@ -514,8 +515,8 @@ def add_ext_custom_stremio_addon(params=None):
                 cache.set(STREMIO_USER_ADDONS, user_addons, timedelta(days=365 * 20))
 
                 if is_stream or is_catalog or is_tv_stream:
-                    xbmc.executebuiltin(f"Notification(ReMod Instalador,Addon custom Stremio añadido satisfactoriamente,1000,)")
-                    xbmc.log(f"ReMod Instalador,ReMod Instalador,Addon custom Stremio añadido satisfactoriamente", level=xbmc.LOGERROR)
+                    xbmc.executebuiltin(f"Notification(ReMod Instalador,Addon Stremio añadido satisfactoriamente,1000,)")
+                    xbmc.log(f"ReMod Instalador,ReMod Instalador,Addon Stremio añadido satisfactoriamente", level=xbmc.LOGERROR)
                 else:
                     xbmc.executebuiltin(f"Notification(ReMod Instalador,El addon no proporciona contenidos 'stream' o 'catálogo',1000,)")
                     xbmc.log(f"ReMod Instalador,El addon no proporciona contenidos 'stream' o 'catálogo", level=xbmc.LOGERROR)
@@ -523,8 +524,8 @@ def add_ext_custom_stremio_addon(params=None):
                 xbmc.executebuiltin(f"Notification(ReMod Instalador,Addon ya añadido en tu lista,1000,)")
                 xbmc.log(f"ReMod Instalador,Addon ya añadido en tu lista", level=xbmc.LOGERROR)
         except Exception as e:
-            xbmc.executebuiltin(f"Notification(ReMod Instalador,Error al añadir addon custom: {e},1000,)")
-            xbmc.log(f"ReMod Instalador,Error al añadir addon custom: {e}", level=xbmc.LOGERROR)
+            xbmc.executebuiltin(f"Notification(ReMod Instalador,Error al añadir addon: {e},1000,)")
+            xbmc.log(f"ReMod Instalador,Error al añadir addon: {e}", level=xbmc.LOGERROR)
 
 
 def remove_custom_stremio_addon(params=None):
