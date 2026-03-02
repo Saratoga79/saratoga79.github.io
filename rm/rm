@@ -2416,7 +2416,7 @@ http://127.0.0.1:6878/ace/getstream?id=39abee2162e0504cbd8e7152d0c7d67440c9a389&
 #EXTINF:-1 cuid="805" group-title="ACS" tvg-chno="805" tvg-id="ESPN HDTV (Dish) (ESPNHD)" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/espn-us.png" tvg-name="ESPN HDTV (Dish) (ESPNHD)",US | ESPN [HD@60] [ACS] (SpTv) (Canal 805)
 http://127.0.0.1:6878/ace/getstream?id=4b4907de51ec11087d4bed5876f2a0c68264f442&pid=404
 
-#EXTINF:-1 cuid="806" group-title="M3U8" tvg-chno="806" tvg-id="ESPN HDTV (Dish) (ESPNHD)" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/espn-us.png" tvg-name="ESPN HDTV (Dish) (ESPNHD)",US | ESPN [HD@60] [M3U8] (ClPl) (Canal 806)
+#EXTINF:-1 cuid="806" group-title="ACS" tvg-chno="806" tvg-id="ESPN HDTV (Dish) (ESPNHD)" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/espn-us.png" tvg-name="ESPN HDTV (Dish) (ESPNHD)",US | ESPN [HD@60] [ACS] (SpTv) (Canal 806)
 http://127.0.0.1:6878/ace/getstream?id=4bf4431b4815f07c1b3749f5a10f905ba566cd47&pid=405
 
 #EXTINF:-1 cuid="807" group-title="ACS" tvg-chno="807" tvg-id="ESPN2 HDTV (Dish) (ESPN2HD)" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/espn-2-us.png" tvg-name="ESPN2 HDTV (Dish) (ESPN2HD)",US | ESPN 2 [FHD@60] [ACS] (SpTv) (Canal 807)
