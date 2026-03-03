@@ -46,7 +46,7 @@ fue_est_file = os.path.join(addons_addon_data, remodtv_addon_id, 'estado_fuentes
 ### variables para archivos json
 rep_sel = '0'
 rep_act = 'Por defecto'
-fue_act = 'Por defecto'
+fue_act = '1 Direct'
 
 ### RECONFIGurar el addon
 RECONFIG = '0'
@@ -86,7 +86,7 @@ def lista_menu_principal():
         ("> Actualizar TV", "actualizar", "refresh.png", True),
         ("", "", "", False),
         ("> Herramientas y Utilidades", "herr", "herr.png", True)
-        # ("", "", "", False),
+        # ,
         # ("> TEST", "test", "", True)
     ]
     for label, action, icon_file, is_folder in menu_principal:
@@ -109,18 +109,17 @@ def lista_menu_fuente():
     estados = fue_cargar_estados()
     xbmcplugin.setPluginCategory(HANDLE, "Menú Fuentes")
     menu_fuente = [
-        (f"Fuentes Principales para la sección de TV:", "", "tv2.png", False),
+        (f"Fuentes Principales:", "", "tv2.png", False),
         (f" Direct (Por defecto) | Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue1')}", "lis_dir", "1.png", True),
         (f" ACE | Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue2')}", "lis_ace", "2.png", True),
         (f" Horus | Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue3')}", "lis_hor", "3.png", True),
         (f" ReMod TV | Tipo de eventos: [COLOR blue][ACS][/COLOR] y [COLOR yellow][M3U8][/COLOR] [COLOR yellow](VPN recomendada)[/COLOR] | Estado: {estados.get('fue4')}", "lis_rm", "4.png", True),
         (f" Agenda Deportiva | Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue5')}", "lis_eve", "5.png", True),
-        (f" Chucky | Tipo de eventos: [COLOR yellow][M3U8][/COLOR] [COLOR yellow](VPN recomendada)[/COLOR] | Estado: {estados.get('fue6')}", "lis_chu", "6.png", True),
-        ("Fuentes de Repuesto para la sección de TV:", "", "tv2.png", False),
+        ("Fuentes de Repuesto:", "", "tv2.png", False),
         (f" Direct | Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue11')}", "lis_dir_rep", "1.png", True),
         (f" ACE | Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue12')}", "lis_ace_rep", "2.png", True),
         (f" Horus | Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue13')}", "lis_hor_rep", "3.png", True),
-        ("Fuentes de Repuesto 2 para la sección de TV:", "", "tv2.png", False),
+        ("Fuentes de Repuesto 2:", "", "tv2.png", False),
         (f" Direct | Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue21')}", "lis_dir_rep2", "1.png", True),
         (f" ACE | Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue22')}", "lis_ace_rep2", "2.png", True),
         (f" Horus | Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue23')}", "lis_hor_rep2", "3.png", True)
@@ -338,21 +337,6 @@ def comp_version():
 ### comrpobación de versión
 xbmc.log(f"REMOD TV Comprobando actualización.", level=xbmc.LOGINFO)
 comp_version()
-
-
-## copia los archivos de configuración
-# def archivos_config():
-    # xbmc.log(f"REMOD TV Desactivando addons para copiar archivos de configuración.", level=xbmc.LOGINFO)
-    # orig = xbmcvfs.translatePath(os.path.join(remodtv_addon_datos, 'pvr.iptvsimple', carp, 'instance-settings-2.xml'))
-    # dest = xbmcvfs.translatePath(os.path.join(addons_addon_data, 'pvr.iptvsimple', 'instance-settings-1.xml'))
-    # xbmcvfs.delete(dest)
-    # xbmcvfs.copy(orig, dest)
-    # dest = xbmcvfs.translatePath(os.path.join(addons_addon_data, 'pvr.iptvsimple', 'settings.xml'))
-    # xbmcvfs.delete(dest)
-    # xbmc.executebuiltin(f"Notification({remodtv_addon_name},Archivos de configuración copiados,3000,)")
-    # xbmc.log(f"{remodtv_addon_name} Archivos de configuración copiados.", level=xbmc.LOGINFO)
-    # return True
-
 
 
 ### copia los archivos de configuración
@@ -627,7 +611,7 @@ def pvr_inicio_mon():
             attempts += 1
     return False
 
-def actualizar_tv():
+def actualizar_tv(fue_sel):
     xbmc.executebuiltin(f"Notification({remodtv_addon_name},Reiniciando IPTV Simple.,1000,)")
     addons = ["pvr.iptvsimple"]
     addon_id = 'pvr.iptvsimple'
@@ -650,7 +634,7 @@ def actualizar_tv():
                     xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error al iniciar sección de TV.,5000,)")
                     xbmc.log(f"REMOD TV Error al iniciar sección de TV.", level=xbmc.LOGINFO)
                     dialog = xbmcgui.Dialog()
-                    dialog.ok(f"{remodtv_addon_name}", "Error. Parece que hay algún problema con la Fuente elegida.")
+                    dialog.ok(f"{remodtv_addon_name}", f"Error en fuente {fue_sel}. Parece que hay algún problema con la Fuente elegida.")
             else:
                 xbmc.executebuiltin(f"Notification({remodtv_addon_name},Error al activar IPTV Simple.,5000,)")
                 xbmc.log(f"REMOD TV Error al activar IPTV Simple.", level=xbmc.LOGINFO)
@@ -918,7 +902,7 @@ if not ARGS:
 else:
     action = ARGS.get('action', [None])[0]
     if action == "tv":
-        carp = '1' # ok
+        carp = '1'
         res = inst_tv()
         if res:
             ### activar seección TV en menú principal fuente 1
@@ -972,13 +956,13 @@ else:
         lista_menu_fuente()
     ### menú principal iactualizar tv
     elif action == "actualizar":
-        res = actualizar_tv()
+        res = actualizar_tv(fue_act)
         if res:
             ajuste_id = "homemenunotvbutton"
             act_ajuste(ajuste_id)
         else:
             dialog = xbmcgui.Dialog()
-            ret = dialog.yesno(f"{remodtv_addon_name}", f"¿Quieres probar con la Fuente de Repuesto?")
+            ret = dialog.yesno(f"{remodtv_addon_name}", f"Error en fuente {fue_act}. ¿Quieres probar con la Fuente de Repuesto?")
             if ret:
                 xbmc.executebuiltin(f"Notification({remodtv_addon_name},Probando con la Fuente de Repuesto,3000,)")
                 xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=lis_dir_rep)')
@@ -995,8 +979,9 @@ else:
     ### menú selección fuente 1
     elif action == "lis_dir":
         carp = '1'
+        fue_sel = '1 Direct'
         archivos_config()
-        res = actualizar_tv()
+        res = actualizar_tv(fue_sel)
         if res:
             borrar_archivos_config_bak()
             fue_sel = '1 Direct'
@@ -1006,15 +991,16 @@ else:
             dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
         else:
             dialog = xbmcgui.Dialog()
-            ret = dialog.yesno(f"{remodtv_addon_name}", f"¿Quieres probar con la Fuente de Repuesto?")
+            ret = dialog.yesno(f"{remodtv_addon_name}", f"Error en fuente {fue_sel}. ¿Quieres probar con la Fuente de Repuesto?")
             if ret:
                 xbmc.executebuiltin(f"Notification({remodtv_addon_name},Probando con la Fuente de Repuesto,3000,)")
                 xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=lis_dir_rep)')
     ### menú selección fuente 11
     elif action == "lis_dir_rep":
         carp = '11'
+        fue_sel = '1 Direct Repuesto'
         archivos_config()
-        res = actualizar_tv()
+        res = actualizar_tv(fue_sel)
         if res:
             borrar_archivos_config_bak()
             fue_sel = '1 Direct Repuesto'
@@ -1024,15 +1010,16 @@ else:
             dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
         else:
             dialog = xbmcgui.Dialog()
-            ret = dialog.yesno(f"{remodtv_addon_name}", f"¿Quieres probar con la Fuente de Repuesto 2?")
+            ret = dialog.yesno(f"{remodtv_addon_name}", f"Error en fuente {fue_sel}. ¿Quieres probar con la Fuente de Repuesto 2?")
             if ret:
                 xbmc.executebuiltin(f"Notification({remodtv_addon_name},Probando con la Fuente de Repuesto 2,3000,)")
                 xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=lis_dir_rep2)')
     ### menú selección fuente 21
     elif action == "lis_dir_rep2":
         carp = '21'
+        fue_sel = '1 Direct Repuesto 2'
         archivos_config()
-        res = actualizar_tv()
+        res = actualizar_tv(fue_sel)
         if res:
             borrar_archivos_config_bak()
             fue_sel = '1 Direct Repuesto 2'
@@ -1043,8 +1030,9 @@ else:
     ### menú selección fuente 2
     elif action == "lis_ace":
         carp = '2'
+        fue_sel = '2 ACE'
         archivos_config()
-        res = actualizar_tv()
+        res = actualizar_tv(fue_sel)
         if res:
             borrar_archivos_config_bak()
             fue_sel = '2 ACE'
@@ -1054,15 +1042,16 @@ else:
             dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
         else:
             dialog = xbmcgui.Dialog()
-            ret = dialog.yesno(f"{remodtv_addon_name}", f"¿Quieres probar con la Fuente de Repuesto?")
+            ret = dialog.yesno(f"{remodtv_addon_name}", f"Error en fuente {fue_sel}. ¿Quieres probar con la Fuente de Repuesto?")
             if ret:
                 xbmc.executebuiltin(f"Notification({remodtv_addon_name},Probando con la Fuente de Repuesto,3000,)")
                 xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=lis_ace_rep)')            
     ### menú selección fuente 12
     elif action == "lis_ace_rep":
         carp = '12'
+        fue_sel = '2 ACE Repuesto'
         archivos_config()
-        res = actualizar_tv()
+        res = actualizar_tv(fue_sel)
         if res:
             borrar_archivos_config_bak()
             fue_sel = '2 ACE Repuesto'
@@ -1072,15 +1061,16 @@ else:
             dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
         else:
             dialog = xbmcgui.Dialog()
-            ret = dialog.yesno(f"{remodtv_addon_name}", f"¿Quieres probar con la Fuente de Repuesto 2?")
+            ret = dialog.yesno(f"{remodtv_addon_name}", f"Error en fuente {fue_sel}. ¿Quieres probar con la Fuente de Repuesto 2?")
             if ret:
                 xbmc.executebuiltin(f"Notification({remodtv_addon_name},Probando con la Fuente de Repuesto 2,3000,)")
                 xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=lis_ace_rep2)')
     ### menú selección fuente 22
     elif action == "lis_ace_rep2":
         carp = '22'
+        fue_sel = '2 ACE Repuesto 2'
         archivos_config()
-        res = actualizar_tv()
+        res = actualizar_tv(fue_sel)
         if res:
             borrar_archivos_config_bak()
             fue_sel = '2 ACE Repuesto 2'
@@ -1091,8 +1081,9 @@ else:
     ### menú selección fuente 3
     elif action == "lis_hor":
         carp = '3'
+        fue_sel = '3 Horus'
         archivos_config()
-        res = actualizar_tv()
+        res = actualizar_tv(fue_sel)
         if res:
             borrar_archivos_config_bak()
             fue_sel = '3 Horus'
@@ -1102,15 +1093,16 @@ else:
             dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
         else:
             dialog = xbmcgui.Dialog()
-            ret = dialog.yesno(f"{remodtv_addon_name}", f"¿Quieres probar con la Fuente de Repuesto?")
+            ret = dialog.yesno(f"{remodtv_addon_name}", f"Error en fuente {fue_sel}. ¿Quieres probar con la Fuente de Repuesto?")
             if ret:
                 xbmc.executebuiltin(f"Notification({remodtv_addon_name},Probando con la Fuente de Repuesto,3000,)")
                 xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=lis_hor_rep)')
     ### menú selección fuente 13
     elif action == "lis_hor_rep":
         carp = '13'
+        fue_sel = '3 Horus Repuesto'
         archivos_config()
-        res = actualizar_tv()
+        res = actualizar_tv(fue_sel)
         if res:
             borrar_archivos_config_bak()
             fue_sel = '3 Horus Repuesto'
@@ -1120,15 +1112,16 @@ else:
             dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
         else:
             dialog = xbmcgui.Dialog()
-            ret = dialog.yesno(f"{remodtv_addon_name}", f"¿Quieres probar con la Fuente de Repuesto 2?")
+            ret = dialog.yesno(f"{remodtv_addon_name}", f"Error en fuente {fue_sel}. ¿Quieres probar con la Fuente de Repuesto 2?")
             if ret:
                 xbmc.executebuiltin(f"Notification({remodtv_addon_name},Probando con la Fuente de Repuesto 2,3000,)")
                 xbmc.executebuiltin('RunPlugin(plugin://plugin.program.remodtv/?action=lis_hor_rep2)')
     ### menú selección fuente 23
     elif action == "lis_hor_rep2":
         carp = '23'
+        fue_sel = '3 Horus Repuesto 2'
         archivos_config()
-        res = actualizar_tv()
+        res = actualizar_tv(fue_sel)
         if res:
             borrar_archivos_config_bak()
             fue_sel = '3 Horus Repuesto 2'
@@ -1139,8 +1132,9 @@ else:
     ### menú selección fuente 4
     elif action == "lis_rm":
         carp = '4'
+        fue_sel = '4 ReMod TV'
         archivos_config()
-        res = actualizar_tv()
+        res = actualizar_tv(fue_sel)
         if res:
             borrar_archivos_config_bak()
             fue_sel = '4 ReMod TV'
@@ -1151,8 +1145,9 @@ else:
     ### menú selección fuente 5
     elif action == "lis_eve":
         carp = '5'
+        fue_sel = '5 Agenda Deportiva'
         archivos_config()
-        res = actualizar_tv()
+        res = actualizar_tv(fue_sel)
         if res:
             borrar_archivos_config_bak()
             fue_sel = '5 Agenda Deportiva'
@@ -1163,8 +1158,9 @@ else:
     ### menú selección fuente 6
     elif action == "lis_chu":
         carp = '6'
+        fue_sel = '6 Chucky'
         archivos_config()
-        res = actualizar_tv()
+        res = actualizar_tv(fue_sel)
         if res:
             borrar_archivos_config_bak()
             fue_sel = '6 Chucky'

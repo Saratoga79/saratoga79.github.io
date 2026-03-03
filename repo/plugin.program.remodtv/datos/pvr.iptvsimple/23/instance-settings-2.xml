@@ -56,7 +56,7 @@
     <setting id="mediaM3UGroupPath" default="true">2</setting>
     <setting id="mediaForcePlaylist" default="true">false</setting>
     <setting id="mediaVODAsRecordings" default="true">true</setting>
-    <setting id="timeshiftEnabled">true</setting>
+    <setting id="timeshiftEnabled">false</setting>
     <setting id="timeshiftEnabledAll" default="true">true</setting>
     <setting id="timeshiftEnabledHttp" default="true">true</setting>
     <setting id="timeshiftEnabledUdp" default="true">true</setting>
