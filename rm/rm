@@ -3215,14 +3215,14 @@ https://7pal.short.gy/event3
 #EXTINF:-1 cuid="1071" group-title="M3U8" tvg-chno="1071" tvg-id="PPV.EVENTS.Dummy.us" tvg-logo="https://i.imgur.com/LoQdSia.png" tvg-name="Live Event 12",Live Event 12 [FHD@25] [M3U8] (NoSp) (Canal 1071)
 https://7pal.short.gy/event4
 
-#EXTINF:-1 cuid="1072" group-title="M3U8" tvg-chno="1072"  tvg-id="" tvg-logo="https://i.postimg.cc/D43vFj76/PPV1.png" tvg-name="PPV 1, PPV 1" [FHD@30] [M3U8] (ZePr) (Canal 1072)
+#EXTINF:-1 cuid="1072" group-title="M3U8" tvg-chno="1072" tvg-id=""PPV.EVENTS.Dummy.us" tvg-logo="https://i.postimg.cc/D43vFj76/PPV1.png" tvg-name="PPV 1,PPV 1" [FHD@30] [M3U8] (ZePr) (Canal 1072)
 http://tv.diablotv.net:8080/eEiiLll09384Ecaiman34RtR/KTap2pdJx7/178774
 
-#EXTINF:-1 cuid="1073" group-title="M3U8" tvg-chno="1073"  tvg-id="" tvg-logo="https://i.postimg.cc/D43vFj76/PPV1.png" tvg-name="PPV 2, PPV 2" [HD@30] [M3U8] (ZePr) (Canal 1073)
+#EXTINF:-1 cuid="1073" group-title="M3U8" tvg-chno="1073" tvg-id=""PPV.EVENTS.Dummy.us" tvg-logo="https://i.postimg.cc/D43vFj76/PPV1.png" tvg-name="PPV 2,PPV 2" [HD@30] [M3U8] (ZePr) (Canal 1073)
 http://tv.diablotv.net:8080/eEiiLll09384Ecaiman34RtR/KTap2pdJx7/178775
 
-#EXTINF:-1 cuid="1074" group-title="M3U8" tvg-chno="1074"  tvg-id="" tvg-logo="https://i.postimg.cc/D43vFj76/PPV1.png" tvg-name="PPV 3, PPV 3" [FHD@30] [M3U8] (ZePr) (Canal 1074)
+#EXTINF:-1 cuid="1074" group-title="M3U8" tvg-chno="1074" tvg-id=""PPV.EVENTS.Dummy.us" tvg-logo="https://i.postimg.cc/D43vFj76/PPV1.png" tvg-name="PPV 3,PPV 3" [FHD@30] [M3U8] (ZePr) (Canal 1074)
 http://tv.diablotv.net:8080/eEiiLll09384Ecaiman34RtR/KTap2pdJx7/178776
 
-#EXTINF:-1 cuid="1075" group-title="M3U8" tvg-chno="1075"  tvg-id="" tvg-logo="https://i.postimg.cc/D43vFj76/PPV1.png" tvg-name="PPV 4, PPV 4" [FHD@30] [M3U8] (ZePr) (Canal 1075)
+#EXTINF:-1 cuid="1075" group-title="M3U8" tvg-chno="1075" tvg-id=""PPV.EVENTS.Dummy.us" tvg-logo="https://i.postimg.cc/D43vFj76/PPV1.png" tvg-name="PPV 4,PPV 4" [FHD@30] [M3U8] (ZePr) (Canal 1075)
 http://tv.diablotv.net:8080/eEiiLll09384Ecaiman34RtR/KTap2pdJx7/178777
