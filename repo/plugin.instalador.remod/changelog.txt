@@ -1,4 +1,10 @@
 > ReMod Instalador
+> Versión = 26.03.04.0
+> Cambios respecto a la versión anterior:
+	- Nuevo addon de Deportes:
+		- DaddyLive v3
+	- Mejoras y correcciones
+	
 > Versión = 26.02.26.0
 > Cambios respecto a la versión anterior:
 	- Nuevo addon de catálogo de Películas añadido a Jacktook:

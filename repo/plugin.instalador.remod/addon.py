@@ -46,15 +46,15 @@ rein_mul_ace_sel = '0'
 ### changelog
 changelog = os.path.join(remod_instalador_addon_path, 'changelog.txt')
 ### info en log
-# xbmc.log(f"###  INFO REMOD INSTALADOR ADDON ###", level=xbmc.LOGINFO)
-# xbmc.log(f"Path: {remod_instalador_addon_path}", level=xbmc.LOGINFO)
-# xbmc.log(f"Name: {remod_instalador_addon_name}", level=xbmc.LOGINFO)
-# xbmc.log(f"VerSión: {remod_instalador_addon_version}", level=xbmc.LOGINFO)
-# xbmc.log(f"datos: {remod_instalador_addon_datos}", level=xbmc.LOGINFO)
-# xbmc.log(f"Addons Path: {addons_home}", level=xbmc.LOGINFO)
-# xbmc.log(f"Addons Userdata: {addons_userdata}", level=xbmc.LOGINFO)
-# xbmc.log(f"Addons Data: {addons_addon_data}", level=xbmc.LOGINFO)
-# xbmc.log(f"### INFO REMOD INSTALADOR ADDON ###", level=xbmc.LOGINFO)
+xbmc.log(f"###  INFO REMOD INSTALADOR ADDON ###", level=xbmc.LOGINFO)
+xbmc.log(f"Path: {remod_instalador_addon_path}", level=xbmc.LOGINFO)
+xbmc.log(f"Name: {remod_instalador_addon_name}", level=xbmc.LOGINFO)
+xbmc.log(f"VerSión: {remod_instalador_addon_version}", level=xbmc.LOGINFO)
+xbmc.log(f"datos: {remod_instalador_addon_datos}", level=xbmc.LOGINFO)
+xbmc.log(f"Addons Path: {addons_home}", level=xbmc.LOGINFO)
+xbmc.log(f"Addons Userdata: {addons_userdata}", level=xbmc.LOGINFO)
+xbmc.log(f"Addons Data: {addons_addon_data}", level=xbmc.LOGINFO)
+xbmc.log(f"### INFO REMOD INSTALADOR ADDON ###", level=xbmc.LOGINFO)
 
 ### parametros
 BASE_URL = sys.argv[0]
@@ -74,6 +74,7 @@ def lista_menu_principal():
         ("> Sección Cine & TV", "cine", "cinema.png"),
         ("> Sección Herramientas", "herramientas", "herramientas.png"),
         ("> Sección Servidor Multimedia", "serv_multi", "serv_multi.png")
+        # ,
         # ("> Test", "test", "")
     ]
 
@@ -103,6 +104,7 @@ def lista_menu_deportes():
         ("> Instalar Naranjito", "naranjito", "naranjito.png"),
         ("> Instalar The Loop", "loop", "loop.png"),
         ("> Instalar SportHD", "sporthd", "sporthd.png"),
+        ("> Instalar DaddyLive v3", "daddylive", "daddylive.png")
     ]
 
     for label, action, icon_file in menu_items:
@@ -125,13 +127,13 @@ def lista_menu_cine():
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
         (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} | Buscar actualizaciones", "info", "icono.png"),
-        ("> Instalar Jacktook | Películas & Series Stremio | TV en vivo Ace Stream", "jacktook", "jacktook.png"),
+        ("> Instalar Jacktook | Películas & Series Stremio | TV en Vivo Ace Stream", "jacktook", "jacktook.png"),
         ("> Instalar [COLOR red]TACONES[/COLOR]", "tacones", "tacones.png"),
         ("> Instalar Balandro", "balandro", "balandro.png"),
         ("> Instalar Magellan", "magellan", "magellan.png"),
         ("> Instalar Alfa", "alfa", "alfa.png"),
         ("> Instalar EspaDaily", "espadaily", "espadaily.png"),
-        ("> Instalar Moe´s TV | Duff You & Moe´s TV | [COLOR orange]Sin soporte[/COLOR]", "moes", "moes.jpg")
+        ("> Instalar Moe´s TV | [COLOR orange]Sin soporte[/COLOR]", "moes", "moes.jpg")
     ]
 
     for label, action, icon_file in menu_items:
@@ -157,7 +159,7 @@ def lista_menu_herramientas():
         (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} | Buscar actualizaciones", "info", "icono.png"),
         ("> Instalar EZMaintenance+", "ezmaintenanceplus", "ezmaintenance.png"),
         ("> Instalar Log Viewer", "log_viewer", "log_viewer.png"),
-        ("> Instalar Kodi Backup", "backup", "backup.png"),
+        ("> Instalar Kodi Backup", "backup", "backup.png")
     ]
 
     for label, action, icon_file in menu_items:
@@ -1022,8 +1024,6 @@ else:
         buscar_actualizacion()
         ### activar addons descargados
         activar_lista_repos_zip(lista_repos)
-        ### actualizar lista de repos descargados
-        buscar_actualizacion()
         ### instalación de addons desde repo ya instalado
         lista_deps = [
             "script.module.six",
@@ -1068,9 +1068,6 @@ else:
         buscar_actualizacion()
         ### activar addons descargados
         activar_lista_repos_zip(lista_repos)
-        ### actualizar lista de repos descargados
-        buscar_actualizacion()
-        
         ### instalación de addons desde repo ya instalado
         lista_deps = [
             "script.module.six",
@@ -1101,9 +1098,6 @@ else:
             buscar_actualizacion()
             ### activar addons descargados
             activar_lista_repos_zip(lista_repos)
-            ### actualizar lista de repos descargados
-            buscar_actualizacion()
-        
             ### instalación elementum
             lista_deps = ["plugin.video.elementum"]
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementum,1000,{noti_icon})")
@@ -1118,7 +1112,6 @@ else:
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Tacones,3000,{noti_error_icon})")
 
     elif action == "acs_channels":
-        buscar_actualizacion()
         ### descarga addons zip desde url
         lista_repos = [
             "repository.acestream-channels",
@@ -1138,9 +1131,6 @@ else:
         buscar_actualizacion()
         ### activar addons descargados
         activar_lista_repos_zip(lista_repos)
-        ### actualizar lista de repos descargados
-        buscar_actualizacion()
-        
         ### instalación de addons desde repo ya instalado
         lista_deps = [
             "plugin.video.acestream_channels",
@@ -1167,9 +1157,6 @@ else:
         buscar_actualizacion()
         ### activar addons descargados
         activar_lista_repos_zip(lista_repos)
-        ### actualizar lista de repos descargados
-        buscar_actualizacion()
-        
         ### instalación de addons desde repo ya instalado
         lista_deps = ["plugin.video.balandro"]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Balandro,1000,{noti_icon})")
@@ -1198,8 +1185,6 @@ else:
         buscar_actualizacion()
         ### activar addons descargados
         activar_lista_repos_zip(lista_repos)
-        ### actualizar lista de repos descargados
-        buscar_actualizacion()
         ### instalación de addons desde repo ya instalado
         lista_deps = [
             "script.module.six",
@@ -1238,8 +1223,6 @@ else:
         buscar_actualizacion()
         ### activar addons descargados
         activar_lista_repos_zip(lista_repos)
-        ### actualizar lista de repos descargados
-        buscar_actualizacion()
         ### instalación de addons desde repo ya instalado
         lista_deps = ["plugin.video.alfa"]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Alfa,1000,{noti_icon})")
@@ -1280,8 +1263,6 @@ else:
         buscar_actualizacion()
         ### activar addons descargados
         activar_lista_repos_zip(lista_repos)
-        ### actualizar lista de repos descargados
-        buscar_actualizacion()
         ### instalación de addons desde repo ya instalado
         lista_deps = ["plugin.video.espadaily"]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando EspaDaily,1000,{noti_icon})")
@@ -1308,8 +1289,7 @@ else:
         ### actualizar lista de addons para refrersacar addons descargados
         buscar_actualizacion()
         ### activar addons descargados
-        activar_lista_repos_zip(lista_repos)
-                
+        activar_lista_repos_zip(lista_repos)                
         ### instalación elementum y jacktook
         lista_deps = ["plugin.video.jacktook"]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Jacktook,1000,{noti_icon})")
@@ -1508,8 +1488,6 @@ else:
         buscar_actualizacion()
         ### activar addons descargados
         activar_lista_repos_zip(lista_repos)
-        ### actualizar lista de repos descargados
-        buscar_actualizacion()
         ### instalación de addons desde repo ya instalado
         lista_deps = [
             "script.module.unidecode",
@@ -1544,8 +1522,6 @@ else:
         buscar_actualizacion()
         ### activar addons descargados
         if activar_lista_repos_zip(lista_repos):
-            ### actualizar lista de repos descargados
-            buscar_actualizacion()
             ### instalación de addons desde repo ya instalado
             lista_deps = ["script.ezmaintenanceplus"]
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando EZMaintenance+,1000,{noti_icon})")
@@ -1640,8 +1616,6 @@ else:
         buscar_actualizacion()
         ### activar addons descargados
         activar_lista_repos_zip(lista_repos)
-        ### actualizar lista de repos descargados
-        buscar_actualizacion()
         ### instalación de addons desde repo ya instalado
         lista_deps = [
             "script.module.dateutil",
@@ -1654,7 +1628,31 @@ else:
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación SportHD,3000,{noti_ok_icon})")
         else:
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación SportHD,3000,{noti_error_icon})")
-            
+        
+    elif action == "daddylive":
+        ### descarga addons zip desde url
+        lista_repos = ["repository.gwen84"]
+        lista_base_urls = ["https://guenole84.github.io/repository.gwen84/"]
+        lista_patterns = ["repository\.gwen84-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000,{noti_icon})")
+        descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
+        ### actualizar lista de addons para refrersacar addons descargados
+        buscar_actualizacion()
+        ### activar addons descargados
+        activar_lista_repos_zip(lista_repos)
+        ### instalación de addons desde repo ya instalado
+        lista_deps = [
+            "script.module.requests",
+            "script.module.inputstreamhelper",
+            "inputstream.ffmpegdirect",
+            "script.module.six",
+            "plugin.video.daddylive",
+            ]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando DaddyLive v3,1000,{noti_icon})")
+        if instalar_lista_addons(lista_deps):
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación DaddyLive v3,3000,{noti_ok_icon})")
+        else:
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación DaddyLive v3,3000,{noti_error_icon})")
         
     elif action == "pkc":
         version_num,version_nom = obtener_version_kodi()
