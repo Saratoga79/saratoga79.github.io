@@ -1650,6 +1650,13 @@ else:
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando DaddyLive v3,1000,{noti_icon})")
         if instalar_lista_addons(lista_deps):
+            ### configurando ajustes
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Configurando DaddyLive v3,3000,{noti_icon})")
+            addon_set = xbmcaddon.Addon('plugin.video.daddylive')
+            addon_set.setSettingInt('time_format', 1)
+            # addon_set.setSetting('custom_dns', '74.115.172.133') # Lucas
+            addon_set.setSetting('custom_dns', '1.1.1.1') # CF
+            xbmc.sleep(1000)            
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación DaddyLive v3,3000,{noti_ok_icon})")
         else:
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación DaddyLive v3,3000,{noti_error_icon})")
