@@ -73,8 +73,6 @@ acestream://d669c6cee7173a1c8994075f7050a6526655b1dc
 acestream://c21a2524a8de3e1e5b126f2677a3e993d9aa07c4
 #EXTINF:-1 tvg-logo="https://i.ibb.co/R4LBVWP/dazn4.png" tvg-id="DAZN 4 HD" group-title="DAZN", DAZN 4 --> SPORT TV
 acestream://7e90956539f4e1318a63f3960e4f75c7c7c5a3b8
-#EXTINF:-1 tvg-logo="https://assets.laliga.com/assets/2023/07/13/medium/60e1502d7d6098162828bb002e98bdb4.png" tvg-id="GOL PLAY" group-title="DEPORTES", GOL PLAY FHD --> NEW ERA
-acestream://b2d560741c006fc5e4a42412bb52dbd25a6a4a3a
 #EXTINF:-1 tvg-logo="https://github.com/davidmuma/picons_dobleM/blob/master/icon/Esport%203.png?raw=true" tvg-id="Real Madrid TV" group-title="DEPORTES", REAL MADRID TV HD --> NEW ERA
 acestream://7a955964c91c66311eef9137a96332352dbb891e
 #EXTINF:-1 tvg-logo="https://tvprofil.com/img/kanali-logo/Sky_Sports_Arena_GB_logo.png?1734015005" tvg-id="UK | Sky Sport Arena" group-title="DEPORTES", SKY SPORTS ARENA --> NEW LOOP
@@ -113,6 +111,14 @@ acestream://6176281b9c46a5621a0e88524f8dc621f173b8e0
 acestream://7aa9cc819c6fa781dea6b4de3aa5393258b766d8
 #EXTINF:-1 tvg-logo="https://i.ibb.co/M6h4Qyd/euro2.png" tvg-id="Eurosport 2" group-title="EUROSPORT", EUROSPORT 2 HD --> SPORT TV
 acestream://ac675c82d6dfd4a201532c18b42e48dacb7c32c6
+#EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 HD" group-title="FORMULA 1", DAZN F1 4K --> NEW ERA
+acestream://c8ad94585fbe13cfc9074c2b5e23fb6344e0f66d
+#EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 HD" group-title="FORMULA 1", DAZN F1 FHD --> NEW ERA
+acestream://6422e8bc34282871634c81947be093c04ad1bb29
+#EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 HD" group-title="FORMULA 1", DAZN F1 FHD --> NEW ERA
+acestream://d5cf2dfa4fb4165ce58bf9db815088c28fec7711
+#EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 HD" group-title="FORMULA 1", DAZN F1 SD --> NEW ERA
+acestream://4bc6f4cb6697c1defc981c0afe1a4c3a62284aee
 #EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 HD" group-title="FORMULA 1", DAZN F1 FHD --> NEW ERA II
 acestream://b5f3cc5cd66c98bae9d65df43ecee6c02d18aebd
 #EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 HD" group-title="FORMULA 1", DAZN F1 --> ELCANO
@@ -577,8 +583,6 @@ acestream://5268a2b348aa53e325f99054a9da7cf1a2179ec9
 acestream://108b33a44b6ab295f6301d0a2c433a1ef330d5a4
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", Canal+ Sport 3 PL --> NEW LOOP
 acestream://b3f2b59e44fe70f45dca643107f88b6fcff80672
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", DAZN MOTOGP
-acestream://5548659c188e1d4d3b6e756e6c56485eb242abac
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", Dazn motogp FHD ( Solo eventos ) --> NEW ERA III
 acestream://ef341794651e00b7fcc5b5da8570ea37418c5406
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", Esport3 FHDp * --> ELCANO
