@@ -1271,11 +1271,11 @@ http://127.0.0.1:6878/ace/getstream?id=27d11bbeb3026231d52de16b1fac48da7a099247&
 #EXTINF:-1 cuid="423" group-title="ACS" tvg-chno="423" tvg-id="DAZN F1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-f1-es.png" tvg-name="DAZN F1",DAZN F1 [FHD@25] [ACS] (Elc) (Canal 423)
 http://127.0.0.1:6878/ace/getstream?id=fd53cfa7055fe458d4f5c0ff59a06cd43723be55&pid=116
 
-#EXTINF:-1 cuid="424" group-title="ACS" tvg-chno="424" tvg-id="DAZN F1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-f1-es.png" tvg-name="DAZN F1",DAZN F1 [FHD@25] [ACS] (NeEr) (Canal 424)
-http://127.0.0.1:6878/ace/getstream?id=c9c18ae7a9dafba1caae5beb22060f9c92bba553&pid=117
+#EXTINF:-1 cuid="424" group-title="ACS" tvg-chno="424" tvg-id="DAZN F1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-f1-es.png" tvg-name="DAZN F1",DAZN F1 [HD@25] [ACS] (Elc) (Canal 424)
+http://127.0.0.1:6878/ace/getstream?id=88d7cdd80be237ae21314f7f1b6582991498e8ba&pid=117
 
 #EXTINF:-1 cuid="425" group-title="ACS" tvg-chno="425" tvg-id="DAZN F1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-f1-es.png" tvg-name="DAZN F1",DAZN F1 [FHD@25] [ACS] (NeEr) (Canal 425)
-http://127.0.0.1:6878/ace/getstream?id=515efd8115482bda8d92aa6df9a882a5e5797494&pid=118
+http://127.0.0.1:6878/ace/getstream?id=c9c18ae7a9dafba1caae5beb22060f9c92bba553&pid=118
 
 #EXTINF:-1 cuid="426" group-title="ACS" tvg-chno="426" tvg-id="DAZN F1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-f1-es.png" tvg-name="DAZN F1",DAZN F1 [FHD@25] [ACS] (NeEr) (Canal 426)
 http://127.0.0.1:6878/ace/getstream?id=d5cf2dfa4fb4165ce58bf9db815088c28fec7711&pid=119
