@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.acs_extractor" name="ACS Extractor" version="26.03.08.0" provider-name="Junji, ReMod by Saratoga">
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary language="es">Extrae y reproduce enlaces compatibles:
+  - Magnet
+  - Acestream
+        </summary>
+        <description language="es">Necesario Horus</description>
+        <disclaimer>
+> Versión = 26.03.08.0
+> Cambios respecto a la versión original:
+	- Primera versión ReMod
+	- Modificación del addon original de Junji.
+	- Añadida agenda de eventos Deportes Live
+	- Reproducción mediante Horus</disclaimer>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.jpg</icon>
+            <fanart>fanart.jpg</fanart>
+            <screenshot>resources/media/Captura1.jpg</screenshot>
+            <screenshot>resources/media/Captura2.jpg</screenshot>
+            <screenshot>resources/media/Captura3.jpg</screenshot>
+        </assets>
+        <news>
+            - Añadido soporte para enlaces acestream
+            - Añadido soporte para listas en formato m3u.
+            - Mejoras en la interfaz para separar las opciones de cambio de URL y la lista de streams.
+        </news>
+    </extension>
+    <extension point="xbmc.service" library="default.py" />
+    <requires>
+        <import addon="xbmc.python" version="3.0.0" />
+        <import addon="script.module.requests" version="2.25.1" />
+        <import addon="script.module.beautifulsoup4" version="4.9.3" />
+    </requires>
+</addon>
