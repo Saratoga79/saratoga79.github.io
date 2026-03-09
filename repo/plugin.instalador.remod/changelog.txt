@@ -1,4 +1,12 @@
 > ReMod Instalador
+> Versión = 26.03.09.0
+> Cambios respecto a la versión anterior:
+	- Añadido nuevo addon a la sección de Deportes:
+		- ACS Extractor
+	- Addons obsoletos o que no funcionan borrados:
+		- Naranjito
+		- DaddyLive v3
+	
 > Versión = 26.03.05.0
 > Cambios respecto a la versión anterior:
 	- Añadida configuración de DaddyLive con formato horario de 24h y DNS de Cloudflare

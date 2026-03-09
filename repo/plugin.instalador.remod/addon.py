@@ -101,10 +101,10 @@ def lista_menu_deportes():
         ("> Instalar ReMod TV", "remodtv", "remodtv.png"),
         ("> Instalar [COLOR red]Kodi[/COLOR][COLOR yellow]Spain[/COLOR][COLOR red]Tv[/COLOR]", "kodispaintv", "kodispaintv.png"),
         ("> Instalar AceStream Channels", "acs_channels", "acs_channels.png"),
-        ("> Instalar Naranjito", "naranjito", "naranjito.png"),
+        ("> Instalar ACS Extractor", "acs_extractor", "acs_extractor.jpg"),
         ("> Instalar The Loop", "loop", "loop.png"),
-        ("> Instalar SportHD", "sporthd", "sporthd.png"),
-        ("> Instalar DaddyLive v3", "daddylive", "daddylive.png")
+        ("> Instalar SportHD", "sporthd", "sporthd.png")
+        ,
     ]
 
     for label, action, icon_file in menu_items:
@@ -1145,6 +1145,35 @@ else:
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación AceStream Channels,3000,{noti_ok_icon})")
         else:
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Acestream Channels,3000,{noti_error_icon})")
+        
+
+    elif action == "acs_extractor":
+        ### descarga addons zip desde url
+        lista_repos = ["repository.remod"]
+        lista_base_urls = ["https://saratoga79.github.io/"]
+        lista_patterns = ["repository\.remod-\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000,{noti_icon})")
+        descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
+        ### actualizar lista de addons para refrersacar addons descargados
+        buscar_actualizacion()
+        ### activar addons descargados
+        activar_lista_repos_zip(lista_repos)
+        ### instalación de addons desde repo ya instalado
+        lista_deps = [
+            "script.module.requests",
+            "script.module.beautifulsoup4",
+            "plugin.video.acs_extractor",
+            "script.module.horus",
+            ]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando ACS Extractor,1000,{noti_icon})")
+        if instalar_lista_addons(lista_deps):
+            if xbmc.getCondVisibility('system.platform.android'):
+                xbmc.log(f"REMOD INSTALADOR Activando Reproductor Externo en Horus en Android", level=xbmc.LOGINFO)
+                addon_set = xbmcaddon.Addon('script.module.horus')
+                addon_set.setSettingBool('reproductor_externo', True)
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación ACS Extractor,3000,{noti_ok_icon})")
+        else:
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación ACS Extractor,3000,{noti_error_icon})")
         
     elif action == "balandro":
         ### descarga addons zip desde url
