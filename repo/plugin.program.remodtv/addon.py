@@ -115,6 +115,7 @@ def lista_menu_fuente():
         (f" Horus | Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue3')}", "lis_hor", "3.png", True),
         (f" ReMod TV | Tipo de eventos: [COLOR blue][ACS][/COLOR] y [COLOR yellow][M3U8][/COLOR] [COLOR yellow](VPN recomendada)[/COLOR] | Estado: {estados.get('fue4')}", "lis_rm", "4.png", True),
         (f" Agenda Deportiva | Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue5')}", "lis_eve", "5.png", True),
+        (f" Agenda PlatinSport | Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue6')}", "lis_plsp", "6.png", True),
         ("Fuentes de Repuesto:", "", "tv2.png", False),
         (f" Direct | Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue11')}", "lis_dir_rep", "1.png", True),
         (f" ACE | Tipo de eventos: [COLOR blue][ACS][/COLOR] | Estado: {estados.get('fue12')}", "lis_ace_rep", "2.png", True),
@@ -1156,14 +1157,14 @@ else:
             dialog = xbmcgui.Dialog()
             dialog.ok(f"{remodtv_addon_name}", f"Fuente actual: {fue_act}")
     ### menú selección fuente 6
-    elif action == "lis_chu":
+    elif action == "lis_plsp":
         carp = '6'
-        fue_sel = '6 Chucky'
+        fue_sel = '6 Agenda PlatinSport'
         archivos_config()
         res = actualizar_tv(fue_sel)
         if res:
             borrar_archivos_config_bak()
-            fue_sel = '6 Chucky'
+            fue_sel = '6 Agenda PlatinSport'
             guardar_fuente(fue_sel)
             fue_act = leer_fuente()
             dialog = xbmcgui.Dialog()

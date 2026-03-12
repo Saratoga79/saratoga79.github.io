@@ -19,6 +19,10 @@
 	"nombre": "5 Agenda Deportiva",
     "url": "https://raw.githubusercontent.com/ezdakit/zukzeuk_listas/refs/heads/main/ezdakit_eventos.m3u"
   },
+  "fue6": {
+	"nombre": "6 Agenda PlatinSport",
+    "url": "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista.m3u"
+  },
   "fue11": {
 	"nombre": "1 Direct Repuesto",
     "url": "https://k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004.ipns.dweb.link/data/listas/lista_iptv.m3u"

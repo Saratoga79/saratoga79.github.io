@@ -1,4 +1,8 @@
 > ReMod TV
+> Versión = 26.03.12.0
+> Cambios respecto a la versión anterior:
+	- Añadida nueva fuente: 6 Agenda PlatinSport
+	
 > Versión = 26.03.03.0
 > Cambios respecto a la versión anterior:
 	- Fuentes obsoletas borradas: 6 Chucky

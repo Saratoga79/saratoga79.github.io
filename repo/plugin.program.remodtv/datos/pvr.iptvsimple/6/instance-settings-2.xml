@@ -1,9 +1,9 @@
 <settings version="2">
-    <setting id="kodi_addon_instance_name">AgDe</setting>
+    <setting id="kodi_addon_instance_name">PlSp</setting>
     <setting id="kodi_addon_instance_enabled" default="true">true</setting>
     <setting id="m3uPathType" default="true">1</setting>
     <setting id="m3uPath" default="true" />
-    <setting id="m3uUrl">https://raw.githubusercontent.com/ezdakit/zukzeuk_listas/refs/heads/main/ezdakit_eventos.m3u</setting>
+    <setting id="m3uUrl">https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista.m3u</setting>
     <setting id="m3uCache" default="true">true</setting>
     <setting id="startNum" default="true">1</setting>
     <setting id="numberByOrder" default="true">false</setting>

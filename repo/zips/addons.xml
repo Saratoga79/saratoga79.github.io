@@ -177,7 +177,7 @@
 			<fanart>recursos/imagenes/poster.png</fanart>
 		</assets>
 	</extension>
-</addon><addon id="plugin.program.remodtv" name="ReMod TV" version="26.03.03.0" provider-name="Saratoga">
+</addon><addon id="plugin.program.remodtv" name="ReMod TV" version="26.03.12.0" provider-name="Saratoga">
 	<requires>
 		
 		<import addon="xbmc.python" version="3.0.1" />
@@ -192,6 +192,10 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
+&gt; Versión = 26.03.12.0
+&gt; Cambios respecto a la versión anterior:
+	- Añadida nueva fuente: 6 Agenda PlatinSport
+	
 &gt; Versión = 26.03.03.0
 &gt; Cambios respecto a la versión anterior:
 	- Fuentes obsoletas borradas: 6 Chucky
