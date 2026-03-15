@@ -422,26 +422,26 @@ http://sansat.cc:88/02036203895751/4367069580/689365
 #EXTINF:-1 cuid="140" group-title="M3U8" tvg-chno="140" tvg-id="M+ LaLiga 5" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-5-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 5 HD",M+ LaLiga TV 5 [FHD@25] [M3U8] (SaSa3) (Canal 140)
 http://sansat.cc:88/02029852143789/20LYT643M99EZMP/689365
 
-#EXTINF:-1 cuid="141" group-title="ACS" tvg-chno="141" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@50] [ACS] (Elc) (Canal 141)
-http://127.0.0.1:6878/ace/getstream?id=4955867fad3bc92e5b4c36045699fc277800fb18&pid=27
+#EXTINF:-1 cuid="141" group-title="ACS" tvg-chno="141" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@25] [ACS] (SpTv) (Canal 141)
+http://127.0.0.1:6878/ace/getstream?id=dda5d2cace9bc4cb0918e62bc50d657d4a10496a&pid=27
 
-#EXTINF:-1 cuid="142" group-title="ACS" tvg-chno="142" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@50] [ACS] (NeEr) (Canal 142)
-http://127.0.0.1:6878/ace/getstream?id=19f28f60c908f987b1a03da078e63320d7bf29e8&pid=28
+#EXTINF:-1 cuid="142" group-title="ACS" tvg-chno="142" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@25] [ACS] (NeEr6) (Canal 142)
+http://127.0.0.1:6878/ace/getstream?id=71cb5e2567a8b39f5bdc4fa791992781b052f0bc&pid=28
 
-#EXTINF:-1 cuid="143" group-title="ACS" tvg-chno="143" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@50] [ACS] (NeEr6) (Canal 143)
-http://127.0.0.1:6878/ace/getstream?id=71cb5e2567a8b39f5bdc4fa791992781b052f0bc&pid=29
+#EXTINF:-1 cuid="143" group-title="ACS" tvg-chno="143" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@25] [ACS] (Elc) (Canal 143)
+http://127.0.0.1:6878/ace/getstream?id=a231b2fa1f7754433efeb8bb8d69d7b9096dcba8&pid=29
 
-#EXTINF:-1 cuid="144" group-title="ACS" tvg-chno="144" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@25] [ACS] (SpTv) (Canal 144)
-http://127.0.0.1:6878/ace/getstream?id=dda5d2cace9bc4cb0918e62bc50d657d4a10496a&pid=30
+#EXTINF:-1 cuid="144" group-title="ACS" tvg-chno="144" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@25] [ACS] (Elc) (Canal 144)
+http://127.0.0.1:6878/ace/getstream?id=eb4975702ceadca7ed74f8707e17a9f55569dbb9&pid=30
 
 #EXTINF:-1 cuid="145" group-title="ACS" tvg-chno="145" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@25] [ACS] (Elc) (Canal 145)
-http://127.0.0.1:6878/ace/getstream?id=a231b2fa1f7754433efeb8bb8d69d7b9096dcba8&pid=31
+http://127.0.0.1:6878/ace/getstream?id=cc108ae39f92c48f6c946763047bd1c9b7b7d889&pid=31
 
-#EXTINF:-1 cuid="146" group-title="ACS" tvg-chno="146" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@25] [ACS] (Elc) (Canal 146)
-http://127.0.0.1:6878/ace/getstream?id=cc108ae39f92c48f6c946763047bd1c9b7b7d889&pid=32
+#EXTINF:-1 cuid="146" group-title="ACS" tvg-chno="146" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@50] [ACS] (NeEr) (Canal 146)
+http://127.0.0.1:6878/ace/getstream?id=19f28f60c908f987b1a03da078e63320d7bf29e8&pid=32
 
-#EXTINF:-1 cuid="147" group-title="ACS" tvg-chno="147" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@25] [ACS] (Elc) (Canal 147)
-http://127.0.0.1:6878/ace/getstream?id=eb4975702ceadca7ed74f8707e17a9f55569dbb9&pid=33
+#EXTINF:-1 cuid="147" group-title="ACS" tvg-chno="147" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [HD@50] [ACS] (Elc) (Canal 147)
+http://127.0.0.1:6878/ace/getstream?id=4955867fad3bc92e5b4c36045699fc277800fb18&pid=33
 
 #EXTINF:-1 cuid="148" group-title="ACS" tvg-chno="148" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [KO] [HD@25] [ACS] (Elc) (Canal 148)
 http://127.0.0.1:6878/ace/getstream?id=9c75f1d190c518cfe0f236415b8dccc1f676ef3b&pid=34
