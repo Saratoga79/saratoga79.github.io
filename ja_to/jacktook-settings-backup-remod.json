@@ -1,0 +1,1267 @@
+{
+  "addon_id": "plugin.video.jacktook",
+  "addon_version": "1.5.2",
+  "backup_version": 1,
+  "cache": {
+    "custom_stremio_addons": [
+      {
+        "manifest": {
+          "background": "https://tmdb.elfhosted.com/background.png",
+          "behaviorHints": {
+            "configurable": true,
+            "configurationRequired": false
+          },
+          "catalogs": [
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "Acci\u00f3n",
+                    "Animaci\u00f3n",
+                    "Aventura",
+                    "B\u00e9lica",
+                    "Ciencia ficci\u00f3n",
+                    "Comedia",
+                    "Crimen",
+                    "Documental",
+                    "Drama",
+                    "Familia",
+                    "Fantas\u00eda",
+                    "Historia",
+                    "Misterio",
+                    "M\u00fasica",
+                    "Pel\u00edcula de TV",
+                    "Romance",
+                    "Suspense",
+                    "Terror",
+                    "Western"
+                  ]
+                },
+                {
+                  "name": "skip"
+                }
+              ],
+              "id": "tmdb.latest",
+              "name": "\u00daltimos Lanzamientos",
+              "pageSize": 20,
+              "type": "movie"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "Action & Adventure",
+                    "Animaci\u00f3n",
+                    "Comedia",
+                    "Crimen",
+                    "Documental",
+                    "Drama",
+                    "Familia",
+                    "Kids",
+                    "Misterio",
+                    "News",
+                    "Reality",
+                    "Sci-Fi & Fantasy",
+                    "Soap",
+                    "Talk",
+                    "War & Politics",
+                    "Western"
+                  ]
+                },
+                {
+                  "name": "skip"
+                }
+              ],
+              "id": "tmdb.latest",
+              "name": "\u00daltimos Lanzamientos",
+              "pageSize": 20,
+              "type": "series"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "Day",
+                    "Week"
+                  ]
+                },
+                {
+                  "name": "skip"
+                }
+              ],
+              "id": "tmdb.trending",
+              "name": "Tendencias",
+              "pageSize": 20,
+              "type": "movie"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "Day",
+                    "Week"
+                  ]
+                },
+                {
+                  "name": "skip"
+                }
+              ],
+              "id": "tmdb.trending",
+              "name": "Tendencias",
+              "pageSize": 20,
+              "type": "series"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "Acci\u00f3n",
+                    "Animaci\u00f3n",
+                    "Aventura",
+                    "B\u00e9lica",
+                    "Ciencia ficci\u00f3n",
+                    "Comedia",
+                    "Crimen",
+                    "Documental",
+                    "Drama",
+                    "Familia",
+                    "Fantas\u00eda",
+                    "Historia",
+                    "Misterio",
+                    "M\u00fasica",
+                    "Pel\u00edcula de TV",
+                    "Romance",
+                    "Suspense",
+                    "Terror",
+                    "Western"
+                  ]
+                },
+                {
+                  "name": "skip"
+                }
+              ],
+              "id": "tmdb.top",
+              "name": "Popular",
+              "pageSize": 20,
+              "type": "movie"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "Action & Adventure",
+                    "Animaci\u00f3n",
+                    "Comedia",
+                    "Crimen",
+                    "Documental",
+                    "Drama",
+                    "Familia",
+                    "Kids",
+                    "Misterio",
+                    "News",
+                    "Reality",
+                    "Sci-Fi & Fantasy",
+                    "Soap",
+                    "Talk",
+                    "War & Politics",
+                    "Western"
+                  ]
+                },
+                {
+                  "name": "skip"
+                }
+              ],
+              "id": "tmdb.top",
+              "name": "Popular",
+              "pageSize": 20,
+              "type": "series"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "2026",
+                    "2025",
+                    "2024",
+                    "2023",
+                    "2022",
+                    "2021",
+                    "2020",
+                    "2019",
+                    "2018",
+                    "2017",
+                    "2016",
+                    "2015",
+                    "2014",
+                    "2013",
+                    "2012",
+                    "2011",
+                    "2010",
+                    "2009",
+                    "2008",
+                    "2007",
+                    "2006"
+                  ]
+                },
+                {
+                  "name": "skip"
+                }
+              ],
+              "id": "tmdb.year",
+              "name": "A\u00f1o",
+              "pageSize": 20,
+              "type": "movie"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "2026",
+                    "2025",
+                    "2024",
+                    "2023",
+                    "2022",
+                    "2021",
+                    "2020",
+                    "2019",
+                    "2018",
+                    "2017",
+                    "2016",
+                    "2015",
+                    "2014",
+                    "2013",
+                    "2012",
+                    "2011",
+                    "2010",
+                    "2009",
+                    "2008",
+                    "2007",
+                    "2006"
+                  ]
+                },
+                {
+                  "name": "skip"
+                }
+              ],
+              "id": "tmdb.year",
+              "name": "A\u00f1o",
+              "pageSize": 20,
+              "type": "series"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "Spanish",
+                    "Afrikaans",
+                    "Albanian",
+                    "Arabic",
+                    "Basque",
+                    "Belarusian",
+                    "Bengali",
+                    "Breton",
+                    "Bulgarian",
+                    "Catalan",
+                    "Chamorro",
+                    "Croatian",
+                    "Czech",
+                    "Danish",
+                    "Dutch",
+                    "English",
+                    "Esperanto",
+                    "Estonian",
+                    "Finnish",
+                    "French",
+                    "Gaelic",
+                    "Galician",
+                    "Georgian",
+                    "German",
+                    "Greek",
+                    "Hebrew",
+                    "Hindi",
+                    "Hungarian",
+                    "Indonesian",
+                    "Irish",
+                    "Italian",
+                    "Japanese",
+                    "Kannada",
+                    "Kazakh",
+                    "Kirghiz",
+                    "Korean",
+                    "Kurdish",
+                    "Latvian",
+                    "Lithuanian",
+                    "Malay",
+                    "Malayalam",
+                    "Mandarin",
+                    "Marathi",
+                    "Nepali",
+                    "Norwegian",
+                    "Norwegian Bokm\u00e5l",
+                    "Occitan",
+                    "Persian",
+                    "Polish",
+                    "Portuguese",
+                    "Punjabi",
+                    "Romanian",
+                    "Russian",
+                    "Serbian",
+                    "Sinhalese",
+                    "Slovak",
+                    "Slovenian",
+                    "Somali",
+                    "Swahili",
+                    "Swedish",
+                    "Tagalog",
+                    "Tamil",
+                    "Telugu",
+                    "Thai",
+                    "Turkish",
+                    "Ukrainian",
+                    "Urdu",
+                    "Uzbek",
+                    "Vietnamese",
+                    "Welsh",
+                    "Zulu"
+                  ]
+                },
+                {
+                  "name": "skip"
+                }
+              ],
+              "id": "tmdb.language",
+              "name": "Idioma",
+              "pageSize": 20,
+              "type": "movie"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "Spanish",
+                    "Afrikaans",
+                    "Albanian",
+                    "Arabic",
+                    "Basque",
+                    "Belarusian",
+                    "Bengali",
+                    "Breton",
+                    "Bulgarian",
+                    "Catalan",
+                    "Chamorro",
+                    "Croatian",
+                    "Czech",
+                    "Danish",
+                    "Dutch",
+                    "English",
+                    "Esperanto",
+                    "Estonian",
+                    "Finnish",
+                    "French",
+                    "Gaelic",
+                    "Galician",
+                    "Georgian",
+                    "German",
+                    "Greek",
+                    "Hebrew",
+                    "Hindi",
+                    "Hungarian",
+                    "Indonesian",
+                    "Irish",
+                    "Italian",
+                    "Japanese",
+                    "Kannada",
+                    "Kazakh",
+                    "Kirghiz",
+                    "Korean",
+                    "Kurdish",
+                    "Latvian",
+                    "Lithuanian",
+                    "Malay",
+                    "Malayalam",
+                    "Mandarin",
+                    "Marathi",
+                    "Nepali",
+                    "Norwegian",
+                    "Norwegian Bokm\u00e5l",
+                    "Occitan",
+                    "Persian",
+                    "Polish",
+                    "Portuguese",
+                    "Punjabi",
+                    "Romanian",
+                    "Russian",
+                    "Serbian",
+                    "Sinhalese",
+                    "Slovak",
+                    "Slovenian",
+                    "Somali",
+                    "Swahili",
+                    "Swedish",
+                    "Tagalog",
+                    "Tamil",
+                    "Telugu",
+                    "Thai",
+                    "Turkish",
+                    "Ukrainian",
+                    "Urdu",
+                    "Uzbek",
+                    "Vietnamese",
+                    "Welsh",
+                    "Zulu"
+                  ]
+                },
+                {
+                  "name": "skip"
+                }
+              ],
+              "id": "tmdb.language",
+              "name": "Idioma",
+              "pageSize": 20,
+              "type": "series"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": true,
+                  "name": "search",
+                  "options": []
+                }
+              ],
+              "id": "tmdb.search",
+              "name": "Search",
+              "type": "movie"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": true,
+                  "name": "search",
+                  "options": []
+                }
+              ],
+              "id": "tmdb.search",
+              "name": "Search",
+              "type": "series"
+            }
+          ],
+          "description": "Stremio addon that provides rich metadata for movies and TV shows from TMDB, featuring customizable catalogs, multi-language support, favorites lists, watchlist, ratings, and IMDb integration. Current settings: Language: es-ES | TMDB Account: Not Connected | Trakt Integration: Not Connected | MDBList Integration: Not Connected | IMDb Integration: Disabled | RPDB Integration: Disabled | Search: Enabled | Active Catalogs: 12",
+          "favicon": "https://tmdb.elfhosted.com/favicon.png",
+          "id": "tmdb-addon",
+          "idPrefixes": [
+            "tmdb:"
+          ],
+          "logo": "https://tmdb.elfhosted.com/logo.png",
+          "name": "The Movie Database Addon",
+          "resources": [
+            "catalog",
+            "meta"
+          ],
+          "stremioAddonsConfig": {
+            "issuer": "https://stremio-addons.net",
+            "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..DTiTHmYyIbuTMPJB35cqsw.S2C6xuCL9OoHJbtX97v-2w3IM4iFqr2Qy4xRRlvyzIY2fZAcwmm6JUMdsc2LSTigIPQeGPomaqX53ECt23cJKuH-IKs4hHLH4sLYRZNL_VC0YefQNrWjMRZ75Yz-bVx3.DJZBtIb1bOCq6Z62AMUGvw"
+          },
+          "types": [
+            "movie",
+            "series"
+          ],
+          "version": "3.1.7"
+        },
+        "transportName": "custom",
+        "transportUrl": "https://tmdb.elfhosted.com/N4IgTgDgJgRgsgUygSwIYBUCeEEGcQBcoEA9rgC4JiHlgCuCANCADYkDmJhAZqi7kxAxUAYwDWUMCQg8+AgL7NyAW1gBBCMgDSCTIRBQRCAJyoAjAHYADNwsIrAFgCsUVFYBMUAGxn7r1MYw7sFWIMwsqAB27HSo7Aj6eAC0AKIAymEgFGAIqMrI0YQA2gC6zCKo5Hwc+ARFoMhQ+iqwAHQRlBSZ5NgJBCDKJABuyAnMkXl9IAAylXjkAAQASggsuQL4zLgAFiQA7gCSkQASJMp9tAyKDU39LTDtc11KvfoCYKObIBPn+rOdixWa1QG0yO32R1OvwIlwQ1xAjWaqgetAQkRQhReOH0gxGY2+k306By6IK7DBu0OJzOF3ocMYNyRbVRpMxIB62P670+mR+U2JaIx5K2lMhNJodPhiLuyNa5Gk3Ve-Vxo15hP6AAVpHQItQRRDqdDYVLbuzZfKZFipty8GroSAtRAdag9VlRYbaVcGQjTfdWphcq6OVMVfi+foAJqBikGqGe+mMmVtAMuxWcrJUHnjdUgKOp-VUuMSr2Js1tCLRWLxNMh4aq7P22aVuL48GF8UwyXe6Vlh4VmItmtvTO2htTJsD6sFsVGyVlEAVCgAYRIdEi5EITgLaniS0qZKOAHE0Tlauy6Zk0agYGsdwg9+QyfpePxW5S7w+yQB1ZDkbYHZFP0KfoXwEMFaGQERyBWdhkBISIADFkBYShqBAuR8RQWCqhYIF1gQJCUKoWRX3kIA/manifest.json"
+      },
+      {
+        "manifest": {
+          "behaviorHints": {
+            "adult": false,
+            "configurable": true,
+            "configurationRequired": true,
+            "p2p": true
+          },
+          "catalogs": [
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "1rfef",
+                    "Deportes"
+                  ]
+                }
+              ],
+              "id": "1rfef",
+              "name": "1rfef",
+              "type": "tv"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "dazn",
+                    "Deportes"
+                  ]
+                }
+              ],
+              "id": "dazn",
+              "name": "DAZN",
+              "type": "tv"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "deportes",
+                    "Deportes"
+                  ]
+                }
+              ],
+              "id": "deportes",
+              "name": "Deportes",
+              "type": "tv"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "eurosport",
+                    "Deportes"
+                  ]
+                }
+              ],
+              "id": "eurosport",
+              "name": "Eurosport",
+              "type": "tv"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "eventos",
+                    "Deportes"
+                  ]
+                }
+              ],
+              "id": "eventos",
+              "name": "Eventos",
+              "type": "tv"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "formula_1",
+                    "Deportes"
+                  ]
+                }
+              ],
+              "id": "formula_1",
+              "name": "Formula 1",
+              "type": "tv"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "futbol_int",
+                    "Deportes"
+                  ]
+                }
+              ],
+              "id": "futbol_int",
+              "name": "Futbol Int",
+              "type": "tv"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "hypermotion",
+                    "Deportes"
+                  ]
+                }
+              ],
+              "id": "hypermotion",
+              "name": "Hypermotion",
+              "type": "tv"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "la_liga",
+                    "Deportes"
+                  ]
+                }
+              ],
+              "id": "la_liga",
+              "name": "La Liga",
+              "type": "tv"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "liga_de_campeones",
+                    "Deportes"
+                  ]
+                }
+              ],
+              "id": "liga_de_campeones",
+              "name": "Champions League",
+              "type": "tv"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "liga_endesa",
+                    "Deportes"
+                  ]
+                }
+              ],
+              "id": "liga_endesa",
+              "name": "Liga Endesa",
+              "type": "tv"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "motor",
+                    "Deportes"
+                  ]
+                }
+              ],
+              "id": "motor",
+              "name": "Motor",
+              "type": "tv"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "movistar",
+                    "Deportes"
+                  ]
+                }
+              ],
+              "id": "movistar",
+              "name": "Movistar+",
+              "type": "tv"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "movistar_deportes",
+                    "Deportes"
+                  ]
+                }
+              ],
+              "id": "movistar_deportes",
+              "name": "Movistar Deportes",
+              "type": "tv"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "otros",
+                    "Entretenimiento"
+                  ]
+                }
+              ],
+              "id": "otros",
+              "name": "Otros",
+              "type": "tv"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "sport_tv",
+                    "Deportes"
+                  ]
+                }
+              ],
+              "id": "sport_tv",
+              "name": "Sport Tv",
+              "type": "tv"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "tdt",
+                    "Deportes"
+                  ]
+                }
+              ],
+              "id": "tdt",
+              "name": "TDT Espa\u00f1a",
+              "type": "tv"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "tennis",
+                    "Deportes"
+                  ]
+                }
+              ],
+              "id": "tennis",
+              "name": "Tennis",
+              "type": "tv"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "genre",
+                  "options": [
+                    "ufc",
+                    "Deportes"
+                  ]
+                }
+              ],
+              "id": "ufc",
+              "name": "UFC",
+              "type": "tv"
+            }
+          ],
+          "config": [
+            {
+              "default": "127.0.0.1",
+              "key": "acestream_host",
+              "required": true,
+              "title": "Acestream Host/IP",
+              "type": "text"
+            },
+            {
+              "default": "6878",
+              "key": "acestream_port",
+              "required": true,
+              "title": "Acestream Port",
+              "type": "text"
+            }
+          ],
+          "description": "Live TV channels from New Era via Acestream",
+          "extraSupported": [
+            "epg"
+          ],
+          "id": "com.newera.iptv",
+          "idPrefixes": [
+            "channel_"
+          ],
+          "logo": "https://blush-perfect-echidna-114.mypinata.cloud/ipfs/bafkreieohavwfsz2runnyffnxbf6hs4xqqdb6rfq27obffu5ctkdj2vjme",
+          "name": "ACE New Era IPTV",
+          "ownerAddress": "0xce911739ecfc3258daef5cf6824155703259268e",
+          "resources": [
+            "catalog",
+            "meta",
+            "stream"
+          ],
+          "signature": "c7de619578f5b7807fd3309054e165694dfbf95643c6bac2362e557a5228930d05809cac95f0e5b01a20941f31c73269242404872a1fa3f18ccf229841eb877101",
+          "types": [
+            "tv"
+          ],
+          "version": "1.0.30"
+        },
+        "transportName": "custom",
+        "transportUrl": "https://stremio.jopsis-addons.mywire.org/manifest.json"
+      },
+      {
+        "manifest": {
+          "background": "https://torrentio.strem.fun/images/background_v1.jpg",
+          "behaviorHints": {
+            "configurable": true,
+            "configurationRequired": false
+          },
+          "catalogs": [],
+          "description": "Provides torrent streams from scraped torrent providers. Currently supports YTS(-), EZTV(-), RARBG(-), 1337x(-), ThePirateBay(-), KickassTorrents(-), TorrentGalaxy(-), MagnetDL(-), HorribleSubs(-), NyaaSi(-), TokyoTosho(-), AniDex(-), nekoBT(-), Rutor(-), Rutracker(-), Comando(-), BluDV(-), MicoLeaoDublado(-), Torrent9(-), ilCorSaRoNeRo(-), MejorTorrent(+), Wolfmax4k(+), Cinecalidad(+), BestTorrents(-). To configure providers, RealDebrid/Premiumize/AllDebrid/DebridLink/EasyDebrid/Offcloud/TorBox/Put.io support and other settings visit https://torrentio.strem.fun",
+          "id": "com.stremio.torrentio.addon",
+          "logo": "https://torrentio.strem.fun/images/logo_v1.png",
+          "name": "Torrentio",
+          "resources": [
+            {
+              "idPrefixes": [
+                "tt",
+                "kitsu"
+              ],
+              "name": "stream",
+              "types": [
+                "movie",
+                "series",
+                "anime"
+              ]
+            }
+          ],
+          "types": [
+            "movie",
+            "series",
+            "anime",
+            "other"
+          ],
+          "version": "0.0.15"
+        },
+        "transportName": "custom",
+        "transportUrl": "https://torrentio.strem.fun/providers=mejortorrent,wolfmax4k,cinecalidad%7Clanguage=spanish%7Cqualityfilter=threed,scr,cam/manifest.json"
+      },
+      {
+        "manifest": {
+          "background": "https://via.placeholder.com/1920x1080/1a1a1a/FF6B35?text=TOP+STREAMING",
+          "behaviorHints": {
+            "configurable": true,
+            "configurationRequired": false
+          },
+          "catalogs": [
+            {
+              "id": "netflix-movie-spain",
+              "name": "Netflix - Top 10 Spain",
+              "type": "movie"
+            },
+            {
+              "id": "netflix-series-spain",
+              "name": "Netflix - Top 10 Spain",
+              "type": "series"
+            },
+            {
+              "id": "netflix-kids-movies-spain",
+              "name": "Netflix - \ud83d\udccb kids-movies (Movies) Spain",
+              "type": "movie"
+            },
+            {
+              "id": "netflix-kids-series-spain",
+              "name": "Netflix - \ud83d\udccb kids-series (Series) Spain",
+              "type": "series"
+            },
+            {
+              "id": "amazon-prime-movie-spain",
+              "name": "Amazon Prime Video - Top 10 Spain",
+              "type": "movie"
+            },
+            {
+              "id": "amazon-prime-series-spain",
+              "name": "Amazon Prime Video - Top 10 Spain",
+              "type": "series"
+            },
+            {
+              "id": "disney-unified-spain",
+              "name": "Disney+ - Top 10 Spain - Movies",
+              "type": "series"
+            },
+            {
+              "id": "disney-overall-spain",
+              "name": "Disney+ - \ud83c\udfc6 Overall Spain",
+              "type": "series"
+            },
+            {
+              "id": "apple-tv-movie-spain",
+              "name": "Apple TV - Top 10 Spain",
+              "type": "movie"
+            },
+            {
+              "id": "apple-tv-series-spain",
+              "name": "Apple TV - Top 10 Spain",
+              "type": "series"
+            },
+            {
+              "id": "skyshowtime-movie-spain",
+              "name": "SkyShowtime - Top 10 Spain",
+              "type": "movie"
+            },
+            {
+              "id": "skyshowtime-series-spain",
+              "name": "SkyShowtime - Top 10 Spain",
+              "type": "series"
+            },
+            {
+              "id": "hbo-max-movie-spain",
+              "name": "HBO Max - Top 10 Spain",
+              "type": "movie"
+            },
+            {
+              "id": "hbo-max-series-spain",
+              "name": "HBO Max - Top 10 Spain",
+              "type": "series"
+            },
+            {
+              "id": "rakuten-tv-unified-spain",
+              "name": "Rakuten TV - Top 10 Spain - Movies",
+              "type": "series"
+            }
+          ],
+          "description": "Top 10 Catalog Lists from the main Streaming Platforms - Available Platforms: 40, Available Countries: 93",
+          "id": "default.spain.topstreaming.flixpatrol",
+          "idPrefixes": [
+            "tt",
+            "tmdb:"
+          ],
+          "logo": "https://top-streaming.stream/logo.png",
+          "name": "TOP Streaming",
+          "resources": [
+            "catalog",
+            "meta"
+          ],
+          "types": [
+            "movie",
+            "series"
+          ],
+          "version": "4.2.1"
+        },
+        "transportName": "custom",
+        "transportUrl": "https://top-streaming.stream/username=saratoga&contentLanguage=es-ES&platforms=netflix%3Aspain%3Atrue%3Atrue%2Camazon-prime%3Aspain%3Atrue%3Atrue%2Cdisney%3Aspain%3Atrue%3Atrue%2Capple-tv%3Aspain%3Atrue%3Atrue%2Cskyshowtime%3Aspain%3Atrue%3Atrue%2Chbo-max%3Aspain%3Atrue%3Atrue%2Crakuten-tv%3Aspain%3Atrue%3Atrue/manifest.json"
+      },
+      {
+        "manifest": {
+          "catalogs": [],
+          "description": "Find where to stream your favorite movies and shows amongst Netflix, iTunes, Hulu, Amazon, HBO GO and many others. Supports many countries.",
+          "id": "org.stremio.watchhub",
+          "idPrefixes": [
+            "tt"
+          ],
+          "logo": "https://www.strem.io/images/watchhub-logo.png",
+          "name": "WatchHub",
+          "resources": [
+            "stream"
+          ],
+          "types": [
+            "movie",
+            "series"
+          ],
+          "version": "1.15.0"
+        },
+        "transportName": "custom",
+        "transportUrl": "https://watchhub-v2.strem.io/manifest.json"
+      },
+      {
+        "manifest": {
+          "background": "https://i.ibb.co/vL3SKgX/peerflix-background-2.jpg",
+          "behaviorHints": {
+            "configurable": true,
+            "configurationRequired": false
+          },
+          "catalogs": [],
+          "description": "Peerflix proporciona los mejores enlaces en espa\u00f1ol e ingl\u00e9s de pel\u00edculas y series de TV en Stremio.Para configurar proveedores de chache, RealDebrid/Premiumize/AllDebrid/DebridLink/Offcloud/Put.io/Torbox visita https://addon.peerflix.mov/configure",
+          "id": "com.keopps.peerflix",
+          "logo": "https://peerflix.mov/static/logo.png",
+          "name": "Peerflix",
+          "resources": [
+            {
+              "idPrefixes": [
+                "tt",
+                "kitsu"
+              ],
+              "name": "stream",
+              "types": [
+                "movie",
+                "series"
+              ]
+            }
+          ],
+          "types": [
+            "movie",
+            "series"
+          ],
+          "version": "2.7.4"
+        },
+        "transportName": "custom",
+        "transportUrl": "https://addon.peerflix.mov/language=es%7Cqualityfilter=threed,540p,480p,sd,vhs,screener%7Csort=language-desc/manifest.json"
+      },
+      {
+        "manifest": {
+          "behaviorHints": {
+            "configurable": true,
+            "configurationRequired": false
+          },
+          "catalogs": [],
+          "description": "A multi-server streaming addon.",
+          "id": "com.stremify",
+          "idPrefixes": [
+            "tmdb:",
+            "tt",
+            "kitsu:"
+          ],
+          "logo": "https://i.ibb.co/GWB1pwy/160156210.png",
+          "name": "Stremify | Hayduk",
+          "resources": [
+            "stream"
+          ],
+          "types": [
+            "movie",
+            "series"
+          ],
+          "version": "2.7.0"
+        },
+        "transportName": "custom",
+        "transportUrl": "https://stremify.hayd.uk/YnVpbHQtaW4sY2luZWhkcGx1cyx2ZXJoZGxpbms=/manifest.json"
+      },
+      {
+        "manifest": {
+          "catalogs": [
+            {
+              "id": "helloworldmovies",
+              "type": "movie"
+            },
+            {
+              "id": "helloworldseries",
+              "type": "series"
+            }
+          ],
+          "description": "Explora un universo de emocionantes pel\u00edculas en espa\u00f1ol con nuestro complemento Stremio. Desde \u00e9xitos de taquilla hasta joyas cinematogr\u00e1ficas ocultas, disfruta de una amplia variedad de g\u00e9neros. Nuestra colecci\u00f3n en constante crecimiento ofrece streaming de alta calidad y opciones para todos los gustos. Descubre el cine en espa\u00f1ol desde la comodidad de tu pantalla. \u00a1Instala nuestro addon y sum\u00e9rgete en un mundo de entretenimiento sin l\u00edmites! \ud83c\udfac\ud83c\udf7f",
+          "id": "org.stremio.helloworld",
+          "idPrefixes": [
+            "tt"
+          ],
+          "name": "Latin movies",
+          "resources": [
+            "catalog",
+            "stream"
+          ],
+          "types": [
+            "movie",
+            "series"
+          ],
+          "version": "2.0.0"
+        },
+        "transportName": "custom",
+        "transportUrl": "https://latinmovies.vercel.app/manifest.json"
+      },
+      {
+        "manifest": {
+          "catalogs": [
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "skip"
+                }
+              ],
+              "id": "cinemacove-list-8635033-movie",
+              "name": "CC-Wolfmax2026",
+              "type": "movie"
+            },
+            {
+              "extra": [
+                {
+                  "isRequired": false,
+                  "name": "skip"
+                }
+              ],
+              "id": "cinemacove-list-8635033-series",
+              "name": "CC-Wolfmax2026",
+              "type": "series"
+            }
+          ],
+          "id": "com.cinemacove.list.69985ddadcb0218a90c6057f.8635033",
+          "name": "CinemaCove \u2013 Wolfmax2026",
+          "resources": [
+            "catalog"
+          ],
+          "types": [
+            "movie",
+            "series"
+          ],
+          "version": "1.0.0"
+        },
+        "transportName": "custom",
+        "transportUrl": "https://cinema-cove-api.onrender.com/api/6998bf790dd4f007b19c9eaa/manifest.json"
+      }
+    ],
+    "custom_stremio_selections": {
+      "catalog": [
+        "tmdb-addon|https://tmdb.elfhosted.com/N4IgTgDgJgRgsgUygSwIYBUCeEEGcQBcoEA9rgC4JiHlgCuCANCADYkDmJhAZqi7kxAxUAYwDWUMCQg8+AgL7NyAW1gBBCMgDSCTIRBQRCAJyoAjAHYADNwsIrAFgCsUVFYBMUAGxn7r1MYw7sFWIMwsqAB27HSo7Aj6eAC0AKIAymEgFGAIqMrI0YQA2gC6zCKo5Hwc+ARFoMhQ+iqwAHQRlBSZ5NgJBCDKJABuyAnMkXl9IAAylXjkAAQASggsuQL4zLgAFiQA7gCSkQASJMp9tAyKDU39LTDtc11KvfoCYKObIBPn+rOdixWa1QG0yO32R1OvwIlwQ1xAjWaqgetAQkRQhReOH0gxGY2+k306By6IK7DBu0OJzOF3ocMYNyRbVRpMxIB62P670+mR+U2JaIx5K2lMhNJodPhiLuyNa5Gk3Ve-Vxo15hP6AAVpHQItQRRDqdDYVLbuzZfKZFipty8GroSAtRAdag9VlRYbaVcGQjTfdWphcq6OVMVfi+foAJqBikGqGe+mMmVtAMuxWcrJUHnjdUgKOp-VUuMSr2Js1tCLRWLxNMh4aq7P22aVuL48GF8UwyXe6Vlh4VmItmtvTO2htTJsD6sFsVGyVlEAVCgAYRIdEi5EITgLaniS0qZKOAHE0Tlauy6Zk0agYGsdwg9+QyfpePxW5S7w+yQB1ZDkbYHZFP0KfoXwEMFaGQERyBWdhkBISIADFkBYShqBAuR8RQWCqhYIF1gQJCUKoWRX3kIA",
+        "com.newera.iptv|https://stremio.jopsis-addons.mywire.org",
+        "default.spain.topstreaming.flixpatrol|https://top-streaming.stream/username=saratoga&contentLanguage=es-ES&platforms=netflix%3Aspain%3Atrue%3Atrue%2Camazon-prime%3Aspain%3Atrue%3Atrue%2Cdisney%3Aspain%3Atrue%3Atrue%2Capple-tv%3Aspain%3Atrue%3Atrue%2Cskyshowtime%3Aspain%3Atrue%3Atrue%2Chbo-max%3Aspain%3Atrue%3Atrue%2Crakuten-tv%3Aspain%3Atrue%3Atrue",
+        "org.stremio.helloworld|https://latinmovies.vercel.app",
+        "com.cinemacove.list.69985ddadcb0218a90c6057f.8635033|https://cinema-cove-api.onrender.com/api/6998bf790dd4f007b19c9eaa"
+      ],
+      "stream": [
+        "com.stremio.torrentio.addon|https://torrentio.strem.fun/providers=mejortorrent,wolfmax4k,cinecalidad%7Clanguage=spanish%7Cqualityfilter=threed,scr,cam",
+        "org.stremio.watchhub|https://watchhub-v2.strem.io",
+        "com.keopps.peerflix|https://addon.peerflix.mov/language=es%7Cqualityfilter=threed,540p,480p,sd,vhs,screener%7Csort=language-desc",
+        "com.stremify|https://stremify.hayd.uk/YnVpbHQtaW4sY2luZWhkcGx1cyx2ZXJoZGxpbms=",
+        "org.stremio.helloworld|https://latinmovies.vercel.app"
+      ],
+      "tv": [
+        "com.newera.iptv|https://stremio.jopsis-addons.mywire.org"
+      ]
+    }
+  },
+  "custom_stremio_addons_included": true,
+  "dynamic_settings": {
+    "trakt_expires": "",
+    "trakt_refresh": "",
+    "trakt_token": ""
+  },
+  "exported_at": "2026-03-16T16:45:28+00:00",
+  "settings": {
+    "alldebrid_authorized": "false",
+    "alldebrid_enabled": "false",
+    "alldebrid_token": "",
+    "alldebrid_user": "",
+    "auto_audio": "true",
+    "auto_audio_language": "Spanish",
+    "auto_play": "false",
+    "auto_play_quality": "1080p",
+    "auto_subtitle_download": "false",
+    "auto_subtitle_selection": "false",
+    "bluray_hd_enabled": "true",
+    "broadcast_offset": "0",
+    "cache_enabled": "true",
+    "cache_expiration": "24",
+    "cam_screener_enabled": "false",
+    "clear_cache_update": "true",
+    "debrid_expiration_enabled": "true",
+    "debrid_expiration_threshold": "3",
+    "deepl_api_key": "",
+    "deepl_enabled": "false",
+    "deepl_target_language": "None",
+    "download_dir": "special://profile/addon_data/plugin.video.jacktook/Downloads/",
+    "dvd_tv_enabled": "true",
+    "easynews_enabled": "false",
+    "easynews_password": "",
+    "easynews_timeout": "25",
+    "easynews_user": "",
+    "fanart_client_key": "",
+    "filter_size_enabled": "false",
+    "include_season_packs": "true",
+    "include_tvshow_specials": "false",
+    "indexers_desc_length": "100",
+    "indexers_sort_by": "Seeds",
+    "indexers_total_results": "100",
+    "is_trakt_auth": "false",
+    "jackett_apikey": "",
+    "jackett_enabled": "false",
+    "jackett_host": "",
+    "jackett_port": "9117",
+    "jackett_timeout": "30",
+    "jackgram_enabled": "false",
+    "jackgram_host": "",
+    "jackgram_token": "",
+    "jacktookburst_enabled": "false",
+    "language": "20",
+    "maximum_size": "20000",
+    "mdblist_api_key": "",
+    "mdblist_enabled": "false",
+    "minimum_size": "100",
+    "playnext_dialog_enabled": "true",
+    "playnext_time": "50",
+    "precaching_enabled": "false",
+    "precaching_episode_count": "1",
+    "premiumize_enabled": "false",
+    "premiumize_token": "",
+    "prowlarr_apikey": "",
+    "prowlarr_enabled": "false",
+    "prowlarr_host": "",
+    "prowlarr_indexer_ids": "",
+    "prowlarr_port": "9696",
+    "prowlarr_timeout": "25",
+    "real_debid_authorized": "false",
+    "real_debrid_enabled": "false",
+    "real_debrid_token": "",
+    "real_debrid_user": "",
+    "search_dialog_style": "0",
+    "settings_backup_strip_sensitive": "false",
+    "show_telegram_menu": "false",
+    "show_uncached": "true",
+    "skip_intro_auto": "false",
+    "skip_intro_enabled": "false",
+    "stremio_bypass_addon_list": "aiostreams",
+    "stremio_bypass_addons": "false",
+    "stremio_email": "",
+    "stremio_enabled": "true",
+    "stremio_loggedin": "false",
+    "stremio_only_catalogs": "false",
+    "stremio_pass": "",
+    "stremio_sub_addon_host": "https://opensubtitles-v3.strem.io/",
+    "stremio_subtitle_enabled": "false",
+    "stremio_timeout": "25",
+    "subtitle_language": "Spanish",
+    "super_quick_play": "true",
+    "thread_number": "8",
+    "tmdb_api_key": "",
+    "torbox_enabled": "false",
+    "torbox_token": "",
+    "torbox_user": "",
+    "torrent_client": "Elementum",
+    "torrent_enable": "true",
+    "trakt_calendar_future_days": "14",
+    "trakt_calendar_previous_days": "0",
+    "trakt_calendar_show_all": "false",
+    "trakt_client": "1038ef327e86e7f6d39d80d2eb5479bff66dd8394e813c5e0e387af0f84d89fb",
+    "trakt_enabled": "false",
+    "trakt_scrobbling_enabled": "true",
+    "trakt_secret": "8d27a92e1d17334dae4a0590083a4f26401cb8f721f477a79fd3f218f8534fd1",
+    "trakt_sync_interval": "15",
+    "trakt_user": "",
+    "unknown_enabled": "true",
+    "update_action": "0",
+    "use_broadcast_adjustment": "false",
+    "volume_check_enabled": "false",
+    "volume_check_threshold": "50",
+    "web_hd_enabled": "true",
+    "webdav_hostname": "",
+    "webdav_password": "",
+    "webdav_port": "8080",
+    "webdav_remote_path": "",
+    "webdav_username": ""
+  },
+  "strip_sensitive": false
+}
