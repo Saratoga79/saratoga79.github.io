@@ -443,7 +443,7 @@
 			<fanart>recursos/imagenes/poster.png</fanart>
 		</assets>
 	</extension>
-</addon><addon id="plugin.video.acs_extractor" name="ACS Extractor" version="26.03.08.0" provider-name="Junji, ReMod by Saratoga">
+</addon><addon id="plugin.video.acs_extractor" name="ACS Extractor" version="26.03.16.0" provider-name="Junji, ReMod by Saratoga">
     <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
     </extension>
@@ -453,13 +453,7 @@
   - Acestream
         </summary>
         <description language="es">Necesario Horus</description>
-        <disclaimer>
-&gt; Versión = 26.03.08.0
-&gt; Cambios respecto a la versión original:
-	- Primera versión ReMod
-	- Modificación del addon original de Junji.
-	- Añadida agenda de eventos Deportes Live
-	- Reproducción mediante Horus</disclaimer>
+        <disclaimer />
         <platform>all</platform>
         <assets>
             <icon>icon.jpg</icon>
@@ -469,9 +463,18 @@
             <screenshot>resources/media/Captura3.jpg</screenshot>
         </assets>
         <news>
-            - Añadido soporte para enlaces acestream
-            - Añadido soporte para listas en formato m3u.
-            - Mejoras en la interfaz para separar las opciones de cambio de URL y la lista de streams.
+&gt; Versión = 26.03.16.0
+&gt; Cambios respecto a la versión original:
+	- Mejoras y correcciones
+	- Modificación del addon original de Junji
+	- Añadida agenda de eventos Deportes Live
+	- Reproducción mediante Horus
+&gt; Versión = 26.03.08.0
+&gt; Cambios respecto a la versión original:
+	- Primera versión ReMod
+	- Modificación del addon original de Junji
+	- Añadida agenda de eventos Deportes Live
+	- Reproducción mediante Horus
         </news>
     </extension>
     <extension point="xbmc.service" library="default.py" />

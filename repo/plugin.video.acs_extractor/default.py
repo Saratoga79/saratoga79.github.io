@@ -134,8 +134,6 @@ def extract_m3u_links(html_content):
 """
 - Mantiene la fecha (dd/mm/yyyy) y todo lo que sigue.
 - Elimina cualquier aparición de:
-    • "Ronda Masters Indian Wells… ATP Tennis TV · Movistar Plus+ (M7): VER PARTIDO ·"
-    • "ATP Tennis TV · Movistar Plus+ (M7): VER PARTIDO ·"
 - Devuelve una lista de tuplas: (info_limpia, [lista_de_enlaces])
 """
 # ----------------------------------------------------------------------
@@ -182,34 +180,30 @@ def clean_unwanted_segments(text: str) -> str:
     """
     Elimina cualquier bloque de transmisión que pueda aparecer.
     El patrón es flexible para cubrir:
-    * “Ronda Masters Indian Wells” (con 0‑2 repeticiones de “2ª Ronda”)
-    * Separador medio “·” o punto “.”
-    * “(M7)” opcional (con o sin espacio)
-    * También elimina el prefijo aislado “ATP Tennis TV … VER PARTIDO ·”
     """
     # Normalizamos espacios duros que a veces aparecen en HTML
     text = text.replace("\xa0", " ")
 
     # Bloque completo (con “Ronda … VER PARTIDO”)
-    full_pattern = (
-        r"Ronda\s+Masters\s+Indian\s+Wells"
-        r"(?:\s*2ª\s*Ronda){0,2}"
-        r"\s*ATP\s+Tennis\s+TV\s*[·\.]?\s*"
-        r"Movistar\s+Plus\+"
-        r"(?:\s*$$M7$$)?\s*"
-        r":\s*VER\s+PARTIDO\s*[·\.]?"
-    )
+    # full_pattern = (
+        # r"Ronda\s+Masters\s+Indian\s+Wells"
+        # r"(?:\s*2ª\s*Ronda){0,2}"
+        # r"\s*ATP\s+Tennis\s+TV\s*[·\.]?\s*"
+        # r"Movistar\s+Plus\+"
+        # r"(?:\s*$$M7$$)?\s*"
+        # r":\s*VER\s+PARTIDO\s*[·\.]?"
+    # )
 
     # Prefijo aislado (solo la parte de transmisión)
-    prefix_pattern = (
-        r"ATP\s+Tennis\s+TV\s*[·\.]?\s*"
-        r"Movistar\s+Plus\+"
-        r"(?:\s*$$M7$$)?\s*"
-        r":\s*VER\s+PARTIDO\s*[·\.]?"
-    )
+    # prefix_pattern = (
+        # r"ATP\s+Tennis\s+TV\s*[·\.]?\s*"
+        # r"Movistar\s+Plus\+"
+        # r"(?:\s*$$M7$$)?\s*"
+        # r":\s*VER\s+PARTIDO\s*[·\.]?"
+    # )
 
-    text = re.sub(full_pattern,   "", text, flags=re.IGNORECASE)
-    text = re.sub(prefix_pattern, "", text, flags=re.IGNORECASE)
+    # text = re.sub(full_pattern,   "", text, flags=re.IGNORECASE)
+    # text = re.sub(prefix_pattern, "", text, flags=re.IGNORECASE)
 
     return text.strip()
 
@@ -253,7 +247,9 @@ def extract_stream_info(url: str):
     for table in soup.find_all("table"):
         rows = table.find_all("tr")[1:]          # saltamos la fila de cabecera
         for row in rows:
-            cols = row.find_all("td")
+            # cols = row.find_all("td")[1:]
+            cols = [col for i, col in enumerate(row.find_all("td")) if i != 3]
+            
             if len(cols) >= 2:                  # al menos una columna útil + la de acciones
                 raw_info = "|".join(col.text.strip() for col in cols[:-1])
                 stream_info = keep_from_date(raw_info)
@@ -289,19 +285,19 @@ def extract_stream_info(url: str):
 # ----------------------------------------------------------------------
 # 4️⃣ EJEMPLO DE USO (puedes comentar/eliminar en producción)
 # ----------------------------------------------------------------------
-if __name__ == "__main__":
+# if __name__ == "__main__":
     # URL real (no el prefijo view‑source:)
-    target_url = "https://deportes-live.vercel.app/index.html"
+    # target_url = SCRAPER_URL
 
-    resultados = extract_stream_info(target_url)
+# resultados = extract_stream_info(SCRAPER_URL)
 
-    if not resultados:
-        print("No se encontraron streams.")
-    else:
-        for idx, (info, links) in enumerate(resultados, start=1):
-            print(f"\n[{idx}] INFO : {info}")
-            for link in links:
-                print(f"     → {link}")### ReMod
+# if not resultados:
+    # print("No se encontraron streams.")
+# else:
+    # for idx, (info, links) in enumerate(resultados, start=1):
+        # print(f"\n[{idx}] INFO : {info}")
+        # for link in links:
+            # print(f"     → {link}")### ReMod
 
 def build_url(query):
     """Construye una URL con los parámetros proporcionados."""
