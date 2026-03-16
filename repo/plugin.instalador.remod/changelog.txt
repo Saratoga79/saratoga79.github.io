@@ -1,4 +1,8 @@
 > ReMod Instalador
+> Versión = 26.03.16.0
+> Cambios respecto a la versión anterior:
+	- Instalador Jacktook adaptado a la última versión
+	
 > Versión = 26.03.09.0
 > Cambios respecto a la versión anterior:
 	- Añadido nuevo addon a la sección de Deportes:
