@@ -1393,17 +1393,40 @@ else:
                 lista_addons(addons, True)        
                 xbmc.sleep(1000)
                 
-            ### instalamos elementum
-            lista_deps = ["plugin.video.elementum"]
-            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementum,1000,{noti_icon})")
-            if instalar_lista_addons(lista_deps):
+            
+            ### instalación de addons desde repo ya instalado
+            lista_deps = [
+                "script.module.six",
+                "script.module.kodi-six",
+                "script.module.requests",
+                "script.module.certifi",
+                "script.module.chardet",
+                "script.module.idna",
+                "script.module.urllib3",
+                "script.module.beautifulsoup4",
+                "script.module.soupsieve",
+                "script.module.html5lib",
+                "script.module.webencodings",
+                "script.module.dateutil",
+                "script.module.websocket",
+                "script.module.addon.signals",
+                "script.module.pyxbmct",
+                "script.module.resolveurl",
+                "plugin.video.elementum",
+                ]
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando dependencias,1000,{noti_icon})")
+            if instalar_lista_addons(lista_deps):    
+            ## instalamos elementum
+            # lista_deps = ["plugin.video.elementum"]
+            # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementum,1000,{noti_icon})")
+            # if instalar_lista_addons(lista_deps):
                 ### desactivando burst
                 addon_set = xbmcaddon.Addon('plugin.video.elementum')
                 addon_set.setSettingBool('skip_burst_search', True)
-
-                xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin instalación Jacktook,3000,{noti_ok_icon})")
+                # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin instalación Jacktook,3000,{noti_ok_icon})")
             else:
                 xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Elementum,3000,{noti_error_icon})")
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin instalación Jacktook,3000,{noti_ok_icon})")
         else:
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Jacktook,3000,{noti_error_icon})")
                 

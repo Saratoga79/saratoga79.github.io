@@ -1,5 +1,5 @@
 > ReMod Instalador
-> Versión = 26.03.16.0
+> Versión = 26.03.16.1
 > Cambios respecto a la versión anterior:
 	- Instalador Jacktook adaptado a la última versión
 	
