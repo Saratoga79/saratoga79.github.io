@@ -1320,15 +1320,6 @@ else:
             addon_set.setSettingBool('settings_backup_strip_sensitive', False)
             addon_set.setSettingBool('torrent_enable', True)
             addon_set.setSettingBool('stremio_enabled', True)
-            # addon_set.setSettingBool('torrentio_enabled', True)
-            # addon_set.setSettingBool('auto_audio', True)
-            # addon_set.setSettingBool('auto_subtitle_selection', True)
-            # addon_set.setSettingBool('super_quick_play', True)
-            # addon_set.setSettingBool('include_tvshow_specials', True)
-            # addon_set.setSetting('auto_audio_language', 'Spanish')
-            # addon_set.setSettingInt('language', 20)
-            # addon_set.setSetting('subtitle_language', 'Spanish')
-            # addon_set.setSetting('torrent_client', 'Elementum')      
             xbmc.sleep(1000)
             
             ### desactivamos el addon para copiar
@@ -1392,25 +1383,10 @@ else:
                     ]
                 lista_addons(addons, True)        
                 xbmc.sleep(1000)
-                
             
             ### instalación de addons desde repo ya instalado
             lista_deps = [
-                "script.module.six",
-                "script.module.kodi-six",
-                "script.module.requests",
-                "script.module.certifi",
-                "script.module.chardet",
-                "script.module.idna",
-                "script.module.urllib3",
-                "script.module.beautifulsoup4",
-                "script.module.soupsieve",
-                "script.module.html5lib",
-                "script.module.webencodings",
-                "script.module.dateutil",
-                "script.module.websocket",
-                "script.module.addon.signals",
-                "script.module.pyxbmct",
+                "repository.elementumorg",
                 "plugin.video.elementum",
                 ]
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementuum,1000,{noti_icon})")
