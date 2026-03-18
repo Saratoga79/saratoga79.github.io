@@ -1291,29 +1291,23 @@ else:
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación EspaDaily,3000,{noti_error_icon})")
             
     elif action == "jacktook":
+        lista_repos = ["repository.remod"]
+        lista_base_urls = ["https://saratoga79.github.io/",]
+        lista_patterns = ["repository\.remod-\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando Repo ReMod desde fuente,1000,{noti_icon})")
+        descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
+        ### actualizar lista de addons para refrersacar addons descargados
+        buscar_actualizacion()
+        ### activar addons descargados
+        activar_lista_repos_zip(lista_repos) 
+
         ### instalación de addons desde repo ya instalado
-        lista_deps = [
-            "repository.elementumorg",
-            "plugin.video.elementum",
-            ]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementuum,1000,{noti_icon})")
-        if instalar_lista_addons(lista_deps):
-            ### desactivando burst
-            addon_set = xbmcaddon.Addon('plugin.video.elementum')
-            addon_set.setSettingBool('skip_burst_search', True)
+        lista_deps = ["repository.elementumorg"]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Repo Elementuum,1000,{noti_icon})")
         
-        lista_repos = [
-            "repository.remod",
-            "repository.jacktook",
-            ]
-        lista_base_urls = [
-            "https://saratoga79.github.io/",
-            "https://sam-max.github.io/repository.jacktook/",
-            ]
-        lista_patterns = [
-            "repository\.remod-\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip",
-            "repository\.jacktook-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip",
-            ]
+        lista_repos = ["repository.jacktook"]
+        lista_base_urls = ["https://sam-max.github.io/repository.jacktook/"]
+        lista_patterns = ["repository\.jacktook-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000,{noti_icon})")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
         ### actualizar lista de addons para refrersacar addons descargados
@@ -1397,17 +1391,17 @@ else:
             
             ### instalación de addons desde repo ya instalado
             lista_deps = [
-                "repository.elementumorg",
+                # "repository.elementumorg",
                 "plugin.video.elementum",
                 ]
-            # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementuum,1000,{noti_icon})")
-            # if instalar_lista_addons(lista_deps):
-                ## desactivando burst
-                # addon_set = xbmcaddon.Addon('plugin.video.elementum')
-                # addon_set.setSettingBool('skip_burst_search', True)
-                # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin instalación Jacktook,3000,{noti_ok_icon})")
-            # else:
-                # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Elementum,3000,{noti_error_icon})")
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementuum,1000,{noti_icon})")
+            if instalar_lista_addons(lista_deps):
+                # desactivando burst
+                addon_set = xbmcaddon.Addon('plugin.video.elementum')
+                addon_set.setSettingBool('skip_burst_search', True)
+                xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin instalación Jacktook,3000,{noti_ok_icon})")
+            else:
+                xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Elementum,3000,{noti_error_icon})")
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin instalación Jacktook,3000,{noti_ok_icon})")
         else:
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Jacktook,3000,{noti_error_icon})")
