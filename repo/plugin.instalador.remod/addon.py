@@ -1302,8 +1302,13 @@ else:
         activar_lista_repos_zip(lista_repos) 
 
         ### instalación de addons desde repo ya instalado
-        lista_deps = ["repository.elementumorg"]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Repo Elementuum,1000,{noti_icon})")
+        lista_deps = ["plugin.video.elementum"]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementuum,1000,{noti_icon})")
+        if instalar_lista_addons(lista_deps):
+            ### desactivando burst
+            addon_set = xbmcaddon.Addon('plugin.video.elementum')
+            addon_set.setSettingBool('skip_burst_search', True)
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin instalación Elementuum,3000,{noti_ok_icon})")
         
         lista_repos = ["repository.jacktook"]
         lista_base_urls = ["https://sam-max.github.io/repository.jacktook/"]
@@ -1389,19 +1394,23 @@ else:
                 lista_addons(addons, True)        
                 xbmc.sleep(1000)
             
+            # addons = ["repository.elementumorg"]
+            # lista_addons(addons, False)
+            # xbmc.sleep(1000)
+            
             ### instalación de addons desde repo ya instalado
-            lista_deps = [
-                # "repository.elementumorg",
-                "plugin.video.elementum",
-                ]
-            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementuum,1000,{noti_icon})")
-            if instalar_lista_addons(lista_deps):
-                # desactivando burst
-                addon_set = xbmcaddon.Addon('plugin.video.elementum')
-                addon_set.setSettingBool('skip_burst_search', True)
-                xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin instalación Jacktook,3000,{noti_ok_icon})")
-            else:
-                xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Elementum,3000,{noti_error_icon})")
+            # lista_deps = ["plugin.video.elementum"]
+            # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementuum,1000,{noti_icon})")
+            # if instalar_lista_addons(lista_deps):
+                ## desactivando burst
+                # addon_set = xbmcaddon.Addon('plugin.video.elementum')
+                # addon_set.setSettingBool('skip_burst_search', True)
+                # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin instalación Jacktook,3000,{noti_ok_icon})")
+                # addons = ["repository.elementumorg"]
+                # lista_addons(addons, True)
+                # xbmc.sleep(1000)
+            # else:
+                # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Elementum,3000,{noti_error_icon})")
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin instalación Jacktook,3000,{noti_ok_icon})")
         else:
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Jacktook,3000,{noti_error_icon})")
