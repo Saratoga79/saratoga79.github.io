@@ -1,5 +1,5 @@
 > ReMod Instalador
-> Versión = 26.03.18.3
+> Versión = 26.03.19.0
 > Cambios respecto a la versión anterior:
 	- Mejoras y correcciones
 	

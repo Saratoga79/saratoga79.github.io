@@ -562,8 +562,8 @@ def instalar_lista_addons(lista_deps):
         xbmc.log(f"REMOD INSTALADOR Confirmamos instalación botón yes instalación {addon_id}", level=xbmc.LOGINFO)
         if addon_inst_confirm(addon_id):
             xbmc.log(f"REMOD INSTALADOR {addon_id} Fin instalación OK", level=xbmc.LOGINFO)
-            ### bypass de comprobación para naranjito por dar problemas
-            if addon_id == 'plugin.video.Naranjitomatrix':
+            ### bypass de comprobación para addons Matrix
+            if 'matrix' in addon_id.lower():
                 xbmc.log(f"REMOD INSTALADOR Bypass comprobación {addon_id} ", level=xbmc.LOGINFO)
                 return True
                 continue
@@ -1049,9 +1049,18 @@ else:
             
     elif action == "tacones":
         ### descarga addons zip desde url
-        lista_repos = ["repository.remod"]
-        lista_base_urls = ["https://saratoga79.github.io/"]
-        lista_patterns = ["repository\.remod-\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
+        lista_repos = [
+            "repository.remod",
+            "repository.gujal",
+            ]
+        lista_base_urls = [
+            "https://saratoga79.github.io/",
+            "https://gujal00.github.io/",
+            ]
+        lista_patterns = [
+            "repository\.remod-\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip",
+            "repository\.gujal-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip",
+            ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000,{noti_icon})")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
         ### actualizar lista de addons para refrersacar addons descargados
@@ -1187,16 +1196,19 @@ else:
     elif action == "magellan":
         ### descarga addons zip desde url
         lista_repos = [
-            "repository.magellan",
             "repository.remod",
+            "repository.gujal",
+            "repository.magellan",
             ]
         lista_base_urls = [
-            "https://euro2000.github.io/magellan.github.io/",
             "https://saratoga79.github.io/",
+            "https://gujal00.github.io/",
+            "https://euro2000.github.io/magellan.github.io/",
             ]
         lista_patterns = [
-            "repository\.magellan\.zip",
             "repository\.remod-\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip",
+            "repository\.gujal-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip",
+            "repository\.magellan\.zip",
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000,{noti_icon})")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
@@ -1209,24 +1221,20 @@ else:
             "script.module.six",
             "script.module.kodi-six",
             "script.module.requests",
-            "script.module.dateutil",
-            "script.module.websocket",
-            "script.module.addon.signals",
-            "script.module.beautifulsoup4",
-            "script.module.certifi",
-            "script.module.chardet",
-            "script.module.idna",
-            "script.module.urllib3",
-            "script.module.html5lib",
-            "script.module.pyxbmct",
-            "script.module.soupsieve",
-            "script.module.webencodings",
-            "script.module.resolveurl",
             "plugin.video.Magellan_Matrix",
-            "plugin.video.f4mTester",
             ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Magellan,1000,{noti_icon})")
         if instalar_lista_addons(lista_deps):
+            ### descarga addons zip desde url
+            lista_repos = ["plugin.video.f4mTester"]
+            lista_base_urls = ["https://dregs1.github.io/f4m/"]
+            lista_patterns = ["plugin\.video\.f4mTester\.zip"]
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando f4mTester desde fuente,1000,{noti_icon})")
+            descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
+            ### actualizar lista de addons para refrersacar addons descargados
+            buscar_actualizacion()
+            ### activar addons descargados
+            activar_lista_repos_zip(lista_repos)
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación Magellan,3000,{noti_ok_icon})")
         else:
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Magellan,3000,{noti_error_icon})")
