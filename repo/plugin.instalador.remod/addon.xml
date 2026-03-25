@@ -1,7 +1,7 @@
 <addon
 	id="plugin.instalador.remod"
 	name="ReMod Instalador"
-	version="26.03.19.0"
+	version="26.03.25.0"
 	provider-name="Saratoga">
 	<requires>
 		<!-- Mín Kodi 20+ -->
@@ -17,11 +17,17 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
-> Versión = 26.03.19.0
+> Versión = 26.03.25.0
+> Cambios respecto a la versión anterior:
+	- Añadidos nuevos addons a la sección de Cine y TV:
+		- AtresDaily
+		- EspaTV
+	- Mejoras y correcciones
+	
+> Versión = 26.03.19.1
 > Cambios respecto a la versión anterior:
 	- Mejoras y correcciones
 	
-> Versión = 26.03.16.3
 > Versión = 26.03.16.3
 > Cambios respecto a la versión anterior:
 	- Instalador Jacktook adaptado a la última versión

@@ -133,6 +133,8 @@ def lista_menu_cine():
         ("> Instalar Magellan", "magellan", "magellan.png"),
         ("> Instalar Alfa", "alfa", "alfa.png"),
         ("> Instalar EspaDaily", "espadaily", "espadaily.png"),
+        ("> Instalar AtresDaily", "atresdaily", "atresdaily.png"),
+        ("> Instalar EspaTV", "espatv", "espatv.png"),
         ("> Instalar Moe´s TV | [COLOR orange]Sin soporte[/COLOR]", "moes", "moes.jpg")
     ]
 
@@ -178,7 +180,7 @@ def lista_menu_herramientas():
     xbmcplugin.endOfDirectory(HANDLE)
 
 
-### lista del menu herramientas
+### lista del menu servidor multimedia
 def lista_menu_serv_multi():
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
@@ -288,7 +290,7 @@ def comp_version():
 # xbmc.log(f"REMOD INSTALADOR Comprobando actualización", level=xbmc.LOGINFO)
 comp_version()
 
-# desactiva la instalación de balandro en cada inicio
+### desactiva la instalación de balandro en cada inicio
 def rename_to_bak(addon_id, filename):
     ### Renombra un archivo dentro de un addon a .bak
     try:
@@ -980,7 +982,6 @@ else:
         lista_menu_cine()
     elif action == "herramientas":
         lista_menu_herramientas()
-        
     elif action == "serv_multi":
         lista_menu_serv_multi()
         
@@ -1270,6 +1271,9 @@ else:
         activar_lista_repos_zip(lista_repos)
         ### instalación duffyou y moes
         lista_deps = [
+            "script.module.six",
+            "script.module.simplecache",
+            "script.module.inputstreamhelper",
             "plugin.video.duffyou",
             "plugin.video.moestv",
             ]
@@ -1291,18 +1295,67 @@ else:
         ### activar addons descargados
         activar_lista_repos_zip(lista_repos)
         ### instalación de addons desde repo ya instalado
-        lista_deps = ["plugin.video.espadaily"]
+        lista_deps = [
+            "script.module.requests",
+            "plugin.video.espadaily",
+            ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando EspaDaily,1000,{noti_icon})")
         if instalar_lista_addons(lista_deps):
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación EspaDaily,3000,{noti_ok_icon})")
         else:
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación EspaDaily,3000,{noti_error_icon})")
+    
+    elif action == "atresdaily":
+        ### descarga addons zip desde url
+        lista_repos = ["repository.atresdaily"]
+        lista_base_urls = ["https://fullstackcurso.github.io/atresdaily/"]
+        lista_patterns = ["repository\.atresdaily-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000,{noti_icon})")
+        descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
+        ### actualizar lista de addons para refrersacar addons descargados
+        buscar_actualizacion()
+        ### activar addons descargados
+        activar_lista_repos_zip(lista_repos)
+        ### instalación de addons desde repo ya instalado
+        lista_deps = [
+            "script.module.requests",
+            "script.module.six",
+            "plugin.video.atresdaily",
+            ]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando AtresDaily,1000,{noti_icon})")
+        if instalar_lista_addons(lista_deps):
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación AtresDaily,3000,{noti_ok_icon})")
+        else:
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación AtresDaily,3000,{noti_error_icon})")
+    
+    elif action == "espatv":
+        ### descarga addons zip desde url
+        lista_repos = ["repository.espatv"]
+        lista_base_urls = ["https://espakodi.github.io/espatv/"]
+        lista_patterns = ["repository\.espatv-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000,{noti_icon})")
+        descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
+        ### actualizar lista de addons para refrersacar addons descargados
+        buscar_actualizacion()
+        ### activar addons descargados
+        activar_lista_repos_zip(lista_repos)
+        ### instalación de addons desde repo ya instalado
+        lista_deps = [
+            "script.module.requests",
+            "inputstream.adaptive",
+            "plugin.video.espatv",
+            ]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando EspaTV,1000,{noti_icon})")
+        if instalar_lista_addons(lista_deps):
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación EspaTV,3000,{noti_ok_icon})")
+        else:
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación EspaTV,3000,{noti_error_icon})")
             
     elif action == "jacktook":
         lista_repos = ["repository.remod"]
         lista_base_urls = ["https://saratoga79.github.io/",]
         lista_patterns = ["repository\.remod-\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando Repo ReMod desde fuente,1000,{noti_icon})")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000,{noti_icon})")
         descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
         ### actualizar lista de addons para refrersacar addons descargados
         buscar_actualizacion()
@@ -1328,7 +1381,11 @@ else:
         ### activar addons descargados
         activar_lista_repos_zip(lista_repos)                
         ### instalación jacktook
-        lista_deps = ["plugin.video.jacktook"]
+        lista_deps = [
+            "script.module.requests",
+            "script.module.routing",
+            "plugin.video.jacktook",
+            ]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Jacktook,1000,{noti_icon})")
         if instalar_lista_addons(lista_deps):
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Jacktook instalado,1000,{noti_icon})")
@@ -1630,7 +1687,8 @@ else:
 
     elif action == "test":
         # xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=add_ext_custom_stremio_addon)')    
-        xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=add_custom_stremio_addon)')    
+        # xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=add_custom_stremio_addon)')    
+        xbmc.executebuiltin("Container.Refresh")
         
         
         

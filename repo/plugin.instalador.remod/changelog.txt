@@ -1,5 +1,12 @@
 > ReMod Instalador
-> Versión = 26.03.19.0
+> Versión = 26.03.25.0
+> Cambios respecto a la versión anterior:
+	- Añadidos nuevos addons a la sección de Cine y TV:
+		- AtresDaily
+		- EspaTV
+	- Mejoras y correcciones
+	
+> Versión = 26.03.19.1
 > Cambios respecto a la versión anterior:
 	- Mejoras y correcciones
 	
