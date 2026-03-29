@@ -161,12 +161,8 @@ http://127.0.0.1:6878/ace/getstream?id=27d11bbeb3026231d52de16b1fac48da7a099247
 http://127.0.0.1:6878/ace/getstream?id=88d7cdd80be237ae21314f7f1b6582991498e8ba
 #EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 HD" group-title="FORMULA 1", DAZN F1 1727 --> ELCANO
 http://127.0.0.1:6878/ace/getstream?id=ed6188dcbb491efeb2092c1a6199226c27f61727
-#EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 HD" group-title="FORMULA 1", DAZN F1 4841 --> ELCANO
-http://127.0.0.1:6878/ace/getstream?id=ec54923a1ce7c156923dd10ad68bdb82b8c14841
 #EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 HD" group-title="FORMULA 1", DAZN F1 eaa4 --> ELCANO
 http://127.0.0.1:6878/ace/getstream?id=d719181097d256073844390b3e094fbcb1bceaa4
-#EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 HD" group-title="FORMULA 1", DAZN F1 3299 --> ELCANO
-http://127.0.0.1:6878/ace/getstream?id=910f1f9603271e7a42b133597acd56b0582f3299
 #EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 HD" group-title="FORMULA 1", DAZN F1 cc73 --> ELCANO
 http://127.0.0.1:6878/ace/getstream?id=895d08633bb22c2573281655cf3ca44de476cc73
 #EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 HD" group-title="FORMULA 1", DAZN F1 9a69 --> ELCANO
@@ -531,6 +527,8 @@ http://127.0.0.1:6878/ace/getstream?id=f51674b1dd1ab5a668fa97a0f13a490632f0d7ca
 http://127.0.0.1:6878/ace/getstream?id=5e310dbffed8c941d20ad819cb8ef43c34b07884
 #EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos HD" group-title="MOVISTAR DEPORTES", MOVISTAR VAMOS f53a --> ELCANO
 http://127.0.0.1:6878/ace/getstream?id=837883625d40e1eb5566eefaf74811046491f53a
+#EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos HD" group-title="MOVISTAR DEPORTES", MOVISTAR VAMOS 9e96 --> ELCANO
+http://127.0.0.1:6878/ace/getstream?id=a9299052e9a16e5e2924e1fdd00b877c374f9e96
 #EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="M+ Vamos HD" group-title="MOVISTAR DEPORTES", MOVISTAR VAMOS 4455 --> ELCANO
 http://127.0.0.1:6878/ace/getstream?id=b7b1c1eeb4be09c63fbc2f319c9760851c274455
 #EXTINF:-1 tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg69swJU6Lvcy1YUmg_Y2JlCTXWM1ulT883g&s" tvg-id="NBA" group-title="NBA", NBA EVENTOS 1 a306 --> NEW ERA
@@ -655,10 +653,10 @@ http://127.0.0.1:6878/ace/getstream?id=8091334c82e8720fc6aa05ff0bd6d343c5bfecbf
 http://127.0.0.1:6878/ace/getstream?id=8941762ddb41ff774d02431b7973f759d7c74157
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Tennis%20Channel.png" tvg-id="Tennis Channel" group-title="TENNIS", TENNIS CHANNEL HD 6220 --> NEW LOOP
 http://127.0.0.1:6878/ace/getstream?id=1b348443efc7f0cf4cdf349ac35bbe5d41be6220
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", ACB EVENTO 01 ** 0d75 --> ELCANO
-http://127.0.0.1:6878/ace/getstream?id=53962d7fb865aff73b34a3afb2905cd492f60d75
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", ACB EVENTO 01 ** bdb2 --> ELCANO
 http://127.0.0.1:6878/ace/getstream?id=0995b9b77ac6198dd92141369707fb99da09bdb2
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", ACB EVENTO 01 ** 0d75 --> ELCANO
+http://127.0.0.1:6878/ace/getstream?id=53962d7fb865aff73b34a3afb2905cd492f60d75
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", ACB EVENTO 01 SDp * d5d2 --> ELCANO
 http://127.0.0.1:6878/ace/getstream?id=8faa686a99697b99261346e479ead172b1d9d5d2
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", ACB EVENTO 01 SDp ** 9239 --> ELCANO
@@ -687,20 +685,12 @@ http://127.0.0.1:6878/ace/getstream?id=18b03739d660f0066364343e226e437bf2555d56
 http://127.0.0.1:6878/ace/getstream?id=ef341794651e00b7fcc5b5da8570ea37418c5406
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", Dazn MotoGP FHDp * e1a5 --> ELCANO
 http://127.0.0.1:6878/ace/getstream?id=20d4b3586bb822c3618cf8fb665a304869c5e1a5
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", Dazn MotoGP FHDp ** 5cea --> ELCANO
-http://127.0.0.1:6878/ace/getstream?id=c53bdb3be55d12c5188d25085f1bb16911c15cea
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", Dazn MotoGP FHDp ** 2028 --> ELCANO
 http://127.0.0.1:6878/ace/getstream?id=342ca6975a4884d81f9fec5c4085a47060bd2028
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", Dazn MotoGP FHDp ** 5cea --> ELCANO
+http://127.0.0.1:6878/ace/getstream?id=c53bdb3be55d12c5188d25085f1bb16911c15cea
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", Dazn MotoGP SDp ** e624 --> ELCANO
 http://127.0.0.1:6878/ace/getstream?id=129c707eb4854171d178a566f36d90b7f2b5e624
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", Direct Sport 1 FHDp ** ad49 --> ELCANO
-http://127.0.0.1:6878/ace/getstream?id=1b25b195b1b84d4b96830410657718e9e275ad49
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", Direct Sport 2 FHDp ** d061 --> ELCANO
-http://127.0.0.1:6878/ace/getstream?id=0d780c1fb5fdf2121d9544f1a6892cb1053dd061
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", Direct Sport+ FHDp * c90c --> ELCANO
-http://127.0.0.1:6878/ace/getstream?id=b159aee4a9cca5a2d48350cf6894259ecb44c90c
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", Direct Sport+ FHDp ** 7dcb --> ELCANO
-http://127.0.0.1:6878/ace/getstream?id=abfb5236dee14625fe1b19ee27f3a89fb6767dcb
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", Esport3 FHDp ** c3bc --> ELCANO
 http://127.0.0.1:6878/ace/getstream?id=8f59ce96e4c902ba2f5193af07546d7ff17fc3bc
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", Esport3 SDp ** 42e3 --> ELCANO
