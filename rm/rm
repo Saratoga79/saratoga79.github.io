@@ -2587,7 +2587,7 @@ http://fastream.xyz:8080/juan18/83e45w87w/12335
 #EXTINF:-1 cuid="862" group-title="M3U8" tvg-chno="862" tvg-id="La 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/tve-1-es.png" tvg-name="La 1",La 1 [HD@25] [M3U8] (TdCh) (Canal 862)
 https://ztnr.rtve.es/ztnr/1688877.m3u8
 
-#EXTINF:-1 cuid="863" group-title="M3U8" tvg-chno="863" tvg-id="La 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/tve-1-es.png" tvg-name="La 1",La 1 [HD@25] [M3U8] (TdCh) (Canal 863)
+#EXTINF:-1 cuid="863" group-title="M3U8" tvg-chno="863" tvg-id="La 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/tve-1-es.png" tvg-name="La 1",La 1 [HD@25] [M3U8] (RtPl) (Canal 863)
 https://rtvelivestream.rtve.es/rtvesec/la1/la1_main_dvr.m3u8
 
 #EXTINF:-1 cuid="864" group-title="M3U8" tvg-chno="864" tvg-id="La 1 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/tve-1-es.png" tvg-name="La 1",La 1 [SD@25] [M3U8] (BiSp) (Canal 864)
