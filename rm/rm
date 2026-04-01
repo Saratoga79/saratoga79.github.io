@@ -719,37 +719,37 @@ http://fastream.xyz:8080/juan18/83e45w87w/60269
 #EXTINF:-1 cuid="239" group-title="M3U8" tvg-chno="239" tvg-id="LaLiga TV BAR HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/laliga-tv-uk.png" tvg-name="LaLiga TV BAR",UK | LaLiga TV BAR [FHD@25] [M3U8] (VoAo) (Canal 239)
 http://vooezao.top:8080/VIP01566172167073591/fa18af36a597/283
 
-#EXTINF:-1 cuid="240" group-title="ACS" tvg-chno="240" tvg-id="Sky Sports LaLiga" tvg-logo="https://epg.iptvx.one/picons/sky-sports-laliga-mx.png" tvg-name="LaLiga TV BAR",Sky Sports LaLiga [FHD@30] [ACS] (Elc) (Canal 240)
+#EXTINF:-1 cuid="240" group-title="ACS" tvg-chno="240" tvg-id="LaLiga TV BAR HD" tvg-logo="https://epg.iptvx.one/picons/sky-sports-laliga-mx.png" tvg-name="LaLiga TV BAR",Sky Sports LaLiga [FHD@30] [ACS] (Elc) (Canal 240)
 http://127.0.0.1:6878/ace/getstream?id=a9bddffdff085cdc18b34218d5dc1093b88e3c0a&pid=43
 
-#EXTINF:-1 cuid="241" group-title="ACS" tvg-chno="241" tvg-id="Sky Sports LaLiga" tvg-logo="https://epg.iptvx.one/picons/sky-sports-laliga-mx.png" tvg-name="LaLiga TV BAR",Sky Sports LaLiga [FHD@30] [ACS] (Elc) (Canal 241)
+#EXTINF:-1 cuid="241" group-title="ACS" tvg-chno="241" tvg-id="LaLiga TV BAR HD" tvg-logo="https://epg.iptvx.one/picons/sky-sports-laliga-mx.png" tvg-name="LaLiga TV BAR",Sky Sports LaLiga [FHD@30] [ACS] (Elc) (Canal 241)
 http://127.0.0.1:6878/ace/getstream?id=d58f619d860d29cd47720055b9bb842199971da1&pid=44
 
-#EXTINF:-1 cuid="242" group-title="ACS" tvg-chno="242" tvg-id="Sky Sports LaLiga" tvg-logo="https://epg.iptvx.one/picons/sky-sports-laliga-mx.png" tvg-name="LaLiga TV BAR",Sky Sports LaLiga [HD@30] [ACS] (Elc) (Canal 242)
+#EXTINF:-1 cuid="242" group-title="ACS" tvg-chno="242" tvg-id="LaLiga TV BAR HD" tvg-logo="https://epg.iptvx.one/picons/sky-sports-laliga-mx.png" tvg-name="LaLiga TV BAR",Sky Sports LaLiga [HD@30] [ACS] (Elc) (Canal 242)
 http://127.0.0.1:6878/ace/getstream?id=e9975d38aaa4475ac0b1fa0faa541bbadd85a662&pid=45
 
-#EXTINF:-1 cuid="243" group-title="M3U8" tvg-chno="243" tvg-id="Sky Sports LaLiga" tvg-logo="https://epg.iptvx.one/picons/sky-sports-laliga-mx.png" tvg-name="LaLiga TV BAR",Sky Sports LaLiga [FHD@30] [M3U8] (Afb) (Canal 243)
+#EXTINF:-1 cuid="243" group-title="M3U8" tvg-chno="243" tvg-id="LaLiga TV BAR HD" tvg-logo="https://epg.iptvx.one/picons/sky-sports-laliga-mx.png" tvg-name="LaLiga TV BAR",Sky Sports LaLiga [FHD@30] [M3U8] (Afb) (Canal 243)
 http://14.177.53.28:8889/wed.php?id=4594
 
-#EXTINF:-1 cuid="244" group-title="M3U8" tvg-chno="244" tvg-id="Sky Sports LaLiga" tvg-logo="https://epg.iptvx.one/picons/sky-sports-laliga-mx.png" tvg-name="LaLiga TV BAR",Sky Sports LaLiga [FHD@30] [M3U8] (La2) (Canal 244)
+#EXTINF:-1 cuid="244" group-title="M3U8" tvg-chno="244" tvg-id="LaLiga TV BAR HD" tvg-logo="https://epg.iptvx.one/picons/sky-sports-laliga-mx.png" tvg-name="LaLiga TV BAR",Sky Sports LaLiga [FHD@30] [M3U8] (La2) (Canal 244)
 http://190.92.10.66:4000/play/a001/index.m3u8
 
-#EXTINF:-1 cuid="245" group-title="M3U8" tvg-chno="245" tvg-id="Sky Sports LaLiga" tvg-logo="https://epg.iptvx.one/picons/sky-sports-laliga-mx.png" tvg-name="LaLiga TV BAR",Sky Sports LaLiga [FHD@30] [M3U8] (La2) (Canal 245)
+#EXTINF:-1 cuid="245" group-title="M3U8" tvg-chno="245" tvg-id="LaLiga TV BAR HD" tvg-logo="https://epg.iptvx.one/picons/sky-sports-laliga-mx.png" tvg-name="LaLiga TV BAR",Sky Sports LaLiga [FHD@30] [M3U8] (La2) (Canal 245)
 http://181.78.106.127:9000/play/ca030/index.m3u8
 
-#EXTINF:-1 cuid="246" group-title="M3U8" tvg-chno="246" tvg-id="Sky Sports LaLiga" tvg-logo="https://epg.iptvx.one/picons/sky-sports-laliga-mx.png" tvg-name="LaLiga TV BAR",Sky Sports LaLiga [FHD@30] [M3U8] (MrCl) (Canal 246)
+#EXTINF:-1 cuid="246" group-title="M3U8" tvg-chno="246" tvg-id="LaLiga TV BAR HD" tvg-logo="https://epg.iptvx.one/picons/sky-sports-laliga-mx.png" tvg-name="LaLiga TV BAR",Sky Sports LaLiga [FHD@30] [M3U8] (MrCl) (Canal 246)
 http://tv.diablotv.net:8080/eEiiLll09384Ecaiman34RtR/KTap2pdJx7/164158
 
-#EXTINF:-1 cuid="247" group-title="M3U8" tvg-chno="247" tvg-id="Sky Sports LaLiga" tvg-logo="https://epg.iptvx.one/picons/sky-sports-laliga-mx.png" tvg-name="LaLiga TV BAR",Sky Sports LaLiga [FHD@25] [M3U8] (La2) (Canal 247)
+#EXTINF:-1 cuid="247" group-title="M3U8" tvg-chno="247" tvg-id="LaLiga TV BAR HD" tvg-logo="https://epg.iptvx.one/picons/sky-sports-laliga-mx.png" tvg-name="LaLiga TV BAR",Sky Sports LaLiga [FHD@25] [M3U8] (La2) (Canal 247)
 http://45.5.117.57:8200/play/a050/index.m3u8
 
-#EXTINF:-1 cuid="248" group-title="M3U8" tvg-chno="248" tvg-id="Sky Sports LaLiga" tvg-logo="https://epg.iptvx.one/picons/sky-sports-laliga-mx.png" tvg-name="LaLiga TV BAR",Sky Sports LaLiga [HD@60] [M3U8] (La2) (Canal 248)
+#EXTINF:-1 cuid="248" group-title="M3U8" tvg-chno="248" tvg-id="LaLiga TV BAR HD" tvg-logo="https://epg.iptvx.one/picons/sky-sports-laliga-mx.png" tvg-name="LaLiga TV BAR",Sky Sports LaLiga [HD@60] [M3U8] (La2) (Canal 248)
 http://181.78.109.48:9998/play/a06r/index.m3u8
 
-#EXTINF:-1 cuid="249" group-title="M3U8" tvg-chno="249" tvg-id="Sky Sports LaLiga" tvg-logo="https://epg.iptvx.one/picons/sky-sports-laliga-mx.png" tvg-name="LaLiga TV BAR",Sky Sports LaLiga [HD@60] [M3U8] (La2) (Canal 249)
+#EXTINF:-1 cuid="249" group-title="M3U8" tvg-chno="249" tvg-id="LaLiga TV BAR HD" tvg-logo="https://epg.iptvx.one/picons/sky-sports-laliga-mx.png" tvg-name="LaLiga TV BAR",Sky Sports LaLiga [HD@60] [M3U8] (La2) (Canal 249)
 http://tv.zapping.life:8080/abelardo2020/ES4G1y3eXX/9599
 
-#EXTINF:-1 cuid="250" group-title="M3U8" tvg-chno="250" tvg-id="Sky Sports LaLiga" tvg-logo="https://epg.iptvx.one/picons/sky-sports-laliga-mx.png" tvg-name="LaLiga TV BAR",Sky Sports LaLiga [HD@60] [M3U8] (La2) (Canal 250)
+#EXTINF:-1 cuid="250" group-title="M3U8" tvg-chno="250" tvg-id="LaLiga TV BAR HD" tvg-logo="https://epg.iptvx.one/picons/sky-sports-laliga-mx.png" tvg-name="LaLiga TV BAR",Sky Sports LaLiga [HD@60] [M3U8] (La2) (Canal 250)
 http://190.14.10.19:16000/play/a09u/index.m3u8
 
 #EXTINF:-1 cuid="251" group-title="ACS" tvg-chno="251" tvg-id="ESPN Deportes" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-states/espn-deportes-us.png" tvg-name="ESPN Deportes",ESPN Deportes [HD@60] [ACS] (NeEr) (Canal 251)
@@ -1756,10 +1756,10 @@ http://127.0.0.1:6878/ace/getstream?id=515efd8115482bda8d92aa6df9a882a5e5797494&
 #EXTINF:-1 cuid="585" group-title="ACS" tvg-chno="585" tvg-id="DE | Sky Sport F1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-f1-uk.png" tvg-name="DE | Sky Sport F1",Sky Sports F1 [FHD@25] [ACS] (SpTv) (Canal 585)
 http://127.0.0.1:6878/ace/getstream?id=b04372b9543d763bd2dbd2a1842d9723fd080076&pid=156
 
-#EXTINF:-1 cuid="586" group-title="M3U8" tvg-chno="586" tvg-id="UK | Sky Sport F1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-f1-uk.png" tvg-name="UK | Sky Sport F1",Sky Sports F1 [FHD@50] [M3U8] (SaSa4) (Canal 586)
+#EXTINF:-1 cuid="586" group-title="M3U8" tvg-chno="586" tvg-id="UK | Sky Sports F1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-f1-uk.png" tvg-name="UK | Sky Sports F1",Sky Sports F1 [FHD@50] [M3U8] (SaSa4) (Canal 586)
 http://sansat.cc:88/02036203895751/4367069580/1708421
 
-#EXTINF:-1 cuid="587" group-title="M3U8" tvg-chno="587" tvg-id="UK | Sky Sport F1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-f1-uk.png" tvg-name="UK | Sky Sport F1",Sky Sports F1 [FHD@50] [M3U8] (SaSa4) (Canal 587)
+#EXTINF:-1 cuid="587" group-title="M3U8" tvg-chno="587" tvg-id="UK | Sky Sports F1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-f1-uk.png" tvg-name="UK | Sky Sports F1",Sky Sports F1 [FHD@50] [M3U8] (SaSa4) (Canal 587)
 http://sansat.cc:88/02036203895751/4367069580/1708422
 
 #EXTINF:-1 cuid="588" group-title="ACS" tvg-chno="588" tvg-id="DAZN MotoGP" tvg-logo="https://image.discovery.indazn.com/eu/v4/onboarding-images/none/sn_2e554vbpw7g0ykhl0rziuabxl/fill/center/top/none/100/0/0/png/image/25/g" tvg-name="DAZN MotoGP",DAZN MotoGP [FHD@25] [ACS] (NeEr) (Canal 588)
@@ -2800,13 +2800,13 @@ https://cdn1.etbon.eus/oc1/index.m3u8
 #EXTINF:-1 cuid="933" group-title="M3U8" tvg-chno="933" tvg-id="ETB1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/etb1-es.png" tvg-name="ETB1",ETB 1 [FHD@25] [M3U8] (EtOn) (Canal 933)
 https://cdn1.etbon.eus/etb1/index.m3u8
 
-#EXTINF:-1 cuid="934" group-title="M3U8" tvg-chno="934" tvg-id="ETB1 ON" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/etb1-es.png" tvg-name="ETB1 ON",ETB 1 ON [FHD@25] [M3U8] (EtOn) (Canal 934)
+#EXTINF:-1 cuid="934" group-title="M3U8" tvg-chno="934" tvg-id="etb1ON" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/etb1-es.png" tvg-name="etb1ON",ETB 1 ON [FHD@25] [M3U8] (EtOn) (Canal 934)
 https://cdn1.etbon.eus/etb1on/index.m3u8
 
 #EXTINF:-1 cuid="935" group-title="M3U8" tvg-chno="935" tvg-id="ETB2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/etb2-es.png" tvg-name="ETB2",ETB 2 [FHD@25] [M3U8] (EtOn) (Canal 935)
 https://cdn1.etbon.eus/etb2/index.m3u8
 
-#EXTINF:-1 cuid="936" group-title="M3U8" tvg-chno="936" tvg-id="ETB2 ON" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/etb2-es.png" tvg-name="ETB2 ON",ETB 2 ON [FHD@25] [M3U8] (EtOn) (Canal 936)
+#EXTINF:-1 cuid="936" group-title="M3U8" tvg-chno="936" tvg-id="etb2ON" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/etb2-es.png" tvg-name="etb2ON",ETB 2 ON [FHD@25] [M3U8] (EtOn) (Canal 936)
 https://cdn1.etbon.eus/etb2on/index.m3u8
 
 #EXTINF:-1 cuid="937" group-title="M3U8" tvg-chno="937" tvg-id="Goierri Telebista" tvg-logo="https://gitb.eus/static/img/logoa.png" tvg-name="Goierri Telebista",Goierri Telebista [FHD@25] [M3U8] (TdCh) (Canal 937)
@@ -2857,7 +2857,7 @@ https://rmtv.akamaized.net/hls/live/2043153/rmtv-es-web/bitrate_3.m3u8
 #EXTINF:-1 cuid="952" group-title="M3U8" tvg-chno="952" tvg-id="Real Madrid TV" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/spain/real-madrid-tv-es.png" tvg-name="Real Madrid TV",US | Real Madrid TV [FHD@30] [M3U8] (Canal 952)
 https://rmtv.akamaized.net/hls/live/2043154/rmtv-en-web/master.m3u8
 
-#EXTINF:-1 cuid="953" group-title="M3U8" tvg-chno="953" tvg-id="Top Barca" tvg-logo="https://www.pngplay.com/wp-content/uploads/6/FC-Barcelona-Transparent-Background.png" tvg-name="Top Barca",Top Barca [FHD@30] [M3U8] (Canal 953)
+#EXTINF:-1 cuid="953" group-title="M3U8" tvg-chno="953" tvg-id="Top Barça" tvg-logo="https://www.pngplay.com/wp-content/uploads/6/FC-Barcelona-Transparent-Background.png" tvg-name="Top Barça",Top Barça [FHD@30] [M3U8] (Canal 953)
 https://amg17560-amg17560c2-freelivesports-emea-10992.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg17560-fcbarcelona-topbarcaspanish-freelivesportsemea/playlist.m3u8
 
 #EXTINF:-1 cuid="954" group-title="M3U8" tvg-chno="954" tvg-id="TVG2" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/TVG2.png" tvg-name="TVG2",TVG2 [HD@50] [M3U8] (Canal 954)
