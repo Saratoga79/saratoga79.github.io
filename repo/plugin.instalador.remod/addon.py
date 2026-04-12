@@ -72,6 +72,7 @@ def lista_menu_principal():
         (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} | Buscar actualizaciones", "info", "icono.png"),
         ("> Sección Deportes", "deportes", "stadium.png"),
         ("> Sección Cine & TV", "cine", "cinema.png"),
+        ("> Sección Música", "musica", "musica.png"),
         ("> Sección Herramientas", "herramientas", "herramientas.png"),
         ("> Sección Servidor Multimedia", "serv_multi", "serv_multi.png")
         # ,
@@ -102,9 +103,32 @@ def lista_menu_deportes():
         ("> Instalar [COLOR red]Kodi[/COLOR][COLOR yellow]Spain[/COLOR][COLOR red]Tv[/COLOR]", "kodispaintv", "kodispaintv.png"),
         ("> Instalar AceStream Channels", "acs_channels", "acs_channels.png"),
         ("> Instalar ACS Extractor", "acs_extractor", "acs_extractor.jpg"),
-        ("> Instalar The Loop", "loop", "loop.png"),
-        ("> Instalar SportHD", "sporthd", "sporthd.png")
+        ("> Instalar The Loop | [COLOR yellow]Recomendado WARP o VPN[/COLOR]", "loop", "loop.png"),
+        ("> Instalar Mandrakodi | [COLOR yellow]Recomendado WARP o VPN[/COLOR]", "mandrakodi", "mandrakodi.png")
         ,
+    ]
+
+    for label, action, icon_file in menu_items:
+        url = build_url({"action": action})
+        ### Creamos el ListItem
+        li = xbmcgui.ListItem(label=label)
+        ### Ruta absoluta al icono
+        icon_path = xbmcvfs.translatePath(os.path.join(remod_instalador_addon_path, 'recursos', 'imagenes', icon_file))
+        ###  Asignamos el icono
+        li.setArt({'icon': icon_path, 'thumb': icon_path})
+        ### Indicamos que es una carpeta (un sub‑menú o acción que abre algo)
+        xbmcplugin.addDirectoryItem(handle=HANDLE,
+                                    url=url,
+                                    listitem=li,
+                                    isFolder=True)
+    xbmcplugin.endOfDirectory(HANDLE)
+
+### lista del menu musica
+def lista_menu_musica():
+    ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
+    menu_items = [
+        (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} | Buscar actualizaciones", "info", "icono.png"),
+        ("> Instalar MP3-Streams Echoed", "mp3-streams", "mp3-streams.png")
     ]
 
     for label, action, icon_file in menu_items:
@@ -179,6 +203,29 @@ def lista_menu_herramientas():
                                     isFolder=True)
     xbmcplugin.endOfDirectory(HANDLE)
 
+
+### lista del menu servidor multimedia
+def lista_musica():
+    ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
+    menu_items = [
+        (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} | Buscar actualizaciones", "info", "icono.png"),
+        ("> Instalar Plex Kodi Connect\n        NOTA: Solo si tienes acceso a un servidor Plex", "pkc", "pkc.png")
+    ]
+
+    for label, action, icon_file in menu_items:
+        url = build_url({"action": action})
+        ### Creamos el ListItem
+        li = xbmcgui.ListItem(label=label)
+        ### Ruta absoluta al icono
+        icon_path = xbmcvfs.translatePath(os.path.join(remod_instalador_addon_path, 'recursos', 'imagenes', icon_file))
+        ###  Asignamos el icono
+        li.setArt({'icon': icon_path, 'thumb': icon_path})
+        ### Indicamos que es una carpeta (un sub‑menú o acción que abre algo)
+        xbmcplugin.addDirectoryItem(handle=HANDLE,
+                                    url=url,
+                                    listitem=li,
+                                    isFolder=True)
+    xbmcplugin.endOfDirectory(HANDLE)
 
 ### lista del menu servidor multimedia
 def lista_menu_serv_multi():
@@ -287,7 +334,6 @@ def comp_version():
         xbmc.log("REMOD INSTALADOR No hay cambios de versión", xbmc.LOGINFO)
 
 ### comrpobación de versión
-# xbmc.log(f"REMOD INSTALADOR Comprobando actualización", level=xbmc.LOGINFO)
 comp_version()
 
 ### desactiva la instalación de balandro en cada inicio
@@ -584,18 +630,6 @@ def instalar_lista_addons(lista_deps):
             return False
     xbmc.log(f"REMOD INSTALADOR Fin instalando lista addons dependencias", level=xbmc.LOGINFO)
     return True
-  
-################# nuevo extract
-
-# addons_home = Path(xbmcvfs.translatePath("special://home/addons"))   # raíz de los addons
-
-# ----------------------------------------------------------------------
-# LOGGING (usa el mismo logger que Kodi)
-# ----------------------------------------------------------------------
-# log = logging.getLogger("script.REMOD_INSTALADOR")
-# log.setLevel(logging.INFO)
-
-
 
 
 #### comp instalación y activación 2
@@ -935,9 +969,6 @@ def addon_instalado_y_activado_comp(addon_id):
         return False
 
 
-
-### test
-
 def obtener_version_kodi():
     """
     Detecta la versión principal de Kodi y su nombre de código.
@@ -966,7 +997,13 @@ def obtener_version_kodi():
 
     return numero_version, codename
 
-### test finally
+
+### test
+
+
+
+### test fin
+
 
 ### acciones del menu principal
 if not ARGS:
@@ -980,6 +1017,8 @@ else:
         lista_menu_deportes()
     elif action == "cine":
         lista_menu_cine()
+    elif action == "musica":
+        lista_menu_musica()
     elif action == "herramientas":
         lista_menu_herramientas()
     elif action == "serv_multi":
@@ -1146,6 +1185,31 @@ else:
         else:
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Acestream Channels,3000,{noti_error_icon})")
         
+
+    elif action == "mp3-streams":
+        ### descarga addons zip desde url
+        lista_repos = ["repository.redwizard"]
+        lista_base_urls = ["https://repo.redwizard.xyz/"]
+        lista_patterns = ["repository\.redwizard-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000,{noti_icon})")
+        descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
+        ### actualizar lista de addons para refrersacar addons descargados
+        buscar_actualizacion()
+        ### activar addons descargados
+        activar_lista_repos_zip(lista_repos)
+        ### instalación de addons desde repo ya instalado
+        lista_deps = [
+            "script.module.beautifulsoup4",
+            "script.module.requests",
+            "script.module.routing",
+            "plugin.audio.m3sr2019",
+            ]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando MP3-Streams,1000,{noti_icon})")
+        if instalar_lista_addons(lista_deps):
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación MP3-Streams,3000,{noti_ok_icon})")
+        else:
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación MP3-Streams,3000,{noti_error_icon})")
+       
 
     elif action == "acs_extractor":
         ### descarga addons zip desde url
@@ -1631,39 +1695,36 @@ else:
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación SportHD,3000,{noti_ok_icon})")
         else:
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación SportHD,3000,{noti_error_icon})")
-        
-    elif action == "daddylive":
-        ### descarga addons zip desde url
-        lista_repos = ["repository.gwen84"]
-        lista_base_urls = ["https://guenole84.github.io/repository.gwen84/"]
-        lista_patterns = ["repository\.gwen84-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000,{noti_icon})")
-        descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
-        ### actualizar lista de addons para refrersacar addons descargados
-        buscar_actualizacion()
-        ### activar addons descargados
-        activar_lista_repos_zip(lista_repos)
-        ### instalación de addons desde repo ya instalado
+                
+    elif action == "mandrakodi":
+        ## instalación de addons desde repo ya instalado
         lista_deps = [
             "script.module.requests",
-            "script.module.inputstreamhelper",
-            "inputstream.ffmpegdirect",
+            "script.module.beautifulsoup4",
             "script.module.six",
-            "plugin.video.daddylive",
+            "script.module.dateutil",
+            "script.module.pytz",
+            "script.module.pycryptodome",
+            "script.module.certifi",
+            "script.module.chardet",
+            "inputstream.adaptive",
             ]
-        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando DaddyLive v3,1000,{noti_icon})")
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando dependencias Mandrakodi,1000,{noti_icon})")
         if instalar_lista_addons(lista_deps):
-            ### configurando ajustes
-            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Configurando DaddyLive v3,3000,{noti_icon})")
-            addon_set = xbmcaddon.Addon('plugin.video.daddylive')
-            addon_set.setSettingInt('time_format', 1)
-            # addon_set.setSetting('custom_dns', '74.115.172.133') # Lucas
-            addon_set.setSetting('custom_dns', '1.1.1.1') # CF
-            xbmc.sleep(1000)            
-            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación DaddyLive v3,3000,{noti_ok_icon})")
+            ### descarga addons zip desde url
+            lista_repos = ["plugin.video.mandrakodi"]
+            lista_base_urls = ["https://mandrakodi.github.io/"]
+            lista_patterns = ["plugin\.video\.mandrakodi_\d{1,3}\.\d{1,3}\.\d{1,3}\.[a-z]\.zip"]
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000,{noti_icon})")
+            descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
+            ### actualizar lista de addons para refrersacar addons descargados
+            buscar_actualizacion()
+            ### activar addons descargados
+            activar_lista_repos_zip(lista_repos)
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación Mandrakodi,3000,{noti_ok_icon})")
         else:
-            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación DaddyLive v3,3000,{noti_error_icon})")
-        
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación dependencias,3000,{noti_error_icon})")
+
     elif action == "pkc":
         version_num,version_nom = obtener_version_kodi()
         ### descarga addons zip desde url
@@ -1686,12 +1747,7 @@ else:
             
 
     elif action == "test":
-        # xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=add_ext_custom_stremio_addon)')    
-        # xbmc.executebuiltin('RunPlugin(plugin://plugin.video.jacktook/?action=add_custom_stremio_addon)')    
-        xbmc.executebuiltin("Container.Refresh")
-        
-        
-        
+            
         pass
 
     else:
