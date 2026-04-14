@@ -497,7 +497,6 @@ http://line.watchtivo-8k.com:80/play/live.php?mac=00:1A:79:AD:17:0E&stream=58736
 #EXTINF:-1 cuid="165" group-title="M3U8" tvg-chno="165" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@50] [M3U8] (BeSp) (Canal 165)
 http://line.watchtivo-8k.com:80/play/live.php?mac=00:1A:79:A8:B7:16&stream=587366&extension=ts
 
-
 #EXTINF:-1 cuid="166" group-title="M3U8" tvg-chno="166" tvg-id="DAZN LaLiga HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-laliga-es.png" tvg-name="DAZN LaLiga HD",DAZN LaLiga [FHD@25] [M3U8] (SaSa3) (Canal 166)
 http://sansat.cc:88/02029852143789/20LYT643M99EZMP/127829
 
