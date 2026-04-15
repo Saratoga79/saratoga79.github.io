@@ -1,7 +1,7 @@
 <addon 
 	id="plugin.program.remodtv"
 	name="ReMod TV"
-	version="26.03.12.0"
+	version="26.04.15.0"
 	provider-name="Saratoga">
 	<requires>
 		<!-- Mín Kodi 20+ -->
@@ -17,6 +17,11 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
+> Versión = 26.04.15.0
+> Cambios respecto a la versión anterior:
+	- Actualizadas fuentes Princiales y Repuesto
+	- Mejoras y correcciones
+	
 > Versión = 26.03.12.0
 > Cambios respecto a la versión anterior:
 	- Añadida nueva fuente: 6 Agenda PlatinSport
