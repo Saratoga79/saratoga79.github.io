@@ -49,7 +49,7 @@ rep_act = 'Por defecto'
 fue_act = '1 Direct'
 
 ### RECONFIGurar el addon
-RECONFIG = '0'
+RECONFIG = '1'
 
 ### carpeta descargas en android
 android_carpeta_descargas = Path("/storage/emulated/0/Download")
@@ -76,6 +76,9 @@ def build_url(query: dict) -> str:
 def lista_menu_principal():
     fue_act = leer_fuente()
     rep_act = leer_rep_ext()
+    ### comrpobación de versión
+    xbmc.log(f"REMOD TV Comprobando actualización.", level=xbmc.LOGINFO)
+    comp_version()
     xbmcplugin.setPluginCategory(HANDLE, "Menú Principal")
     menu_principal = [
         (f"{remodtv_addon_name} versión: {remodtv_addon_version} | Buscar actualizaciones", "info", "info.png", True),
@@ -336,8 +339,8 @@ def comp_version():
         xbmc.log("REMOD TV No hay cambios de versión.", xbmc.LOGINFO)
 
 ### comrpobación de versión
-xbmc.log(f"REMOD TV Comprobando actualización.", level=xbmc.LOGINFO)
-comp_version()
+# xbmc.log(f"REMOD TV Comprobando actualización.", level=xbmc.LOGINFO)
+# comp_version()
 
 
 ### copia los archivos de configuración

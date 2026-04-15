@@ -1,15 +1,15 @@
 {
   "fue1": {
 	"nombre": "1 Direct",
-    "url": "https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/data/listas/lista_iptv.m3u"
+    "url": "https://ipfs.io/ipns/k2k4r8lm8tkmuxbc8lkmq1in3v0oya1p6pe9o5bu0hu30br5ko08k2gb/data/listas/lista_iptv.m3u"
   },
   "fue2": {
 	"nombre": "2 ACE",
-    "url": "https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/data/listas/lista_fuera_iptv.m3u"
+    "url": "https://ipfs.io/ipns/k2k4r8lm8tkmuxbc8lkmq1in3v0oya1p6pe9o5bu0hu30br5ko08k2gb/data/listas/lista_fuera_iptv.m3u"
   },
   "fue3": {
 	"nombre": "3 Horus",
-    "url": "https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/data/listas/lista_kodi.m3u"
+    "url": "https://ipfs.io/ipns/k2k4r8lm8tkmuxbc8lkmq1in3v0oya1p6pe9o5bu0hu30br5ko08k2gb/data/listas/lista_kodi.m3u"
   },
   "fue4": {
 	"nombre": "4 ReMod TV",
@@ -25,15 +25,15 @@
   },
   "fue11": {
 	"nombre": "1 Direct Repuesto",
-    "url": "https://k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004.ipns.dweb.link/data/listas/lista_iptv.m3u"
+    "url": "https://k2k4r8lm8tkmuxbc8lkmq1in3v0oya1p6pe9o5bu0hu30br5ko08k2gb.ipns.dweb.link/data/listas/lista_iptv.m3u"
   },
   "fue12": {
 	"nombre": "2 ACE Repuesto",
-    "url": "https://k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004.ipns.dweb.link/data/listas/lista_fuera_iptv.m3u"
+    "url": "https://k2k4r8lm8tkmuxbc8lkmq1in3v0oya1p6pe9o5bu0hu30br5ko08k2gb.ipns.dweb.link/data/listas/lista_fuera_iptv.m3u"
   },
   "fue13": {
 	"nombre": "3 Horus Repuesto",
-    "url": "https://k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004.ipns.dweb.link/data/listas/lista_kodi.m3u"
+    "url": "https://k2k4r8lm8tkmuxbc8lkmq1in3v0oya1p6pe9o5bu0hu30br5ko08k2gb.ipns.dweb.link/data/listas/lista_kodi.m3u"
   },
   "fue21": {
 	"nombre": "1 Direct Repuesto 2",
