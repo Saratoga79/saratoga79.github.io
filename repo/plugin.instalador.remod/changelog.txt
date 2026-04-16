@@ -1,4 +1,10 @@
 > ReMod Instalador
+> Versión = 26.04.16.0
+> Cambios respecto a la versión anterior:
+	- Addons obsoletos borrados:
+		- KodiSpainTv
+		- Tacones
+	
 > Versión = 26.04.12.0
 > Cambios respecto a la versión anterior:
 	- Addons obsoletos borrados: SportHD

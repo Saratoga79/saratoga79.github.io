@@ -1,7 +1,7 @@
 <addon
 	id="plugin.instalador.remod"
 	name="ReMod Instalador"
-	version="26.04.12.0"
+	version="26.04.16.0"
 	provider-name="Saratoga">
 	<requires>
 		<!-- Mín Kodi 20+ -->
@@ -17,6 +17,12 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
+> Versión = 26.04.16.0
+> Cambios respecto a la versión anterior:
+	- Addons obsoletos borrados:
+		- KodiSpainTv
+		- Tacones
+	
 > Versión = 26.04.12.0
 > Cambios respecto a la versión anterior:
 	- Addons obsoletos borrados: SportHD

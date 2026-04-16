@@ -67,6 +67,8 @@ def build_url(query):
 
 ### lista del menu pirncipal
 def lista_menu_principal():
+    ### comrpobación de versión
+    comp_version()
     ### Cada tupla contiene: etiqueta visible, acción, nombre del archivo de icono
     menu_items = [
         (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} | Buscar actualizaciones", "info", "icono.png"),
@@ -100,7 +102,6 @@ def lista_menu_deportes():
     menu_items = [
         (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} | Buscar actualizaciones", "info", "icono.png"),
         ("> Instalar ReMod TV", "remodtv", "remodtv.png"),
-        ("> Instalar [COLOR red]Kodi[/COLOR][COLOR yellow]Spain[/COLOR][COLOR red]Tv[/COLOR]", "kodispaintv", "kodispaintv.png"),
         ("> Instalar AceStream Channels", "acs_channels", "acs_channels.png"),
         ("> Instalar ACS Extractor", "acs_extractor", "acs_extractor.jpg"),
         ("> Instalar The Loop | [COLOR yellow]Recomendado WARP o VPN[/COLOR]", "loop", "loop.png"),
@@ -152,7 +153,6 @@ def lista_menu_cine():
     menu_items = [
         (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} | Buscar actualizaciones", "info", "icono.png"),
         ("> Instalar Jacktook | Películas & Series Stremio | TV en Vivo Ace Stream", "jacktook", "jacktook.png"),
-        ("> Instalar [COLOR red]TACONES[/COLOR]", "tacones", "tacones.png"),
         ("> Instalar Balandro", "balandro", "balandro.png"),
         ("> Instalar Magellan", "magellan", "magellan.png"),
         ("> Instalar Alfa", "alfa", "alfa.png"),
@@ -332,9 +332,6 @@ def comp_version():
         guardar_version(version_actual)
     else:
         xbmc.log("REMOD INSTALADOR No hay cambios de versión", xbmc.LOGINFO)
-
-### comrpobación de versión
-comp_version()
 
 ### desactiva la instalación de balandro en cada inicio
 def rename_to_bak(addon_id, filename):
