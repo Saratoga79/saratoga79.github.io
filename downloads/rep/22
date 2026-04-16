@@ -388,9 +388,9 @@ acestream://bfa01c11c5c6b7a616a516de4f2c769a89d26b25
 #EXTINF:-1 tvg-logo="https://i.ibb.co/q95fBKV/deportes2.png" tvg-id="M+ Deportes 2 HD" group-title="MOVISTAR DEPORTES", MOVISTAR DEPORTES 2 --> ELCANO
 acestream://3774d8feab016ca766b35ea8488e7514ca30e0ee
 #EXTINF:-1 tvg-logo="https://i.ibb.co/q95fBKV/deportes2.png" tvg-id="M+ Deportes 2 HD" group-title="MOVISTAR DEPORTES", MOVISTAR DEPORTES 2 --> ELCANO
-acestream://f0ee7a2b43c1df5ea9e4fac5bf876d5bef4372b0
-#EXTINF:-1 tvg-logo="https://i.ibb.co/q95fBKV/deportes2.png" tvg-id="M+ Deportes 2 HD" group-title="MOVISTAR DEPORTES", MOVISTAR DEPORTES 2 --> ELCANO
 acestream://890901fa742b19d8808cf49f19db2d3016437c56
+#EXTINF:-1 tvg-logo="https://i.ibb.co/q95fBKV/deportes2.png" tvg-id="M+ Deportes 2 HD" group-title="MOVISTAR DEPORTES", MOVISTAR DEPORTES 2 --> ELCANO
+acestream://f0ee7a2b43c1df5ea9e4fac5bf876d5bef4372b0
 #EXTINF:-1 tvg-logo="https://i.ibb.co/q95fBKV/deportes2.png" tvg-id="M+ Deportes 2 HD" group-title="MOVISTAR DEPORTES", MOVISTAR DEPORTES 2 HD --> SPORT TV
 acestream://3afe1af18f8ff78e9946856911b00c67477052b5
 #EXTINF:-1 tvg-logo="https://i.ibb.co/jDg5qWD/deportes3.png" tvg-id="M+ Deportes 3" group-title="MOVISTAR DEPORTES", MOVISTAR DEPORTES 3 FHD --> NEW ERA
@@ -590,11 +590,11 @@ acestream://6bb383508fd46eda68a47b0e21fb5a069d63b0c1
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", DAZN Serie A FHDp * --> ELCANO
 acestream://ce9663f8be34ec8f9b90803ea09a483cbad96500
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", DAZN Serie A FHDp ** --> ELCANO
+acestream://0284cadccea27a42a3072ba373b2dd908bf63fc3
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", DAZN Serie A FHDp ** --> ELCANO
 acestream://f7617207ffac11b5295eebec72c901186c582c7e
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", DAZN Serie A FHDp ** --> ELCANO
 acestream://54fbbb487c134a36622ed39f60184049190d8674
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", DAZN Serie A FHDp ** --> ELCANO
-acestream://0284cadccea27a42a3072ba373b2dd908bf63fc3
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", Disney Junior * --> ELCANO
 acestream://a722bc25dfa16d1112fde83cb79501b9756586d1
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", Esport3 FHDp ** --> ELCANO
