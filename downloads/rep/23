@@ -38,8 +38,6 @@ plugin://script.module.horus?action=play&id=50a8a13c474848d1efbd5586efdb5b6cdd17
 #EXTINF:-1 tvg-logo="https://i.ibb.co/FVzKq1y/dazn1.png" tvg-id="DAZN 1 HD" group-title="DAZN", DAZN 1 FHD --> NEW ERA
 plugin://script.module.horus?action=play&id=4141892f5df7d6474bf0279895ce02b7336c9928
 #EXTINF:-1 tvg-logo="https://i.ibb.co/FVzKq1y/dazn1.png" tvg-id="DAZN 1 HD" group-title="DAZN", DAZN 1 --> ELCANO
-plugin://script.module.horus?action=play&id=7ba1f321f4d0791b7ebd42f41a07c1cd1479e784
-#EXTINF:-1 tvg-logo="https://i.ibb.co/FVzKq1y/dazn1.png" tvg-id="DAZN 1 HD" group-title="DAZN", DAZN 1 --> ELCANO
 plugin://script.module.horus?action=play&id=9afc89481b721ce6c326c85e47148676077b8e62
 #EXTINF:-1 tvg-logo="https://i.ibb.co/FVzKq1y/dazn1.png" tvg-id="DAZN 1 HD" group-title="DAZN", DAZN 1 --> SPORT TV
 plugin://script.module.horus?action=play&id=d5b2c6b940cf3df5e8f9dc6f000f0ea23a10b151
@@ -544,9 +542,9 @@ plugin://script.module.horus?action=play&id=8d66979e705a8b532b9243bbc0862c0f1c73
 #EXTINF:-1 tvg-logo="https://i.ibb.co/Vf2GT70/la1.png" tvg-id="La 1 HD" group-title="TDT", LA 1 FHD --> NEW ERA
 plugin://script.module.horus?action=play&id=dad5e0e0825cb3e410008f1c4252387b868e740c
 #EXTINF:-1 tvg-logo="https://i.ibb.co/Vf2GT70/la1.png" tvg-id="La 1 HD" group-title="TDT", LA 1 --> ELCANO
-plugin://script.module.horus?action=play&id=379192c3ee5a15570e2c685179bc53cb7133cc6c
-#EXTINF:-1 tvg-logo="https://i.ibb.co/Vf2GT70/la1.png" tvg-id="La 1 HD" group-title="TDT", LA 1 --> ELCANO
 plugin://script.module.horus?action=play&id=979d3b873871a5a9a56d3eb481ca77b707e01102
+#EXTINF:-1 tvg-logo="https://i.ibb.co/Vf2GT70/la1.png" tvg-id="La 1 HD" group-title="TDT", LA 1 --> ELCANO
+plugin://script.module.horus?action=play&id=379192c3ee5a15570e2c685179bc53cb7133cc6c
 #EXTINF:-1 tvg-logo="https://i.ibb.co/YFzzqWw5/la2.png" tvg-id="La 2" group-title="TDT", LA 2 FHD --> NEW ERA
 plugin://script.module.horus?action=play&id=9934906503661142f97a044ae1509a294057c2ed
 #EXTINF:-1 tvg-logo="https://i.ibb.co/YFzzqWw5/la2.png" tvg-id="La 2" group-title="TDT", LA 2 --> ELCANO
@@ -580,9 +578,9 @@ plugin://script.module.horus?action=play&id=9e6ef3ee002ce4d62062bcad7eebff4dcb0b
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", DAZN Serie A FHDp * --> ELCANO
 plugin://script.module.horus?action=play&id=6bb383508fd46eda68a47b0e21fb5a069d63b0c1
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", DAZN Serie A FHDp ** --> ELCANO
-plugin://script.module.horus?action=play&id=54fbbb487c134a36622ed39f60184049190d8674
-#EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", DAZN Serie A FHDp ** --> ELCANO
 plugin://script.module.horus?action=play&id=0284cadccea27a42a3072ba373b2dd908bf63fc3
+#EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", DAZN Serie A FHDp ** --> ELCANO
+plugin://script.module.horus?action=play&id=54fbbb487c134a36622ed39f60184049190d8674
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", Esport3 FHDp ** --> ELCANO
 plugin://script.module.horus?action=play&id=8f59ce96e4c902ba2f5193af07546d7ff17fc3bc
 #EXTINF:-1 tvg-logo="" tvg-id="" group-title="OTROS", FUTBOL FEMENINO FHD --> NEW ERA
