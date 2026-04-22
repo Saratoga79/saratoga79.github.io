@@ -282,10 +282,10 @@ http://fastream.xyz:8080/juan18/83e45w87w/60241
 http://fastream.xyz:8080/juan18/83e45w87w/60242
 
 #EXTINF:-1 cuid="94" group-title="ACS" tvg-chno="94" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [ACS] (NeEr) (Canal 94)
-http://127.0.0.1:6878/ace/getstream?id=ad42faa399df66dcd62a1cbc9d1c99ed4512d3b8&pid=16
+http://127.0.0.1:6878/ace/getstream?id=caa631e8850e3eb5e7c039063dd8a339ccef1176&pid=16
 
 #EXTINF:-1 cuid="95" group-title="ACS" tvg-chno="95" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [ACS] (NeEr) (Canal 95)
-http://127.0.0.1:6878/ace/getstream?id=caa631e8850e3eb5e7c039063dd8a339ccef1176&pid=17
+http://127.0.0.1:6878/ace/getstream?id=ad42faa399df66dcd62a1cbc9d1c99ed4512d3b8&pid=17
 
 #EXTINF:-1 cuid="96" group-title="ACS" tvg-chno="96" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [ACS] (SpTv) (Canal 96)
 http://127.0.0.1:6878/ace/getstream?id=b8eb9c9868d487402569bba2d97a8af113d033fe&pid=18
@@ -299,23 +299,23 @@ http://127.0.0.1:6878/ace/getstream?id=b45cfe568e106a7df65c950805d6f123c989ce84&
 #EXTINF:-1 cuid="99" group-title="ACS" tvg-chno="99" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [ACS] (Elc) (Canal 99)
 http://127.0.0.1:6878/ace/getstream?id=2c01306506e268ba726f5c30222923b6168a5404&pid=21
 
-#EXTINF:-1 cuid="100" group-title="M3U8" tvg-chno="100" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [M3U8] (LiEu) (Canal 100)
-http://live.euroteamspro.xyz:8080/@user513892/bjmC236/314650
-
-#EXTINF:-1 cuid="101" group-title="M3U8" tvg-chno="101" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [M3U8] (LiEu) (Canal 101)
-http://live.euroteamspro.xyz:8080/@user513892/bjmC236/314651
-
-#EXTINF:-1 cuid="102" group-title="M3U8" tvg-chno="102" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [M3U8] (Ar02) (Canal 102)
-http://xpaneltv.com:8080/Alirf/78587421/231726
-
-#EXTINF:-1 cuid="103" group-title="M3U8" tvg-chno="103" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [M3U8] (DiAs) (Canal 103)
+#EXTINF:-1 cuid="100" group-title="M3U8" tvg-chno="100" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@50] [M3U8] (DiAs) (Canal 100)
 http://bouygues-cdn.r1v.us:8080/live/d49dc02ec79b/k5cfhnm1/179942.m3u8
 
-#EXTINF:-1 cuid="104" group-title="M3U8" tvg-chno="104" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [M3U8] (DiAs) (Canal 104)
+#EXTINF:-1 cuid="101" group-title="M3U8" tvg-chno="101" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@50] [M3U8] (DiAs) (Canal 101)
 http://bouygues-cdn.r1v.us:8080/live/d49dc02ec79b/k5cfhnm1/179941.m3u8
 
-#EXTINF:-1 cuid="105" group-title="M3U8" tvg-chno="105" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [M3U8] (DiAs) (Canal 105)
+#EXTINF:-1 cuid="102" group-title="M3U8" tvg-chno="102" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@50] [M3U8] (DiAs) (Canal 102)
 http://canal-pro.xyz:8080/PLAYLIFEoffshore@.207824*/5uvLVJqVYK/493
+
+#EXTINF:-1 cuid="103" group-title="M3U8" tvg-chno="103" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [M3U8] (LiEu) (Canal 103)
+http://live.euroteamspro.xyz:8080/@user513892/bjmC236/314650
+
+#EXTINF:-1 cuid="104" group-title="M3U8" tvg-chno="104" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [M3U8] (LiEu) (Canal 104)
+http://live.euroteamspro.xyz:8080/@user513892/bjmC236/314651
+
+#EXTINF:-1 cuid="105" group-title="M3U8" tvg-chno="105" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [M3U8] (Ar02) (Canal 105)
+http://xpaneltv.com:8080/Alirf/78587421/231726
 
 #EXTINF:-1 cuid="106" group-title="M3U8" tvg-chno="106" tvg-id="M+ LaLiga 2 HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/laliga-tv-2-por-movistar-plus-es.png" tvg-name="M+ LaLiga TV 2 HD",M+ LaLiga TV 2 [FHD@25] [M3U8] (DiPw) (Canal 106)
 http://1000digital.pw:8080/play/ozKGQlmkqKo3BumWFAbHalL62loY90dvnG0MN0gYloXP7f3CLyakoMlhVF59XVrF
