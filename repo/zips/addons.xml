@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addons><addon id="plugin.instalador.remod" name="ReMod Instalador" version="26.04.16.0" provider-name="Saratoga">
+<addons><addon id="plugin.instalador.remod" name="ReMod Instalador" version="26.04.25.0" provider-name="Saratoga">
 	<requires>
 		
 		<import addon="xbmc.python" version="3.0.1" />
@@ -14,6 +14,14 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
+&gt; Versión = 26.04.25.0
+&gt; Cambios respecto a la versión anterior:
+	- Mejorada la configuración de Jacktook
+	- Añadidos nuevos addons a la sección de Deportes:
+		- La Chabola (whoisnoze)
+		- Siente La Roja (Whoisnoz3)
+	- Mejoras y correcciones
+	
 &gt; Versión = 26.04.16.0
 &gt; Cambios respecto a la versión anterior:
 	- Addons obsoletos borrados:

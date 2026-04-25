@@ -1,5 +1,12 @@
 > ReMod Instalador
-> Versión = 26.04.16.0
+> Versión = 26.04.25.0
+> Cambios respecto a la versión anterior:
+	- Mejorada la configuración de Jacktook
+	- Añadidos nuevos addons a la sección de Deportes:
+		- La Chabola (whoisnoze)
+		- Siente La Roja (Whoisnoz3)
+	- Mejoras y correcciones
+	
 > Cambios respecto a la versión anterior:
 	- Addons obsoletos borrados:
 		- KodiSpainTv

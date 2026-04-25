@@ -103,6 +103,8 @@ def lista_menu_deportes():
         (f"{remod_instalador_addon_name} versión: {remod_instalador_addon_version} | Buscar actualizaciones", "info", "icono.png"),
         ("> Instalar ReMod TV", "remodtv", "remodtv.png"),
         ("> Instalar AceStream Channels", "acs_channels", "acs_channels.png"),
+        ("> Instalar La Chabola", "la_chabola", "la_chabola.png"),
+        ("> Instalar Siente La Roja", "siente_la_roja", "siente_la_roja.png"),
         ("> Instalar ACS Extractor", "acs_extractor", "acs_extractor.jpg"),
         ("> Instalar The Loop | [COLOR yellow]Recomendado WARP o VPN[/COLOR]", "loop", "loop.png"),
         ("> Instalar Mandrakodi | [COLOR yellow]Recomendado WARP o VPN[/COLOR]", "mandrakodi", "mandrakodi.png")
@@ -1183,6 +1185,52 @@ else:
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Acestream Channels,3000,{noti_error_icon})")
         
 
+    elif action == "la_chabola":
+        ### descarga addons zip desde url
+        lista_repos = ["plugin.video.lachabola"]
+        lista_base_urls = ["https://whoisnoz3.github.io/krae/"]
+        lista_patterns = ["plugin\.video\.lachabola-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando La Chabola,1000,{noti_icon})")
+        descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
+        ### actualizar lista de addons para refrersacar addons descargados
+        buscar_actualizacion()
+        ### activar addons descargados
+        if activar_lista_repos_zip(lista_repos):
+            ### instalación de addons desde repo ya instalado
+            lista_deps = ["script.module.horus"]
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Horus,1000,{noti_icon})")
+            if instalar_lista_addons(lista_deps):
+                if xbmc.getCondVisibility('system.platform.android'):
+                    xbmc.log(f"REMOD INSTALADOR Activando Reproductor Externo en Horus en Android", level=xbmc.LOGINFO)
+                    addon_set = xbmcaddon.Addon('script.module.horus')
+                    addon_set.setSettingBool('reproductor_externo', True)
+                xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación La Chabola,3000,{noti_ok_icon})")
+            else:
+                xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Horus,3000,{noti_error_icon})")
+        else:
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación La Chabola,3000,{noti_error_icon})")
+
+    elif action == "siente_la_roja":
+        ### instalación de addons desde repo ya instalado
+        lista_deps = ["script.module.requests"]
+        xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Siente La Roja,1000,{noti_icon})")
+        if instalar_lista_addons(lista_deps):
+            ### descarga addons zip desde url
+            lista_repos = ["plugin.video.sientelaroja"]
+            lista_base_urls = ["https://whoisnoz3.github.io/krae/"]
+            lista_patterns = ["plugin\.video\.sientelaroja-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Descargando zip desde fuente,1000,{noti_icon})")
+            descargar_lista_repos_zip(lista_repos,lista_base_urls,lista_patterns)
+            ### actualizar lista de addons para refrersacar addons descargados
+            buscar_actualizacion()
+            ### activar addons descargados
+            if activar_lista_repos_zip(lista_repos):
+                xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin Instalación Siente la Roja,3000,{noti_ok_icon})")
+            else:
+                xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Siente la Roja,3000,{noti_error_icon})")
+        else:
+            xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación dependencias Siente la Roja,3000,{noti_error_icon})")
+        
     elif action == "mp3-streams":
         ### descarga addons zip desde url
         lista_repos = ["repository.redwizard"]
@@ -1456,6 +1504,15 @@ else:
             addon_set.setSettingBool('settings_backup_strip_sensitive', False)
             addon_set.setSettingBool('torrent_enable', True)
             addon_set.setSettingBool('stremio_enabled', True)
+            ### configuración de tipo de vista como vista amplia
+            addon_set.setSettingString('saved_view_main', '55')
+            addon_set.setSettingString('saved_view_movies', '55')
+            addon_set.setSettingString('saved_view_tvshows', '55')
+            addon_set.setSettingString('saved_view_seasons', '55')
+            addon_set.setSettingString('saved_view_episodes', '55')
+            addon_set.setSettingString('saved_view_library', '55')
+            addon_set.setSettingString('saved_view_history', '55')
+            addon_set.setSettingString('saved_view_downloads', '55')
             xbmc.sleep(1000)
             
             ### desactivamos el addon para copiar
@@ -1520,23 +1577,6 @@ else:
                 lista_addons(addons, True)        
                 xbmc.sleep(1000)
             
-            # addons = ["repository.elementumorg"]
-            # lista_addons(addons, False)
-            # xbmc.sleep(1000)
-            
-            ### instalación de addons desde repo ya instalado
-            # lista_deps = ["plugin.video.elementum"]
-            # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Elementuum,1000,{noti_icon})")
-            # if instalar_lista_addons(lista_deps):
-                ## desactivando burst
-                # addon_set = xbmcaddon.Addon('plugin.video.elementum')
-                # addon_set.setSettingBool('skip_burst_search', True)
-                # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin instalación Jacktook,3000,{noti_ok_icon})")
-                # addons = ["repository.elementumorg"]
-                # lista_addons(addons, True)
-                # xbmc.sleep(1000)
-            # else:
-                # xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Elementum,3000,{noti_error_icon})")
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Fin instalación Jacktook,3000,{noti_ok_icon})")
         else:
             xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Error instalación Jacktook,3000,{noti_error_icon})")
