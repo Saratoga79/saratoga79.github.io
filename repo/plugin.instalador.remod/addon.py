@@ -1187,6 +1187,10 @@ else:
 
     elif action == "la_chabola":
         ### descarga addons zip desde url
+        ### desactivar el addon
+        addons = ["plugin.video.lachabola"]
+        lista_addons(addons, False)
+        xbmc.sleep(1000)
         lista_repos = ["plugin.video.lachabola"]
         lista_base_urls = ["https://whoisnoz3.github.io/krae/"]
         lista_patterns = ["plugin\.video\.lachabola-\d{1,3}\.\d{1,3}\.\d{1,3}\.zip"]
@@ -1215,6 +1219,10 @@ else:
         lista_deps = ["script.module.requests"]
         xbmc.executebuiltin(f"Notification({remod_instalador_addon_name},Instalando Siente La Roja,1000,{noti_icon})")
         if instalar_lista_addons(lista_deps):
+            ### desactivar el addon
+            addons = ["plugin.video.sientelaroja"]
+            lista_addons(addons, False)
+            xbmc.sleep(1000)
             ### descarga addons zip desde url
             lista_repos = ["plugin.video.sientelaroja"]
             lista_base_urls = ["https://whoisnoz3.github.io/krae/"]

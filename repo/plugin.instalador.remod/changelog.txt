@@ -1,4 +1,8 @@
 > ReMod Instalador
+> Versión = 26.04.28.0
+> Cambios respecto a la versión anterior:
+	- Mejoras y correcciones
+	
 > Versión = 26.04.25.0
 > Cambios respecto a la versión anterior:
 	- Mejorada la configuración de Jacktook

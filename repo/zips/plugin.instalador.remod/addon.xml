@@ -1,7 +1,7 @@
 <addon
 	id="plugin.instalador.remod"
 	name="ReMod Instalador"
-	version="26.04.25.0"
+	version="26.04.28.0"
 	provider-name="Saratoga">
 	<requires>
 		<!-- Mín Kodi 20+ -->
@@ -17,6 +17,10 @@
 		<platform>all</platform>
 		<website>https://saratoga79.github.io/</website>
 		<news>
+> Versión = 26.04.28.0
+> Cambios respecto a la versión anterior:
+	- Mejoras y correcciones
+	
 > Versión = 26.04.25.0
 > Cambios respecto a la versión anterior:
 	- Mejorada la configuración de Jacktook
